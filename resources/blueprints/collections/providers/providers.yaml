@@ -1,0 +1,151 @@
+title: Providers
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: org_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Org Name'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: first_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'First Name'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: last_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Last Name'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: phone
+        field:
+          input_type: tel
+          antlers: false
+          display: Phone
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: fax
+        field:
+          input_type: tel
+          antlers: false
+          display: Fax
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: website
+        field:
+          input_type: url
+          antlers: false
+          display: Website
+          type: text
+          icon: text
+          listable: hidden
+          validate:
+            - url
+      -
+        handle: links
+        field:
+          fields:
+            -
+              handle: site
+              field:
+                input_type: url
+                antlers: false
+                display: Site
+                type: text
+                icon: text
+                listable: hidden
+                validate:
+                  - url
+          mode: table
+          reorderable: true
+          display: Links
+          type: grid
+          icon: grid
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+  address:
+    display: Address
+    fields:
+      -
+        handle: address
+        field:
+          input_type: text
+          antlers: false
+          display: Address
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: address_2
+        field:
+          input_type: text
+          antlers: false
+          display: 'Address 2'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: city
+        field:
+          input_type: text
+          antlers: false
+          display: City
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: state
+        field:
+          input_type: text
+          antlers: false
+          display: State
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: zip
+        field:
+          input_type: text
+          antlers: false
+          display: Zip
+          type: text
+          icon: text
+          listable: hidden
+  web:
+    display: Web
+    fields: {  }

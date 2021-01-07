@@ -1,5 +1,7 @@
 title: Providers
 template: providers/show
+taxonomies:
+  - services
 revisions: false
 date_behavior:
   past: public

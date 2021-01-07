@@ -8,7 +8,12 @@
         <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
     </head>
     <body class="bg-gray-200 font-sans leading-normal text-grey-800">
+
+        {{ partial:header }}
         {{ template_content }}
+
+        {{ partial:footer }}
+
         <script src="{{ mix src='/js/site.js' }}"></script>
     </body>
 </html>

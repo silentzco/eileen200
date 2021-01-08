@@ -18,7 +18,7 @@ sections:
           display: 'Org Name'
           type: text
           icon: text
-          listable: hidden
+          listable: true
       -
         handle: first_name
         field:
@@ -27,7 +27,7 @@ sections:
           display: 'First Name'
           type: text
           icon: text
-          listable: hidden
+          listable: true
       -
         handle: last_name
         field:
@@ -36,7 +36,7 @@ sections:
           display: 'Last Name'
           type: text
           icon: text
-          listable: hidden
+          listable: true
       -
         handle: phone
         field:
@@ -87,6 +87,15 @@ sections:
           type: grid
           icon: grid
           listable: hidden
+      -
+        handle: license
+        field:
+          input_type: text
+          antlers: false
+          display: License
+          type: text
+          icon: text
+          listable: hidden
   sidebar:
     display: Sidebar
     fields:
@@ -98,6 +107,28 @@ sections:
           localizable: true
           validate:
             - required
+      -
+        handle: services
+        field:
+          type: terms
+          taxonomies:
+            - services
+          display: Services
+          mode: select
+      -
+        handle: sponsored
+        field:
+          display: Sponsored
+          type: toggle
+          icon: toggle
+          listable: hidden
+      -
+        handle: specialty
+        field:
+          display: Specialty
+          type: taggable
+          icon: tags
+          listable: hidden
   address:
     display: Address
     fields:

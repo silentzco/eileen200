@@ -19,5 +19,8 @@
         "tailwindcss": "^2.0.2",
         "vue-template-compiler": "^2.6.12"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@tailwindcss/forms": "^0.2.1",
+        "@tailwindcss/typography": "^0.3.1"
+    }
 }

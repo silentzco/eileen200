@@ -8,8 +8,17 @@ module.exports = {
     },
     important: true,
     theme: {
-      extend: {},
+        extend: {
+            colors: {
+                primary: '#c60001',
+            }
+        },
+
+
     },
     variants: {},
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+    ],
   }

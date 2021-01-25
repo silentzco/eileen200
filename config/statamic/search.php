@@ -30,6 +30,12 @@ return [
             'searchables' => 'all',
             'fields' => ['title'],
         ],
+        'providers' => [
+            'driver' => 'algolia',
+            'searchables' => 'collection:providers',
+            'fields' => ['title', 'org_name', 'first_name', 'last_name', "specialty"],
+        ],
+
 
         // 'blog' => [
         //     'driver' => 'local',

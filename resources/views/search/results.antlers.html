@@ -1,0 +1,10 @@
+fubar
+<div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+
+
+    {{ search:results }}
+        <h2>{{ org_name }}</h2>
+        <p>{{ description | truncate:180 }}</p>
+
+    {{ /search:results }}
+</div>

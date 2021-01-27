@@ -177,6 +177,44 @@ sections:
           type: text
           icon: text
           listable: hidden
+      -
+        handle: location
+        field:
+          placeholder: 'Start typing your address'
+          searchType: all
+          postcodeSearch: false
+          locationSearch: lat_lng_ip
+          useDeviceLocation: false
+          getRankingInfo: false
+          display: Location
+          type: places
+          icon: pin
+          listable: hidden
+      -
+        handle: _geoloc
+        field:
+          fields:
+            -
+              handle: lng
+              field:
+                display: Longitude
+                type: float
+                icon: float
+                listable: hidden
+            -
+              handle: lat
+              field:
+                display: Latitude
+                type: float
+                icon: float
+                listable: hidden
+          mode: table
+          max_rows: 1
+          reorderable: false
+          display: Geoloc
+          type: grid
+          icon: grid
+          listable: hidden
   web:
     display: Web
     fields: {  }

@@ -12,6 +12,7 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "rias/statamic-data-import": "^1.1",
+        "spatie/statamic-algolia-places": "^1.0",
         "statamic/cms": "3.0.40"
     },
     "require-dev": {

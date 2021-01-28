@@ -2,6 +2,7 @@
 
 
 
+
 <div class="container mx-auto max-w-4xl p-5  divide-y divide-gray-300">
 
     {{ collection from="providers" }}
@@ -13,7 +14,7 @@
         <div class="w-full flex items-center justify-between p-6 space-x-6">
             <div class="flex-1 truncate">
                 <div class="flex items-center space-x-3">
-                    <h3 class="text-gray-900 text-sm font-medium truncate">{{first_name}} {{ last_name}}, <span class="text-darken-20">{{ license}}</span></h3>
+                    <h3 class="text-gray-900 text-sm font-medium truncate">{{ title }}, <span class="text-darken-20">{{ license}}</span></h3>
                     {{ specialty }}
                     {{ if value }}
                     <span class="flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-gray-400 text-white rounded-full">{{ value }}</span>

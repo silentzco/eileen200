@@ -96,6 +96,15 @@ sections:
           type: text
           icon: text
           listable: hidden
+      -
+        handle: email
+        field:
+          input_type: email
+          antlers: false
+          display: Email
+          type: text
+          icon: text
+          listable: hidden
   sidebar:
     display: Sidebar
     fields:
@@ -217,4 +226,17 @@ sections:
           listable: hidden
   web:
     display: Web
-    fields: {  }
+    fields:
+      -
+        handle: image
+        field:
+          mode: grid
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: image
+          type: assets
+          icon: assets
+          listable: hidden
+          container: assets
+          folder: providers

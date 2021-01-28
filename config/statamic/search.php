@@ -25,37 +25,20 @@ return [
 
     'indexes' => [
 
-//        'default' => [
-//            'driver' => 'local',
-//            'searchables' => 'all',
-//            'fields' => ['title'],
-//        ],
+        'default' => [
+            'driver' => 'local',
+            'searchables' => 'all',
+            'fields' => ['title'],
+        ],
         'providers' => [
             'driver' => 'algolia',
             'searchables' => 'collection:providers',
-            'fields' => ['title', 'org_name', 'first_name', 'last_name', "specialty", "_geoloc", "grid", "yaml", "location"],
-//            'transformers' => [
-//
-//                '_geoloc' => function ($_geoloc){
-//
-//
-//
-//                    if(empty($_geoloc)){
-//                        return null;
-//                    }
-//
-//
-//                    return  [
-//                        '_geoloc' =>[
-//                        'lat' => (float)$_geoloc['lat'],
-//                        'lng' => (float)$_geoloc['lng'],
-//                    ]];
-//                },
-//
-//
-//
-//
-//            ]
+            'fields' => [
+                'title', 'org_name', 'first_name', 'last_name', "specialty", "_geoloc", "location", "sponsored", "phone", "fax", "website",
+                "address", "city", "state", "zip", "image", "email"
+
+            ],
+
 
         ],
 

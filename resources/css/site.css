@@ -1,1 +1,8 @@
 /* This is all you. */
+
+
+.sponsored{
+    @apply ring ring-yellow-300 ring-offset-4 ring-offset-yellow-100;
+}
+
+

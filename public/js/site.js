@@ -5530,7 +5530,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var instantsearch_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! instantsearch.js */ "./node_modules/instantsearch.js/es/index.js");
 /* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/search-box/search-box.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/hits/hits.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/hits/hits.js");
 // This is all you.
 
 
@@ -5538,12 +5539,19 @@ __webpack_require__.r(__webpack_exports__);
 var searchClient = algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0___default()('LYOAOTOT4D', '06f6868f86dd05c03ba16ec7f56db53d');
 var search = (0,instantsearch_js__WEBPACK_IMPORTED_MODULE_1__.default)({
   indexName: 'providers',
-  searchClient: searchClient
+  searchClient: searchClient,
+  routing: true
 });
 search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__.default)({
   container: "#searchbox"
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.default)({
-  container: "#hits"
+  container: "#specialty",
+  attribute: 'specialty'
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
+  container: '#hits',
+  templates: {
+    item: "\n      <div class=\"bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}}\">\n        <div class=\"w-full flex items-center justify-between p-6 space-x-6\">\n            <div class=\"flex-1 truncate\">\n                <div class=\"flex items-center space-x-3\">\n                    <h3 class=\"text-gray-900 text-sm font-medium truncate\">{{ title }}</h3>\n                    <span class=\"flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-gray-400 text-white rounded-full\">{{ specialty }}</span>\n                </div>\n\n                {{#org_name}}\n                <p class=\"mt-1 text-gray-500 text-sm truncate\">{{ first_name }} {{last_name}}</p>\n                {{/org_name}}\n                <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                    {{ address }}<br>\n                    {{ city }}, {{ state }} {{ zip }}\n                </p>\n            </div>\n            {{#image}}\n            <img class=\"h-20 rounded flex-shrink-0\" src=\"/assets/{{ image }}\" alt=\"\">\n            {{/image}}\n        </div>\n        <div>\n            <div class=\"-mt-px flex divide-x divide-gray-200\">\n                {{#email}}\n                <div class=\"w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500\">\n                        <!-- Heroicon name: mail -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                            <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                        </svg>\n                        <span class=\"ml-3\">Email</span>\n                    </a>\n                </div>\n                {{/email}}\n\n                {{#phone}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z\" />\n                        </svg>\n                        <span class=\"ml-3\">Call</span>\n                    </a>\n                </div>\n                {{/phone}}\n\n                {{#address}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\" />\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\" />\n                        </svg>\n                        <span class=\"ml-3\">Map</span>\n                    </a>\n                </div>\n                {{/address}}\n\n                {{#website}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\" />\n                        </svg>\n                        <span class=\"ml-3\">Website</span>\n                    </a>\n                </div>\n                {{/website}}\n            </div>\n        </div>\n    </div>\n\n    "
+  }
 })]);
 search.start();
 
@@ -6500,6 +6508,332 @@ Hits.defaultProps = {
 
 /***/ }),
 
+/***/ "./node_modules/instantsearch.js/es/components/RefinementList/RefinementList.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/components/RefinementList/RefinementList.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/isEqual.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/isSpecialClick.js");
+/* harmony import */ var _Template_Template__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Template/Template */ "./node_modules/instantsearch.js/es/components/Template/Template.js");
+/* harmony import */ var _RefinementListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RefinementListItem */ "./node_modules/instantsearch.js/es/components/RefinementList/RefinementListItem.js");
+/* harmony import */ var _SearchBox_SearchBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../SearchBox/SearchBox */ "./node_modules/instantsearch.js/es/components/SearchBox/SearchBox.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+/** @jsx h */
+
+
+
+
+
+
+
+var RefinementList =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(RefinementList, _Component);
+
+  function RefinementList(props) {
+    var _this;
+
+    _classCallCheck(this, RefinementList);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(RefinementList).call(this, props));
+    _this.handleItemClick = _this.handleItemClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(RefinementList, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      var isStateDifferent = this.state !== nextState;
+      var areFacetValuesDifferent = !(0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.default)(this.props.facetValues, nextProps.facetValues);
+      return isStateDifferent || areFacetValuesDifferent;
+    }
+  }, {
+    key: "refine",
+    value: function refine(facetValueToRefine, isRefined) {
+      this.props.toggleRefinement(facetValueToRefine, isRefined);
+    }
+  }, {
+    key: "_generateFacetItem",
+    value: function _generateFacetItem(facetValue) {
+      var _cx;
+
+      var subItems;
+      var hasChildren = facetValue.data && facetValue.data.length > 0;
+
+      if (hasChildren) {
+        var _this$props$cssClasse = this.props.cssClasses,
+            root = _this$props$cssClasse.root,
+            cssClasses = _objectWithoutProperties(_this$props$cssClasse, ["root"]);
+
+        subItems = (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(RefinementList, _extends({}, this.props, {
+          cssClasses: cssClasses,
+          depth: this.props.depth + 1,
+          facetValues: facetValue.data,
+          showMore: false,
+          className: this.props.cssClasses.childList
+        }));
+      }
+
+      var url = this.props.createURL(facetValue.value);
+
+      var templateData = _objectSpread({}, facetValue, {
+        url: url,
+        attribute: this.props.attribute,
+        cssClasses: this.props.cssClasses,
+        isFromSearch: this.props.isFromSearch
+      });
+
+      var key = facetValue.value;
+
+      if (facetValue.isRefined !== undefined) {
+        key += "/".concat(facetValue.isRefined);
+      }
+
+      if (facetValue.count !== undefined) {
+        key += "/".concat(facetValue.count);
+      }
+
+      return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_RefinementListItem__WEBPACK_IMPORTED_MODULE_3__.default, {
+        templateKey: "item",
+        key: key,
+        facetValueToRefine: facetValue.value,
+        handleClick: this.handleItemClick,
+        isRefined: facetValue.isRefined,
+        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(this.props.cssClasses.item, (_cx = {}, _defineProperty(_cx, this.props.cssClasses.selectedItem, facetValue.isRefined), _defineProperty(_cx, this.props.cssClasses.disabledItem, !facetValue.count), _defineProperty(_cx, this.props.cssClasses.parentItem, hasChildren), _cx)),
+        subItems: subItems,
+        templateData: templateData,
+        templateProps: this.props.templateProps
+      });
+    } // Click events on DOM tree like LABEL > INPUT will result in two click events
+    // instead of one.
+    // No matter the framework, see https://www.google.com/search?q=click+label+twice
+    //
+    // Thus making it hard to distinguish activation from deactivation because both click events
+    // are very close. Debounce is a solution but hacky.
+    //
+    // So the code here checks if the click was done on or in a LABEL. If this LABEL
+    // has a checkbox inside, we ignore the first click event because we will get another one.
+    //
+    // We also check if the click was done inside a link and then e.preventDefault() because we already
+    // handle the url
+    //
+    // Finally, we always stop propagation of the event to avoid multiple levels RefinementLists to fail: click
+    // on child would click on parent also
+
+  }, {
+    key: "handleItemClick",
+    value: function handleItemClick(_ref) {
+      var facetValueToRefine = _ref.facetValueToRefine,
+          originalEvent = _ref.originalEvent,
+          isRefined = _ref.isRefined;
+
+      if ((0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.default)(originalEvent)) {
+        // do not alter the default browser behavior
+        // if one special key is down
+        return;
+      }
+
+      if (isRefined && originalEvent.target.parentNode.querySelector('input[type="radio"]:checked')) {
+        // Prevent refinement for being reset if the user clicks on an already checked radio button
+        return;
+      }
+
+      if (originalEvent.target.tagName === 'INPUT') {
+        this.refine(facetValueToRefine, isRefined);
+        return;
+      }
+
+      var parent = originalEvent.target;
+
+      while (parent !== originalEvent.currentTarget) {
+        if (parent.tagName === 'LABEL' && (parent.querySelector('input[type="checkbox"]') || parent.querySelector('input[type="radio"]'))) {
+          return;
+        }
+
+        if (parent.tagName === 'A' && parent.href) {
+          originalEvent.preventDefault();
+        }
+
+        parent = parent.parentNode;
+      }
+
+      originalEvent.stopPropagation();
+      this.refine(facetValueToRefine, isRefined);
+    }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      if (this.searchBox && !nextProps.isFromSearch) {
+        this.searchBox.resetInput();
+      }
+    }
+  }, {
+    key: "refineFirstValue",
+    value: function refineFirstValue() {
+      var firstValue = this.props.facetValues[0];
+
+      if (firstValue) {
+        var actualValue = firstValue.value;
+        this.props.toggleRefinement(actualValue);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      // Adding `-lvl0` classes
+      var cssClassList = classnames__WEBPACK_IMPORTED_MODULE_1___default()(this.props.cssClasses.list, _defineProperty({}, "".concat(this.props.cssClasses.depth).concat(this.props.depth), this.props.cssClasses.depth));
+      var showMoreButtonClassName = classnames__WEBPACK_IMPORTED_MODULE_1___default()(this.props.cssClasses.showMore, _defineProperty({}, this.props.cssClasses.disabledShowMore, !(this.props.showMore === true && this.props.canToggleShowMore)));
+      var showMoreButton = this.props.showMore === true && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_5__.default, _extends({}, this.props.templateProps, {
+        templateKey: "showMoreText",
+        rootTagName: "button",
+        rootProps: {
+          className: showMoreButtonClassName,
+          disabled: !this.props.canToggleShowMore,
+          onClick: this.props.toggleShowMore
+        },
+        data: {
+          isShowingMore: this.props.isShowingMore
+        }
+      }));
+      var shouldDisableSearchBox = this.props.searchIsAlwaysActive !== true && !(this.props.isFromSearch || !this.props.hasExhaustiveItems);
+      var searchBox = this.props.searchFacetValues && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
+        className: this.props.cssClasses.searchBox
+      }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_SearchBox_SearchBox__WEBPACK_IMPORTED_MODULE_6__.default, {
+        ref: function ref(searchBoxRef) {
+          return _this2.searchBox = searchBoxRef;
+        },
+        placeholder: this.props.searchPlaceholder,
+        disabled: shouldDisableSearchBox,
+        cssClasses: this.props.cssClasses.searchable,
+        templates: this.props.templateProps.templates,
+        onChange: function onChange(event) {
+          return _this2.props.searchFacetValues(event.target.value);
+        },
+        onReset: function onReset() {
+          return _this2.props.searchFacetValues('');
+        },
+        onSubmit: function onSubmit() {
+          return _this2.refineFirstValue();
+        } // This sets the search box to a controlled state because
+        // we don't rely on the `refine` prop but on `onChange`.
+        ,
+        searchAsYouType: false
+      }));
+      var facetValues = this.props.facetValues && this.props.facetValues.length > 0 && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("ul", {
+        className: cssClassList
+      }, this.props.facetValues.map(this._generateFacetItem, this));
+      var noResults = this.props.searchFacetValues && this.props.isFromSearch && this.props.facetValues.length === 0 && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_5__.default, _extends({}, this.props.templateProps, {
+        templateKey: "searchableNoResults",
+        rootProps: {
+          className: this.props.cssClasses.noResults
+        }
+      }));
+      return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(this.props.cssClasses.root, _defineProperty({}, this.props.cssClasses.noRefinementRoot, !this.props.facetValues || this.props.facetValues.length === 0), this.props.className)
+      }, this.props.children, searchBox, facetValues, noResults, showMoreButton);
+    }
+  }]);
+
+  return RefinementList;
+}(preact__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+RefinementList.defaultProps = {
+  cssClasses: {},
+  depth: 0
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RefinementList);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/components/RefinementList/RefinementListItem.js":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/components/RefinementList/RefinementListItem.js ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var _Template_Template__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Template/Template */ "./node_modules/instantsearch.js/es/components/Template/Template.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+/** @jsx h */
+
+
+
+function RefinementListItem(_ref) {
+  var className = _ref.className,
+      handleClick = _ref.handleClick,
+      facetValueToRefine = _ref.facetValueToRefine,
+      isRefined = _ref.isRefined,
+      templateProps = _ref.templateProps,
+      templateKey = _ref.templateKey,
+      templateData = _ref.templateData,
+      subItems = _ref.subItems;
+  return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("li", {
+    className: className,
+    onClick: function onClick(originalEvent) {
+      handleClick({
+        facetValueToRefine: facetValueToRefine,
+        isRefined: isRefined,
+        originalEvent: originalEvent
+      });
+    }
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_1__.default, _extends({}, templateProps, {
+    templateKey: templateKey,
+    data: templateData
+  })), subItems);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RefinementListItem);
+
+/***/ }),
+
 /***/ "./node_modules/instantsearch.js/es/components/SearchBox/SearchBox.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/instantsearch.js/es/components/SearchBox/SearchBox.js ***!
@@ -6997,6 +7331,417 @@ var connectHits = function connectHits(renderFn) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (connectHits);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/connectors/refinement-list/connectRefinementList.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/connectors/refinement-list/connectRefinementList.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ connectRefinementList
+/* harmony export */ });
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/noop.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/checkRendering.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/escape-highlight.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/createSendEventForFacet.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_0__.createDocumentationMessageGenerator)({
+  name: 'refinement-list',
+  connector: true
+});
+/**
+ * @typedef {Object} RefinementListItem
+ * @property {string} value The value of the refinement list item.
+ * @property {string} label Human-readable value of the refinement list item.
+ * @property {number} count Number of matched results after refinement is applied.
+ * @property {boolean} isRefined Indicates if the list item is refined.
+ */
+
+/**
+ * @typedef {Object} CustomRefinementListWidgetParams
+ * @property {string} attribute The name of the attribute in the records.
+ * @property {"and"|"or"} [operator = 'or'] How the filters are combined together.
+ * @property {number} [limit = 10] The max number of items to display when
+ * `showMoreLimit` is not set or if the widget is showing less value.
+ * @property {boolean} [showMore = false] Whether to display a button that expands the number of items.
+ * @property {number} [showMoreLimit = 20] The max number of items to display if the widget
+ * is showing more items.
+ * @property {string[]|function} [sortBy = ['isRefined', 'count:desc', 'name:asc']] How to sort refinements. Possible values: `count|isRefined|name:asc|name:desc`.
+ * @property {boolean} [escapeFacetValues = true] Escapes the content of the facet values.
+ * @property {function(object[]):object[]} [transformItems] Function to transform the items passed to the templates.
+ */
+
+/**
+ * @typedef {Object} RefinementListRenderingOptions
+ * @property {RefinementListItem[]} items The list of filtering values returned from Algolia API.
+ * @property {function(item.value): string} createURL Creates the next state url for a selected refinement.
+ * @property {function(item.value)} refine Action to apply selected refinements.
+ * @property {function} searchForItems Searches for values inside the list.
+ * @property {boolean} isFromSearch `true` if the values are from an index search.
+ * @property {boolean} canRefine `true` if a refinement can be applied.
+ * @property {boolean} canToggleShowMore `true` if the toggleShowMore button can be activated (enough items to display more or
+ * already displaying more than `limit` items)
+ * @property {Object} widgetParams All original `CustomRefinementListWidgetParams` forwarded to the `renderFn`.
+ * @property {boolean} isShowingMore True if the menu is displaying all the menu items.
+ * @property {function} toggleShowMore Toggles the number of values displayed between `limit` and `showMoreLimit`.
+ */
+
+/**
+ * **RefinementList** connector provides the logic to build a custom widget that will let the
+ * user filter the results based on the values of a specific facet.
+ *
+ * This connector provides a `toggleShowMore()` function to display more or less items and a `refine()`
+ * function to select an item.
+ * @type {Connector}
+ * @param {function(RefinementListRenderingOptions, boolean)} renderFn Rendering function for the custom **RefinementList** widget.
+ * @param {function} unmountFn Unmount function called when the widget is disposed.
+ * @return {function(CustomRefinementListWidgetParams)} Re-usable widget factory for a custom **RefinementList** widget.
+ * @example
+ * // custom `renderFn` to render the custom RefinementList widget
+ * function renderFn(RefinementListRenderingOptions, isFirstRendering) {
+ *   if (isFirstRendering) {
+ *     RefinementListRenderingOptions.widgetParams.containerNode
+ *       .html('<ul></ul>')
+ *   }
+ *
+ *     RefinementListRenderingOptions.widgetParams.containerNode
+ *       .find('li[data-refine-value]')
+ *       .each(function() { $(this).off('click'); });
+ *
+ *   if (RefinementListRenderingOptions.canRefine) {
+ *     var list = RefinementListRenderingOptions.items.map(function(item) {
+ *       return `
+ *         <li data-refine-value="${item.value}">
+ *           <input type="checkbox" value="${item.value}" ${item.isRefined ? 'checked' : ''} />
+ *           <a href="${RefinementListRenderingOptions.createURL(item.value)}">
+ *             ${item.label} (${item.count})
+ *           </a>
+ *         </li>
+ *       `;
+ *     });
+ *
+ *     RefinementListRenderingOptions.widgetParams.containerNode.find('ul').html(list);
+ *     RefinementListRenderingOptions.widgetParams.containerNode
+ *       .find('li[data-refine-value]')
+ *       .each(function() {
+ *         $(this).on('click', function(event) {
+ *           event.stopPropagation();
+ *           event.preventDefault();
+ *
+ *           RefinementListRenderingOptions.refine($(this).data('refine-value'));
+ *         });
+ *       });
+ *   } else {
+ *     RefinementListRenderingOptions.widgetParams.containerNode.find('ul').html('');
+ *   }
+ * }
+ *
+ * // connect `renderFn` to RefinementList logic
+ * var customRefinementList = instantsearch.connectors.connectRefinementList(renderFn);
+ *
+ * // mount widget on the page
+ * search.addWidgets([
+ *   customRefinementList({
+ *     containerNode: $('#custom-refinement-list-container'),
+ *     attribute: 'categories',
+ *     limit: 10,
+ *   })
+ * ]);
+ */
+
+function connectRefinementList(renderFn) {
+  var unmountFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _lib_utils__WEBPACK_IMPORTED_MODULE_1__.default;
+  (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.default)(renderFn, withUsage());
+  return function () {
+    var widgetParams = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var attribute = widgetParams.attribute,
+        _widgetParams$operato = widgetParams.operator,
+        operator = _widgetParams$operato === void 0 ? 'or' : _widgetParams$operato,
+        _widgetParams$limit = widgetParams.limit,
+        limit = _widgetParams$limit === void 0 ? 10 : _widgetParams$limit,
+        _widgetParams$showMor = widgetParams.showMore,
+        showMore = _widgetParams$showMor === void 0 ? false : _widgetParams$showMor,
+        _widgetParams$showMor2 = widgetParams.showMoreLimit,
+        showMoreLimit = _widgetParams$showMor2 === void 0 ? 20 : _widgetParams$showMor2,
+        _widgetParams$sortBy = widgetParams.sortBy,
+        sortBy = _widgetParams$sortBy === void 0 ? ['isRefined', 'count:desc', 'name:asc'] : _widgetParams$sortBy,
+        _widgetParams$escapeF = widgetParams.escapeFacetValues,
+        escapeFacetValues = _widgetParams$escapeF === void 0 ? true : _widgetParams$escapeF,
+        _widgetParams$transfo = widgetParams.transformItems,
+        transformItems = _widgetParams$transfo === void 0 ? function (items) {
+      return items;
+    } : _widgetParams$transfo;
+
+    if (!attribute) {
+      throw new Error(withUsage('The `attribute` option is required.'));
+    }
+
+    if (!/^(and|or)$/.test(operator)) {
+      throw new Error(withUsage("The `operator` must one of: `\"and\"`, `\"or\"` (got \"".concat(operator, "\").")));
+    }
+
+    if (showMore === true && showMoreLimit <= limit) {
+      throw new Error(withUsage('`showMoreLimit` should be greater than `limit`.'));
+    }
+
+    var formatItems = function formatItems(_ref) {
+      var label = _ref.name,
+          item = _objectWithoutProperties(_ref, ["name"]);
+
+      return _objectSpread({}, item, {
+        label: label,
+        value: label,
+        highlighted: label
+      });
+    };
+
+    var _getLimit = function getLimit(isShowingMore) {
+      return isShowingMore ? showMoreLimit : limit;
+    };
+
+    var lastResultsFromMainSearch;
+    var lastItemsFromMainSearch = [];
+    var hasExhaustiveItems = true;
+    var searchForFacetValues;
+    var triggerRefine;
+    var sendEvent;
+    var toggleShowMore;
+    /* eslint-disable max-params */
+
+    var createSearchForFacetValues = function createSearchForFacetValues(helper) {
+      var _this = this;
+
+      return function (renderOptions) {
+        return function (query) {
+          var instantSearchInstance = renderOptions.instantSearchInstance;
+
+          if (query === '' && lastItemsFromMainSearch) {
+            // render with previous data from the helper.
+            renderFn(_objectSpread({}, _this.getWidgetRenderState(_objectSpread({}, renderOptions, {
+              results: lastResultsFromMainSearch
+            })), {
+              instantSearchInstance: instantSearchInstance
+            }));
+          } else {
+            var tags = {
+              highlightPreTag: escapeFacetValues ? _lib_utils__WEBPACK_IMPORTED_MODULE_3__.TAG_PLACEHOLDER.highlightPreTag : _lib_utils__WEBPACK_IMPORTED_MODULE_3__.TAG_REPLACEMENT.highlightPreTag,
+              highlightPostTag: escapeFacetValues ? _lib_utils__WEBPACK_IMPORTED_MODULE_3__.TAG_PLACEHOLDER.highlightPostTag : _lib_utils__WEBPACK_IMPORTED_MODULE_3__.TAG_REPLACEMENT.highlightPostTag
+            };
+            helper.searchForFacetValues(attribute, query, // We cap the `maxFacetHits` value to 100 because the Algolia API
+            // doesn't support a greater number.
+            // See https://www.algolia.com/doc/api-reference/api-parameters/maxFacetHits/
+            Math.min(_getLimit(_this.isShowingMore), 100), tags).then(function (results) {
+              var facetValues = escapeFacetValues ? (0,_lib_utils__WEBPACK_IMPORTED_MODULE_3__.escapeFacets)(results.facetHits) : results.facetHits;
+              var normalizedFacetValues = transformItems(facetValues.map(function (_ref2) {
+                var value = _ref2.value,
+                    item = _objectWithoutProperties(_ref2, ["value"]);
+
+                return _objectSpread({}, item, {
+                  value: value,
+                  label: value
+                });
+              }));
+              var canToggleShowMore = _this.isShowingMore && lastItemsFromMainSearch.length > limit;
+              renderFn(_objectSpread({}, _this.getWidgetRenderState(_objectSpread({}, renderOptions, {
+                results: lastResultsFromMainSearch
+              })), {
+                items: normalizedFacetValues,
+                canToggleShowMore: canToggleShowMore,
+                canRefine: true,
+                instantSearchInstance: instantSearchInstance,
+                isFromSearch: true
+              }));
+            });
+          }
+        };
+      };
+    };
+    /* eslint-enable max-params */
+
+
+    return {
+      $$type: 'ais.refinementList',
+      isShowingMore: false,
+      // Provide the same function to the `renderFn` so that way the user
+      // has to only bind it once when `isFirstRendering` for instance
+      toggleShowMore: function toggleShowMore() {},
+      cachedToggleShowMore: function cachedToggleShowMore() {
+        toggleShowMore();
+      },
+      createToggleShowMore: function createToggleShowMore(renderOptions) {
+        var _this2 = this;
+
+        return function () {
+          _this2.isShowingMore = !_this2.isShowingMore;
+
+          _this2.render(renderOptions);
+        };
+      },
+      getLimit: function getLimit() {
+        return _getLimit(this.isShowingMore);
+      },
+      init: function init(initOptions) {
+        renderFn(_objectSpread({}, this.getWidgetRenderState(initOptions), {
+          instantSearchInstance: initOptions.instantSearchInstance
+        }), true);
+      },
+      render: function render(renderOptions) {
+        renderFn(_objectSpread({}, this.getWidgetRenderState(renderOptions), {
+          instantSearchInstance: renderOptions.instantSearchInstance
+        }), false);
+      },
+      getRenderState: function getRenderState(renderState, renderOptions) {
+        return _objectSpread({}, renderState, {
+          refinementList: _objectSpread({}, renderState.refinementList, _defineProperty({}, attribute, this.getWidgetRenderState(renderOptions)))
+        });
+      },
+      getWidgetRenderState: function getWidgetRenderState(renderOptions) {
+        var results = renderOptions.results,
+            state = renderOptions.state,
+            createURL = renderOptions.createURL,
+            instantSearchInstance = renderOptions.instantSearchInstance,
+            _renderOptions$isFrom = renderOptions.isFromSearch,
+            isFromSearch = _renderOptions$isFrom === void 0 ? false : _renderOptions$isFrom,
+            helper = renderOptions.helper;
+        var items = [];
+        var facetValues;
+
+        if (!sendEvent || !triggerRefine || !searchForFacetValues) {
+          sendEvent = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.createSendEventForFacet)({
+            instantSearchInstance: instantSearchInstance,
+            helper: helper,
+            attribute: attribute,
+            widgetType: this.$$type
+          });
+
+          triggerRefine = function triggerRefine(facetValue) {
+            sendEvent('click', facetValue);
+            helper.toggleRefinement(attribute, facetValue).search();
+          };
+
+          searchForFacetValues = createSearchForFacetValues.call(this, helper);
+        }
+
+        if (results) {
+          if (!isFromSearch) {
+            facetValues = results.getFacetValues(attribute, {
+              sortBy: sortBy
+            }) || [];
+            items = transformItems(facetValues.slice(0, this.getLimit()).map(formatItems));
+          } else {
+            facetValues = escapeFacetValues ? (0,_lib_utils__WEBPACK_IMPORTED_MODULE_3__.escapeFacets)(results.facetHits) : results.facetHits;
+            items = transformItems(facetValues.map(function (_ref3) {
+              var value = _ref3.value,
+                  item = _objectWithoutProperties(_ref3, ["value"]);
+
+              return _objectSpread({}, item, {
+                value: value,
+                label: value
+              });
+            }));
+          }
+
+          var maxValuesPerFacetConfig = state.maxValuesPerFacet;
+          var currentLimit = this.getLimit(); // If the limit is the max number of facet retrieved it is impossible to know
+          // if the facets are exhaustive. The only moment we are sure it is exhaustive
+          // is when it is strictly under the number requested unless we know that another
+          // widget has requested more values (maxValuesPerFacet > getLimit()).
+          // Because this is used for making the search of facets unable or not, it is important
+          // to be conservative here.
+
+          hasExhaustiveItems = maxValuesPerFacetConfig > currentLimit ? facetValues.length <= currentLimit : facetValues.length < currentLimit;
+          lastResultsFromMainSearch = results;
+          lastItemsFromMainSearch = items;
+          toggleShowMore = this.createToggleShowMore(renderOptions);
+        } // Compute a specific createURL method able to link to any facet value state change
+
+
+        var _createURL = function _createURL(facetValue) {
+          return createURL(state.toggleRefinement(attribute, facetValue));
+        }; // Do not mistake searchForFacetValues and searchFacetValues which is the actual search
+        // function
+
+
+        var searchFacetValues = searchForFacetValues && searchForFacetValues(renderOptions);
+        var canShowLess = this.isShowingMore && lastItemsFromMainSearch.length > limit;
+        var canShowMore = showMore && !isFromSearch && !hasExhaustiveItems;
+        var canToggleShowMore = canShowLess || canShowMore;
+        return {
+          createURL: _createURL,
+          items: items,
+          refine: triggerRefine,
+          searchForItems: searchFacetValues,
+          isFromSearch: isFromSearch,
+          canRefine: isFromSearch || items.length > 0,
+          widgetParams: widgetParams,
+          isShowingMore: this.isShowingMore,
+          canToggleShowMore: canToggleShowMore,
+          toggleShowMore: this.cachedToggleShowMore,
+          sendEvent: sendEvent,
+          hasExhaustiveItems: hasExhaustiveItems
+        };
+      },
+      dispose: function dispose(_ref4) {
+        var state = _ref4.state;
+        unmountFn();
+        var withoutMaxValuesPerFacet = state.setQueryParameter('maxValuesPerFacet', undefined);
+
+        if (operator === 'and') {
+          return withoutMaxValuesPerFacet.removeFacet(attribute);
+        }
+
+        return withoutMaxValuesPerFacet.removeDisjunctiveFacet(attribute);
+      },
+      getWidgetUiState: function getWidgetUiState(uiState, _ref5) {
+        var searchParameters = _ref5.searchParameters;
+        var values = operator === 'or' ? searchParameters.getDisjunctiveRefinements(attribute) : searchParameters.getConjunctiveRefinements(attribute);
+
+        if (!values.length) {
+          return uiState;
+        }
+
+        return _objectSpread({}, uiState, {
+          refinementList: _objectSpread({}, uiState.refinementList, _defineProperty({}, attribute, values))
+        });
+      },
+      getWidgetSearchParameters: function getWidgetSearchParameters(searchParameters, _ref6) {
+        var uiState = _ref6.uiState;
+        var isDisjunctive = operator === 'or';
+        var values = uiState.refinementList && uiState.refinementList[attribute];
+        var withoutRefinements = searchParameters.clearRefinements(attribute);
+        var withFacetConfiguration = isDisjunctive ? withoutRefinements.addDisjunctiveFacet(attribute) : withoutRefinements.addFacet(attribute);
+        var currentMaxValuesPerFacet = withFacetConfiguration.maxValuesPerFacet || 0;
+        var nextMaxValuesPerFacet = Math.max(currentMaxValuesPerFacet, showMore ? showMoreLimit : limit);
+        var withMaxValuesPerFacet = withFacetConfiguration.setQueryParameter('maxValuesPerFacet', nextMaxValuesPerFacet);
+
+        if (!values) {
+          var key = isDisjunctive ? 'disjunctiveFacetsRefinements' : 'facetsRefinements';
+          return withMaxValuesPerFacet.setQueryParameters(_defineProperty({}, key, _objectSpread({}, withMaxValuesPerFacet[key], _defineProperty({}, attribute, []))));
+        }
+
+        return values.reduce(function (parameters, value) {
+          return isDisjunctive ? parameters.addDisjunctiveFacetRefinement(attribute, value) : parameters.addFacetRefinement(attribute, value);
+        }, withMaxValuesPerFacet);
+      }
+    };
+  };
+}
 
 /***/ }),
 
@@ -8979,6 +9724,63 @@ function concatHighlightedParts(parts) {
 
 /***/ }),
 
+/***/ "./node_modules/instantsearch.js/es/lib/utils/createSendEventForFacet.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/lib/utils/createSendEventForFacet.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createSendEventForFacet": () => /* binding */ createSendEventForFacet
+/* harmony export */ });
+/* harmony import */ var _isFacetRefined__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFacetRefined */ "./node_modules/instantsearch.js/es/lib/utils/isFacetRefined.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+function createSendEventForFacet(_ref) {
+  var instantSearchInstance = _ref.instantSearchInstance,
+      helper = _ref.helper,
+      attribute = _ref.attribute,
+      widgetType = _ref.widgetType;
+
+  var sendEventForFacet = function sendEventForFacet() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var eventType = args[0],
+        facetValue = args[1],
+        _args$ = args[2],
+        eventName = _args$ === void 0 ? 'Filter Applied' : _args$;
+
+    if (args.length === 1 && _typeof(args[0]) === 'object') {
+      instantSearchInstance.sendEventToInsights(args[0]);
+    } else if (eventType === 'click' && (args.length === 2 || args.length === 3)) {
+      if (!(0,_isFacetRefined__WEBPACK_IMPORTED_MODULE_0__.default)(helper, attribute, facetValue)) {
+        // send event only when the facet is being checked "ON"
+        instantSearchInstance.sendEventToInsights({
+          insightsMethod: 'clickedFilters',
+          widgetType: widgetType,
+          eventType: eventType,
+          payload: {
+            eventName: eventName,
+            index: helper.getIndex(),
+            filters: ["".concat(attribute, ":").concat(facetValue)]
+          }
+        });
+      }
+    } else if (true) {
+      throw new Error("You need to pass two arguments like:\n  sendEvent('click', facetValue);\n\nIf you want to send a custom payload, you can pass one object: sendEvent(customPayload);\n");
+    }
+  };
+
+  return sendEventForFacet;
+}
+
+/***/ }),
+
 /***/ "./node_modules/instantsearch.js/es/lib/utils/createSendEventForHits.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/instantsearch.js/es/lib/utils/createSendEventForHits.js ***!
@@ -9693,6 +10495,29 @@ function isEqual(first, second) {
 
 /***/ }),
 
+/***/ "./node_modules/instantsearch.js/es/lib/utils/isFacetRefined.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/lib/utils/isFacetRefined.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ isFacetRefined
+/* harmony export */ });
+function isFacetRefined(helper, facet, value) {
+  if (helper.state.isHierarchicalFacet(facet)) {
+    return helper.state.isHierarchicalFacetRefined(facet, value);
+  } else if (helper.state.isConjunctiveFacet(facet)) {
+    return helper.state.isFacetRefined(facet, value);
+  } else {
+    return helper.state.isDisjunctiveFacetRefined(facet, value);
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/instantsearch.js/es/lib/utils/isPlainObject.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/instantsearch.js/es/lib/utils/isPlainObject.js ***!
@@ -9748,6 +10573,26 @@ function isPlainObject(value) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isPlainObject);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/lib/utils/isSpecialClick.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/lib/utils/isSpecialClick.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function isSpecialClick(event) {
+  var isMiddleClick = event.button === 1;
+  return isMiddleClick || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isSpecialClick);
 
 /***/ }),
 
@@ -11157,6 +12002,364 @@ function storeRenderState(_ref7) {
       parent = _ref7.parent;
   var parentIndexName = parent ? parent.getIndexId() : instantSearchInstance.mainIndex.getIndexId();
   instantSearchInstance.renderState = _objectSpread({}, instantSearchInstance.renderState, _defineProperty({}, parentIndexName, _objectSpread({}, instantSearchInstance.renderState[parentIndexName], {}, renderState)));
+}
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/refinement-list/defaultTemplates.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/refinement-list/defaultTemplates.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _search_box_defaultTemplates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../search-box/defaultTemplates */ "./node_modules/instantsearch.js/es/widgets/search-box/defaultTemplates.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  item: "<label class=\"{{cssClasses.label}}\">\n  <input type=\"checkbox\"\n         class=\"{{cssClasses.checkbox}}\"\n         value=\"{{value}}\"\n         {{#isRefined}}checked{{/isRefined}} />\n  <span class=\"{{cssClasses.labelText}}\">{{#isFromSearch}}{{{highlighted}}}{{/isFromSearch}}{{^isFromSearch}}{{highlighted}}{{/isFromSearch}}</span>\n  <span class=\"{{cssClasses.count}}\">{{#helpers.formatNumber}}{{count}}{{/helpers.formatNumber}}</span>\n</label>",
+  showMoreText: "\n    {{#isShowingMore}}\n      Show less\n    {{/isShowingMore}}\n    {{^isShowingMore}}\n      Show more\n    {{/isShowingMore}}\n    ",
+  searchableNoResults: 'No results',
+  searchableReset: _search_box_defaultTemplates__WEBPACK_IMPORTED_MODULE_0__.default.reset,
+  searchableSubmit: _search_box_defaultTemplates__WEBPACK_IMPORTED_MODULE_0__.default.submit,
+  searchableLoadingIndicator: _search_box_defaultTemplates__WEBPACK_IMPORTED_MODULE_0__.default.loadingIndicator
+});
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ refinementList
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_RefinementList_RefinementList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/RefinementList/RefinementList */ "./node_modules/instantsearch.js/es/components/RefinementList/RefinementList.js");
+/* harmony import */ var _connectors_refinement_list_connectRefinementList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../connectors/refinement-list/connectRefinementList */ "./node_modules/instantsearch.js/es/connectors/refinement-list/connectRefinementList.js");
+/* harmony import */ var _defaultTemplates__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./defaultTemplates */ "./node_modules/instantsearch.js/es/widgets/refinement-list/defaultTemplates.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/prepareTemplateProps.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/getContainerNode.js");
+/* harmony import */ var _lib_suit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/suit */ "./node_modules/instantsearch.js/es/lib/suit.js");
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** @jsx h */
+
+
+
+
+
+
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.createDocumentationMessageGenerator)({
+  name: 'refinement-list'
+});
+var suit = (0,_lib_suit__WEBPACK_IMPORTED_MODULE_3__.component)('RefinementList');
+var searchBoxSuit = (0,_lib_suit__WEBPACK_IMPORTED_MODULE_3__.component)('SearchBox');
+/**
+ * Transforms the searchable templates by removing the `searchable` prefix.
+ *
+ * This makes them usable in the `SearchBox` component.
+ *
+ * @param {object} templates The widget templates
+ * @returns {object} the formatted templates
+ */
+
+function transformTemplates(templates) {
+  var allTemplates = _objectSpread({}, templates, {
+    submit: templates.searchableSubmit,
+    reset: templates.searchableReset,
+    loadingIndicator: templates.searchableLoadingIndicator
+  });
+
+  var searchableReset = allTemplates.searchableReset,
+      searchableSubmit = allTemplates.searchableSubmit,
+      searchableLoadingIndicator = allTemplates.searchableLoadingIndicator,
+      transformedTemplates = _objectWithoutProperties(allTemplates, ["searchableReset", "searchableSubmit", "searchableLoadingIndicator"]);
+
+  return transformedTemplates;
+}
+
+var renderer = function renderer(_ref) {
+  var containerNode = _ref.containerNode,
+      cssClasses = _ref.cssClasses,
+      templates = _ref.templates,
+      renderState = _ref.renderState,
+      showMore = _ref.showMore,
+      searchable = _ref.searchable,
+      searchablePlaceholder = _ref.searchablePlaceholder,
+      searchableIsAlwaysActive = _ref.searchableIsAlwaysActive;
+  return function (_ref2, isFirstRendering) {
+    var refine = _ref2.refine,
+        items = _ref2.items,
+        createURL = _ref2.createURL,
+        searchForItems = _ref2.searchForItems,
+        isFromSearch = _ref2.isFromSearch,
+        instantSearchInstance = _ref2.instantSearchInstance,
+        toggleShowMore = _ref2.toggleShowMore,
+        isShowingMore = _ref2.isShowingMore,
+        hasExhaustiveItems = _ref2.hasExhaustiveItems,
+        canToggleShowMore = _ref2.canToggleShowMore;
+
+    if (isFirstRendering) {
+      renderState.templateProps = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.default)({
+        templatesConfig: instantSearchInstance.templatesConfig,
+        templates: templates
+      });
+      return;
+    }
+
+    (0,preact__WEBPACK_IMPORTED_MODULE_0__.render)((0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_components_RefinementList_RefinementList__WEBPACK_IMPORTED_MODULE_5__.default, {
+      createURL: createURL,
+      cssClasses: cssClasses,
+      facetValues: items,
+      templateProps: renderState.templateProps,
+      toggleRefinement: refine,
+      searchFacetValues: searchable ? searchForItems : undefined,
+      searchPlaceholder: searchablePlaceholder,
+      searchIsAlwaysActive: searchableIsAlwaysActive,
+      isFromSearch: isFromSearch,
+      showMore: showMore && !isFromSearch && items.length > 0,
+      toggleShowMore: toggleShowMore,
+      isShowingMore: isShowingMore,
+      hasExhaustiveItems: hasExhaustiveItems,
+      canToggleShowMore: canToggleShowMore
+    }), containerNode);
+  };
+};
+/**
+ * @typedef {Object} RefinementListTemplates
+ * @property  {string|function(RefinementListItemData):string} [item] Item template, provided with `label`, `highlighted`, `value`, `count`, `isRefined`, `url` data properties.
+ * @property {string|function} [searchableNoResults] Templates to use for search for facet values.
+ * @property {string|function} [showMoreText] Template used for the show more text, provided with `isShowingMore` data property.
+ */
+
+/**
+ * @typedef {Object} RefinementListItemData
+ * @property {number} count The number of occurrences of the facet in the result set.
+ * @property {boolean} isRefined True if the value is selected.
+ * @property {string} label The label to display.
+ * @property {string} value The value used for refining.
+ * @property {string} highlighted The label highlighted (when using search for facet values). This value is displayed in the default template.
+ * @property {string} url The url with this refinement selected.
+ * @property {object} cssClasses Object containing all the classes computed for the item.
+ */
+
+/**
+ * @typedef {Object} RefinementListCSSClasses
+ * @property {string|string[]} [root] CSS class to add to the root element.
+ * @property {string|string[]} [noRefinementRoot] CSS class to add to the root element when no refinements.
+ * @property {string|string[]} [noResults] CSS class to add to the root element with no results.
+ * @property {string|string[]} [list] CSS class to add to the list element.
+ * @property {string|string[]} [item] CSS class to add to each item element.
+ * @property {string|string[]} [selectedItem] CSS class to add to each selected element.
+ * @property {string|string[]} [label] CSS class to add to each label element (when using the default template).
+ * @property {string|string[]} [checkbox] CSS class to add to each checkbox element (when using the default template).
+ * @property {string|string[]} [labelText] CSS class to add to each label text element.
+ * @property {string|string[]} [showMore] CSS class to add to the show more element
+ * @property {string|string[]} [disabledShowMore] CSS class to add to the disabledshow more element
+ * @property {string|string[]} [count] CSS class to add to each count element (when using the default template).
+ */
+
+/**
+ * @typedef {Object} RefinementListWidgetParams
+ * @property {string|HTMLElement} container CSS Selector or HTMLElement to insert the widget.
+ * @property {string} attribute Name of the attribute for faceting.
+ * @property {"and"|"or"} [operator="or"] How to apply refinements. Possible values: `or`, `and`
+ * @property {string[]|function} [sortBy=["isRefined", "count:desc", "name:asc"]] How to sort refinements. Possible values: `count:asc` `count:desc` `name:asc` `name:desc` `isRefined`.
+ *
+ * You can also use a sort function that behaves like the standard Javascript [compareFunction](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Syntax).
+ * @property {function(object[]):object[]} [transformItems] Function to transform the items passed to the templates.
+ * @property {boolean} [searchable=false] Add a search input to let the user search for more facet values. In order to make this feature work, you need to make the attribute searchable [using the API](https://www.algolia.com/doc/guides/searching/faceting/?language=js#declaring-a-searchable-attribute-for-faceting) or [the dashboard](https://www.algolia.com/explorer/display/).
+ * @property {number} [limit = 10] The minimum number of facet values to retrieve.
+ * @property {boolean} [showMore = false] Whether to display a button that expands the number of items.
+ * @property {number} [showMoreLimit = 20] The max number of items to display if the widget
+ * @property {string} [searchablePlaceholder] Value of the search field placeholder.
+ * @property {boolean} [searchableIsAlwaysActive=true] When `false` the search field will become disabled if
+ * there are less items to display than the `options.limit`, otherwise the search field is always usable.
+ * @property {boolean} [searchableEscapeFacetValues=true] When activated, it will escape the facet values that are returned
+ * from Algolia. In this case, the surrounding tags will always be `<mark></mark>`.
+ * @property {RefinementListTemplates} [templates] Templates to use for the widget.
+ * @property {RefinementListCSSClasses} [cssClasses] CSS classes to add to the wrapping elements.
+ */
+
+/**
+ * The refinement list widget is one of the most common widget that you can find
+ * in a search UI. With this widget, the user can filter the dataset based on facets.
+ *
+ * The refinement list displays only the most relevant facets for the current search
+ * context. The sort option only affects the facet that are returned by the engine,
+ * not which facets are returned.
+ *
+ * This widget also implements search for facet values, which is a mini search inside the
+ * values of the facets. This makes easy to deal with uncommon facet values.
+ *
+ * @requirements
+ *
+ * The attribute passed to `attribute` must be declared as an
+ * [attribute for faceting](https://www.algolia.com/doc/guides/searching/faceting/#declaring-attributes-for-faceting)
+ * in your Algolia settings.
+ *
+ * If you also want to use search for facet values on this attribute, you need to make it searchable using the [dashboard](https://www.algolia.com/explorer/display/) or using the [API](https://www.algolia.com/doc/guides/searching/faceting/#search-for-facet-values).
+ *
+ * @type {WidgetFactory}
+ * @devNovel RefinementList
+ * @category filter
+ * @param {RefinementListWidgetParams} widgetParams The RefinementList widget options that you use to customize the widget.
+ * @return {Widget} Creates a new instance of the RefinementList widget.
+ * @example
+ * search.addWidgets([
+ *   instantsearch.widgets.refinementList({
+ *     container: '#brands',
+ *     attribute: 'brand',
+ *     operator: 'or',
+ *     limit: 10,
+ *   })
+ * ]);
+ */
+
+
+function refinementList(widgetParams) {
+  var _ref3 = widgetParams || {},
+      container = _ref3.container,
+      attribute = _ref3.attribute,
+      operator = _ref3.operator,
+      sortBy = _ref3.sortBy,
+      limit = _ref3.limit,
+      showMore = _ref3.showMore,
+      showMoreLimit = _ref3.showMoreLimit,
+      _ref3$searchable = _ref3.searchable,
+      searchable = _ref3$searchable === void 0 ? false : _ref3$searchable,
+      _ref3$searchablePlace = _ref3.searchablePlaceholder,
+      searchablePlaceholder = _ref3$searchablePlace === void 0 ? 'Search...' : _ref3$searchablePlace,
+      _ref3$searchableEscap = _ref3.searchableEscapeFacetValues,
+      searchableEscapeFacetValues = _ref3$searchableEscap === void 0 ? true : _ref3$searchableEscap,
+      _ref3$searchableIsAlw = _ref3.searchableIsAlwaysActive,
+      searchableIsAlwaysActive = _ref3$searchableIsAlw === void 0 ? true : _ref3$searchableIsAlw,
+      _ref3$cssClasses = _ref3.cssClasses,
+      userCssClasses = _ref3$cssClasses === void 0 ? {} : _ref3$cssClasses,
+      _ref3$templates = _ref3.templates,
+      userTemplates = _ref3$templates === void 0 ? _defaultTemplates__WEBPACK_IMPORTED_MODULE_6__.default : _ref3$templates,
+      transformItems = _ref3.transformItems;
+
+  if (!container) {
+    throw new Error(withUsage('The `container` option is required.'));
+  }
+
+  var escapeFacetValues = searchable ? Boolean(searchableEscapeFacetValues) : false;
+  var containerNode = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_7__.default)(container);
+  var templates = transformTemplates(_objectSpread({}, _defaultTemplates__WEBPACK_IMPORTED_MODULE_6__.default, {}, userTemplates));
+  var cssClasses = {
+    root: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit(), userCssClasses.root),
+    noRefinementRoot: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      modifierName: 'noRefinement'
+    }), userCssClasses.noRefinementRoot),
+    list: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'list'
+    }), userCssClasses.list),
+    item: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item'
+    }), userCssClasses.item),
+    selectedItem: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item',
+      modifierName: 'selected'
+    }), userCssClasses.selectedItem),
+    searchBox: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'searchBox'
+    }), userCssClasses.searchBox),
+    label: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'label'
+    }), userCssClasses.label),
+    checkbox: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'checkbox'
+    }), userCssClasses.checkbox),
+    labelText: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'labelText'
+    }), userCssClasses.labelText),
+    count: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'count'
+    }), userCssClasses.count),
+    noResults: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'noResults'
+    }), userCssClasses.noResults),
+    showMore: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'showMore'
+    }), userCssClasses.showMore),
+    disabledShowMore: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'showMore',
+      modifierName: 'disabled'
+    }), userCssClasses.disabledShowMore),
+    searchable: {
+      root: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit(), userCssClasses.searchableRoot),
+      form: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit({
+        descendantName: 'form'
+      }), userCssClasses.searchableForm),
+      input: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit({
+        descendantName: 'input'
+      }), userCssClasses.searchableInput),
+      submit: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit({
+        descendantName: 'submit'
+      }), userCssClasses.searchableSubmit),
+      submitIcon: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit({
+        descendantName: 'submitIcon'
+      }), userCssClasses.searchableSubmitIcon),
+      reset: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit({
+        descendantName: 'reset'
+      }), userCssClasses.searchableReset),
+      resetIcon: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit({
+        descendantName: 'resetIcon'
+      }), userCssClasses.searchableResetIcon),
+      loadingIndicator: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit({
+        descendantName: 'loadingIndicator'
+      }), userCssClasses.searchableLoadingIndicator),
+      loadingIcon: classnames__WEBPACK_IMPORTED_MODULE_1___default()(searchBoxSuit({
+        descendantName: 'loadingIcon'
+      }), userCssClasses.searchableLoadingIcon)
+    }
+  };
+  var specializedRenderer = renderer({
+    containerNode: containerNode,
+    cssClasses: cssClasses,
+    templates: templates,
+    renderState: {},
+    searchable: searchable,
+    searchablePlaceholder: searchablePlaceholder,
+    searchableIsAlwaysActive: searchableIsAlwaysActive,
+    showMore: showMore
+  });
+  var makeWidget = (0,_connectors_refinement_list_connectRefinementList__WEBPACK_IMPORTED_MODULE_8__.default)(specializedRenderer, function () {
+    return (0,preact__WEBPACK_IMPORTED_MODULE_0__.render)(null, containerNode);
+  });
+  return _objectSpread({}, makeWidget({
+    attribute: attribute,
+    operator: operator,
+    limit: limit,
+    showMore: showMore,
+    showMoreLimit: showMoreLimit,
+    sortBy: sortBy,
+    escapeFacetValues: escapeFacetValues,
+    transformItems: transformItems
+  }), {
+    $$widgetType: 'ais.refinementList'
+  });
 }
 
 /***/ }),

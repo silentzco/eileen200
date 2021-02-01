@@ -29,6 +29,15 @@ sections:
           icon: text
           listable: true
       -
+        handle: middle_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Middle Name'
+          type: text
+          icon: text
+          listable: hidden
+      -
         handle: last_name
         field:
           input_type: text
@@ -37,6 +46,15 @@ sections:
           type: text
           icon: text
           listable: true
+      -
+        handle: suffix_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Suffix Name'
+          type: text
+          icon: text
+          listable: hidden
       -
         handle: phone
         field:
@@ -88,15 +106,6 @@ sections:
           icon: grid
           listable: hidden
       -
-        handle: license
-        field:
-          input_type: text
-          antlers: false
-          display: License
-          type: text
-          icon: text
-          listable: hidden
-      -
         handle: email
         field:
           input_type: email
@@ -105,6 +114,19 @@ sections:
           type: text
           icon: text
           listable: hidden
+      -
+        handle: image
+        field:
+          mode: grid
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Image
+          type: assets
+          icon: assets
+          listable: hidden
+          container: assets
+          folder: providers
   sidebar:
     display: Sidebar
     fields:
@@ -117,14 +139,6 @@ sections:
           validate:
             - required
       -
-        handle: services
-        field:
-          type: terms
-          taxonomies:
-            - services
-          display: Services
-          mode: select
-      -
         handle: sponsored
         field:
           display: Sponsored
@@ -132,11 +146,24 @@ sections:
           icon: toggle
           listable: hidden
       -
-        handle: specialty
+        handle: category
         field:
-          display: Specialty
-          type: taggable
-          icon: tags
+          mode: default
+          taxonomies:
+            - service_categories
+          display: Category
+          type: terms
+          icon: taxonomy
+          listable: hidden
+      -
+        handle: services
+        field:
+          type: terms
+          taxonomies:
+            - services
+          display: Services
+          mode: default
+          icon: taxonomy
           listable: hidden
   address:
     display: Address
@@ -224,19 +251,48 @@ sections:
           type: grid
           icon: grid
           listable: hidden
-  web:
-    display: Web
+  license:
+    display: License
     fields:
       -
-        handle: image
+        handle: license_type
         field:
-          mode: grid
-          restrict: false
-          allow_uploads: true
-          max_files: 1
-          display: image
-          type: assets
-          icon: assets
+          input_type: text
+          antlers: false
+          display: 'License Type'
+          type: text
+          icon: text
           listable: hidden
-          container: assets
-          folder: providers
+      -
+        handle: license_number
+        field:
+          input_type: text
+          antlers: false
+          display: 'License Number'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: license_status
+        field:
+          input_type: text
+          antlers: false
+          display: 'License Status'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: license_expiration
+        field:
+          mode: single
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+          display: 'License Expiration'
+          type: date
+          icon: date
+          listable: hidden

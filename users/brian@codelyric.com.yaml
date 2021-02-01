@@ -5,6 +5,6 @@ password_hash: $2y$10$o4.Wm4SX.9FFV9NAnDOE1.kQooteY74QBq9k0YLtFfc68eGSnq53S
 preferences:
   taxonomies:
     services:
-      after_save: continue_editing
+      after_save: create_another
     service_categories:
       after_save: create_another

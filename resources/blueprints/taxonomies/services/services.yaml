@@ -26,3 +26,14 @@ sections:
           required: true
           validate:
             - required
+      -
+        handle: category
+        field:
+          max_items: 1
+          mode: select
+          taxonomies:
+            - service_categories
+          display: Category
+          type: terms
+          icon: taxonomy
+          listable: hidden

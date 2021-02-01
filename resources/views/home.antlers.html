@@ -1,19 +1,20 @@
 
 
 <div class="bg-gray-300">
-    <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+    <form action="/search/results" id="searchform">
+
+    <div class="max-w-2xl mx-auto text-center  px-4  sm:px-6 lg:px-8 py-8">
 
         <h2 class="text-primary text-xl mb-4 font-bold">Search for Services:</h2>
         <div class="relative z-0 flex-1 px-2 flex items-center justify-center ">
             <div class="w-full max-w-2xl ">
-                <label for="search" class="sr-only">Search all services</label>
-                    <form action="/search/results" id="searchform">
+                <label for="query" class="sr-only">Search all services</label>
 
                         <input id="query" name="query" class="inline-block w-3/4 bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-lg placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Search" type="search">
                         <button class="bg-primary text-white font-bold py-2 px-4 rounded inline-block">
                             Search
                         </button>
-                    </form>
+
 
             </div>
         </div>
@@ -22,30 +23,90 @@
 
     <div class="max-w-5xl mx-auto pb-20">
 
-        <h2 class="text-primary text-xl mb-4 font-bold text-center">Browse our Services:</h2>
+        <h2 class="text-primary text-xl mb-4 font-bold text-center">Refine your search:</h2>
 
 
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-4">
-            <a href="/services/doctors" class="relative rounded-lg border border-gray-300 bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 text-center hover:border-red-400">
+            <div class="relative rounded-lg border border-gray-300 bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 text-center hover:border-red-400">
                 <h4 class="font-bold text-primary">MDs and DOs</h4>
                 <span class="text-xs inline text-gray-600">Medical Doctors and Doctors of Osteopathic Medicine</span>
 
-            </a>
+                <div class="block mt-1 rounded-md bg-gray-100 border-transparent text-xs overflow-scroll h-40 text-left">
+                    {{ taxonomy:services category:contains="Doctors"}}
 
-            <a href="/services/gyms" class="relative rounded-lg border border-gray-300 bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 text-center hover:border-red-400">
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="services" value="{{ title }}">
+                        <span class="ml-2 text-gray-700">{{ title }}</span>
+                    </label>
+
+                    {{ /taxonomy:services }}
+
+                </div>
+
+            </div>
+
+            <div class="relative rounded-lg border border-gray-300 bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 text-center hover:border-red-400">
                 <h4 class="font-bold text-primary">Gyms</h4>
                 <span class="text-xs inline text-gray-600">Facilities and Personal Trainers</span>
-            </a>
-            <a href="/services/gyms" class="relative rounded-lg border border-gray-300 bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 text-center hover:border-red-400">
+                <div class="block mt-1 rounded-md  border-transparent text-xs overflow-scroll h-40 text-left">
+
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+
+                </div>
+            </div>
+            <div  class="relative rounded-lg border border-gray-300 bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 text-center hover:border-red-400">
                 <h4 class="font-bold text-primary">Legal Services</h4>
                 <span class="text-xs inline text-gray-600">Family Law, Estate Planning, Personal Injury, Work Injury, Legal Aid</span>
-            </a>
+                <div class="block mt-1 rounded-md  border-transparent text-xs overflow-scroll h-40 text-left">
 
-            <a href="/services/gyms" class="relative rounded-lg border border-gray-300 bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 text-center hover:border-red-400">
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+
+                </div>
+            </div>
+
+            <div  class="relative rounded-lg border border-gray-300 bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500 text-center hover:border-red-400">
                 <h4 class="font-bold text-primary">Dentists</h4>
                 <span class="text-xs inline text-gray-600">General, Endo, Surgical</span>
-            </a>
+                <div class="block mt-1 rounded-md  border-transparent text-xs overflow-scroll h-40 text-left">
+
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+                    <label class="flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="" value="" disabled="disabled">
+                        <span class="ml-2 text-gray-700">Example</span>
+                    </label>
+
+                </div>
+            </div>
 
 
         </div>
@@ -55,7 +116,7 @@
 
 
 
-
+    </form>
 
 
 </div>
@@ -233,7 +294,15 @@
             e.preventDefault();
 
             var url = $(this).attr('action');
+            var services = '';
             url += "?providers[query]=" + $('#query').val();
+
+
+            $("input:checkbox[name='services']:checked").each(function(index){
+                url += "&providers[refinementList][services][" + index + "]=" + $(this).val();
+            });
+
+
 
 
 

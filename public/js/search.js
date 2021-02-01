@@ -5530,8 +5530,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var instantsearch_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! instantsearch.js */ "./node_modules/instantsearch.js/es/index.js");
 /* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/search-box/search-box.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/hits/hits.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/stats/stats.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/hits/hits.js");
 
 
 
@@ -5544,9 +5545,15 @@ var search = (0,instantsearch_js__WEBPACK_IMPORTED_MODULE_1__.default)({
 search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__.default)({
   container: "#searchbox"
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.default)({
+  container: '#stats'
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
+  container: "#category",
+  attribute: 'category',
+  operator: 'or'
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
   container: "#services",
   attribute: 'services'
-}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__.default)({
   container: '#hits',
   templates: {
     item: "\n      <div class=\"bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}}\">\n        <div class=\"w-full flex items-center justify-between p-6 space-x-6\">\n            <div class=\"flex-1 truncate\">\n                <div class=\"flex items-center space-x-3\">\n                    <h3 class=\"text-gray-900 text-sm font-medium truncate\">{{ title }}</h3>\n                    <span class=\"flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-gray-400 text-white rounded-full\">{{ services }}</span>\n                </div>\n\n                {{#org_name}}\n                <p class=\"mt-1 text-gray-500 text-sm truncate\">{{ first_name }} {{last_name}}</p>\n                {{/org_name}}\n                <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                    {{ address }}<br>\n                    {{ city }}, {{ state }} {{ zip }}\n                </p>\n            </div>\n            {{#image}}\n            <img class=\"h-20 rounded flex-shrink-0\" src=\"/assets/{{ image }}\" alt=\"\">\n            {{/image}}\n        </div>\n        <div>\n            <div class=\"-mt-px flex divide-x divide-gray-200\">\n                {{#email}}\n                <div class=\"w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500\">\n                        <!-- Heroicon name: mail -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                            <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                        </svg>\n                        <span class=\"ml-3\">Email</span>\n                    </a>\n                </div>\n                {{/email}}\n\n                {{#phone}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z\" />\n                        </svg>\n                        <span class=\"ml-3\">Call</span>\n                    </a>\n                </div>\n                {{/phone}}\n\n                {{#address}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\" />\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\" />\n                        </svg>\n                        <span class=\"ml-3\">Map</span>\n                    </a>\n                </div>\n                {{/address}}\n\n                {{#website}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\" />\n                        </svg>\n                        <span class=\"ml-3\">Website</span>\n                    </a>\n                </div>\n                {{/website}}\n            </div>\n        </div>\n    </div>\n\n    "
@@ -7096,6 +7103,61 @@ _defineProperty(SearchBox, "defaultProps", {
 
 /***/ }),
 
+/***/ "./node_modules/instantsearch.js/es/components/Stats/Stats.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/components/Stats/Stats.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var _Template_Template__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Template/Template */ "./node_modules/instantsearch.js/es/components/Template/Template.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+/** @jsx h */
+
+
+
+var Stats = function Stats(_ref) {
+  var nbHits = _ref.nbHits,
+      hitsPerPage = _ref.hitsPerPage,
+      nbPages = _ref.nbPages,
+      page = _ref.page,
+      processingTimeMS = _ref.processingTimeMS,
+      query = _ref.query,
+      templateProps = _ref.templateProps,
+      cssClasses = _ref.cssClasses;
+  return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
+    className: cssClasses.root
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_1__.default, _extends({}, templateProps, {
+    templateKey: "text",
+    rootTagName: "span",
+    rootProps: {
+      className: cssClasses.text
+    },
+    data: {
+      hasManyResults: nbHits > 1,
+      hasNoResults: nbHits === 0,
+      hasOneResult: nbHits === 1,
+      hitsPerPage: hitsPerPage,
+      nbHits: nbHits,
+      nbPages: nbPages,
+      page: page,
+      processingTimeMS: processingTimeMS,
+      query: query,
+      cssClasses: cssClasses
+    }
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stats);
+
+/***/ }),
+
 /***/ "./node_modules/instantsearch.js/es/components/Template/Template.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/instantsearch.js/es/components/Template/Template.js ***!
@@ -7913,6 +7975,133 @@ function connectSearchBox(renderFn) {
       getWidgetSearchParameters: function getWidgetSearchParameters(searchParameters, _ref4) {
         var uiState = _ref4.uiState;
         return searchParameters.setQueryParameter('query', uiState.query || '');
+      }
+    };
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/connectors/stats/connectStats.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/connectors/stats/connectStats.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ connectStats
+/* harmony export */ });
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/noop.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/checkRendering.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_0__.createDocumentationMessageGenerator)({
+  name: 'stats',
+  connector: true
+});
+/**
+ * @typedef {Object} StatsRenderingOptions
+ * @property {number} hitsPerPage The maximum number of hits per page returned by Algolia.
+ * @property {number} nbHits The number of hits in the result set.
+ * @property {number} nbPages The number of pages computed for the result set.
+ * @property {number} page The current page.
+ * @property {number} processingTimeMS The time taken to compute the results inside the Algolia engine.
+ * @property {string} query The query used for the current search.
+ * @property {object} widgetParams All original `CustomStatsWidgetParams` forwarded to the `renderFn`.
+ */
+
+/**
+ * @typedef {Object} CustomStatsWidgetParams
+ */
+
+/**
+ * **Stats** connector provides the logic to build a custom widget that will displays
+ * search statistics (hits number and processing time).
+ *
+ * @type {Connector}
+ * @param {function(StatsRenderingOptions, boolean)} renderFn Rendering function for the custom **Stats** widget.
+ * @param {function} unmountFn Unmount function called when the widget is disposed.
+ * @return {function(CustomStatsWidgetParams)} Re-usable widget factory for a custom **Stats** widget.
+ * @example
+ * // custom `renderFn` to render the custom Stats widget
+ * function renderFn(StatsRenderingOptions, isFirstRendering) {
+ *   if (isFirstRendering) return;
+ *
+ *   StatsRenderingOptions.widgetParams.containerNode
+ *     .html(StatsRenderingOptions.nbHits + ' results found in ' + StatsRenderingOptions.processingTimeMS);
+ * }
+ *
+ * // connect `renderFn` to Stats logic
+ * var customStatsWidget = instantsearch.connectors.connectStats(renderFn);
+ *
+ * // mount widget on the page
+ * search.addWidgets([
+ *   customStatsWidget({
+ *     containerNode: $('#custom-stats-container'),
+ *   })
+ * ]);
+ */
+
+function connectStats(renderFn) {
+  var unmountFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _lib_utils__WEBPACK_IMPORTED_MODULE_1__.default;
+  (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.default)(renderFn, withUsage());
+  return function () {
+    var widgetParams = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    return {
+      $$type: 'ais.stats',
+      init: function init(initOptions) {
+        var instantSearchInstance = initOptions.instantSearchInstance;
+        renderFn(_objectSpread({}, this.getWidgetRenderState(initOptions), {
+          instantSearchInstance: instantSearchInstance
+        }), true);
+      },
+      render: function render(renderOptions) {
+        var instantSearchInstance = renderOptions.instantSearchInstance;
+        renderFn(_objectSpread({}, this.getWidgetRenderState(renderOptions), {
+          instantSearchInstance: instantSearchInstance
+        }), false);
+      },
+      dispose: function dispose() {
+        unmountFn();
+      },
+      getRenderState: function getRenderState(renderState, renderOptions) {
+        return _objectSpread({}, renderState, {
+          stats: this.getWidgetRenderState(renderOptions)
+        });
+      },
+      getWidgetRenderState: function getWidgetRenderState(_ref) {
+        var results = _ref.results,
+            helper = _ref.helper;
+
+        if (!results) {
+          return {
+            hitsPerPage: helper.state.hitsPerPage,
+            nbHits: 0,
+            nbPages: 0,
+            page: helper.state.page || 0,
+            processingTimeMS: -1,
+            query: helper.state.query || '',
+            widgetParams: widgetParams
+          };
+        }
+
+        return {
+          hitsPerPage: results.hitsPerPage,
+          nbHits: results.nbHits,
+          nbPages: results.nbPages,
+          page: results.page,
+          processingTimeMS: results.processingTimeMS,
+          query: results.query,
+          widgetParams: widgetParams
+        };
       }
     };
   };
@@ -12581,6 +12770,184 @@ function searchBox(widgetParams) {
     queryHook: queryHook
   }), {
     $$widgetType: 'ais.searchBox'
+  });
+}
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/stats/defaultTemplates.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/stats/defaultTemplates.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  text: "{{#hasNoResults}}No results{{/hasNoResults}}\n    {{#hasOneResult}}1 result{{/hasOneResult}}\n    {{#hasManyResults}}{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}} results{{/hasManyResults}} found in {{processingTimeMS}}ms"
+});
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/stats/stats.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/stats/stats.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ stats
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Stats_Stats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Stats/Stats */ "./node_modules/instantsearch.js/es/components/Stats/Stats.js");
+/* harmony import */ var _connectors_stats_connectStats__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../connectors/stats/connectStats */ "./node_modules/instantsearch.js/es/connectors/stats/connectStats.js");
+/* harmony import */ var _defaultTemplates__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./defaultTemplates */ "./node_modules/instantsearch.js/es/widgets/stats/defaultTemplates.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/prepareTemplateProps.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/getContainerNode.js");
+/* harmony import */ var _lib_suit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/suit */ "./node_modules/instantsearch.js/es/lib/suit.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** @jsx h */
+
+
+
+
+
+
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.createDocumentationMessageGenerator)({
+  name: 'stats'
+});
+var suit = (0,_lib_suit__WEBPACK_IMPORTED_MODULE_3__.component)('Stats');
+
+var renderer = function renderer(_ref) {
+  var containerNode = _ref.containerNode,
+      cssClasses = _ref.cssClasses,
+      renderState = _ref.renderState,
+      templates = _ref.templates;
+  return function (_ref2, isFirstRendering) {
+    var hitsPerPage = _ref2.hitsPerPage,
+        nbHits = _ref2.nbHits,
+        nbPages = _ref2.nbPages,
+        page = _ref2.page,
+        processingTimeMS = _ref2.processingTimeMS,
+        query = _ref2.query,
+        instantSearchInstance = _ref2.instantSearchInstance;
+
+    if (isFirstRendering) {
+      renderState.templateProps = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.default)({
+        defaultTemplates: _defaultTemplates__WEBPACK_IMPORTED_MODULE_5__.default,
+        templatesConfig: instantSearchInstance.templatesConfig,
+        templates: templates
+      });
+      return;
+    }
+
+    (0,preact__WEBPACK_IMPORTED_MODULE_0__.render)((0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_components_Stats_Stats__WEBPACK_IMPORTED_MODULE_6__.default, {
+      cssClasses: cssClasses,
+      hitsPerPage: hitsPerPage,
+      nbHits: nbHits,
+      nbPages: nbPages,
+      page: page,
+      processingTimeMS: processingTimeMS,
+      query: query,
+      templateProps: renderState.templateProps
+    }), containerNode);
+  };
+};
+/**
+ * @typedef {Object} StatsWidgetTemplates
+ * @property {string|function} [text] Text template, provided with `hasManyResults`,
+ * `hasNoResults`, `hasOneResult`, `hitsPerPage`, `nbHits`, `nbPages`, `page`, `processingTimeMS`, `query`.
+ */
+
+/**
+ * @typedef {Object} StatsWidgetCssClasses
+ * @property {string|string[]} [root] CSS class to add to the root element.
+ * @property {string|string[]} [text] CSS class to add to the text span element.
+ */
+
+/**
+ * @typedef {Object} StatsTextData
+ * @property {boolean} hasManyResults True if the result set has more than one result.
+ * @property {boolean} hasNoResults True if the result set has no result.
+ * @property {boolean} hasOneResult True if the result set has exactly one result.
+ * @property {number} hitsPerPage Number of hits per page.
+ * @property {number} nbHits Number of hit in the result set.
+ * @property {number} nbPages Number of pages in the result set with regard to the hitsPerPage and number of hits.
+ * @property {number} page Number of the current page. First page is 0.
+ * @property {number} processingTimeMS Time taken to compute the results inside the engine.
+ * @property {string} query Text query currently used.
+ */
+
+/**
+ * @typedef {Object} StatsWidgetParams
+ * @property {string|HTMLElement} container Place where to insert the widget in your webpage.
+ * @property {StatsWidgetTemplates} [templates] Templates to use for the widget.
+ * @property {StatsWidgetCssClasses} [cssClasses] CSS classes to add.
+ */
+
+/**
+ * The `stats` widget is used to display useful insights about the current results.
+ *
+ * By default, it will display the **number of hits** and the time taken to compute the
+ * results inside the engine.
+ * @type {WidgetFactory}
+ * @devNovel Stats
+ * @category metadata
+ * @param {StatsWidgetParams} widgetParams Stats widget options. Some keys are mandatory: `container`,
+ * @return {Widget} A new stats widget instance
+ * @example
+ * search.addWidgets([
+ *   instantsearch.widgets.stats({
+ *     container: '#stats-container'
+ *   })
+ * ]);
+ */
+
+
+function stats(widgetParams) {
+  var _ref3 = widgetParams || {},
+      container = _ref3.container,
+      _ref3$cssClasses = _ref3.cssClasses,
+      userCssClasses = _ref3$cssClasses === void 0 ? {} : _ref3$cssClasses,
+      _ref3$templates = _ref3.templates,
+      templates = _ref3$templates === void 0 ? _defaultTemplates__WEBPACK_IMPORTED_MODULE_5__.default : _ref3$templates;
+
+  if (!container) {
+    throw new Error(withUsage('The `container` option is required.'));
+  }
+
+  var containerNode = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_7__.default)(container);
+  var cssClasses = {
+    root: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit(), userCssClasses.root),
+    text: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'text'
+    }), userCssClasses.text)
+  };
+  var specializedRenderer = renderer({
+    containerNode: containerNode,
+    cssClasses: cssClasses,
+    renderState: {},
+    templates: templates
+  });
+  var makeWidget = (0,_connectors_stats_connectStats__WEBPACK_IMPORTED_MODULE_8__.default)(specializedRenderer, function () {
+    return (0,preact__WEBPACK_IMPORTED_MODULE_0__.render)(null, containerNode);
+  });
+  return _objectSpread({}, makeWidget(), {
+    $$widgetType: 'ais.stats'
   });
 }
 

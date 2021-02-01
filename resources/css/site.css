@@ -6,3 +6,7 @@
 }
 
 
+.ais-SearchBox-input{
+    @apply w-3/4;
+}
+

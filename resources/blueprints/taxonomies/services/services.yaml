@@ -37,3 +37,14 @@ sections:
           type: terms
           icon: taxonomy
           listable: hidden
+      -
+        handle: service_category
+        field:
+          max_items: 1
+          mode: select
+          collections:
+            - service_categories
+          display: 'Service Category'
+          type: entries
+          icon: entries
+          listable: hidden

@@ -2,7 +2,7 @@
 
 import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
-import { searchBox, hits, refinementList, stats, menu } from 'instantsearch.js/es/widgets';
+import { searchBox, hits, refinementList, stats, menu, geoSearch, configure, pagination} from 'instantsearch.js/es/widgets';
 
 const searchClient = algoliasearch('LYOAOTOT4D', '06f6868f86dd05c03ba16ec7f56db53d');
 
@@ -12,7 +12,20 @@ const search = instantsearch({
     routing: true,
 });
 
+
 search.addWidgets([
+
+
+
+    configure({
+        // aroundLatLng: '40.71, -74.01',
+        // aroundRadius: 1000, // 10000 km
+        hitsPerPage: 10,
+
+    }),
+
+
+
     searchBox({
         container: "#searchbox"
     }),
@@ -20,6 +33,11 @@ search.addWidgets([
 
     stats({
         container: '#stats',
+    }),
+
+
+    pagination({
+        container: '#pagination',
     }),
 
 
@@ -114,7 +132,65 @@ search.addWidgets([
     </div>
 
     `,
-        },    })
+        },
+    }),
+
+    geoSearch({
+        container: '#maps',
+        googleReference: window.google,
+        enableRefine: true,
+        enableRefineOnMapMove: true,
+
+        // initialZoom: 4,
+        // initialPosition: {
+        //     lat: 48.864716,
+        //     lng: 2.349014,
+        // },
+        // initialZoom: 4,
+        // initialPosition: {
+        //     lat: 48.864716,
+        //     lng: 2.349014,
+        // },
+        builtInMarker: {
+            createOptions(item) {
+                console.log(item);
+
+                return {
+                    title: item.title,
+                    label: item.title
+                };
+            },
+            events: {
+                click({ event, item, marker, map }) {
+                    console.log(item);
+                },
+            },
+        },
+      //   customHTMLMarker: {
+      //       createOptions(item) {
+      //           return {
+      //               anchor: {
+      //                   x: 0,
+      //                   y: 0,
+      //               },
+      //           };
+      //       },
+      //       events: {
+      //           click({ event, item, marker, map }) {
+      //               console.log(item);
+      //               console.log("foobar");
+      //           },
+      //       },
+      //   },
+      //   templates: {
+      //       HTMLMarker: `
+      //   <span class="marker">
+      //     {{ title }} - {{ services }}
+      //   </span>
+      // `,
+      //   },
+    })
 ]);
+
 
 search.start();

@@ -43,7 +43,7 @@ class AddProviderGeoloc
 
 
             if($zipcode){
-                $entry->set('_geoloc', [['lng' => (float)$zipcode->get('longitude') , 'lat' => (float)$zipcode->get('latitude')]]);
+                $entry->set('_geoloc', ['lng' => (float)$zipcode->get('longitude') , 'lat' => (float)$zipcode->get('latitude')]);
             }
         }
 

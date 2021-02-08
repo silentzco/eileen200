@@ -5529,10 +5529,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! algoliasearch/lite */ "./node_modules/algoliasearch/dist/algoliasearch-lite.umd.js");
 /* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var instantsearch_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! instantsearch.js */ "./node_modules/instantsearch.js/es/index.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/search-box/search-box.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/stats/stats.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/hits/hits.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/configure/configure.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/search-box/search-box.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/stats/stats.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/pagination/pagination.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/hits/hits.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/geo-search/geo-search.js");
 
 
 
@@ -5543,21 +5546,83 @@ var search = (0,instantsearch_js__WEBPACK_IMPORTED_MODULE_1__.default)({
   routing: true
 });
 search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__.default)({
-  container: "#searchbox"
+  // aroundLatLng: '40.71, -74.01',
+  // aroundRadius: 1000, // 10000 km
+  hitsPerPage: 10
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.default)({
-  container: '#stats'
+  container: "#searchbox"
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
+  container: '#stats'
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__.default)({
+  container: '#pagination'
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_6__.default)({
   container: "#category",
   attribute: 'category',
   operator: 'or'
-}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_6__.default)({
   container: "#services",
   attribute: 'services'
-}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__.default)({
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_7__.default)({
   container: '#hits',
   templates: {
     item: "\n      <div class=\"bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}}\">\n        <div class=\"w-full flex items-center justify-between p-6 space-x-6\">\n            <div class=\"flex-1 truncate\">\n                <div class=\"flex items-center space-x-3\">\n                    <h3 class=\"text-gray-900 text-sm font-medium truncate\">{{ title }}</h3>\n                    <span class=\"flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-gray-400 text-white rounded-full\">{{ services }}</span>\n                </div>\n\n                {{#org_name}}\n                <p class=\"mt-1 text-gray-500 text-sm truncate\">{{ first_name }} {{last_name}}</p>\n                {{/org_name}}\n                <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                    {{ address }}<br>\n                    {{ city }}, {{ state }} {{ zip }}\n                </p>\n            </div>\n            {{#image}}\n            <img class=\"h-20 rounded flex-shrink-0\" src=\"/assets/{{ image }}\" alt=\"\">\n            {{/image}}\n        </div>\n        <div>\n            <div class=\"-mt-px flex divide-x divide-gray-200\">\n                {{#email}}\n                <div class=\"w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500\">\n                        <!-- Heroicon name: mail -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                            <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                        </svg>\n                        <span class=\"ml-3\">Email</span>\n                    </a>\n                </div>\n                {{/email}}\n\n                {{#phone}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z\" />\n                        </svg>\n                        <span class=\"ml-3\">Call</span>\n                    </a>\n                </div>\n                {{/phone}}\n\n                {{#address}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\" />\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\" />\n                        </svg>\n                        <span class=\"ml-3\">Map</span>\n                    </a>\n                </div>\n                {{/address}}\n\n                {{#website}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"#\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\" />\n                        </svg>\n                        <span class=\"ml-3\">Website</span>\n                    </a>\n                </div>\n                {{/website}}\n            </div>\n        </div>\n    </div>\n\n    "
   }
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_8__.default)({
+  container: '#maps',
+  googleReference: window.google,
+  enableRefine: true,
+  enableRefineOnMapMove: true,
+  // initialZoom: 4,
+  // initialPosition: {
+  //     lat: 48.864716,
+  //     lng: 2.349014,
+  // },
+  // initialZoom: 4,
+  // initialPosition: {
+  //     lat: 48.864716,
+  //     lng: 2.349014,
+  // },
+  builtInMarker: {
+    createOptions: function createOptions(item) {
+      console.log(item);
+      return {
+        title: item.title,
+        label: item.title
+      };
+    },
+    events: {
+      click: function click(_ref) {
+        var event = _ref.event,
+            item = _ref.item,
+            marker = _ref.marker,
+            map = _ref.map;
+        console.log(item);
+      }
+    }
+  } //   customHTMLMarker: {
+  //       createOptions(item) {
+  //           return {
+  //               anchor: {
+  //                   x: 0,
+  //                   y: 0,
+  //               },
+  //           };
+  //       },
+  //       events: {
+  //           click({ event, item, marker, map }) {
+  //               console.log(item);
+  //               console.log("foobar");
+  //           },
+  //       },
+  //   },
+  //   templates: {
+  //       HTMLMarker: `
+  //   <span class="marker">
+  //     {{ title }} - {{ services }}
+  //   </span>
+  // `,
+  //   },
+
 })]);
 search.start();
 
@@ -6439,6 +6504,154 @@ var Hogan = {};
 
 /***/ }),
 
+/***/ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchButton.js":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchButton.js ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/** @jsx h */
+
+
+var GeoSearchButton = function GeoSearchButton(_ref) {
+  var className = _ref.className,
+      disabled = _ref.disabled,
+      onClick = _ref.onClick,
+      children = _ref.children;
+  return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("button", {
+    className: className,
+    onClick: onClick,
+    disabled: disabled
+  }, children);
+};
+
+GeoSearchButton.defaultProps = {
+  disabled: false
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GeoSearchButton);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchControls.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchControls.js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Template_Template__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Template/Template */ "./node_modules/instantsearch.js/es/components/Template/Template.js");
+/* harmony import */ var _GeoSearchButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GeoSearchButton */ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchButton.js");
+/* harmony import */ var _GeoSearchToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GeoSearchToggle */ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchToggle.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** @jsx h */
+
+
+
+
+
+
+var GeoSearchControls = function GeoSearchControls(_ref) {
+  var cssClasses = _ref.cssClasses,
+      enableRefine = _ref.enableRefine,
+      enableRefineControl = _ref.enableRefineControl,
+      enableClearMapRefinement = _ref.enableClearMapRefinement,
+      isRefineOnMapMove = _ref.isRefineOnMapMove,
+      isRefinedWithMap = _ref.isRefinedWithMap,
+      hasMapMoveSinceLastRefine = _ref.hasMapMoveSinceLastRefine,
+      onRefineToggle = _ref.onRefineToggle,
+      onRefineClick = _ref.onRefineClick,
+      onClearClick = _ref.onClearClick,
+      templateProps = _ref.templateProps;
+  return enableRefine && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", null, enableRefineControl && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
+    className: cssClasses.control
+  }, isRefineOnMapMove || !hasMapMoveSinceLastRefine ? (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_GeoSearchToggle__WEBPACK_IMPORTED_MODULE_2__.default, {
+    classNameLabel: classnames__WEBPACK_IMPORTED_MODULE_1___default()(cssClasses.label, _defineProperty({}, cssClasses.selectedLabel, isRefineOnMapMove)),
+    classNameInput: cssClasses.input,
+    checked: isRefineOnMapMove,
+    onToggle: onRefineToggle
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_3__.default, _extends({}, templateProps, {
+    templateKey: "toggle",
+    rootTagName: "span"
+  }))) : (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_GeoSearchButton__WEBPACK_IMPORTED_MODULE_4__.default, {
+    className: cssClasses.redo,
+    disabled: !hasMapMoveSinceLastRefine,
+    onClick: onRefineClick
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_3__.default, _extends({}, templateProps, {
+    templateKey: "redo",
+    rootTagName: "span"
+  })))), !enableRefineControl && !isRefineOnMapMove && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
+    className: cssClasses.control
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_GeoSearchButton__WEBPACK_IMPORTED_MODULE_4__.default, {
+    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(cssClasses.redo, _defineProperty({}, cssClasses.disabledRedo, !hasMapMoveSinceLastRefine)),
+    disabled: !hasMapMoveSinceLastRefine,
+    onClick: onRefineClick
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_3__.default, _extends({}, templateProps, {
+    templateKey: "redo",
+    rootTagName: "span"
+  })))), enableClearMapRefinement && isRefinedWithMap && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_GeoSearchButton__WEBPACK_IMPORTED_MODULE_4__.default, {
+    className: cssClasses.reset,
+    onClick: onClearClick
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_3__.default, _extends({}, templateProps, {
+    templateKey: "reset",
+    rootTagName: "span"
+  }))));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GeoSearchControls);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchToggle.js":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchToggle.js ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/** @jsx h */
+
+
+var GeoSearchToggle = function GeoSearchToggle(_ref) {
+  var classNameLabel = _ref.classNameLabel,
+      classNameInput = _ref.classNameInput,
+      checked = _ref.checked,
+      onToggle = _ref.onToggle,
+      children = _ref.children;
+  return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("label", {
+    className: classNameLabel
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("input", {
+    className: classNameInput,
+    type: "checkbox",
+    checked: checked,
+    onChange: onToggle
+  }), children);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GeoSearchToggle);
+
+/***/ }),
+
 /***/ "./node_modules/instantsearch.js/es/components/Hits/Hits.js":
 /*!******************************************************************!*\
   !*** ./node_modules/instantsearch.js/es/components/Hits/Hits.js ***!
@@ -6511,6 +6724,272 @@ Hits.defaultProps = {
   hits: []
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Hits);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/components/Pagination/Pagination.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/components/Pagination/Pagination.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _PaginationLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PaginationLink */ "./node_modules/instantsearch.js/es/components/Pagination/PaginationLink.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/isSpecialClick.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** @jsx h */
+
+
+
+
+
+var Pagination =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Pagination, _Component);
+
+  function Pagination() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Pagination);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Pagination)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "handleClick", function (pageNumber, event) {
+      if ((0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.default)(event)) {
+        // do not alter the default browser behavior
+        // if one special key is down
+        return;
+      }
+
+      event.preventDefault();
+
+      _this.props.setCurrentPage(pageNumber);
+    });
+
+    return _this;
+  }
+
+  _createClass(Pagination, [{
+    key: "pageLink",
+    value: function pageLink(_ref) {
+      var label = _ref.label,
+          ariaLabel = _ref.ariaLabel,
+          pageNumber = _ref.pageNumber,
+          _ref$additionalClassN = _ref.additionalClassName,
+          additionalClassName = _ref$additionalClassN === void 0 ? null : _ref$additionalClassN,
+          _ref$isDisabled = _ref.isDisabled,
+          isDisabled = _ref$isDisabled === void 0 ? false : _ref$isDisabled,
+          _ref$isSelected = _ref.isSelected,
+          isSelected = _ref$isSelected === void 0 ? false : _ref$isSelected,
+          createURL = _ref.createURL;
+      var cssClasses = {
+        item: classnames__WEBPACK_IMPORTED_MODULE_1___default()(this.props.cssClasses.item, additionalClassName),
+        link: this.props.cssClasses.link
+      };
+
+      if (isDisabled) {
+        cssClasses.item = classnames__WEBPACK_IMPORTED_MODULE_1___default()(cssClasses.item, this.props.cssClasses.disabledItem);
+      } else if (isSelected) {
+        cssClasses.item = classnames__WEBPACK_IMPORTED_MODULE_1___default()(cssClasses.item, this.props.cssClasses.selectedItem);
+      }
+
+      var url = createURL && !isDisabled ? createURL(pageNumber) : '#';
+      return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_PaginationLink__WEBPACK_IMPORTED_MODULE_3__.default, {
+        ariaLabel: ariaLabel,
+        cssClasses: cssClasses,
+        handleClick: this.handleClick,
+        isDisabled: isDisabled,
+        key: label + pageNumber + ariaLabel,
+        label: label,
+        pageNumber: pageNumber,
+        url: url
+      });
+    }
+  }, {
+    key: "previousPageLink",
+    value: function previousPageLink(_ref2) {
+      var isFirstPage = _ref2.isFirstPage,
+          currentPage = _ref2.currentPage,
+          createURL = _ref2.createURL;
+      return this.pageLink({
+        ariaLabel: 'Previous',
+        additionalClassName: this.props.cssClasses.previousPageItem,
+        isDisabled: isFirstPage,
+        label: this.props.templates.previous,
+        pageNumber: currentPage - 1,
+        createURL: createURL
+      });
+    }
+  }, {
+    key: "nextPageLink",
+    value: function nextPageLink(_ref3) {
+      var isLastPage = _ref3.isLastPage,
+          currentPage = _ref3.currentPage,
+          createURL = _ref3.createURL;
+      return this.pageLink({
+        ariaLabel: 'Next',
+        additionalClassName: this.props.cssClasses.nextPageItem,
+        isDisabled: isLastPage,
+        label: this.props.templates.next,
+        pageNumber: currentPage + 1,
+        createURL: createURL
+      });
+    }
+  }, {
+    key: "firstPageLink",
+    value: function firstPageLink(_ref4) {
+      var isFirstPage = _ref4.isFirstPage,
+          createURL = _ref4.createURL;
+      return this.pageLink({
+        ariaLabel: 'First',
+        additionalClassName: this.props.cssClasses.firstPageItem,
+        isDisabled: isFirstPage,
+        label: this.props.templates.first,
+        pageNumber: 0,
+        createURL: createURL
+      });
+    }
+  }, {
+    key: "lastPageLink",
+    value: function lastPageLink(_ref5) {
+      var isLastPage = _ref5.isLastPage,
+          nbPages = _ref5.nbPages,
+          createURL = _ref5.createURL;
+      return this.pageLink({
+        ariaLabel: 'Last',
+        additionalClassName: this.props.cssClasses.lastPageItem,
+        isDisabled: isLastPage,
+        label: this.props.templates.last,
+        pageNumber: nbPages - 1,
+        createURL: createURL
+      });
+    }
+  }, {
+    key: "pages",
+    value: function pages(_ref6) {
+      var _this2 = this;
+
+      var currentPage = _ref6.currentPage,
+          _pages = _ref6.pages,
+          createURL = _ref6.createURL;
+      return _pages.map(function (pageNumber) {
+        return _this2.pageLink({
+          ariaLabel: pageNumber + 1,
+          additionalClassName: _this2.props.cssClasses.pageItem,
+          isSelected: pageNumber === currentPage,
+          label: pageNumber + 1,
+          pageNumber: pageNumber,
+          createURL: createURL
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(this.props.cssClasses.root, _defineProperty({}, this.props.cssClasses.noRefinementRoot, this.props.nbPages <= 1))
+      }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("ul", {
+        className: this.props.cssClasses.list
+      }, this.props.showFirst && this.firstPageLink(this.props), this.props.showPrevious && this.previousPageLink(this.props), this.pages(this.props), this.props.showNext && this.nextPageLink(this.props), this.props.showLast && this.lastPageLink(this.props)));
+    }
+  }]);
+
+  return Pagination;
+}(preact__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+Pagination.defaultProps = {
+  nbHits: 0,
+  currentPage: 0,
+  nbPages: 0
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pagination);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/components/Pagination/PaginationLink.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/components/Pagination/PaginationLink.js ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/** @jsx h */
+
+
+function PaginationLink(_ref) {
+  var cssClasses = _ref.cssClasses,
+      label = _ref.label,
+      ariaLabel = _ref.ariaLabel,
+      url = _ref.url,
+      isDisabled = _ref.isDisabled,
+      handleClick = _ref.handleClick,
+      pageNumber = _ref.pageNumber;
+
+  if (isDisabled) {
+    return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("li", {
+      className: cssClasses.item
+    }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("span", {
+      className: cssClasses.link,
+      dangerouslySetInnerHTML: {
+        __html: label
+      }
+    }));
+  }
+
+  return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("li", {
+    className: cssClasses.item
+  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("a", {
+    className: cssClasses.link,
+    "aria-label": ariaLabel,
+    href: url,
+    onClick: function onClick(event) {
+      return handleClick(pageNumber, event);
+    },
+    dangerouslySetInnerHTML: {
+      __html: label
+    }
+  }));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PaginationLink);
 
 /***/ }),
 
@@ -7255,6 +7734,444 @@ Template.defaultProps = {
 
 /***/ }),
 
+/***/ "./node_modules/instantsearch.js/es/connectors/configure/connectConfigure.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/connectors/configure/connectConfigure.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var algoliasearch_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! algoliasearch-helper */ "./node_modules/algoliasearch-helper/index.js");
+/* harmony import */ var algoliasearch_helper__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(algoliasearch_helper__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/noop.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/isPlainObject.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/mergeSearchParameters.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/**
+ * Refine the given search parameters.
+ */
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_1__.createDocumentationMessageGenerator)({
+  name: 'configure',
+  connector: true
+});
+
+function getInitialSearchParameters(state, widgetParams) {
+  // We leverage the helper internals to remove the `widgetParams` from
+  // the state. The function `setQueryParameters` omits the values that
+  // are `undefined` on the next state.
+  return state.setQueryParameters(Object.keys(widgetParams.searchParameters).reduce(function (acc, key) {
+    return _objectSpread({}, acc, _defineProperty({}, key, undefined));
+  }, {}));
+}
+
+var connectConfigure = function connectConfigure() {
+  var renderFn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _lib_utils__WEBPACK_IMPORTED_MODULE_2__.default;
+  var unmountFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _lib_utils__WEBPACK_IMPORTED_MODULE_2__.default;
+  return function (widgetParams) {
+    if (!widgetParams || !(0,_lib_utils__WEBPACK_IMPORTED_MODULE_3__.default)(widgetParams.searchParameters)) {
+      throw new Error(withUsage('The `searchParameters` option expects an object.'));
+    }
+
+    var connectorState = {};
+
+    function refine(helper) {
+      return function (searchParameters) {
+        // Merge new `searchParameters` with the ones set from other widgets
+        var actualState = getInitialSearchParameters(helper.state, widgetParams);
+        var nextSearchParameters = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.default)(actualState, new (algoliasearch_helper__WEBPACK_IMPORTED_MODULE_0___default().SearchParameters)(searchParameters)); // Update original `widgetParams.searchParameters` to the new refined one
+
+        widgetParams.searchParameters = searchParameters; // Trigger a search with the resolved search parameters
+
+        helper.setState(nextSearchParameters).search();
+      };
+    }
+
+    return {
+      $$type: 'ais.configure',
+      init: function init(initOptions) {
+        var instantSearchInstance = initOptions.instantSearchInstance;
+        renderFn(_objectSpread({}, this.getWidgetRenderState(initOptions), {
+          instantSearchInstance: instantSearchInstance
+        }), true);
+      },
+      render: function render(renderOptions) {
+        var instantSearchInstance = renderOptions.instantSearchInstance;
+        renderFn(_objectSpread({}, this.getWidgetRenderState(renderOptions), {
+          instantSearchInstance: instantSearchInstance
+        }), false);
+      },
+      dispose: function dispose(_ref) {
+        var state = _ref.state;
+        unmountFn();
+        return getInitialSearchParameters(state, widgetParams);
+      },
+      getRenderState: function getRenderState(renderState, renderOptions) {
+        var _renderState$configur;
+
+        var widgetRenderState = this.getWidgetRenderState(renderOptions);
+        return _objectSpread({}, renderState, {
+          configure: _objectSpread({}, widgetRenderState, {
+            widgetParams: _objectSpread({}, widgetRenderState.widgetParams, {
+              searchParameters: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.default)(new (algoliasearch_helper__WEBPACK_IMPORTED_MODULE_0___default().SearchParameters)((_renderState$configur = renderState.configure) === null || _renderState$configur === void 0 ? void 0 : _renderState$configur.widgetParams.searchParameters), new (algoliasearch_helper__WEBPACK_IMPORTED_MODULE_0___default().SearchParameters)(widgetRenderState.widgetParams.searchParameters)).getQueryParams()
+            })
+          })
+        });
+      },
+      getWidgetRenderState: function getWidgetRenderState(_ref2) {
+        var helper = _ref2.helper;
+
+        if (!connectorState.refine) {
+          connectorState.refine = refine(helper);
+        }
+
+        return {
+          refine: connectorState.refine,
+          widgetParams: widgetParams
+        };
+      },
+      getWidgetSearchParameters: function getWidgetSearchParameters(state, _ref3) {
+        var uiState = _ref3.uiState;
+        return (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.default)(state, new (algoliasearch_helper__WEBPACK_IMPORTED_MODULE_0___default().SearchParameters)(_objectSpread({}, uiState.configure, {}, widgetParams.searchParameters)));
+      },
+      getWidgetUiState: function getWidgetUiState(uiState) {
+        return _objectSpread({}, uiState, {
+          configure: _objectSpread({}, uiState.configure, {}, widgetParams.searchParameters)
+        });
+      }
+    };
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (connectConfigure);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/connectors/geo-search/connectGeoSearch.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/connectors/geo-search/connectGeoSearch.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/noop.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/checkRendering.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/geo-search.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/createSendEventForHits.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_0__.createDocumentationMessageGenerator)({
+  name: 'geo-search',
+  connector: true
+});
+var $$type = 'ais.geoSearch';
+/**
+ * @typedef {Object} LatLng
+ * @property {number} lat The latitude in degrees.
+ * @property {number} lng The longitude in degrees.
+ */
+
+/**
+ * @typedef {Object} Bounds
+ * @property {LatLng} northEast The top right corner of the map view.
+ * @property {LatLng} southWest The bottom left corner of the map view.
+ */
+
+/**
+ * @typedef {Object} CustomGeoSearchWidgetParams
+ * @property {boolean} [enableRefineOnMapMove=true] If true, refine will be triggered as you move the map.
+ * @property {function(object[]):object[]} [transformItems] Function to transform the items passed to the templates.
+ */
+
+/**
+ * @typedef {Object} GeoSearchRenderingOptions
+ * @property {Object[]} items The matched hits from Algolia API.
+ * @property {LatLng} position The current position of the search.
+ * @property {Bounds} currentRefinement The current bounding box of the search.
+ * @property {function(Bounds)} refine Sets a bounding box to filter the results from the given map bounds.
+ * @property {function()} clearMapRefinement Reset the current bounding box refinement.
+ * @property {function(): boolean} isRefinedWithMap Return true if the current refinement is set with the map bounds.
+ * @property {function()} toggleRefineOnMapMove Toggle the fact that the user is able to refine on map move.
+ * @property {function(): boolean} isRefineOnMapMove Return true if the user is able to refine on map move.
+ * @property {function()} setMapMoveSinceLastRefine Set the fact that the map has moved since the last refinement, should be call on each map move. The call to the function triggers a new rendering only when the value change.
+ * @property {function(): boolean} hasMapMoveSinceLastRefine Return true if the map has move since the last refinement.
+ * @property {Object} widgetParams All original `CustomGeoSearchWidgetParams` forwarded to the `renderFn`.
+ * @property {LatLng} [position] The current position of the search.
+ */
+
+/**
+ * The **GeoSearch** connector provides the logic to build a widget that will display the results on a map. It also provides a way to search for results based on their position. The connector provides functions to manage the search experience (search on map interaction or control the interaction for example).
+ *
+ * @requirements
+ *
+ * Note that the GeoSearch connector uses the [geosearch](https://www.algolia.com/doc/guides/searching/geo-search) capabilities of Algolia. Your hits **must** have a `_geoloc` attribute in order to be passed to the rendering function.
+ *
+ * Currently, the feature is not compatible with multiple values in the _geoloc attribute.
+ *
+ * @param {function(GeoSearchRenderingOptions, boolean)} renderFn Rendering function for the custom **GeoSearch** widget.
+ * @param {function} unmountFn Unmount function called when the widget is disposed.
+ * @return {function(CustomGeoSearchWidgetParams)} Re-usable widget factory for a custom **GeoSearch** widget.
+ * @staticExample
+ * // This example use Leaflet for the rendering, be sure to have the library correctly setup
+ * // before trying the demo. You can find more details in their documentation (link below).
+ * // We choose Leaflet for the example but you can use any libraries that you want.
+ * // See: http://leafletjs.com/examples/quick-start
+ *
+ * let map = null;
+ * let markers = [];
+ *
+ * // custom `renderFn` to render the custom GeoSearch widget
+ * function renderFn(GeoSearchRenderingOptions, isFirstRendering) {
+ *   const { items, widgetParams } = GeoSearchRenderingOptions;
+ *
+ *   if (isFirstRendering) {
+ *     map = L.map(widgetParams.container);
+ *
+ *     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+ *       attribution:
+ *         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+ *     }).addTo(map);
+ *   }
+ *
+ *   markers.forEach(marker => marker.remove());
+ *
+ *   markers = items.map(({ _geoloc }) =>
+ *     L.marker([_geoloc.lat, _geoloc.lng]).addTo(map)
+ *   );
+ *
+ *   if (markers.length) {
+ *     map.fitBounds(L.featureGroup(markers).getBounds());
+ *   }
+ * }
+ *
+ * // connect `renderFn` to GeoSearch logic
+ * const customGeoSearch = instantsearch.connectors.connectGeoSearch(renderFn);
+ *
+ * // mount widget on the page
+ * search.addWidgets([
+ *   customGeoSearch({
+ *     container: document.getElementById('custom-geo-search'),
+ *   })
+ * ]);
+ */
+
+var connectGeoSearch = function connectGeoSearch(renderFn) {
+  var unmountFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _lib_utils__WEBPACK_IMPORTED_MODULE_1__.default;
+  (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.default)(renderFn, withUsage());
+  return function () {
+    var widgetParams = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var _widgetParams$enableR = widgetParams.enableRefineOnMapMove,
+        enableRefineOnMapMove = _widgetParams$enableR === void 0 ? true : _widgetParams$enableR,
+        _widgetParams$transfo = widgetParams.transformItems,
+        transformItems = _widgetParams$transfo === void 0 ? function (items) {
+      return items;
+    } : _widgetParams$transfo;
+    var widgetState = {
+      isRefineOnMapMove: enableRefineOnMapMove,
+      // @MAJOR hasMapMoveSinceLastRefine -> hasMapMovedSinceLastRefine
+      hasMapMoveSinceLastRefine: false,
+      lastRefinePosition: '',
+      lastRefineBoundingBox: '',
+      internalToggleRefineOnMapMove: _lib_utils__WEBPACK_IMPORTED_MODULE_1__.default,
+      internalSetMapMoveSinceLastRefine: _lib_utils__WEBPACK_IMPORTED_MODULE_1__.default
+    };
+
+    var getPositionFromState = function getPositionFromState(state) {
+      return state.aroundLatLng && (0,_lib_utils__WEBPACK_IMPORTED_MODULE_3__.aroundLatLngToPosition)(state.aroundLatLng);
+    };
+
+    var getCurrentRefinementFromState = function getCurrentRefinementFromState(state) {
+      return state.insideBoundingBox && (0,_lib_utils__WEBPACK_IMPORTED_MODULE_3__.insideBoundingBoxToBoundingBox)(state.insideBoundingBox);
+    };
+
+    var refine = function refine(helper) {
+      return function (_ref) {
+        var ne = _ref.northEast,
+            sw = _ref.southWest;
+        var boundingBox = [ne.lat, ne.lng, sw.lat, sw.lng].join();
+        helper.setQueryParameter('insideBoundingBox', boundingBox).search();
+        widgetState.hasMapMoveSinceLastRefine = false;
+        widgetState.lastRefineBoundingBox = boundingBox;
+      };
+    };
+
+    var clearMapRefinement = function clearMapRefinement(helper) {
+      return function () {
+        helper.setQueryParameter('insideBoundingBox', undefined).search();
+      };
+    };
+
+    var isRefinedWithMap = function isRefinedWithMap(state) {
+      return function () {
+        return Boolean(state.insideBoundingBox);
+      };
+    };
+
+    var toggleRefineOnMapMove = function toggleRefineOnMapMove() {
+      return widgetState.internalToggleRefineOnMapMove();
+    };
+
+    var createInternalToggleRefinementOnMapMove = function createInternalToggleRefinementOnMapMove(render, args) {
+      return function () {
+        widgetState.isRefineOnMapMove = !widgetState.isRefineOnMapMove;
+        render(args);
+      };
+    };
+
+    var isRefineOnMapMove = function isRefineOnMapMove() {
+      return widgetState.isRefineOnMapMove;
+    };
+
+    var setMapMoveSinceLastRefine = function setMapMoveSinceLastRefine() {
+      return widgetState.internalSetMapMoveSinceLastRefine();
+    };
+
+    var createInternalSetMapMoveSinceLastRefine = function createInternalSetMapMoveSinceLastRefine(render, args) {
+      return function () {
+        var shouldTriggerRender = widgetState.hasMapMoveSinceLastRefine !== true;
+        widgetState.hasMapMoveSinceLastRefine = true;
+
+        if (shouldTriggerRender) {
+          render(args);
+        }
+      };
+    };
+
+    var hasMapMoveSinceLastRefine = function hasMapMoveSinceLastRefine() {
+      return widgetState.hasMapMoveSinceLastRefine;
+    };
+
+    var sendEvent;
+    return {
+      $$type: $$type,
+      init: function init(initArgs) {
+        var instantSearchInstance = initArgs.instantSearchInstance;
+        var isFirstRendering = true;
+        widgetState.internalToggleRefineOnMapMove = createInternalToggleRefinementOnMapMove(_lib_utils__WEBPACK_IMPORTED_MODULE_1__.default, initArgs);
+        widgetState.internalSetMapMoveSinceLastRefine = createInternalSetMapMoveSinceLastRefine(_lib_utils__WEBPACK_IMPORTED_MODULE_1__.default, initArgs);
+        renderFn(_objectSpread({}, this.getWidgetRenderState(initArgs), {
+          instantSearchInstance: instantSearchInstance
+        }), isFirstRendering);
+      },
+      render: function render(renderArgs) {
+        var helper = renderArgs.helper,
+            instantSearchInstance = renderArgs.instantSearchInstance;
+        var isFirstRendering = false; // We don't use the state provided by the render function because we need
+        // to be sure that the state is the latest one for the following condition
+
+        var state = helper.state;
+        var positionChangedSinceLastRefine = Boolean(state.aroundLatLng) && Boolean(widgetState.lastRefinePosition) && state.aroundLatLng !== widgetState.lastRefinePosition;
+        var boundingBoxChangedSinceLastRefine = !state.insideBoundingBox && Boolean(widgetState.lastRefineBoundingBox) && state.insideBoundingBox !== widgetState.lastRefineBoundingBox;
+
+        if (positionChangedSinceLastRefine || boundingBoxChangedSinceLastRefine) {
+          widgetState.hasMapMoveSinceLastRefine = false;
+        }
+
+        widgetState.lastRefinePosition = state.aroundLatLng || '';
+        widgetState.lastRefineBoundingBox = state.insideBoundingBox || '';
+        widgetState.internalToggleRefineOnMapMove = createInternalToggleRefinementOnMapMove(this.render.bind(this), renderArgs);
+        widgetState.internalSetMapMoveSinceLastRefine = createInternalSetMapMoveSinceLastRefine(this.render.bind(this), renderArgs);
+        var widgetRenderState = this.getWidgetRenderState(renderArgs);
+        sendEvent('view', widgetRenderState.items);
+        renderFn(_objectSpread({}, widgetRenderState, {
+          instantSearchInstance: instantSearchInstance
+        }), isFirstRendering);
+      },
+      getWidgetRenderState: function getWidgetRenderState(renderOptions) {
+        var helper = renderOptions.helper,
+            results = renderOptions.results,
+            instantSearchInstance = renderOptions.instantSearchInstance;
+        var state = helper.state;
+        var items = results ? transformItems(results.hits.filter(function (hit) {
+          return hit._geoloc;
+        })) : [];
+
+        if (!sendEvent) {
+          sendEvent = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.createSendEventForHits)({
+            instantSearchInstance: instantSearchInstance,
+            index: helper.getIndex(),
+            widgetType: $$type
+          });
+        }
+
+        return {
+          items: items,
+          position: getPositionFromState(state),
+          currentRefinement: getCurrentRefinementFromState(state),
+          refine: refine(helper),
+          sendEvent: sendEvent,
+          clearMapRefinement: clearMapRefinement(helper),
+          isRefinedWithMap: isRefinedWithMap(state),
+          toggleRefineOnMapMove: toggleRefineOnMapMove,
+          isRefineOnMapMove: isRefineOnMapMove,
+          setMapMoveSinceLastRefine: setMapMoveSinceLastRefine,
+          hasMapMoveSinceLastRefine: hasMapMoveSinceLastRefine,
+          widgetParams: widgetParams
+        };
+      },
+      getRenderState: function getRenderState(renderState, renderOptions) {
+        return _objectSpread({}, renderState, {
+          geoSearch: this.getWidgetRenderState(renderOptions)
+        });
+      },
+      dispose: function dispose(_ref2) {
+        var state = _ref2.state;
+        unmountFn();
+        return state.setQueryParameter('insideBoundingBox', undefined);
+      },
+      getWidgetUiState: function getWidgetUiState(uiState, _ref3) {
+        var searchParameters = _ref3.searchParameters;
+        var boundingBox = searchParameters.insideBoundingBox;
+
+        if (!boundingBox || uiState && uiState.geoSearch && uiState.geoSearch.boundingBox === boundingBox) {
+          return uiState;
+        }
+
+        return _objectSpread({}, uiState, {
+          geoSearch: {
+            boundingBox: boundingBox
+          }
+        });
+      },
+      getWidgetSearchParameters: function getWidgetSearchParameters(searchParameters, _ref4) {
+        var uiState = _ref4.uiState;
+
+        if (!uiState || !uiState.geoSearch) {
+          return searchParameters.setQueryParameter('insideBoundingBox', undefined);
+        }
+
+        return searchParameters.setQueryParameter('insideBoundingBox', uiState.geoSearch.boundingBox);
+      }
+    };
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (connectGeoSearch);
+
+/***/ }),
+
 /***/ "./node_modules/instantsearch.js/es/connectors/hits/connectHits.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/instantsearch.js/es/connectors/hits/connectHits.js ***!
@@ -7392,6 +8309,250 @@ var connectHits = function connectHits(renderFn) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (connectHits);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/connectors/pagination/Paginator.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/connectors/pagination/Paginator.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/range.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var Paginator =
+/*#__PURE__*/
+function () {
+  function Paginator(params) {
+    _classCallCheck(this, Paginator);
+
+    _defineProperty(this, "currentPage", void 0);
+
+    _defineProperty(this, "total", void 0);
+
+    _defineProperty(this, "padding", void 0);
+
+    this.currentPage = params.currentPage;
+    this.total = params.total;
+    this.padding = params.padding;
+  }
+
+  _createClass(Paginator, [{
+    key: "pages",
+    value: function pages() {
+      var total = this.total,
+          currentPage = this.currentPage,
+          padding = this.padding;
+      if (total === 0) return [0];
+      var totalDisplayedPages = this.nbPagesDisplayed(padding, total);
+
+      if (totalDisplayedPages === total) {
+        return (0,_lib_utils__WEBPACK_IMPORTED_MODULE_0__.default)({
+          end: total
+        });
+      }
+
+      var paddingLeft = this.calculatePaddingLeft(currentPage, padding, total, totalDisplayedPages);
+      var paddingRight = totalDisplayedPages - paddingLeft;
+      var first = currentPage - paddingLeft;
+      var last = currentPage + paddingRight;
+      return (0,_lib_utils__WEBPACK_IMPORTED_MODULE_0__.default)({
+        start: first,
+        end: last
+      });
+    }
+  }, {
+    key: "nbPagesDisplayed",
+    value: function nbPagesDisplayed(padding, total) {
+      return Math.min(2 * padding + 1, total);
+    }
+  }, {
+    key: "calculatePaddingLeft",
+    value: function calculatePaddingLeft(current, padding, total, totalDisplayedPages) {
+      if (current <= padding) {
+        return current;
+      }
+
+      if (current >= total - padding) {
+        return totalDisplayedPages - (total - current);
+      }
+
+      return padding;
+    }
+  }, {
+    key: "isLastPage",
+    value: function isLastPage() {
+      return this.currentPage === this.total - 1 || this.total === 0;
+    }
+  }, {
+    key: "isFirstPage",
+    value: function isFirstPage() {
+      return this.currentPage === 0;
+    }
+  }]);
+
+  return Paginator;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Paginator);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/connectors/pagination/connectPagination.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/connectors/pagination/connectPagination.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/noop.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/checkRendering.js");
+/* harmony import */ var _Paginator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Paginator */ "./node_modules/instantsearch.js/es/connectors/pagination/Paginator.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_0__.createDocumentationMessageGenerator)({
+  name: 'pagination',
+  connector: true
+});
+
+/**
+ * **Pagination** connector provides the logic to build a widget that will let the user
+ * choose the current page of the results.
+ *
+ * When using the pagination with Algolia, you should be aware that the engine won't provide you pages
+ * beyond the 1000th hits by default. You can find more information on the [Algolia documentation](https://www.algolia.com/doc/guides/searching/pagination/#pagination-limitations).
+ */
+var connectPagination = function connectPagination(renderFn) {
+  var unmountFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _lib_utils__WEBPACK_IMPORTED_MODULE_1__.default;
+  (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.default)(renderFn, withUsage());
+  return function (widgetParams) {
+    var _ref = widgetParams || {},
+        totalPages = _ref.totalPages,
+        _ref$padding = _ref.padding,
+        padding = _ref$padding === void 0 ? 3 : _ref$padding;
+
+    var pager = new _Paginator__WEBPACK_IMPORTED_MODULE_3__.default({
+      currentPage: 0,
+      total: 0,
+      padding: padding
+    });
+    var connectorState = {};
+
+    function getMaxPage(_ref2) {
+      var nbPages = _ref2.nbPages;
+      return totalPages !== undefined ? Math.min(totalPages, nbPages) : nbPages;
+    }
+
+    return {
+      $$type: 'ais.pagination',
+      init: function init(initOptions) {
+        var instantSearchInstance = initOptions.instantSearchInstance;
+        renderFn(_objectSpread({}, this.getWidgetRenderState(initOptions), {
+          instantSearchInstance: instantSearchInstance
+        }), true);
+      },
+      render: function render(renderOptions) {
+        var instantSearchInstance = renderOptions.instantSearchInstance;
+        renderFn(_objectSpread({}, this.getWidgetRenderState(renderOptions), {
+          instantSearchInstance: instantSearchInstance
+        }), false);
+      },
+      dispose: function dispose(_ref3) {
+        var state = _ref3.state;
+        unmountFn();
+        return state.setQueryParameter('page', undefined);
+      },
+      getWidgetUiState: function getWidgetUiState(uiState, _ref4) {
+        var searchParameters = _ref4.searchParameters;
+        var page = searchParameters.page || 0;
+
+        if (!page) {
+          return uiState;
+        }
+
+        return _objectSpread({}, uiState, {
+          page: page + 1
+        });
+      },
+      getWidgetSearchParameters: function getWidgetSearchParameters(searchParameters, _ref5) {
+        var uiState = _ref5.uiState;
+        var page = uiState.page ? uiState.page - 1 : 0;
+        return searchParameters.setQueryParameter('page', page);
+      },
+      getWidgetRenderState: function getWidgetRenderState(_ref6) {
+        var results = _ref6.results,
+            helper = _ref6.helper,
+            createURL = _ref6.createURL;
+
+        if (!connectorState.refine) {
+          connectorState.refine = function (page) {
+            helper.setPage(page);
+            helper.search();
+          };
+        }
+
+        if (!connectorState.createURL) {
+          connectorState.createURL = function (state) {
+            return function (page) {
+              return createURL(state.setPage(page));
+            };
+          };
+        }
+
+        var state = helper.state;
+        var page = state.page || 0;
+        var nbPages = getMaxPage(results || {
+          nbPages: 0
+        });
+        pager.currentPage = page;
+        pager.total = nbPages;
+        return {
+          createURL: connectorState.createURL(state),
+          refine: connectorState.refine,
+          currentRefinement: page,
+          nbHits: (results === null || results === void 0 ? void 0 : results.nbHits) || 0,
+          nbPages: nbPages,
+          pages: results ? pager.pages() : [],
+          isFirstPage: pager.isFirstPage(),
+          isLastPage: pager.isLastPage(),
+          widgetParams: widgetParams
+        };
+      },
+      getRenderState: function getRenderState(renderState, renderOptions) {
+        return _objectSpread({}, renderState, {
+          pagination: this.getWidgetRenderState(renderOptions)
+        });
+      }
+    };
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (connectPagination);
 
 /***/ }),
 
@@ -10403,6 +11564,106 @@ function findIndex(array, comparator) {
 
 /***/ }),
 
+/***/ "./node_modules/instantsearch.js/es/lib/utils/geo-search.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/lib/utils/geo-search.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "aroundLatLngToPosition": () => /* binding */ aroundLatLngToPosition,
+/* harmony export */   "insideBoundingBoxArrayToBoundingBox": () => /* binding */ insideBoundingBoxArrayToBoundingBox,
+/* harmony export */   "insideBoundingBoxStringToBoundingBox": () => /* binding */ insideBoundingBoxStringToBoundingBox,
+/* harmony export */   "insideBoundingBoxToBoundingBox": () => /* binding */ insideBoundingBoxToBoundingBox
+/* harmony export */ });
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var latLngRegExp = /^(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)$/;
+function aroundLatLngToPosition(value) {
+  var pattern = value.match(latLngRegExp); // Since the value provided is the one send with the request, the API should
+  // throw an error due to the wrong format. So throw an error should be safe.
+
+  if (!pattern) {
+    throw new Error("Invalid value for \"aroundLatLng\" parameter: \"".concat(value, "\""));
+  }
+
+  return {
+    lat: parseFloat(pattern[1]),
+    lng: parseFloat(pattern[2])
+  };
+}
+function insideBoundingBoxArrayToBoundingBox(value) {
+  var _value = _slicedToArray(value, 1),
+      _value$ = _value[0];
+
+  _value$ = _value$ === void 0 ? [undefined, undefined, undefined, undefined] : _value$;
+
+  var _value$2 = _slicedToArray(_value$, 4),
+      neLat = _value$2[0],
+      neLng = _value$2[1],
+      swLat = _value$2[2],
+      swLng = _value$2[3]; // Since the value provided is the one send with the request, the API should
+  // throw an error due to the wrong format. So throw an error should be safe.
+
+
+  if (!neLat || !neLng || !swLat || !swLng) {
+    throw new Error("Invalid value for \"insideBoundingBox\" parameter: [".concat(value, "]"));
+  }
+
+  return {
+    northEast: {
+      lat: neLat,
+      lng: neLng
+    },
+    southWest: {
+      lat: swLat,
+      lng: swLng
+    }
+  };
+}
+function insideBoundingBoxStringToBoundingBox(value) {
+  var _value$split$map = value.split(',').map(parseFloat),
+      _value$split$map2 = _slicedToArray(_value$split$map, 4),
+      neLat = _value$split$map2[0],
+      neLng = _value$split$map2[1],
+      swLat = _value$split$map2[2],
+      swLng = _value$split$map2[3]; // Since the value provided is the one send with the request, the API should
+  // throw an error due to the wrong format. So throw an error should be safe.
+
+
+  if (!neLat || !neLng || !swLat || !swLng) {
+    throw new Error("Invalid value for \"insideBoundingBox\" parameter: \"".concat(value, "\""));
+  }
+
+  return {
+    northEast: {
+      lat: neLat,
+      lng: neLng
+    },
+    southWest: {
+      lat: swLat,
+      lng: swLng
+    }
+  };
+}
+function insideBoundingBoxToBoundingBox(value) {
+  if (Array.isArray(value)) {
+    return insideBoundingBoxArrayToBoundingBox(value);
+  }
+
+  return insideBoundingBoxStringToBoundingBox(value);
+}
+
+/***/ }),
+
 /***/ "./node_modules/instantsearch.js/es/lib/utils/getContainerNode.js":
 /*!************************************************************************!*\
   !*** ./node_modules/instantsearch.js/es/lib/utils/getContainerNode.js ***!
@@ -11084,6 +12345,48 @@ function prepareTemplateProps(_ref) {
 
 /***/ }),
 
+/***/ "./node_modules/instantsearch.js/es/lib/utils/range.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/lib/utils/range.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function range(_ref) {
+  var _ref$start = _ref.start,
+      start = _ref$start === void 0 ? 0 : _ref$start,
+      end = _ref.end,
+      _ref$step = _ref.step,
+      step = _ref$step === void 0 ? 1 : _ref$step;
+  // We can't divide by 0 so we re-assign the step to 1 if it happens.
+  var limitStep = step === 0 ? 1 : step; // In some cases the array to create has a decimal length.
+  // We therefore need to round the value.
+  // Example:
+  //   { start: 1, end: 5000, step: 500 }
+  //   => Array length = (5000 - 1) / 500 = 9.998
+
+  var arrayLength = Math.round((end - start) / limitStep);
+  return _toConsumableArray(Array(arrayLength)).map(function (_, current) {
+    return start + current * limitStep;
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (range);
+
+/***/ }),
+
 /***/ "./node_modules/instantsearch.js/es/lib/utils/renderTemplate.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/instantsearch.js/es/lib/utils/renderTemplate.js ***!
@@ -11483,6 +12786,735 @@ var createRouterMiddleware = function createRouterMiddleware() {
     };
   };
 };
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/configure/configure.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/configure/configure.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _connectors_configure_connectConfigure__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../connectors/configure/connectConfigure */ "./node_modules/instantsearch.js/es/connectors/configure/connectConfigure.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/noop.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/**
+ * A list of [search parameters](https://www.algolia.com/doc/api-reference/search-api-parameters/)
+ * to enable when the widget mounts.
+ */
+
+var configure = function configure(widgetParams) {
+  // This is a renderless widget that falls back to the connector's
+  // noop render and unmount functions.
+  var makeWidget = (0,_connectors_configure_connectConfigure__WEBPACK_IMPORTED_MODULE_0__.default)(_lib_utils__WEBPACK_IMPORTED_MODULE_1__.default);
+  return _objectSpread({}, makeWidget({
+    searchParameters: widgetParams
+  }), {
+    $$widgetType: 'ais.configure'
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configure);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/geo-search/GeoSearchRenderer.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/geo-search/GeoSearchRenderer.js ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/prepareTemplateProps.js");
+/* harmony import */ var _components_GeoSearchControls_GeoSearchControls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/GeoSearchControls/GeoSearchControls */ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchControls.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/** @jsx h */
+
+
+
+
+var refineWithMap = function refineWithMap(_ref) {
+  var refine = _ref.refine,
+      mapInstance = _ref.mapInstance;
+  return refine({
+    northEast: mapInstance.getBounds().getNorthEast().toJSON(),
+    southWest: mapInstance.getBounds().getSouthWest().toJSON()
+  });
+};
+
+var collectMarkersForNextRender = function collectMarkersForNextRender(markers, nextIds) {
+  return markers.reduce(function (_ref2, marker) {
+    var _ref3 = _slicedToArray(_ref2, 2),
+        update = _ref3[0],
+        exit = _ref3[1];
+
+    var persist = nextIds.includes(marker.__id);
+    return persist ? [update.concat(marker), exit] : [update, exit.concat(marker)];
+  }, [[], []]);
+};
+
+var createBoundingBoxFromMarkers = function createBoundingBoxFromMarkers(google, markers) {
+  var latLngBounds = markers.reduce(function (acc, marker) {
+    return acc.extend(marker.getPosition());
+  }, new google.maps.LatLngBounds());
+  return {
+    northEast: latLngBounds.getNorthEast().toJSON(),
+    southWest: latLngBounds.getSouthWest().toJSON()
+  };
+};
+
+var lockUserInteraction = function lockUserInteraction(renderState, functionThatAltersTheMapPosition) {
+  renderState.isUserInteraction = false;
+  functionThatAltersTheMapPosition();
+  renderState.isUserInteraction = true;
+};
+
+var renderer = function renderer(_ref4, isFirstRendering) {
+  var items = _ref4.items,
+      position = _ref4.position,
+      currentRefinement = _ref4.currentRefinement,
+      refine = _ref4.refine,
+      clearMapRefinement = _ref4.clearMapRefinement,
+      toggleRefineOnMapMove = _ref4.toggleRefineOnMapMove,
+      isRefineOnMapMove = _ref4.isRefineOnMapMove,
+      setMapMoveSinceLastRefine = _ref4.setMapMoveSinceLastRefine,
+      hasMapMoveSinceLastRefine = _ref4.hasMapMoveSinceLastRefine,
+      isRefinedWithMap = _ref4.isRefinedWithMap,
+      widgetParams = _ref4.widgetParams,
+      instantSearchInstance = _ref4.instantSearchInstance;
+  var container = widgetParams.container,
+      googleReference = widgetParams.googleReference,
+      cssClasses = widgetParams.cssClasses,
+      templates = widgetParams.templates,
+      initialZoom = widgetParams.initialZoom,
+      initialPosition = widgetParams.initialPosition,
+      enableRefine = widgetParams.enableRefine,
+      enableClearMapRefinement = widgetParams.enableClearMapRefinement,
+      enableRefineControl = widgetParams.enableRefineControl,
+      mapOptions = widgetParams.mapOptions,
+      createMarker = widgetParams.createMarker,
+      markerOptions = widgetParams.markerOptions,
+      renderState = widgetParams.renderState;
+
+  if (isFirstRendering) {
+    renderState.isUserInteraction = true;
+    renderState.isPendingRefine = false;
+    renderState.markers = [];
+    var rootElement = document.createElement('div');
+    rootElement.className = cssClasses.root;
+    container.appendChild(rootElement);
+    var mapElement = document.createElement('div');
+    mapElement.className = cssClasses.map;
+    rootElement.appendChild(mapElement);
+    var treeElement = document.createElement('div');
+    treeElement.className = cssClasses.tree;
+    rootElement.appendChild(treeElement);
+    renderState.mapInstance = new googleReference.maps.Map(mapElement, _objectSpread({
+      mapTypeControl: false,
+      fullscreenControl: false,
+      streetViewControl: false,
+      clickableIcons: false,
+      zoomControlOptions: {
+        position: googleReference.maps.ControlPosition.LEFT_TOP
+      }
+    }, mapOptions));
+
+    var setupListenersWhenMapIsReady = function setupListenersWhenMapIsReady() {
+      var onChange = function onChange() {
+        if (renderState.isUserInteraction && enableRefine) {
+          setMapMoveSinceLastRefine();
+
+          if (isRefineOnMapMove()) {
+            renderState.isPendingRefine = true;
+          }
+        }
+      };
+
+      renderState.mapInstance.addListener('center_changed', onChange);
+      renderState.mapInstance.addListener('zoom_changed', onChange);
+      renderState.mapInstance.addListener('dragstart', onChange);
+      renderState.mapInstance.addListener('idle', function () {
+        if (renderState.isUserInteraction && renderState.isPendingRefine) {
+          renderState.isPendingRefine = false;
+          refineWithMap({
+            mapInstance: renderState.mapInstance,
+            refine: refine
+          });
+        }
+      });
+    };
+
+    googleReference.maps.event.addListenerOnce(renderState.mapInstance, 'idle', setupListenersWhenMapIsReady);
+    renderState.templateProps = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_1__.default)({
+      templatesConfig: instantSearchInstance.templatesConfig,
+      templates: templates
+    });
+    return;
+  } // Collect markers that need to be updated or removed
+
+
+  var nextItemsIds = items.map(function (_) {
+    return _.objectID;
+  });
+
+  var _collectMarkersForNex = collectMarkersForNextRender(renderState.markers, nextItemsIds),
+      _collectMarkersForNex2 = _slicedToArray(_collectMarkersForNex, 2),
+      updateMarkers = _collectMarkersForNex2[0],
+      exitMarkers = _collectMarkersForNex2[1]; // Collect items that will be added
+
+
+  var updateMarkerIds = updateMarkers.map(function (_) {
+    return _.__id;
+  });
+  var nextPendingItems = items.filter(function (item) {
+    return !updateMarkerIds.includes(item.objectID);
+  }); // Remove all markers that need to be removed
+
+  exitMarkers.forEach(function (marker) {
+    return marker.setMap(null);
+  }); // Create the markers from the items
+
+  renderState.markers = updateMarkers.concat(nextPendingItems.map(function (item) {
+    var marker = createMarker({
+      map: renderState.mapInstance,
+      item: item
+    });
+    Object.keys(markerOptions.events).forEach(function (eventName) {
+      marker.addListener(eventName, function (event) {
+        markerOptions.events[eventName]({
+          map: renderState.mapInstance,
+          event: event,
+          item: item,
+          marker: marker
+        });
+      });
+    });
+    return marker;
+  }));
+  var shouldUpdate = !hasMapMoveSinceLastRefine(); // We use this value for differentiate the padding to apply during
+  // fitBounds. When we don't have a currenRefinement (boundingBox)
+  // we let Google Maps compute the automatic padding. But when we
+  // provide the currentRefinement we explicitly set the padding
+  // to `0` otherwise the map will decrease the zoom on each refine.
+
+  var boundingBoxPadding = currentRefinement ? 0 : null;
+  var boundingBox = !currentRefinement && Boolean(renderState.markers.length) ? createBoundingBoxFromMarkers(googleReference, renderState.markers) : currentRefinement;
+
+  if (boundingBox && shouldUpdate) {
+    lockUserInteraction(renderState, function () {
+      renderState.mapInstance.fitBounds(new googleReference.maps.LatLngBounds(boundingBox.southWest, boundingBox.northEast), boundingBoxPadding);
+    });
+  } else if (shouldUpdate) {
+    lockUserInteraction(renderState, function () {
+      renderState.mapInstance.setCenter(position || initialPosition);
+      renderState.mapInstance.setZoom(initialZoom);
+    });
+  }
+
+  (0,preact__WEBPACK_IMPORTED_MODULE_0__.render)((0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_components_GeoSearchControls_GeoSearchControls__WEBPACK_IMPORTED_MODULE_2__.default, {
+    cssClasses: cssClasses,
+    enableRefine: enableRefine,
+    enableRefineControl: enableRefineControl,
+    enableClearMapRefinement: enableClearMapRefinement,
+    isRefineOnMapMove: isRefineOnMapMove(),
+    isRefinedWithMap: isRefinedWithMap(),
+    hasMapMoveSinceLastRefine: hasMapMoveSinceLastRefine(),
+    onRefineToggle: toggleRefineOnMapMove,
+    onRefineClick: function onRefineClick() {
+      return refineWithMap({
+        mapInstance: renderState.mapInstance,
+        refine: refine
+      });
+    },
+    onClearClick: clearMapRefinement,
+    templateProps: renderState.templateProps
+  }), container.querySelector(".".concat(cssClasses.tree)));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderer);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/geo-search/createHTMLMarker.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/geo-search/createHTMLMarker.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// eslint-disable-next-line no-undef
+var createHTMLMarker = function createHTMLMarker(googleReference) {
+  var HTMLMarker =
+  /*#__PURE__*/
+  function (_googleReference$maps) {
+    _inherits(HTMLMarker, _googleReference$maps);
+
+    function HTMLMarker(_ref) {
+      var _this;
+
+      var __id = _ref.__id,
+          position = _ref.position,
+          map = _ref.map,
+          template = _ref.template,
+          className = _ref.className,
+          _ref$anchor = _ref.anchor,
+          anchor = _ref$anchor === void 0 ? {
+        x: 0,
+        y: 0
+      } : _ref$anchor;
+
+      _classCallCheck(this, HTMLMarker);
+
+      _this = _possibleConstructorReturn(this, _getPrototypeOf(HTMLMarker).call(this));
+
+      _defineProperty(_assertThisInitialized(_this), "__id", void 0);
+
+      _defineProperty(_assertThisInitialized(_this), "anchor", void 0);
+
+      _defineProperty(_assertThisInitialized(_this), "offset", void 0);
+
+      _defineProperty(_assertThisInitialized(_this), "listeners", void 0);
+
+      _defineProperty(_assertThisInitialized(_this), "latLng", void 0);
+
+      _defineProperty(_assertThisInitialized(_this), "element", void 0);
+
+      _this.__id = __id;
+      _this.anchor = anchor;
+      _this.listeners = {};
+      _this.latLng = new googleReference.maps.LatLng(position);
+      _this.element = document.createElement('div');
+      _this.element.className = className;
+      _this.element.style.position = 'absolute';
+      _this.element.innerHTML = template;
+
+      _this.setMap(map);
+
+      return _this;
+    }
+
+    _createClass(HTMLMarker, [{
+      key: "onAdd",
+      value: function onAdd() {
+        // Append the element to the map
+        this.getPanes().overlayMouseTarget.appendChild(this.element); // Compute the offset onAdd & cache it because afterwards
+        // it won't retrieve the correct values, we also avoid
+        // to read the values on every draw
+
+        var bbBox = this.element.getBoundingClientRect();
+        this.offset = {
+          x: this.anchor.x + bbBox.width / 2,
+          y: this.anchor.y + bbBox.height
+        }; // Force the width of the element will avoid the
+        // content to collapse when we move the map
+
+        this.element.style.width = "".concat(bbBox.width, "px");
+      }
+    }, {
+      key: "draw",
+      value: function draw() {
+        var position = this.getProjection().fromLatLngToDivPixel(this.latLng);
+        this.element.style.left = "".concat(Math.round(position.x - this.offset.x), "px");
+        this.element.style.top = "".concat(Math.round(position.y - this.offset.y), "px"); // Markers to the south are in front of markers to the north
+        // This is the default behaviour of Google Maps
+
+        this.element.style.zIndex = String(parseInt(this.element.style.top, 10));
+      }
+    }, {
+      key: "onRemove",
+      value: function onRemove() {
+        var _this2 = this;
+
+        if (this.element) {
+          this.element.parentNode.removeChild(this.element);
+          Object.keys(this.listeners).forEach(function (eventName) {
+            _this2.element.removeEventListener(eventName, _this2.listeners[eventName]);
+          });
+          delete this.element;
+          delete this.listeners;
+        }
+      }
+    }, {
+      key: "addListener",
+      value: function addListener(eventName, listener) {
+        this.listeners[eventName] = listener;
+        var element = this.element;
+        element.addEventListener(eventName, listener);
+        return {
+          remove: function remove() {
+            return element.removeEventListener(eventName, listener);
+          }
+        };
+      }
+    }, {
+      key: "getPosition",
+      value: function getPosition() {
+        return this.latLng;
+      }
+    }]);
+
+    return HTMLMarker;
+  }(googleReference.maps.OverlayView); // we have to cast this to a regular OverlayView to prevent internal class being exposed
+  // which TypeScript doesn't allow.
+
+
+  return HTMLMarker;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createHTMLMarker);
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/geo-search/defaultTemplates.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/geo-search/defaultTemplates.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  HTMLMarker: '<p>Your custom HTML Marker</p>',
+  reset: 'Clear the map refinement',
+  toggle: 'Search as I move the map',
+  redo: 'Redo search here'
+});
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/geo-search/geo-search.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/geo-search/geo-search.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/noop.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/getContainerNode.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/renderTemplate.js");
+/* harmony import */ var _lib_suit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/suit */ "./node_modules/instantsearch.js/es/lib/suit.js");
+/* harmony import */ var _connectors_geo_search_connectGeoSearch__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../connectors/geo-search/connectGeoSearch */ "./node_modules/instantsearch.js/es/connectors/geo-search/connectGeoSearch.js");
+/* harmony import */ var _GeoSearchRenderer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./GeoSearchRenderer */ "./node_modules/instantsearch.js/es/widgets/geo-search/GeoSearchRenderer.js");
+/* harmony import */ var _defaultTemplates__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./defaultTemplates */ "./node_modules/instantsearch.js/es/widgets/geo-search/defaultTemplates.js");
+/* harmony import */ var _createHTMLMarker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./createHTMLMarker */ "./node_modules/instantsearch.js/es/widgets/geo-search/createHTMLMarker.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+
+
+
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.createDocumentationMessageGenerator)({
+  name: 'geo-search'
+});
+var suit = (0,_lib_suit__WEBPACK_IMPORTED_MODULE_3__.component)('GeoSearch');
+/**
+ * @typedef {object} HTMLMarkerOptions
+ * @property {object} [anchor] The offset from the marker's position.
+ */
+
+/**
+ * @typedef {object} CustomHTMLMarkerOptions
+ * @property {function(item): HTMLMarkerOptions} [createOptions] Function used to create the options passed to the HTMLMarker.
+ * @property {{ eventType: function(object) }} [events] Object that takes an event type (ex: `click`, `mouseover`) as key and a listener as value. The listener is provided with an object that contains `event`, `item`, `marker`, `map`.
+ */
+
+/**
+ * @typedef {object} BuiltInMarkerOptions
+ * @property {function(item): MarkerOptions} [createOptions] Function used to create the options passed to the Google Maps marker. <br />
+ * See [the documentation](https://developers.google.com/maps/documentation/javascript/reference/3/#MarkerOptions) for more information.
+ * @property {{ eventType: function(object) }} [events] Object that takes an event type (ex: `click`, `mouseover`) as key and a listener as value. The listener is provided with an object that contains `event`, `item`, `marker`, `map`.
+ */
+
+/**
+ * @typedef {object} GeoSearchCSSClasses
+ * @property {string|Array<string>} [root] The root div of the widget.
+ * @property {string|Array<string>} [map] The map container of the widget.
+ * @property {string|Array<string>} [control] The control element of the widget.
+ * @property {string|Array<string>} [label] The label of the control element.
+ * @property {string|Array<string>} [selectedLabel] The selected label of the control element.
+ * @property {string|Array<string>} [input] The input of the control element.
+ * @property {string|Array<string>} [redo] The redo search button.
+ * @property {string|Array<string>} [disabledRedo] The disabled redo search button.
+ * @property {string|Array<string>} [reset] The reset refinement button.
+ */
+
+/**
+ * @typedef {object} GeoSearchTemplates
+ * @property {string|function(object): string} [HTMLMarker] Template to use for the marker.
+ * @property {string|function(object): string} [reset] Template for the reset button.
+ * @property {string|function(object): string} [toggle] Template for the toggle label.
+ * @property {string|function(object): string} [redo] Template for the redo button.
+ */
+
+/**
+ * @typedef {object} LatLng
+ * @property {number} lat The latitude in degrees.
+ * @property {number} lng The longitude in degrees.
+ */
+
+/**
+ * @typedef {object} GeoSearchWidgetParams
+ * @property {string|HTMLElement} container CSS Selector or HTMLElement to insert the widget.
+ * @property {object} googleReference Reference to the global `window.google` object. <br />
+ * See [the documentation](https://developers.google.com/maps/documentation/javascript/tutorial) for more information.
+ * @property {number} [initialZoom=1] By default the map will set the zoom accordingly to the markers displayed on it. When we refine it may happen that the results are empty. For those situations we need to provide a zoom to render the map.
+ * @property {LatLng} [initialPosition={ lat: 0, lng: 0 }] By default the map will set the position accordingly to the markers displayed on it. When we refine it may happen that the results are empty. For those situations we need to provide a position to render the map. This option is ignored when the `position` is provided.
+ * @property {GeoSearchTemplates} [templates] Templates to use for the widget.
+ * @property {GeoSearchCSSClasses} [cssClasses] CSS classes to add to the wrapping elements.
+ * @property {object} [mapOptions] Option forwarded to the Google Maps constructor. <br />
+ * See [the documentation](https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions) for more information.
+ * @property {BuiltInMarkerOptions} [builtInMarker] Options for customize the built-in Google Maps marker. This option is ignored when the `customHTMLMarker` is provided.
+ * @property {CustomHTMLMarkerOptions} [customHTMLMarker] Options for customize the HTML marker. We provide an alternative to the built-in Google Maps marker in order to have a full control of the marker rendering. You can use plain HTML to build your marker.
+ * @property {boolean} [enableRefine=true] If true, the map is used to search - otherwise it's for display purposes only.
+ * @property {boolean} [enableClearMapRefinement=true] If true, a button is displayed on the map when the refinement is coming from the map in order to remove it.
+ * @property {boolean} [enableRefineControl=true] If true, the user can toggle the option `enableRefineOnMapMove` directly from the map.
+ * @property {boolean} [enableRefineOnMapMove=true] If true, refine will be triggered as you move the map.
+ * @property {function} [transformItems] Function to transform the items passed to the templates.
+ */
+
+/**
+ * The **GeoSearch** widget displays the list of results from the search on a Google Maps. It also provides a way to search for results based on their position. The widget also provide some of the common GeoSearch patterns like search on map interaction.
+ *
+ * @requirements
+ *
+ * Note that the GeoSearch widget uses the [geosearch](https://www.algolia.com/doc/guides/searching/geo-search) capabilities of Algolia. Your hits **must** have a `_geoloc` attribute in order to be displayed on the map.
+ *
+ * Currently, the feature is not compatible with multiple values in the _geoloc attribute.
+ *
+ * You are also responsible for loading the Google Maps library, it's not shipped with InstantSearch. You need to load the Google Maps library and pass a reference to the widget. You can find more information about how to install the library in [the Google Maps documentation](https://developers.google.com/maps/documentation/javascript/tutorial).
+ *
+ * Don't forget to explicitly set the `height` of the map container (default class `.ais-geo-search--map`), otherwise it won't be shown (it's a requirement of Google Maps).
+ *
+ * @devNovel GeoSearch
+ * @param {GeoSearchWidgetParams} widgetParams Options of the GeoSearch widget.
+ * @return {Widget} A new instance of GeoSearch widget.
+ * @staticExample
+ * search.addWidgets([
+ *   instantsearch.widgets.geoSearch({
+ *     container: '#geo-search-container',
+ *     googleReference: window.google,
+ *   })
+ * ]);
+ */
+
+var geoSearch = function geoSearch(widgetParams) {
+  var _ref = widgetParams || {},
+      _ref$initialZoom = _ref.initialZoom,
+      initialZoom = _ref$initialZoom === void 0 ? 1 : _ref$initialZoom,
+      _ref$initialPosition = _ref.initialPosition,
+      initialPosition = _ref$initialPosition === void 0 ? {
+    lat: 0,
+    lng: 0
+  } : _ref$initialPosition,
+      _ref$templates = _ref.templates,
+      userTemplates = _ref$templates === void 0 ? {} : _ref$templates,
+      _ref$cssClasses = _ref.cssClasses,
+      userCssClasses = _ref$cssClasses === void 0 ? {} : _ref$cssClasses,
+      _ref$builtInMarker = _ref.builtInMarker,
+      userBuiltInMarker = _ref$builtInMarker === void 0 ? {} : _ref$builtInMarker,
+      userCustomHTMLMarker = _ref.customHTMLMarker,
+      _ref$enableRefine = _ref.enableRefine,
+      enableRefine = _ref$enableRefine === void 0 ? true : _ref$enableRefine,
+      _ref$enableClearMapRe = _ref.enableClearMapRefinement,
+      enableClearMapRefinement = _ref$enableClearMapRe === void 0 ? true : _ref$enableClearMapRe,
+      _ref$enableRefineCont = _ref.enableRefineControl,
+      enableRefineControl = _ref$enableRefineCont === void 0 ? true : _ref$enableRefineCont,
+      container = _ref.container,
+      googleReference = _ref.googleReference,
+      otherWidgetParams = _objectWithoutProperties(_ref, ["initialZoom", "initialPosition", "templates", "cssClasses", "builtInMarker", "customHTMLMarker", "enableRefine", "enableClearMapRefinement", "enableRefineControl", "container", "googleReference"]);
+
+  var defaultBuiltInMarker = {
+    createOptions: _lib_utils__WEBPACK_IMPORTED_MODULE_4__.default,
+    events: {}
+  };
+  var defaultCustomHTMLMarker = {
+    createOptions: _lib_utils__WEBPACK_IMPORTED_MODULE_4__.default,
+    events: {}
+  };
+
+  if (!container) {
+    throw new Error(withUsage('The `container` option is required.'));
+  }
+
+  if (!googleReference) {
+    throw new Error(withUsage('The `googleReference` option is required.'));
+  }
+
+  var containerNode = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_5__.default)(container);
+  var cssClasses = {
+    root: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit(), userCssClasses.root),
+    // Required only to mount / unmount the Preact tree
+    tree: suit({
+      descendantName: 'tree'
+    }),
+    map: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+      descendantName: 'map'
+    }), userCssClasses.map),
+    control: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+      descendantName: 'control'
+    }), userCssClasses.control),
+    label: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+      descendantName: 'label'
+    }), userCssClasses.label),
+    selectedLabel: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+      descendantName: 'label',
+      modifierName: 'selected'
+    }), userCssClasses.selectedLabel),
+    input: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+      descendantName: 'input'
+    }), userCssClasses.input),
+    redo: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+      descendantName: 'redo'
+    }), userCssClasses.redo),
+    disabledRedo: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+      descendantName: 'redo',
+      modifierName: 'disabled'
+    }), userCssClasses.disabledRedo),
+    reset: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+      descendantName: 'reset'
+    }), userCssClasses.reset)
+  };
+
+  var templates = _objectSpread({}, _defaultTemplates__WEBPACK_IMPORTED_MODULE_6__.default, {}, userTemplates);
+
+  var builtInMarker = _objectSpread({}, defaultBuiltInMarker, {}, userBuiltInMarker);
+
+  var isCustomHTMLMarker = Boolean(userCustomHTMLMarker) || Boolean(userTemplates.HTMLMarker);
+
+  var customHTMLMarker = isCustomHTMLMarker && _objectSpread({}, defaultCustomHTMLMarker, {}, userCustomHTMLMarker);
+
+  var createBuiltInMarker = function createBuiltInMarker(_ref2) {
+    var item = _ref2.item,
+        rest = _objectWithoutProperties(_ref2, ["item"]);
+
+    return new googleReference.maps.Marker(_objectSpread({}, builtInMarker.createOptions(item), {}, rest, {
+      __id: item.objectID,
+      position: item._geoloc
+    }));
+  };
+
+  var HTMLMarker = (0,_createHTMLMarker__WEBPACK_IMPORTED_MODULE_7__.default)(googleReference);
+
+  var createCustomHTMLMarker = function createCustomHTMLMarker(_ref3) {
+    var item = _ref3.item,
+        rest = _objectWithoutProperties(_ref3, ["item"]);
+
+    return new HTMLMarker(_objectSpread({}, customHTMLMarker.createOptions(item), {}, rest, {
+      __id: item.objectID,
+      position: item._geoloc,
+      className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
+        descendantName: 'marker'
+      })),
+      template: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_8__.default)({
+        templateKey: 'HTMLMarker',
+        templates: templates,
+        data: item
+      })
+    }));
+  };
+
+  var createMarker = !customHTMLMarker ? createBuiltInMarker : createCustomHTMLMarker; // prettier-ignore
+
+  var markerOptions = !customHTMLMarker ? builtInMarker : customHTMLMarker;
+  var makeWidget = (0,_connectors_geo_search_connectGeoSearch__WEBPACK_IMPORTED_MODULE_9__.default)(_GeoSearchRenderer__WEBPACK_IMPORTED_MODULE_10__.default, function () {
+    return (0,preact__WEBPACK_IMPORTED_MODULE_1__.render)(null, containerNode);
+  });
+  return _objectSpread({}, makeWidget(_objectSpread({}, otherWidgetParams, {
+    renderState: {},
+    container: containerNode,
+    googleReference: googleReference,
+    initialZoom: initialZoom,
+    initialPosition: initialPosition,
+    templates: templates,
+    cssClasses: cssClasses,
+    createMarker: createMarker,
+    markerOptions: markerOptions,
+    enableRefine: enableRefine,
+    enableClearMapRefinement: enableClearMapRefinement,
+    enableRefineControl: enableRefineControl
+  })), {
+    $$widgetType: 'ais.geoSearch'
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (geoSearch);
 
 /***/ }),
 
@@ -12190,6 +14222,262 @@ function storeRenderState(_ref7) {
       parent = _ref7.parent;
   var parentIndexName = parent ? parent.getIndexId() : instantSearchInstance.mainIndex.getIndexId();
   instantSearchInstance.renderState = _objectSpread({}, instantSearchInstance.renderState, _defineProperty({}, parentIndexName, _objectSpread({}, instantSearchInstance.renderState[parentIndexName], {}, renderState)));
+}
+
+/***/ }),
+
+/***/ "./node_modules/instantsearch.js/es/widgets/pagination/pagination.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/instantsearch.js/es/widgets/pagination/pagination.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ pagination
+/* harmony export */ });
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Pagination_Pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Pagination/Pagination */ "./node_modules/instantsearch.js/es/components/Pagination/Pagination.js");
+/* harmony import */ var _connectors_pagination_connectPagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../connectors/pagination/connectPagination */ "./node_modules/instantsearch.js/es/connectors/pagination/connectPagination.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/getContainerNode.js");
+/* harmony import */ var _lib_suit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/suit */ "./node_modules/instantsearch.js/es/lib/suit.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** @jsx h */
+
+
+
+
+
+
+var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.createDocumentationMessageGenerator)({
+  name: 'pagination'
+});
+var suit = (0,_lib_suit__WEBPACK_IMPORTED_MODULE_3__.component)('Pagination');
+var defaultTemplates = {
+  previous: '‹',
+  next: '›',
+  first: '«',
+  last: '»'
+};
+
+var renderer = function renderer(_ref) {
+  var containerNode = _ref.containerNode,
+      cssClasses = _ref.cssClasses,
+      templates = _ref.templates,
+      totalPages = _ref.totalPages,
+      showFirst = _ref.showFirst,
+      showLast = _ref.showLast,
+      showPrevious = _ref.showPrevious,
+      showNext = _ref.showNext,
+      scrollToNode = _ref.scrollToNode;
+  return function (_ref2, isFirstRendering) {
+    var createURL = _ref2.createURL,
+        currentRefinement = _ref2.currentRefinement,
+        nbHits = _ref2.nbHits,
+        nbPages = _ref2.nbPages,
+        pages = _ref2.pages,
+        isFirstPage = _ref2.isFirstPage,
+        isLastPage = _ref2.isLastPage,
+        refine = _ref2.refine;
+    if (isFirstRendering) return;
+
+    var setCurrentPage = function setCurrentPage(pageNumber) {
+      refine(pageNumber);
+
+      if (scrollToNode !== false) {
+        scrollToNode.scrollIntoView();
+      }
+    };
+
+    (0,preact__WEBPACK_IMPORTED_MODULE_0__.render)((0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_components_Pagination_Pagination__WEBPACK_IMPORTED_MODULE_4__.default, {
+      createURL: createURL,
+      cssClasses: cssClasses,
+      currentPage: currentRefinement,
+      templates: templates,
+      nbHits: nbHits,
+      nbPages: nbPages,
+      pages: pages,
+      totalPages: totalPages,
+      isFirstPage: isFirstPage,
+      isLastPage: isLastPage,
+      setCurrentPage: setCurrentPage,
+      showFirst: showFirst,
+      showLast: showLast,
+      showPrevious: showPrevious,
+      showNext: showNext
+    }), containerNode);
+  };
+};
+/**
+ * @typedef {Object} PaginationCSSClasses
+ * @property  {string|string[]} [root] CSS classes added to the root element of the widget.
+ * @property {string|string[]} [noRefinementRoot] CSS class to add to the root element of the widget if there are no refinements.
+ * @property  {string|string[]} [list] CSS classes added to the wrapping `<ul>`.
+ * @property  {string|string[]} [item] CSS classes added to each `<li>`.
+ * @property  {string|string[]} [firstPageItem] CSS classes added to the first `<li>`.
+ * @property  {string|string[]} [lastPageItem] CSS classes added to the last `<li>`.
+ * @property  {string|string[]} [previousPageItem] CSS classes added to the previous `<li>`.
+ * @property  {string|string[]} [nextPageItem] CSS classes added to the next `<li>`.
+ * @property  {string|string[]} [pageItem] CSS classes added to page `<li>`.
+ * @property  {string|string[]} [selectedItem] CSS classes added to the selected `<li>`.
+ * @property  {string|string[]} [disabledItem] CSS classes added to the disabled `<li>`.
+ * @property  {string|string[]} [link] CSS classes added to each link.
+ */
+
+/**
+ * @typedef {Object} PaginationTemplates
+ * @property  {string} [previous] Label for the Previous link.
+ * @property  {string} [next] Label for the Next link.
+ * @property  {string} [first] Label for the First link.
+ * @property  {string} [last] Label for the Last link.
+ */
+
+/**
+ * @typedef {Object} PaginationWidgetParams
+ * @property  {string|HTMLElement} container CSS Selector or HTMLElement to insert the widget.
+ * @property  {number} [totalPages] The max number of pages to browse.
+ * @property  {number} [padding=3] The number of pages to display on each side of the current page.
+ * @property  {string|HTMLElement|boolean} [scrollTo='body'] Where to scroll after a click, set to `false` to disable.
+ * @property  {boolean} [showFirst=true] Whether to show the “first page” control
+ * @property  {boolean} [showLast=true] Whether to show the last page” control
+ * @property  {boolean} [showNext=true] Whether to show the “next page” control
+ * @property  {boolean} [showPrevious=true] 	Whether to show the “previous page” control
+ * @property  {PaginationTemplates} [templates] Text to display in the links.
+ * @property  {PaginationCSSClasses} [cssClasses] CSS classes to be added.
+ */
+
+/**
+ * The pagination widget allow the user to switch between pages of the results.
+ *
+ * This is an alternative to using the *show more* pattern, that allows the user
+ * only to display more items. The *show more* pattern is usually preferred
+ * because it is simpler to use, and it is more convenient in a mobile context.
+ * See the infinite hits widget, for more information.
+ *
+ * When using the pagination with Algolia, you should be aware that the engine won't provide you pages
+ * beyond the 1000th hits by default. You can find more information on the [Algolia documentation](https://www.algolia.com/doc/guides/searching/pagination/#pagination-limitations).
+ *
+ * @type {WidgetFactory}
+ * @devNovel Pagination
+ * @category navigation
+ * @param {PaginationWidgetParams} widgetParams Options for the Pagination widget.
+ * @return {Widget} A new instance of Pagination widget.
+ * @example
+ * search.addWidgets([
+ *   instantsearch.widgets.pagination({
+ *     container: '#pagination-container',
+ *     totalPages: 20,
+ *     // default is to scroll to 'body', here we disable this behavior
+ *     scrollTo: false,
+ *     showFirst: false,
+ *     showLast: false,
+ *   })
+ * ]);
+ */
+
+
+function pagination(widgetParams) {
+  var _ref3 = widgetParams || {},
+      container = _ref3.container,
+      _ref3$templates = _ref3.templates,
+      userTemplates = _ref3$templates === void 0 ? {} : _ref3$templates,
+      _ref3$cssClasses = _ref3.cssClasses,
+      userCssClasses = _ref3$cssClasses === void 0 ? {} : _ref3$cssClasses,
+      totalPages = _ref3.totalPages,
+      padding = _ref3.padding,
+      _ref3$showFirst = _ref3.showFirst,
+      showFirst = _ref3$showFirst === void 0 ? true : _ref3$showFirst,
+      _ref3$showLast = _ref3.showLast,
+      showLast = _ref3$showLast === void 0 ? true : _ref3$showLast,
+      _ref3$showPrevious = _ref3.showPrevious,
+      showPrevious = _ref3$showPrevious === void 0 ? true : _ref3$showPrevious,
+      _ref3$showNext = _ref3.showNext,
+      showNext = _ref3$showNext === void 0 ? true : _ref3$showNext,
+      _ref3$scrollTo = _ref3.scrollTo,
+      userScrollTo = _ref3$scrollTo === void 0 ? 'body' : _ref3$scrollTo;
+
+  if (!container) {
+    throw new Error(withUsage('The `container` option is required.'));
+  }
+
+  var containerNode = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_5__.default)(container);
+  var scrollTo = userScrollTo === true ? 'body' : userScrollTo;
+  var scrollToNode = scrollTo !== false ? (0,_lib_utils__WEBPACK_IMPORTED_MODULE_5__.default)(scrollTo) : false;
+  var cssClasses = {
+    root: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit(), userCssClasses.root),
+    noRefinementRoot: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      modifierName: 'noRefinement'
+    }), userCssClasses.noRefinementRoot),
+    list: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'list'
+    }), userCssClasses.list),
+    item: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item'
+    }), userCssClasses.item),
+    firstPageItem: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item',
+      modifierName: 'firstPage'
+    }), userCssClasses.firstPageItem),
+    lastPageItem: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item',
+      modifierName: 'lastPage'
+    }), userCssClasses.lastPageItem),
+    previousPageItem: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item',
+      modifierName: 'previousPage'
+    }), userCssClasses.previousPageItem),
+    nextPageItem: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item',
+      modifierName: 'nextPage'
+    }), userCssClasses.nextPageItem),
+    pageItem: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item',
+      modifierName: 'page'
+    }), userCssClasses.pageItem),
+    selectedItem: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item',
+      modifierName: 'selected'
+    }), userCssClasses.selectedItem),
+    disabledItem: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'item',
+      modifierName: 'disabled'
+    }), userCssClasses.disabledItem),
+    link: classnames__WEBPACK_IMPORTED_MODULE_1___default()(suit({
+      descendantName: 'link'
+    }), userCssClasses.link)
+  };
+
+  var templates = _objectSpread({}, defaultTemplates, {}, userTemplates);
+
+  var specializedRenderer = renderer({
+    containerNode: containerNode,
+    cssClasses: cssClasses,
+    templates: templates,
+    showFirst: showFirst,
+    showLast: showLast,
+    showPrevious: showPrevious,
+    showNext: showNext,
+    padding: padding,
+    scrollToNode: scrollToNode
+  });
+  var makeWidget = (0,_connectors_pagination_connectPagination__WEBPACK_IMPORTED_MODULE_6__.default)(specializedRenderer, function () {
+    return (0,preact__WEBPACK_IMPORTED_MODULE_0__.render)(null, containerNode);
+  });
+  return _objectSpread({}, makeWidget({
+    totalPages: totalPages,
+    padding: padding
+  }), {
+    $$widgetType: 'ais.pagination'
+  });
 }
 
 /***/ }),

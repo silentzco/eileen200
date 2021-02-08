@@ -6,5 +6,6 @@ preferences:
   taxonomies:
     services:
       after_save: create_another
+  collections:
     service_categories:
       after_save: create_another

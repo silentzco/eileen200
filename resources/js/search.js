@@ -1,6 +1,6 @@
 import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
-import {searchBox, hits, refinementList, stats, menu, geoSearch, configure, pagination} from 'instantsearch.js/es/widgets';
+import {searchBox, hits, refinementList, stats, menu, geoSearch, configure, pagination, menuSelect} from 'instantsearch.js/es/widgets';
 
 const searchClient = algoliasearch('LYOAOTOT4D', '06f6868f86dd05c03ba16ec7f56db53d');
 
@@ -37,15 +37,24 @@ search.addWidgets([
     }),
 
 
-    refinementList({
-        container: "#category",
-        attribute: 'category',
-        operator: 'or',
-    }),
+    // refinementList({
+    //     container: "#category",
+    //     attribute: 'category',
+    //     operator: 'or',
+    // }),
 
     refinementList({
         container: "#services",
         attribute: 'services',
+    }),
+
+    menuSelect({
+        container: "#category",
+        attribute: 'category',
+        templates: {
+            item:
+                '{{label}} ({{#helpers.formatNumber}}{{count}}{{/helpers.formatNumber}})',
+        },
     }),
 
     hits({

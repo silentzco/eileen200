@@ -16,10 +16,10 @@ _geoloc:
   lat: 36.1491
   lng: -115.225
 updated_by: a034f527-2110-44df-82f7-baa1cb1b5355
-updated_at: 1614282359
+updated_at: 1614287934
 services:
-  - legal-aid
-  - family-law-attorneys
+  - 'Legal Aid'
+  - 'Family Law Attorneys'
 image: providers/logo-gif.gif
 description: |
   Jonathan Hicks and Alison Brasier are committed to helping injured people get justice and the results they deserve following any injury accident. At Hicks & Brasier, we are dedicated to giving injured clients the personalized attention they need during the stressful times following an accident.  We fight the insurance companies to ensure that our clients get full compensation for their injuries.

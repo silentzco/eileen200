@@ -41,7 +41,7 @@ class AddProviderGeoloc
             $api = PlacesClient::create(env('PLACES_APP_ID', false), env('PLACES_API_KEY', false));
 
 
-            $result = $api->search(implode(", ", [$data['address'], $data['city'], $data['state'], $data['zip']]), ["type" => "address", "countries" => ["us"]]);
+            $result = $api->search(implode(", ", [$entry->get('address'), $entry->get('city'), $entry->get('state'), $entry->get('zip')]), ["type" => "address", "countries" => ["us"]]);
 //        $result = $places->search("9499 W Charleston Blvd, Las Vegas, NV, 89117", ["type" => "address", "countries" => ["us"]]);
 
             if(!empty($result['hits'])){
@@ -52,7 +52,7 @@ class AddProviderGeoloc
 
             $zipcode = Entry::query()
                 ->where('collection', 'zip_codes')
-                ->where('code', $data['zip'])
+                ->where('code', $entry->get('zip'))
                 ->first();
 
             if($zipcode){

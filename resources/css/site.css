@@ -1,8 +1,44 @@
 /* This is all you. */
 
 
+.theme-default {
+    --color-primary: #c60001;
+
+    --color-secondary: #44467b;
+    --color-heading: #c60001;
+    --color-background-dark: #d1d5da;
+    --color-background-light: #fff;
+
+}
+
+.theme-blue {
+    --color-primary: #2e79cb;
+    --color-secondary: #4e5d74;
+    --color-heading: #2c7fd8;
+
+    --color-background-dark: #d1d5da;
+    --color-background-light: #fff;
+
+
+
+}
+
+
+.theme-green {
+    --color-primary: #2eaf7d;
+    --color-secondary: #3fd0c9;
+    --color-heading: #3fd0c9;
+
+    --color-background-dark: #c1f6ed;
+    --color-background-light: #fff;
+
+
+
+}
+
+
 .sponsored{
-    @apply ring ring-primary ring-offset-4 ;
+    @apply ring ring-secondary ring-offset-4 ;
 }
 
 
@@ -13,4 +49,18 @@
 .marker{
     background: #fff;
 }
+
+.provider-card{
+    .description p{
+        @apply mb-2;
+    }
+
+    .provider-actions a:hover svg{
+        @apply text-primary;
+    }
+
+}
+
+
+
 

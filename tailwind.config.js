@@ -10,7 +10,12 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: '#c60001',
+                primary: "var(--color-primary)",
+                secondary: "var(--color-secondary)",
+                heading: "var(--color-heading)",
+                "bg-dark": "var(--color-background-dark)",
+                "bg-light": "var(--color-background-light)"
+
             }
         },
 
@@ -22,3 +27,5 @@ module.exports = {
         require('@tailwindcss/typography'),
     ],
   }
+
+

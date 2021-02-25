@@ -35,9 +35,18 @@ return [
             'searchables' => 'collection:providers',
             'fields' => [
                 'title', "test", 'org_name', 'first_name', 'middle_name','last_name', "suffix_name", "_geoloc", "location", "sponsored", "phone", "fax", "website",
-                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category",
+                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category", "description", "gallery"
 
             ],
+            'transformers' => [
+
+                // Return a value to store in the index.
+                'description' => function ($description) {
+                    return Statamic\Facades\Markdown::parse((string)$description);
+                },
+
+
+            ]
 
 
         ],

@@ -127,6 +127,30 @@ sections:
           listable: hidden
           container: assets
           folder: providers
+      -
+        handle: description
+        field:
+          restrict: false
+          automatic_line_breaks: true
+          automatic_links: false
+          escape_markup: false
+          smartypants: false
+          antlers: false
+          display: Description
+          type: markdown
+          icon: markdown
+          listable: hidden
+      -
+        handle: gallery
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          display: Gallery
+          type: assets
+          icon: assets
+          listable: hidden
   sidebar:
     display: Sidebar
     fields:

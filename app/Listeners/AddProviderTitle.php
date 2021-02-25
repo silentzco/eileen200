@@ -27,6 +27,7 @@ class AddProviderTitle
      */
     public function handle(EntrySaving $event)
     {
+        return;
         $entry = $event->entry;
 
         if($entry->collectionHandle() != "providers"){

@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use Algolia\AlgoliaSearch\PlacesClient;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Statamic\Events\EntrySaving;
@@ -36,11 +37,23 @@ class AddProviderGeoloc
         if(empty($entry->get('_geoloc')) && !empty($entry->get('zip'))){
 
 
+
+            $api = PlacesClient::create(env('PLACES_APP_ID', false), env('PLACES_API_KEY', false));
+
+
+            $result = $api->search(implode(", ", [$data['address'], $data['city'], $data['state'], $data['zip']]), ["type" => "address", "countries" => ["us"]]);
+//        $result = $places->search("9499 W Charleston Blvd, Las Vegas, NV, 89117", ["type" => "address", "countries" => ["us"]]);
+
+            if(!empty($result['hits'])){
+
+                $entry->set('_geoloc', $result['hits'][0]['_geoloc']);
+                return;
+            }
+
             $zipcode = Entry::query()
                 ->where('collection', 'zip_codes')
-                ->where('code', $entry->get('zip'))
+                ->where('code', $data['zip'])
                 ->first();
-
 
             if($zipcode){
                 $entry->set('_geoloc', ['lng' => (float)$zipcode->get('longitude') , 'lat' => (float)$zipcode->get('latitude')]);

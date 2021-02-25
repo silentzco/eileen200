@@ -1,0 +1,6 @@
+﻿Id,first_name,last_name,License_type,services,address,City,State,Zip,phone,Category
+1,Brian ,CARR,MD,"Radiology, Diagnostic",9499 W Charleston Blvd Ste 200,Las Vegas,NV,89117,702-933-9393,Doctors
+2,Neville ,CAMPBELL,MD,"Surgery, Ophthalmic Plastic",311 N Buffalo Dr   Ste A,Las Vegas,NV,89145,702-476-9700,Doctors
+3,Djordje ,HRISTIC,MD,Pediatrics,5495 S Rainbow Blvd  #203,Las Vegas,NV,89118,702-477-0772,Doctors
+4,Robert ,LAMPERT,MD,Endocrinology,4750 W Oakey Blvd  Ste 1A,Las Vegas,NV,89102,702-724-8844,Doctors
+5,Michael ,THOMPSON,MD,"""Child / Adolescent Psychiatry""",2505 Anthem Village Dr. Ste E-442,Henderson,NV,89052,734-385-2431,Doctors

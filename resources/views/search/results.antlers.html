@@ -32,6 +32,10 @@
 
         <div class="sticky top-0">
 
+            <div id="">
+                <input id="searchbox2" />
+
+            </div>
 
 
             <h2 class="text-primary text-xl mb-4 font-bold">Map:</h2>
@@ -90,29 +94,7 @@
 
 
 <script src="{{ mix src='/js/search.js' }}"></script>
-<script>
 
-    console.log(window.google.map);
-
-    $(function(){
-
-        pt = gMarkers["entry::47827738-8629-4888-918c-bde65ac3c692"].getPosition();
-        map.panTo(newpt);
-
-        if (infoWindow) {
-            infoWindow.close();
-        }
-
-        infoWindow.setContent(gMarkers[markerIdentifier].get('iwcontent'));
-        infoWindow.setPosition(gMarkers[markerIdentifier].getPosition());
-
-        infoWindow.open(map, gMarkers[markerIdentifier]);
-
-
-
-    });
-
-</script>
 
 <script>
 

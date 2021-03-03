@@ -2,5 +2,6 @@
     "/js/site.js": "/js/site.js",
     "/js/app.js": "/js/app.js",
     "/js/search.js": "/js/search.js",
+    "/js/test.js": "/js/test.js",
     "/css/tailwind.css": "/css/tailwind.css"
 }

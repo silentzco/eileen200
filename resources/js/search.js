@@ -1,5 +1,6 @@
 import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
+
 import {searchBox, hits, refinementList, stats, menu, geoSearch, configure, pagination, menuSelect} from 'instantsearch.js/es/widgets';
 
 const searchClient = algoliasearch('LYOAOTOT4D', '06f6868f86dd05c03ba16ec7f56db53d');
@@ -9,6 +10,12 @@ const search = instantsearch({
     searchClient,
     routing: true,
 });
+
+// var placesAutocomplete = places({
+//     appId: 'YOUR_PLACES_APP_ID',
+//     apiKey: 'YOUR_PLACES_API_KEY',
+//     container: document.querySelector('#address-input')
+// });
 
 
 search.addWidgets([
@@ -149,7 +156,9 @@ search.addWidgets([
 
                 {{#address}}
                 <div class="-ml-px w-0 flex-1 flex">
-                    <a href="#" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
+
+
+                    <a href="#" onclick="window.map.setCenter([_geoloc.lat,_geoloc.lng], 12); return false;" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
                         <!-- Heroicon name: phone -->
                         <svg class="w-5 h-5 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -179,6 +188,9 @@ search.addWidgets([
         },
     }),
 
+
+
+
     geoSearch({
         container: '#maps',
         googleReference: window.google,
@@ -197,7 +209,7 @@ search.addWidgets([
         // },
         builtInMarker: {
             createOptions(item) {
-                console.log(item);
+
 
 
 
@@ -221,7 +233,7 @@ search.addWidgets([
                     });
 
                     infowindow.open(map, marker);
-                    setTimeout(function () {infowindow.close();}, 3000);
+                    setTimeout(function () {infowindow.close();}, 5000);
 
                     console.log(marker);
                     console.log(item);

@@ -11,6 +11,21 @@ sections:
           validate:
             - required
       -
+        handle: date
+        field:
+          mode: single
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+          display: Date
+          type: date
+          icon: date
+          listable: hidden
+      -
         handle: hero
         field:
           mode: grid
@@ -39,6 +54,15 @@ sections:
           input_type: text
           antlers: false
           display: Author
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: snippet
+        field:
+          input_type: text
+          antlers: false
+          display: Snippet
           type: text
           icon: text
           listable: hidden
@@ -81,3 +105,10 @@ sections:
           localizable: true
           validate:
             - required
+      -
+        handle: homepage
+        field:
+          display: Homepage
+          type: toggle
+          icon: toggle
+          listable: hidden

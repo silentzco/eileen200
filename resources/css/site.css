@@ -2,15 +2,20 @@
 
 
 .theme-default {
-    --color-primary: #c60001;
-    --color-logo: #c60001;
+    --color-primary: #00458B;
+    --color-logo: #c60000;
 
-    --color-secondary: #44467b;
-    --color-heading: #c60001;
-    --color-background-dark: #d1d5da;
+    --color-secondary: #00458B;
+    --color-heading: #fff;
+    --color-background-dark: #47bce3
+;
     --color-background-light: #fff;
 
 }
+
+
+
+
 
 .theme-blue {
     --color-logo: #2E78CB;
@@ -77,5 +82,10 @@
 }
 
 
-
-
+.modal {
+    transition: opacity 0.25s ease;
+}
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}

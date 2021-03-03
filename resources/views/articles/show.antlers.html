@@ -1,18 +1,46 @@
-<h1>{{title}}</h1>
 
 
-<img src="{{ glide:hero width='600' height='800' }}">
+<div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 
 
 
-<img src="{{ glide:photo width='600' height='800' }}">
+    <h1 class="text-3xl  text-primary">{{ title }}</h1>
 
 
-{{ hero }}
-<img src="{{ url }}" alt="{{ alt }}" />
-{{ /hero }}
 
 
-<div class="m-8">
-    {{content }}
+
+
+    <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
+        <div class="relative lg:row-start-1 lg:col-start-2">
+            <div class="relative text-base mx-auto max-w-prose lg:max-w-none">
+                <figure>
+                    <div class="aspect-w-12 aspect-h-7 lg:aspect-none">
+
+                        <img rounded-lg shadow-lg object-cover object-center src="{{ glide:hero width='600' height='800' }}">
+
+                    </div>
+
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="mt-8 lg:mt-0">
+            <div class="text-base max-w-prose mx-auto lg:max-w-none">
+                <p class="text-lg text-gray-500">{{ snippet }}</p>
+            </div>
+            <div class="mt-5 prose prose-indigo text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 </div>
+
+
+
+

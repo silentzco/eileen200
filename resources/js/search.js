@@ -110,7 +110,12 @@ search.addWidgets([
         <div class="inline-flex space-x-4 p-4">
             <div class="w-20 h-20 bg-gray-200 flex-1 galleryitem"></div>
             <div class="w-20 h-20 bg-gray-200 flex-1  galleryitem"></div>
-            <div class="w-20 h-20 bg-gray-200 flex-1 galleryitem"></div>
+            <a href="#" onclick="toggleModal(); return false;" class="w-20 h-20 bg-gray-200 flex-1 galleryitem flex items-center">
+            <div class="w-10 h-10 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+</svg></div>
+</a>
 
         </div>
         {{/sponsored}}
@@ -155,6 +160,7 @@ search.addWidgets([
                 </div>
                 {{/address}}
 
+
                 {{#website}}
                 <div class="-ml-px w-0 flex-1 flex">
                     <a href="{{website}}" target="_blank" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
@@ -194,9 +200,30 @@ search.addWidgets([
                 console.log(item);
 
 
+
             },
             events: {
                 click({event, item, marker, map}) {
+
+
+                    const content =
+                        '<div>' +
+                        '<span class="text-primary font-bold">' +
+                        item.title +
+                        '</span><br>' +
+                        item.address + "<br>" +
+                        item.city + ', ' + item.state + ' ' + item.zip + '<br>' +
+                        item.services.join(", ") +
+                        '</div>';
+
+                    const infowindow = new google.maps.InfoWindow({
+                        content: content,
+                    });
+
+                    infowindow.open(map, marker);
+                    setTimeout(function () {infowindow.close();}, 3000);
+
+                    console.log(marker);
                     console.log(item);
                 },
             },
@@ -228,4 +255,22 @@ search.addWidgets([
 ]);
 
 
+function attachInfoWindow(marker, hit) {
+    var message;
+
+    if (hit.name === hit.city) {
+        message = hit.name + ' - ' + hit.country;
+    } else {
+        message = hit.name + ' - ' + hit.city + ' - ' + hit.country;
+    }
+
+    var infowindow = new google.maps.InfoWindow({content: message});
+    marker.addListener('click', function () {
+        setTimeout(function () {infowindow.close();}, 3000);
+    });
+}
+
 search.start();
+
+
+

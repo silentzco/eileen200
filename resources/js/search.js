@@ -2,6 +2,7 @@ import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 
 import {searchBox, hits, refinementList, stats, menu, geoSearch, configure, pagination, menuSelect} from 'instantsearch.js/es/widgets';
+import { connectGeoSearch } from 'instantsearch.js/es/connectors';
 
 const searchClient = algoliasearch('LYOAOTOT4D', '06f6868f86dd05c03ba16ec7f56db53d');
 
@@ -18,8 +19,57 @@ const search = instantsearch({
 // });
 
 
-search.addWidgets([
+// Create the render function
+let map = null;
+let markers = [];
+let isUserInteraction = true;
 
+// const renderGeoSearch = (renderOptions, isFirstRendering) => {
+//     const {
+//         items,
+//         currentRefinement,
+//         refine,
+//         clearMapRefinement,
+//         widgetParams,
+//     } = renderOptions;
+//
+//     const {
+//         initialZoom,
+//         initialPosition,
+//         container,
+//     } = widgetParams;
+//
+//     if (isFirstRendering) {
+//
+//         const map = new google.maps.Map(document.getElementById("maps"), {
+//             zoom: 4
+//
+//         });
+//
+//     }
+//
+//     /*
+//     const infowindow = new google.maps.InfoWindow({
+//         content: contentString,
+//     });
+//     const marker = new google.maps.Marker({
+//         position: uluru,
+//         map,
+//         title: "Uluru (Ayers Rock)",
+//     });
+//     marker.addListener("click", () => {
+//         infowindow.open(map, marker);
+//     }); */
+// };
+//
+// // Create the custom widget
+// const customGeoSearch = connectGeoSearch(
+//     renderGeoSearch
+// );
+//
+
+
+search.addWidgets([
 
     configure({
         // aroundLatLng: '40.71, -74.01',
@@ -28,6 +78,18 @@ search.addWidgets([
 
     }),
 
+
+
+
+    // customGeoSearch({
+    //     // container: document.querySelector('#maps'),
+    //     initialZoom: 12,
+    //         container: '#maps',
+    //         googleReference: window.google,
+    //         enableRefine: true,
+    //         enableRefineOnMapMove: true,
+    //
+    // }),
 
     searchBox({
         container: "#searchbox"
@@ -224,8 +286,8 @@ search.addWidgets([
                         item.title +
                         '</span><br>' +
                         item.address + "<br>" +
-                        item.city + ', ' + item.state + ' ' + item.zip + '<br>' +
-                        item.services.join(", ") +
+                        item.city + ', ' + item.state + ' ' + item.zip + '<br><br>' +
+                        '<span class="font-bold">' + item.services.join(", ") + "</span>" +
                         '</div>';
 
                     const infowindow = new google.maps.InfoWindow({
@@ -267,22 +329,13 @@ search.addWidgets([
 ]);
 
 
-function attachInfoWindow(marker, hit) {
-    var message;
 
-    if (hit.name === hit.city) {
-        message = hit.name + ' - ' + hit.country;
-    } else {
-        message = hit.name + ' - ' + hit.city + ' - ' + hit.country;
-    }
-
-    var infowindow = new google.maps.InfoWindow({content: message});
-    marker.addListener('click', function () {
-        setTimeout(function () {infowindow.close();}, 3000);
-    });
-}
 
 search.start();
 
+
+
+
+console.log(Markers);
 
 

@@ -5540,6 +5540,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var searchClient = algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0___default()('LYOAOTOT4D', '06f6868f86dd05c03ba16ec7f56db53d');
 var search = (0,instantsearch_js__WEBPACK_IMPORTED_MODULE_1__.default)({
   indexName: 'providers',
@@ -5550,12 +5551,68 @@ var search = (0,instantsearch_js__WEBPACK_IMPORTED_MODULE_1__.default)({
 //     apiKey: 'YOUR_PLACES_API_KEY',
 //     container: document.querySelector('#address-input')
 // });
+// Create the render function
+
+var map = null;
+var markers = [];
+var isUserInteraction = true; // const renderGeoSearch = (renderOptions, isFirstRendering) => {
+//     const {
+//         items,
+//         currentRefinement,
+//         refine,
+//         clearMapRefinement,
+//         widgetParams,
+//     } = renderOptions;
+//
+//     const {
+//         initialZoom,
+//         initialPosition,
+//         container,
+//     } = widgetParams;
+//
+//     if (isFirstRendering) {
+//
+//         const map = new google.maps.Map(document.getElementById("maps"), {
+//             zoom: 4
+//
+//         });
+//
+//     }
+//
+//     /*
+//     const infowindow = new google.maps.InfoWindow({
+//         content: contentString,
+//     });
+//     const marker = new google.maps.Marker({
+//         position: uluru,
+//         map,
+//         title: "Uluru (Ayers Rock)",
+//     });
+//     marker.addListener("click", () => {
+//         infowindow.open(map, marker);
+//     }); */
+// };
+//
+// // Create the custom widget
+// const customGeoSearch = connectGeoSearch(
+//     renderGeoSearch
+// );
+//
 
 search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__.default)({
   // aroundLatLng: '40.71, -74.01',
   // aroundRadius: 1000, // 10000 km
   hitsPerPage: 10
-}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.default)({
+}), // customGeoSearch({
+//     // container: document.querySelector('#maps'),
+//     initialZoom: 12,
+//         container: '#maps',
+//         googleReference: window.google,
+//         enableRefine: true,
+//         enableRefineOnMapMove: true,
+//
+// }),
+(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.default)({
   container: "#searchbox"
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
   container: '#stats'
@@ -5603,7 +5660,7 @@ search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__.d
             item = _ref.item,
             marker = _ref.marker,
             map = _ref.map;
-        var content = '<div>' + '<span class="text-primary font-bold">' + item.title + '</span><br>' + item.address + "<br>" + item.city + ', ' + item.state + ' ' + item.zip + '<br>' + item.services.join(", ") + '</div>';
+        var content = '<div>' + '<span class="text-primary font-bold">' + item.title + '</span><br>' + item.address + "<br>" + item.city + ', ' + item.state + ' ' + item.zip + '<br><br>' + '<span class="font-bold">' + item.services.join(", ") + "</span>" + '</div>';
         var infowindow = new google.maps.InfoWindow({
           content: content
         });
@@ -5640,27 +5697,8 @@ search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__.d
   //   },
 
 })]);
-
-function attachInfoWindow(marker, hit) {
-  var message;
-
-  if (hit.name === hit.city) {
-    message = hit.name + ' - ' + hit.country;
-  } else {
-    message = hit.name + ' - ' + hit.city + ' - ' + hit.country;
-  }
-
-  var infowindow = new google.maps.InfoWindow({
-    content: message
-  });
-  marker.addListener('click', function () {
-    setTimeout(function () {
-      infowindow.close();
-    }, 3000);
-  });
-}
-
 search.start();
+console.log(Markers);
 
 /***/ }),
 

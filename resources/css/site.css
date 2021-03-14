@@ -3,13 +3,25 @@
 
 .theme-default {
     --color-primary: #00458B;
-    --color-logo: #c60000;
+    --color-brand: #c60000;
 
     --color-secondary: #00458B;
-    --color-heading: #fff;
-    --color-background-dark: #47bce3
-;
-    --color-background-light: #fff;
+    --color-heading: #4a4b46;
+
+
+    /*--color-background-light: #989bc3;*/
+    /*--color-background-dark: #45568c;*/
+
+    --color-background-light: #c6d1e8;
+    --color-background-dark: #8198cc;
+
+
+
+#masthead{
+
+    background-image: url("/assets/background/masthead-1.jpg");
+}
+
 
 }
 
@@ -17,18 +29,55 @@
 
 
 
-.theme-blue {
-    --color-logo: #2E78CB;
-    --color-primary: #2E78CB;
-    --color-secondary: #FFCF29;
-    --color-heading: #fff;
+.theme-test1 {
+    --color-primary: #00458B;
+    --color-brand: #c60000;
 
-    --color-background-dark: #79ABE2;
-    --color-background-light: #fff;
+    --color-secondary: #00458B;
+    --color-heading: #4a4b46;
 
+
+    /*--color-background-light: #989bc3;*/
+    /*--color-background-dark: #45568c;*/
+
+    --color-background-light: #c6d1e8;
+    --color-background-dark: #8198cc;
+
+
+#masthead{
+
+    background-image: url("/assets/background/masthead-1.jpg");
+}
 
 
 }
+
+
+
+.theme-test2 {
+    --color-primary: #00458B;
+    --color-brand: #c60000;
+
+    --color-secondary: #00458B;
+    --color-heading: #0b1d3c;
+
+
+    /*--color-background-light: #989bc3;*/
+    /*--color-background-dark: #45568c;*/
+
+    --color-background-light: #fee3c5;
+    --color-background-dark: #1866f0;
+
+
+#masthead{
+
+    background-image: url("/assets/background/masthead-2.jpeg");
+}
+
+
+}
+
+
 .theme-blue2 {
     --color-logo: #1e98a2;
     --color-primary: #a4cf4b;
@@ -92,8 +141,7 @@ body.modal-active {
 
 
 #search-hero{
-    background-image: url("/assets/background/vegas-skyline-1.jpg");
+
 
 }
-
 

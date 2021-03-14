@@ -20,9 +20,9 @@ const search = instantsearch({
 
 
 // Create the render function
-let map = null;
-let markers = [];
-let isUserInteraction = true;
+// let map = null;
+// let markers = [];
+// let isUserInteraction = true;
 
 // const renderGeoSearch = (renderOptions, isFirstRendering) => {
 //     const {

@@ -5552,10 +5552,10 @@ var search = (0,instantsearch_js__WEBPACK_IMPORTED_MODULE_1__.default)({
 //     container: document.querySelector('#address-input')
 // });
 // Create the render function
-
-var map = null;
-var markers = [];
-var isUserInteraction = true; // const renderGeoSearch = (renderOptions, isFirstRendering) => {
+// let map = null;
+// let markers = [];
+// let isUserInteraction = true;
+// const renderGeoSearch = (renderOptions, isFirstRendering) => {
 //     const {
 //         items,
 //         currentRefinement,

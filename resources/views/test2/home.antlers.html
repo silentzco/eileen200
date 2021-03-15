@@ -212,15 +212,18 @@
             });
 
 
-
-
-
             window.location.href = url;
 
-
-
-
         });
+
+
+
+        $('body').click(function(event) {
+            if (!$(event.target).closest('.service-category').length) {
+                $('.services-list').addClass('hidden');
+            }
+        });
+
 
     })
 </script>

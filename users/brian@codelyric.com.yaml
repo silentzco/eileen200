@@ -6,6 +6,11 @@ preferences:
   taxonomies:
     services:
       after_save: create_another
+      columns:
+        - title
+        - slug
+        - category
+        - service_category
   collections:
     service_categories:
       after_save: create_another

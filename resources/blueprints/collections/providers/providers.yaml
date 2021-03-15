@@ -151,6 +151,22 @@ sections:
           type: assets
           icon: assets
           listable: hidden
+      -
+        handle: video
+        field:
+          display: Video
+          type: video
+          icon: video
+          listable: hidden
+      -
+        handle: youtube
+        field:
+          input_type: text
+          antlers: false
+          display: Youtube
+          type: text
+          icon: text
+          listable: hidden
   sidebar:
     display: Sidebar
     fields:

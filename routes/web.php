@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::statamic('search/results', 'search/results', [
-    'title' => 'Search Results'
- ]);
+// Route::statamic('search/results', 'search/results', [
+//    'title' => 'Search Results'
+// ]);
+
+
+Route::any('search/results', [SearchController::class, 'results']);
+

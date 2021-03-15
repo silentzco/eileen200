@@ -5529,14 +5529,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! algoliasearch/lite */ "./node_modules/algoliasearch/dist/algoliasearch-lite.umd.js");
 /* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var instantsearch_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! instantsearch.js */ "./node_modules/instantsearch.js/es/index.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/configure/configure.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/search-box/search-box.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/stats/stats.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/pagination/pagination.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/menu-select/menu-select.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/hits/hits.js");
-/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/geo-search/geo-search.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/configure/configure.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/search-box/search-box.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/stats/stats.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/pagination/pagination.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/refinement-list/refinement-list.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/menu-select/menu-select.js");
+/* harmony import */ var instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! instantsearch.js/es/widgets */ "./node_modules/instantsearch.js/es/widgets/hits/hits.js");
+/* harmony import */ var instantsearch_js_es_connectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! instantsearch.js/es/connectors */ "./node_modules/instantsearch.js/es/connectors/geo-search/connectGeoSearch.js");
 
 
 
@@ -5552,153 +5552,211 @@ var search = (0,instantsearch_js__WEBPACK_IMPORTED_MODULE_1__.default)({
 //     container: document.querySelector('#address-input')
 // });
 // Create the render function
-// let map = null;
-// let markers = [];
-// let isUserInteraction = true;
-// const renderGeoSearch = (renderOptions, isFirstRendering) => {
-//     const {
-//         items,
-//         currentRefinement,
-//         refine,
-//         clearMapRefinement,
-//         widgetParams,
-//     } = renderOptions;
-//
-//     const {
-//         initialZoom,
-//         initialPosition,
-//         container,
-//     } = widgetParams;
-//
-//     if (isFirstRendering) {
-//
-//         const map = new google.maps.Map(document.getElementById("maps"), {
-//             zoom: 4
-//
-//         });
-//
-//     }
-//
-//     /*
-//     const infowindow = new google.maps.InfoWindow({
-//         content: contentString,
-//     });
-//     const marker = new google.maps.Marker({
-//         position: uluru,
-//         map,
-//         title: "Uluru (Ayers Rock)",
-//     });
-//     marker.addListener("click", () => {
-//         infowindow.open(map, marker);
-//     }); */
-// };
-//
-// // Create the custom widget
-// const customGeoSearch = connectGeoSearch(
-//     renderGeoSearch
-// );
-//
 
-search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_2__.default)({
+var map = null;
+var markers = [];
+var isUserInteraction = true;
+
+var renderGeoSearch = function renderGeoSearch(renderOptions, isFirstRendering) {
+  var items = renderOptions.items,
+      currentRefinement = renderOptions.currentRefinement,
+      refine = renderOptions.refine,
+      clearMapRefinement = renderOptions.clearMapRefinement,
+      widgetParams = renderOptions.widgetParams;
+  var initialZoom = widgetParams.initialZoom,
+      initialPosition = widgetParams.initialPosition,
+      container = widgetParams.container;
+  var bounds = new google.maps.LatLngBounds();
+  map = new google.maps.Map(document.getElementById("maps"), {
+    zoom: 4
+  });
+  markers = [];
+  var infoWindow = new google.maps.InfoWindow(),
+      marker,
+      i; // Loop through our array of markers & place each one on the map
+
+  for (i = 0; i < items.length; i++) {
+    var position = items[i]._geoloc;
+    bounds.extend(position);
+    marker = new google.maps.Marker({
+      position: position,
+      map: map,
+      title: items[i].title,
+      objectID: items[i].objectID
+    }); // Allow each marker to have an info window
+
+    google.maps.event.addListener(marker, 'click', function (marker, i) {
+      return function () {
+        var content = '<div>' + '<span class="text-primary font-bold">' + items[i].title + '</span><br>' + items[i].address + "<br>" + items[i].city + ', ' + items[i].state + ' ' + items[i].zip + '<br><br>' + '<span class="font-bold">' + items[i].services.join(", ") + "</span>" + '</div>';
+        infoWindow.setContent(content);
+        infoWindow.open(map, marker);
+      };
+    }(marker, i));
+    markers.push(marker); // Automatically center the map fitting all markers on the screen
+  }
+
+  var svgMarker = {
+    path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+    fillColor: "#c60000",
+    fillOpacity: 0.9,
+    strokeWeight: 0,
+    rotation: 0,
+    scale: 2,
+    anchor: new google.maps.Point(15, 30)
+  };
+  new google.maps.Marker({
+    position: {
+      lat: 36.026532,
+      lng: -115.14848
+    },
+    icon: svgMarker,
+    map: map
+  });
+  bounds.extend({
+    lat: 36.026532,
+    lng: -115.14848
+  }); // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+  // let boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+  //     this.setZoom(14);
+  //     google.maps.event.removeListener(boundsListener);
+  // });
+  //
+
+  map.fitBounds(bounds);
+}; // Create the custom widget
+
+
+var customGeoSearch = (0,instantsearch_js_es_connectors__WEBPACK_IMPORTED_MODULE_2__.default)(renderGeoSearch);
+
+function focusOnMarker(objectID) {
+  var i;
+
+  for (i = 0; i < markers.length; i++) {
+    if (objectID == markers[i].objectID) {
+      map.panTo(markers[i].position);
+      google.maps.event.trigger(markers[i], 'click');
+    }
+  }
+}
+
+search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.default)({
   // aroundLatLng: '40.71, -74.01',
   // aroundRadius: 1000, // 10000 km
   hitsPerPage: 10
-}), // customGeoSearch({
-//     // container: document.querySelector('#maps'),
-//     initialZoom: 12,
-//         container: '#maps',
-//         googleReference: window.google,
-//         enableRefine: true,
-//         enableRefineOnMapMove: true,
-//
-// }),
-(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.default)({
-  container: "#searchbox"
+}), customGeoSearch({
+  // container: document.querySelector('#maps'),
+  initialZoom: 12,
+  container: '#maps',
+  googleReference: window.google,
+  enableRefine: true,
+  enableRefineOnMapMove: true
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
-  container: '#stats'
+  container: "#searchbox"
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_5__.default)({
+  container: '#stats'
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_6__.default)({
   container: '#pagination'
 }), // refinementList({
 //     container: "#category",
 //     attribute: 'category',
 //     operator: 'or',
 // }),
-(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_6__.default)({
+(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_7__.default)({
   container: "#services",
   attribute: 'services'
-}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_7__.default)({
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_8__.default)({
   container: "#category",
   attribute: 'category',
   templates: {
     item: '{{label}} ({{#helpers.formatNumber}}{{count}}{{/helpers.formatNumber}})'
   }
-}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_8__.default)({
+}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_9__.default)({
   container: '#hits',
   templates: {
-    item: "\n        <div class=\"provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}}\">\n        <div class=\"w-full flex items-center justify-between p-4 space-x-6\">\n            <div class=\"flex-1 truncate\">\n                <div class=\"flex items-center space-x-3\">\n                    <h3 class=\"text-gray-900 text-lg font-medium truncate\">{{ title }}</h3>\n                </div>\n\n                    <div>\n\n                        {{#services}}\n                            <span class=\"flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-secondary text-white rounded-full\">{{ . }}</span>\n                        {{/services}}\n\n\n                    </div>\n\n                    <div>\n                        {{#org_name}}\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">{{ first_name }} {{last_name}}</p>\n                        {{/org_name}}\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                            {{ address }}<br>\n                            {{ city }}, {{ state }} {{ zip }}\n                        </p>\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                            {{ phone }}\n                        </p>\n\n\n                    </div>\n            </div>\n\n\n\n            {{#image}}\n            <img class=\"h-20 rounded flex-shrink-0\" src=\"/assets/{{ image }}\" alt=\"\">\n            {{/image}}\n        </div>\n\n        {{#description}}\n            <div class=\"flex-1 p-4 text-sm description\">\n                {{{ description }}}\n            </div>\n        {{/description}}\n\n        {{#sponsored}}\n        <div class=\"inline-flex space-x-4 p-4\">\n            <div class=\"w-20 h-20 bg-gray-200 flex-1 galleryitem\"></div>\n            <div class=\"w-20 h-20 bg-gray-200 flex-1  galleryitem\"></div>\n            <a href=\"#\" onclick=\"toggleModal(); return false;\" class=\"w-20 h-20 bg-gray-200 flex-1 galleryitem flex items-center\">\n            <div class=\"w-10 h-10 mx-auto\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" >\n  <path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z\" clip-rule=\"evenodd\" />\n</svg></div>\n</a>\n\n        </div>\n        {{/sponsored}}\n\n\n            <div class=\"-mt-px flex divide-x divide-gray-200 provider-actions\">\n                {{#email}}\n                <div class=\"w-0 flex-1 flex\">\n                    <a href=\"mailto:{{email}}\" class=\"relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500\">\n                        <!-- Heroicon name: mail -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                            <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                        </svg>\n                        <span class=\"ml-3\">Email</span>\n                    </a>\n                </div>\n                {{/email}}\n\n                {{#phone}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"tel:{{phone}}\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z\" />\n                        </svg>\n                        <span class=\"ml-3\">Call</span>\n                    </a>\n                </div>\n                {{/phone}}\n\n                {{#address}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n\n\n                    <a href=\"#\" onclick=\"window.map.setCenter([_geoloc.lat,_geoloc.lng], 12); return false;\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\" />\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\" />\n                        </svg>\n                        <span class=\"ml-3\">Map</span>\n                    </a>\n                </div>\n                {{/address}}\n\n\n                {{#website}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"{{website}}\" target=\"_blank\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\" />\n                        </svg>\n                        <span class=\"ml-3\">Website</span>\n                    </a>\n                </div>\n                {{/website}}\n            </div>\n    </div>\n\n    "
+    item: "\n        <div class=\"provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}}\">\n        <div class=\"w-full flex items-center justify-between p-4 space-x-6\">\n            <div class=\"flex-1 truncate\">\n                <div class=\"flex items-center space-x-3\">\n                    <h3 class=\"text-gray-900 text-lg font-medium truncate\">{{ title }}</h3>\n                </div>\n\n                    <div>\n\n                        {{#services}}\n                            <span class=\"flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-secondary text-white rounded-full\">{{ . }}</span>\n                        {{/services}}\n\n\n                    </div>\n\n                    <div>\n                        {{#org_name}}\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">{{ first_name }} {{last_name}}</p>\n                        {{/org_name}}\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                            {{ address }}<br>\n                            {{ city }}, {{ state }} {{ zip }}\n                        </p>\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                            {{ phone }}\n                        </p>\n\n\n                    </div>\n            </div>\n\n\n\n            {{#image}}\n            <img class=\"h-20 rounded flex-shrink-0\" src=\"/assets/{{ image }}\" alt=\"\">\n            {{/image}}\n        </div>\n\n        {{#description}}\n            <div class=\"flex-1 p-4 text-sm description\">\n                {{{ description }}}\n            </div>\n        {{/description}}\n\n        {{#sponsored}}\n        <div class=\"inline-flex space-x-4 p-4\">\n            <div class=\"w-20 h-20 bg-gray-200 flex-1 galleryitem\"></div>\n            <div class=\"w-20 h-20 bg-gray-200 flex-1  galleryitem\"></div>\n            <a href=\"#\" onclick=\"toggleModal(); return false;\" class=\"w-20 h-20 bg-gray-200 flex-1 galleryitem flex items-center\">\n            <div class=\"w-10 h-10 mx-auto\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" >\n  <path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z\" clip-rule=\"evenodd\" />\n</svg></div>\n</a>\n\n        </div>\n        {{/sponsored}}\n\n\n            <div class=\"-mt-px flex divide-x divide-gray-200 provider-actions\">\n                {{#email}}\n                <div class=\"w-0 flex-1 flex\">\n                    <a href=\"mailto:{{email}}\" class=\"relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500\">\n                        <!-- Heroicon name: mail -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                            <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                        </svg>\n                        <span class=\"ml-3\">Email</span>\n                    </a>\n                </div>\n                {{/email}}\n\n                {{#phone}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"tel:{{phone}}\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z\" />\n                        </svg>\n                        <span class=\"ml-3\">Call</span>\n                    </a>\n                </div>\n                {{/phone}}\n\n                {{#address}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n\n\n                    <a href=\"#\" data-objectid=\"{{objectID}}\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 markerMapLink\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\" />\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\" />\n                        </svg>\n                        <span class=\"ml-3\">Map</span>\n                    </a>\n                </div>\n                {{/address}}\n\n\n                {{#website}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"{{website}}\" target=\"_blank\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\" />\n                        </svg>\n                        <span class=\"ml-3\">Website</span>\n                    </a>\n                </div>\n                {{/website}}\n            </div>\n    </div>\n\n    "
   }
-}), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_9__.default)({
-  container: '#maps',
-  googleReference: window.google,
-  enableRefine: true,
-  enableRefineOnMapMove: true,
-  // initialZoom: 4,
-  // initialPosition: {
-  //     lat: 48.864716,
-  //     lng: 2.349014,
-  // },
-  // initialZoom: 4,
-  // initialPosition: {
-  //     lat: 48.864716,
-  //     lng: 2.349014,
-  // },
-  builtInMarker: {
-    createOptions: function createOptions(item) {},
-    events: {
-      click: function click(_ref) {
-        var event = _ref.event,
-            item = _ref.item,
-            marker = _ref.marker,
-            map = _ref.map;
-        var content = '<div>' + '<span class="text-primary font-bold">' + item.title + '</span><br>' + item.address + "<br>" + item.city + ', ' + item.state + ' ' + item.zip + '<br><br>' + '<span class="font-bold">' + item.services.join(", ") + "</span>" + '</div>';
-        var infowindow = new google.maps.InfoWindow({
-          content: content
-        });
-        infowindow.open(map, marker);
-        setTimeout(function () {
-          infowindow.close();
-        }, 5000);
-        console.log(marker);
-        console.log(item);
-      }
-    }
-  } //   customHTMLMarker: {
-  //       createOptions(item) {
-  //           return {
-  //               anchor: {
-  //                   x: 0,
-  //                   y: 0,
-  //               },
-  //           };
-  //       },
-  //       events: {
-  //           click({ event, item, marker, map }) {
-  //               console.log(item);
-  //               console.log("foobar");
-  //           },
-  //       },
-  //   },
-  //   templates: {
-  //       HTMLMarker: `
-  //   <span class="marker">
-  //     {{ title }} - {{ services }}
-  //   </span>
-  // `,
-  //   },
-
-})]);
+}) // geoSearch({
+//     container: '#maps',
+//     googleReference: window.google,
+//     enableRefine: true,
+//     enableRefineOnMapMove: true,
+//
+//     // initialZoom: 4,
+//     // initialPosition: {
+//     //     lat: 48.864716,
+//     //     lng: 2.349014,
+//     // },
+//     // initialZoom: 4,
+//     // initialPosition: {
+//     //     lat: 48.864716,
+//     //     lng: 2.349014,
+//     // },
+//     builtInMarker: {
+//         createOptions(item) {
+//
+//
+//
+//
+//         },
+//         events: {
+//             click({event, item, marker, map}) {
+//
+//
+//                 const content =
+//                     '<div>' +
+//                     '<span class="text-primary font-bold">' +
+//                     item.title +
+//                     '</span><br>' +
+//                     item.address + "<br>" +
+//                     item.city + ', ' + item.state + ' ' + item.zip + '<br><br>' +
+//                     '<span class="font-bold">' + item.services.join(", ") + "</span>" +
+//                     '</div>';
+//
+//                 const infowindow = new google.maps.InfoWindow({
+//                     content: content,
+//                 });
+//
+//                 infowindow.open(map, marker);
+//                 setTimeout(function () {infowindow.close();}, 5000);
+//
+//                 console.log(marker);
+//                 console.log(item);
+//             },
+//         },
+//     },
+//     //   customHTMLMarker: {
+//     //       createOptions(item) {
+//     //           return {
+//     //               anchor: {
+//     //                   x: 0,
+//     //                   y: 0,
+//     //               },
+//     //           };
+//     //       },
+//     //       events: {
+//     //           click({ event, item, marker, map }) {
+//     //               console.log(item);
+//     //               console.log("foobar");
+//     //           },
+//     //       },
+//     //   },
+//     //   templates: {
+//     //       HTMLMarker: `
+//     //   <span class="marker">
+//     //     {{ title }} - {{ services }}
+//     //   </span>
+//     // `,
+//     //   },
+// })
+]);
 search.start();
-console.log(Markers);
+$(function () {
+  $('body').on('click', '.markerMapLink', function (e) {
+    e.preventDefault();
+    var objectid = $(this).data('objectid');
+    focusOnMarker(objectid);
+  });
+});
 
 /***/ }),
 
@@ -6575,154 +6633,6 @@ var Hogan = {};
 
 })( true ? exports : 0);
 
-
-/***/ }),
-
-/***/ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchButton.js":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchButton.js ***!
-  \******************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
-/** @jsx h */
-
-
-var GeoSearchButton = function GeoSearchButton(_ref) {
-  var className = _ref.className,
-      disabled = _ref.disabled,
-      onClick = _ref.onClick,
-      children = _ref.children;
-  return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("button", {
-    className: className,
-    onClick: onClick,
-    disabled: disabled
-  }, children);
-};
-
-GeoSearchButton.defaultProps = {
-  disabled: false
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GeoSearchButton);
-
-/***/ }),
-
-/***/ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchControls.js":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchControls.js ***!
-  \********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Template_Template__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Template/Template */ "./node_modules/instantsearch.js/es/components/Template/Template.js");
-/* harmony import */ var _GeoSearchButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GeoSearchButton */ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchButton.js");
-/* harmony import */ var _GeoSearchToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GeoSearchToggle */ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchToggle.js");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/** @jsx h */
-
-
-
-
-
-
-var GeoSearchControls = function GeoSearchControls(_ref) {
-  var cssClasses = _ref.cssClasses,
-      enableRefine = _ref.enableRefine,
-      enableRefineControl = _ref.enableRefineControl,
-      enableClearMapRefinement = _ref.enableClearMapRefinement,
-      isRefineOnMapMove = _ref.isRefineOnMapMove,
-      isRefinedWithMap = _ref.isRefinedWithMap,
-      hasMapMoveSinceLastRefine = _ref.hasMapMoveSinceLastRefine,
-      onRefineToggle = _ref.onRefineToggle,
-      onRefineClick = _ref.onRefineClick,
-      onClearClick = _ref.onClearClick,
-      templateProps = _ref.templateProps;
-  return enableRefine && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", null, enableRefineControl && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
-    className: cssClasses.control
-  }, isRefineOnMapMove || !hasMapMoveSinceLastRefine ? (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_GeoSearchToggle__WEBPACK_IMPORTED_MODULE_2__.default, {
-    classNameLabel: classnames__WEBPACK_IMPORTED_MODULE_1___default()(cssClasses.label, _defineProperty({}, cssClasses.selectedLabel, isRefineOnMapMove)),
-    classNameInput: cssClasses.input,
-    checked: isRefineOnMapMove,
-    onToggle: onRefineToggle
-  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_3__.default, _extends({}, templateProps, {
-    templateKey: "toggle",
-    rootTagName: "span"
-  }))) : (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_GeoSearchButton__WEBPACK_IMPORTED_MODULE_4__.default, {
-    className: cssClasses.redo,
-    disabled: !hasMapMoveSinceLastRefine,
-    onClick: onRefineClick
-  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_3__.default, _extends({}, templateProps, {
-    templateKey: "redo",
-    rootTagName: "span"
-  })))), !enableRefineControl && !isRefineOnMapMove && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
-    className: cssClasses.control
-  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_GeoSearchButton__WEBPACK_IMPORTED_MODULE_4__.default, {
-    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(cssClasses.redo, _defineProperty({}, cssClasses.disabledRedo, !hasMapMoveSinceLastRefine)),
-    disabled: !hasMapMoveSinceLastRefine,
-    onClick: onRefineClick
-  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_3__.default, _extends({}, templateProps, {
-    templateKey: "redo",
-    rootTagName: "span"
-  })))), enableClearMapRefinement && isRefinedWithMap && (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_GeoSearchButton__WEBPACK_IMPORTED_MODULE_4__.default, {
-    className: cssClasses.reset,
-    onClick: onClearClick
-  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_Template_Template__WEBPACK_IMPORTED_MODULE_3__.default, _extends({}, templateProps, {
-    templateKey: "reset",
-    rootTagName: "span"
-  }))));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GeoSearchControls);
-
-/***/ }),
-
-/***/ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchToggle.js":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchToggle.js ***!
-  \******************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
-/** @jsx h */
-
-
-var GeoSearchToggle = function GeoSearchToggle(_ref) {
-  var classNameLabel = _ref.classNameLabel,
-      classNameInput = _ref.classNameInput,
-      checked = _ref.checked,
-      onToggle = _ref.onToggle,
-      children = _ref.children;
-  return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("label", {
-    className: classNameLabel
-  }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("input", {
-    className: classNameInput,
-    type: "checkbox",
-    checked: checked,
-    onChange: onToggle
-  }), children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GeoSearchToggle);
 
 /***/ }),
 
@@ -13281,694 +13191,6 @@ var configure = function configure(widgetParams) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configure);
-
-/***/ }),
-
-/***/ "./node_modules/instantsearch.js/es/widgets/geo-search/GeoSearchRenderer.js":
-/*!**********************************************************************************!*\
-  !*** ./node_modules/instantsearch.js/es/widgets/geo-search/GeoSearchRenderer.js ***!
-  \**********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
-/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/prepareTemplateProps.js");
-/* harmony import */ var _components_GeoSearchControls_GeoSearchControls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/GeoSearchControls/GeoSearchControls */ "./node_modules/instantsearch.js/es/components/GeoSearchControls/GeoSearchControls.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-/** @jsx h */
-
-
-
-
-var refineWithMap = function refineWithMap(_ref) {
-  var refine = _ref.refine,
-      mapInstance = _ref.mapInstance;
-  return refine({
-    northEast: mapInstance.getBounds().getNorthEast().toJSON(),
-    southWest: mapInstance.getBounds().getSouthWest().toJSON()
-  });
-};
-
-var collectMarkersForNextRender = function collectMarkersForNextRender(markers, nextIds) {
-  return markers.reduce(function (_ref2, marker) {
-    var _ref3 = _slicedToArray(_ref2, 2),
-        update = _ref3[0],
-        exit = _ref3[1];
-
-    var persist = nextIds.includes(marker.__id);
-    return persist ? [update.concat(marker), exit] : [update, exit.concat(marker)];
-  }, [[], []]);
-};
-
-var createBoundingBoxFromMarkers = function createBoundingBoxFromMarkers(google, markers) {
-  var latLngBounds = markers.reduce(function (acc, marker) {
-    return acc.extend(marker.getPosition());
-  }, new google.maps.LatLngBounds());
-  return {
-    northEast: latLngBounds.getNorthEast().toJSON(),
-    southWest: latLngBounds.getSouthWest().toJSON()
-  };
-};
-
-var lockUserInteraction = function lockUserInteraction(renderState, functionThatAltersTheMapPosition) {
-  renderState.isUserInteraction = false;
-  functionThatAltersTheMapPosition();
-  renderState.isUserInteraction = true;
-};
-
-var renderer = function renderer(_ref4, isFirstRendering) {
-  var items = _ref4.items,
-      position = _ref4.position,
-      currentRefinement = _ref4.currentRefinement,
-      refine = _ref4.refine,
-      clearMapRefinement = _ref4.clearMapRefinement,
-      toggleRefineOnMapMove = _ref4.toggleRefineOnMapMove,
-      isRefineOnMapMove = _ref4.isRefineOnMapMove,
-      setMapMoveSinceLastRefine = _ref4.setMapMoveSinceLastRefine,
-      hasMapMoveSinceLastRefine = _ref4.hasMapMoveSinceLastRefine,
-      isRefinedWithMap = _ref4.isRefinedWithMap,
-      widgetParams = _ref4.widgetParams,
-      instantSearchInstance = _ref4.instantSearchInstance;
-  var container = widgetParams.container,
-      googleReference = widgetParams.googleReference,
-      cssClasses = widgetParams.cssClasses,
-      templates = widgetParams.templates,
-      initialZoom = widgetParams.initialZoom,
-      initialPosition = widgetParams.initialPosition,
-      enableRefine = widgetParams.enableRefine,
-      enableClearMapRefinement = widgetParams.enableClearMapRefinement,
-      enableRefineControl = widgetParams.enableRefineControl,
-      mapOptions = widgetParams.mapOptions,
-      createMarker = widgetParams.createMarker,
-      markerOptions = widgetParams.markerOptions,
-      renderState = widgetParams.renderState;
-
-  if (isFirstRendering) {
-    renderState.isUserInteraction = true;
-    renderState.isPendingRefine = false;
-    renderState.markers = [];
-    var rootElement = document.createElement('div');
-    rootElement.className = cssClasses.root;
-    container.appendChild(rootElement);
-    var mapElement = document.createElement('div');
-    mapElement.className = cssClasses.map;
-    rootElement.appendChild(mapElement);
-    var treeElement = document.createElement('div');
-    treeElement.className = cssClasses.tree;
-    rootElement.appendChild(treeElement);
-    renderState.mapInstance = new googleReference.maps.Map(mapElement, _objectSpread({
-      mapTypeControl: false,
-      fullscreenControl: false,
-      streetViewControl: false,
-      clickableIcons: false,
-      zoomControlOptions: {
-        position: googleReference.maps.ControlPosition.LEFT_TOP
-      }
-    }, mapOptions));
-
-    var setupListenersWhenMapIsReady = function setupListenersWhenMapIsReady() {
-      var onChange = function onChange() {
-        if (renderState.isUserInteraction && enableRefine) {
-          setMapMoveSinceLastRefine();
-
-          if (isRefineOnMapMove()) {
-            renderState.isPendingRefine = true;
-          }
-        }
-      };
-
-      renderState.mapInstance.addListener('center_changed', onChange);
-      renderState.mapInstance.addListener('zoom_changed', onChange);
-      renderState.mapInstance.addListener('dragstart', onChange);
-      renderState.mapInstance.addListener('idle', function () {
-        if (renderState.isUserInteraction && renderState.isPendingRefine) {
-          renderState.isPendingRefine = false;
-          refineWithMap({
-            mapInstance: renderState.mapInstance,
-            refine: refine
-          });
-        }
-      });
-    };
-
-    googleReference.maps.event.addListenerOnce(renderState.mapInstance, 'idle', setupListenersWhenMapIsReady);
-    renderState.templateProps = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_1__.default)({
-      templatesConfig: instantSearchInstance.templatesConfig,
-      templates: templates
-    });
-    return;
-  } // Collect markers that need to be updated or removed
-
-
-  var nextItemsIds = items.map(function (_) {
-    return _.objectID;
-  });
-
-  var _collectMarkersForNex = collectMarkersForNextRender(renderState.markers, nextItemsIds),
-      _collectMarkersForNex2 = _slicedToArray(_collectMarkersForNex, 2),
-      updateMarkers = _collectMarkersForNex2[0],
-      exitMarkers = _collectMarkersForNex2[1]; // Collect items that will be added
-
-
-  var updateMarkerIds = updateMarkers.map(function (_) {
-    return _.__id;
-  });
-  var nextPendingItems = items.filter(function (item) {
-    return !updateMarkerIds.includes(item.objectID);
-  }); // Remove all markers that need to be removed
-
-  exitMarkers.forEach(function (marker) {
-    return marker.setMap(null);
-  }); // Create the markers from the items
-
-  renderState.markers = updateMarkers.concat(nextPendingItems.map(function (item) {
-    var marker = createMarker({
-      map: renderState.mapInstance,
-      item: item
-    });
-    Object.keys(markerOptions.events).forEach(function (eventName) {
-      marker.addListener(eventName, function (event) {
-        markerOptions.events[eventName]({
-          map: renderState.mapInstance,
-          event: event,
-          item: item,
-          marker: marker
-        });
-      });
-    });
-    return marker;
-  }));
-  var shouldUpdate = !hasMapMoveSinceLastRefine(); // We use this value for differentiate the padding to apply during
-  // fitBounds. When we don't have a currenRefinement (boundingBox)
-  // we let Google Maps compute the automatic padding. But when we
-  // provide the currentRefinement we explicitly set the padding
-  // to `0` otherwise the map will decrease the zoom on each refine.
-
-  var boundingBoxPadding = currentRefinement ? 0 : null;
-  var boundingBox = !currentRefinement && Boolean(renderState.markers.length) ? createBoundingBoxFromMarkers(googleReference, renderState.markers) : currentRefinement;
-
-  if (boundingBox && shouldUpdate) {
-    lockUserInteraction(renderState, function () {
-      renderState.mapInstance.fitBounds(new googleReference.maps.LatLngBounds(boundingBox.southWest, boundingBox.northEast), boundingBoxPadding);
-    });
-  } else if (shouldUpdate) {
-    lockUserInteraction(renderState, function () {
-      renderState.mapInstance.setCenter(position || initialPosition);
-      renderState.mapInstance.setZoom(initialZoom);
-    });
-  }
-
-  (0,preact__WEBPACK_IMPORTED_MODULE_0__.render)((0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(_components_GeoSearchControls_GeoSearchControls__WEBPACK_IMPORTED_MODULE_2__.default, {
-    cssClasses: cssClasses,
-    enableRefine: enableRefine,
-    enableRefineControl: enableRefineControl,
-    enableClearMapRefinement: enableClearMapRefinement,
-    isRefineOnMapMove: isRefineOnMapMove(),
-    isRefinedWithMap: isRefinedWithMap(),
-    hasMapMoveSinceLastRefine: hasMapMoveSinceLastRefine(),
-    onRefineToggle: toggleRefineOnMapMove,
-    onRefineClick: function onRefineClick() {
-      return refineWithMap({
-        mapInstance: renderState.mapInstance,
-        refine: refine
-      });
-    },
-    onClearClick: clearMapRefinement,
-    templateProps: renderState.templateProps
-  }), container.querySelector(".".concat(cssClasses.tree)));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderer);
-
-/***/ }),
-
-/***/ "./node_modules/instantsearch.js/es/widgets/geo-search/createHTMLMarker.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/instantsearch.js/es/widgets/geo-search/createHTMLMarker.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// eslint-disable-next-line no-undef
-var createHTMLMarker = function createHTMLMarker(googleReference) {
-  var HTMLMarker =
-  /*#__PURE__*/
-  function (_googleReference$maps) {
-    _inherits(HTMLMarker, _googleReference$maps);
-
-    function HTMLMarker(_ref) {
-      var _this;
-
-      var __id = _ref.__id,
-          position = _ref.position,
-          map = _ref.map,
-          template = _ref.template,
-          className = _ref.className,
-          _ref$anchor = _ref.anchor,
-          anchor = _ref$anchor === void 0 ? {
-        x: 0,
-        y: 0
-      } : _ref$anchor;
-
-      _classCallCheck(this, HTMLMarker);
-
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(HTMLMarker).call(this));
-
-      _defineProperty(_assertThisInitialized(_this), "__id", void 0);
-
-      _defineProperty(_assertThisInitialized(_this), "anchor", void 0);
-
-      _defineProperty(_assertThisInitialized(_this), "offset", void 0);
-
-      _defineProperty(_assertThisInitialized(_this), "listeners", void 0);
-
-      _defineProperty(_assertThisInitialized(_this), "latLng", void 0);
-
-      _defineProperty(_assertThisInitialized(_this), "element", void 0);
-
-      _this.__id = __id;
-      _this.anchor = anchor;
-      _this.listeners = {};
-      _this.latLng = new googleReference.maps.LatLng(position);
-      _this.element = document.createElement('div');
-      _this.element.className = className;
-      _this.element.style.position = 'absolute';
-      _this.element.innerHTML = template;
-
-      _this.setMap(map);
-
-      return _this;
-    }
-
-    _createClass(HTMLMarker, [{
-      key: "onAdd",
-      value: function onAdd() {
-        // Append the element to the map
-        this.getPanes().overlayMouseTarget.appendChild(this.element); // Compute the offset onAdd & cache it because afterwards
-        // it won't retrieve the correct values, we also avoid
-        // to read the values on every draw
-
-        var bbBox = this.element.getBoundingClientRect();
-        this.offset = {
-          x: this.anchor.x + bbBox.width / 2,
-          y: this.anchor.y + bbBox.height
-        }; // Force the width of the element will avoid the
-        // content to collapse when we move the map
-
-        this.element.style.width = "".concat(bbBox.width, "px");
-      }
-    }, {
-      key: "draw",
-      value: function draw() {
-        var position = this.getProjection().fromLatLngToDivPixel(this.latLng);
-        this.element.style.left = "".concat(Math.round(position.x - this.offset.x), "px");
-        this.element.style.top = "".concat(Math.round(position.y - this.offset.y), "px"); // Markers to the south are in front of markers to the north
-        // This is the default behaviour of Google Maps
-
-        this.element.style.zIndex = String(parseInt(this.element.style.top, 10));
-      }
-    }, {
-      key: "onRemove",
-      value: function onRemove() {
-        var _this2 = this;
-
-        if (this.element) {
-          this.element.parentNode.removeChild(this.element);
-          Object.keys(this.listeners).forEach(function (eventName) {
-            _this2.element.removeEventListener(eventName, _this2.listeners[eventName]);
-          });
-          delete this.element;
-          delete this.listeners;
-        }
-      }
-    }, {
-      key: "addListener",
-      value: function addListener(eventName, listener) {
-        this.listeners[eventName] = listener;
-        var element = this.element;
-        element.addEventListener(eventName, listener);
-        return {
-          remove: function remove() {
-            return element.removeEventListener(eventName, listener);
-          }
-        };
-      }
-    }, {
-      key: "getPosition",
-      value: function getPosition() {
-        return this.latLng;
-      }
-    }]);
-
-    return HTMLMarker;
-  }(googleReference.maps.OverlayView); // we have to cast this to a regular OverlayView to prevent internal class being exposed
-  // which TypeScript doesn't allow.
-
-
-  return HTMLMarker;
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createHTMLMarker);
-
-/***/ }),
-
-/***/ "./node_modules/instantsearch.js/es/widgets/geo-search/defaultTemplates.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/instantsearch.js/es/widgets/geo-search/defaultTemplates.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  HTMLMarker: '<p>Your custom HTML Marker</p>',
-  reset: 'Clear the map refinement',
-  toggle: 'Search as I move the map',
-  redo: 'Redo search here'
-});
-
-/***/ }),
-
-/***/ "./node_modules/instantsearch.js/es/widgets/geo-search/geo-search.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/instantsearch.js/es/widgets/geo-search/geo-search.js ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
-/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/documentation.js");
-/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/noop.js");
-/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/getContainerNode.js");
-/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib/utils */ "./node_modules/instantsearch.js/es/lib/utils/renderTemplate.js");
-/* harmony import */ var _lib_suit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/suit */ "./node_modules/instantsearch.js/es/lib/suit.js");
-/* harmony import */ var _connectors_geo_search_connectGeoSearch__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../connectors/geo-search/connectGeoSearch */ "./node_modules/instantsearch.js/es/connectors/geo-search/connectGeoSearch.js");
-/* harmony import */ var _GeoSearchRenderer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./GeoSearchRenderer */ "./node_modules/instantsearch.js/es/widgets/geo-search/GeoSearchRenderer.js");
-/* harmony import */ var _defaultTemplates__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./defaultTemplates */ "./node_modules/instantsearch.js/es/widgets/geo-search/defaultTemplates.js");
-/* harmony import */ var _createHTMLMarker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./createHTMLMarker */ "./node_modules/instantsearch.js/es/widgets/geo-search/createHTMLMarker.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-
-
-
-
-
-
-
-
-var withUsage = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.createDocumentationMessageGenerator)({
-  name: 'geo-search'
-});
-var suit = (0,_lib_suit__WEBPACK_IMPORTED_MODULE_3__.component)('GeoSearch');
-/**
- * @typedef {object} HTMLMarkerOptions
- * @property {object} [anchor] The offset from the marker's position.
- */
-
-/**
- * @typedef {object} CustomHTMLMarkerOptions
- * @property {function(item): HTMLMarkerOptions} [createOptions] Function used to create the options passed to the HTMLMarker.
- * @property {{ eventType: function(object) }} [events] Object that takes an event type (ex: `click`, `mouseover`) as key and a listener as value. The listener is provided with an object that contains `event`, `item`, `marker`, `map`.
- */
-
-/**
- * @typedef {object} BuiltInMarkerOptions
- * @property {function(item): MarkerOptions} [createOptions] Function used to create the options passed to the Google Maps marker. <br />
- * See [the documentation](https://developers.google.com/maps/documentation/javascript/reference/3/#MarkerOptions) for more information.
- * @property {{ eventType: function(object) }} [events] Object that takes an event type (ex: `click`, `mouseover`) as key and a listener as value. The listener is provided with an object that contains `event`, `item`, `marker`, `map`.
- */
-
-/**
- * @typedef {object} GeoSearchCSSClasses
- * @property {string|Array<string>} [root] The root div of the widget.
- * @property {string|Array<string>} [map] The map container of the widget.
- * @property {string|Array<string>} [control] The control element of the widget.
- * @property {string|Array<string>} [label] The label of the control element.
- * @property {string|Array<string>} [selectedLabel] The selected label of the control element.
- * @property {string|Array<string>} [input] The input of the control element.
- * @property {string|Array<string>} [redo] The redo search button.
- * @property {string|Array<string>} [disabledRedo] The disabled redo search button.
- * @property {string|Array<string>} [reset] The reset refinement button.
- */
-
-/**
- * @typedef {object} GeoSearchTemplates
- * @property {string|function(object): string} [HTMLMarker] Template to use for the marker.
- * @property {string|function(object): string} [reset] Template for the reset button.
- * @property {string|function(object): string} [toggle] Template for the toggle label.
- * @property {string|function(object): string} [redo] Template for the redo button.
- */
-
-/**
- * @typedef {object} LatLng
- * @property {number} lat The latitude in degrees.
- * @property {number} lng The longitude in degrees.
- */
-
-/**
- * @typedef {object} GeoSearchWidgetParams
- * @property {string|HTMLElement} container CSS Selector or HTMLElement to insert the widget.
- * @property {object} googleReference Reference to the global `window.google` object. <br />
- * See [the documentation](https://developers.google.com/maps/documentation/javascript/tutorial) for more information.
- * @property {number} [initialZoom=1] By default the map will set the zoom accordingly to the markers displayed on it. When we refine it may happen that the results are empty. For those situations we need to provide a zoom to render the map.
- * @property {LatLng} [initialPosition={ lat: 0, lng: 0 }] By default the map will set the position accordingly to the markers displayed on it. When we refine it may happen that the results are empty. For those situations we need to provide a position to render the map. This option is ignored when the `position` is provided.
- * @property {GeoSearchTemplates} [templates] Templates to use for the widget.
- * @property {GeoSearchCSSClasses} [cssClasses] CSS classes to add to the wrapping elements.
- * @property {object} [mapOptions] Option forwarded to the Google Maps constructor. <br />
- * See [the documentation](https://developers.google.com/maps/documentation/javascript/reference/3/#MapOptions) for more information.
- * @property {BuiltInMarkerOptions} [builtInMarker] Options for customize the built-in Google Maps marker. This option is ignored when the `customHTMLMarker` is provided.
- * @property {CustomHTMLMarkerOptions} [customHTMLMarker] Options for customize the HTML marker. We provide an alternative to the built-in Google Maps marker in order to have a full control of the marker rendering. You can use plain HTML to build your marker.
- * @property {boolean} [enableRefine=true] If true, the map is used to search - otherwise it's for display purposes only.
- * @property {boolean} [enableClearMapRefinement=true] If true, a button is displayed on the map when the refinement is coming from the map in order to remove it.
- * @property {boolean} [enableRefineControl=true] If true, the user can toggle the option `enableRefineOnMapMove` directly from the map.
- * @property {boolean} [enableRefineOnMapMove=true] If true, refine will be triggered as you move the map.
- * @property {function} [transformItems] Function to transform the items passed to the templates.
- */
-
-/**
- * The **GeoSearch** widget displays the list of results from the search on a Google Maps. It also provides a way to search for results based on their position. The widget also provide some of the common GeoSearch patterns like search on map interaction.
- *
- * @requirements
- *
- * Note that the GeoSearch widget uses the [geosearch](https://www.algolia.com/doc/guides/searching/geo-search) capabilities of Algolia. Your hits **must** have a `_geoloc` attribute in order to be displayed on the map.
- *
- * Currently, the feature is not compatible with multiple values in the _geoloc attribute.
- *
- * You are also responsible for loading the Google Maps library, it's not shipped with InstantSearch. You need to load the Google Maps library and pass a reference to the widget. You can find more information about how to install the library in [the Google Maps documentation](https://developers.google.com/maps/documentation/javascript/tutorial).
- *
- * Don't forget to explicitly set the `height` of the map container (default class `.ais-geo-search--map`), otherwise it won't be shown (it's a requirement of Google Maps).
- *
- * @devNovel GeoSearch
- * @param {GeoSearchWidgetParams} widgetParams Options of the GeoSearch widget.
- * @return {Widget} A new instance of GeoSearch widget.
- * @staticExample
- * search.addWidgets([
- *   instantsearch.widgets.geoSearch({
- *     container: '#geo-search-container',
- *     googleReference: window.google,
- *   })
- * ]);
- */
-
-var geoSearch = function geoSearch(widgetParams) {
-  var _ref = widgetParams || {},
-      _ref$initialZoom = _ref.initialZoom,
-      initialZoom = _ref$initialZoom === void 0 ? 1 : _ref$initialZoom,
-      _ref$initialPosition = _ref.initialPosition,
-      initialPosition = _ref$initialPosition === void 0 ? {
-    lat: 0,
-    lng: 0
-  } : _ref$initialPosition,
-      _ref$templates = _ref.templates,
-      userTemplates = _ref$templates === void 0 ? {} : _ref$templates,
-      _ref$cssClasses = _ref.cssClasses,
-      userCssClasses = _ref$cssClasses === void 0 ? {} : _ref$cssClasses,
-      _ref$builtInMarker = _ref.builtInMarker,
-      userBuiltInMarker = _ref$builtInMarker === void 0 ? {} : _ref$builtInMarker,
-      userCustomHTMLMarker = _ref.customHTMLMarker,
-      _ref$enableRefine = _ref.enableRefine,
-      enableRefine = _ref$enableRefine === void 0 ? true : _ref$enableRefine,
-      _ref$enableClearMapRe = _ref.enableClearMapRefinement,
-      enableClearMapRefinement = _ref$enableClearMapRe === void 0 ? true : _ref$enableClearMapRe,
-      _ref$enableRefineCont = _ref.enableRefineControl,
-      enableRefineControl = _ref$enableRefineCont === void 0 ? true : _ref$enableRefineCont,
-      container = _ref.container,
-      googleReference = _ref.googleReference,
-      otherWidgetParams = _objectWithoutProperties(_ref, ["initialZoom", "initialPosition", "templates", "cssClasses", "builtInMarker", "customHTMLMarker", "enableRefine", "enableClearMapRefinement", "enableRefineControl", "container", "googleReference"]);
-
-  var defaultBuiltInMarker = {
-    createOptions: _lib_utils__WEBPACK_IMPORTED_MODULE_4__.default,
-    events: {}
-  };
-  var defaultCustomHTMLMarker = {
-    createOptions: _lib_utils__WEBPACK_IMPORTED_MODULE_4__.default,
-    events: {}
-  };
-
-  if (!container) {
-    throw new Error(withUsage('The `container` option is required.'));
-  }
-
-  if (!googleReference) {
-    throw new Error(withUsage('The `googleReference` option is required.'));
-  }
-
-  var containerNode = (0,_lib_utils__WEBPACK_IMPORTED_MODULE_5__.default)(container);
-  var cssClasses = {
-    root: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit(), userCssClasses.root),
-    // Required only to mount / unmount the Preact tree
-    tree: suit({
-      descendantName: 'tree'
-    }),
-    map: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-      descendantName: 'map'
-    }), userCssClasses.map),
-    control: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-      descendantName: 'control'
-    }), userCssClasses.control),
-    label: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-      descendantName: 'label'
-    }), userCssClasses.label),
-    selectedLabel: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-      descendantName: 'label',
-      modifierName: 'selected'
-    }), userCssClasses.selectedLabel),
-    input: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-      descendantName: 'input'
-    }), userCssClasses.input),
-    redo: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-      descendantName: 'redo'
-    }), userCssClasses.redo),
-    disabledRedo: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-      descendantName: 'redo',
-      modifierName: 'disabled'
-    }), userCssClasses.disabledRedo),
-    reset: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-      descendantName: 'reset'
-    }), userCssClasses.reset)
-  };
-
-  var templates = _objectSpread({}, _defaultTemplates__WEBPACK_IMPORTED_MODULE_6__.default, {}, userTemplates);
-
-  var builtInMarker = _objectSpread({}, defaultBuiltInMarker, {}, userBuiltInMarker);
-
-  var isCustomHTMLMarker = Boolean(userCustomHTMLMarker) || Boolean(userTemplates.HTMLMarker);
-
-  var customHTMLMarker = isCustomHTMLMarker && _objectSpread({}, defaultCustomHTMLMarker, {}, userCustomHTMLMarker);
-
-  var createBuiltInMarker = function createBuiltInMarker(_ref2) {
-    var item = _ref2.item,
-        rest = _objectWithoutProperties(_ref2, ["item"]);
-
-    return new googleReference.maps.Marker(_objectSpread({}, builtInMarker.createOptions(item), {}, rest, {
-      __id: item.objectID,
-      position: item._geoloc
-    }));
-  };
-
-  var HTMLMarker = (0,_createHTMLMarker__WEBPACK_IMPORTED_MODULE_7__.default)(googleReference);
-
-  var createCustomHTMLMarker = function createCustomHTMLMarker(_ref3) {
-    var item = _ref3.item,
-        rest = _objectWithoutProperties(_ref3, ["item"]);
-
-    return new HTMLMarker(_objectSpread({}, customHTMLMarker.createOptions(item), {}, rest, {
-      __id: item.objectID,
-      position: item._geoloc,
-      className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(suit({
-        descendantName: 'marker'
-      })),
-      template: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_8__.default)({
-        templateKey: 'HTMLMarker',
-        templates: templates,
-        data: item
-      })
-    }));
-  };
-
-  var createMarker = !customHTMLMarker ? createBuiltInMarker : createCustomHTMLMarker; // prettier-ignore
-
-  var markerOptions = !customHTMLMarker ? builtInMarker : customHTMLMarker;
-  var makeWidget = (0,_connectors_geo_search_connectGeoSearch__WEBPACK_IMPORTED_MODULE_9__.default)(_GeoSearchRenderer__WEBPACK_IMPORTED_MODULE_10__.default, function () {
-    return (0,preact__WEBPACK_IMPORTED_MODULE_1__.render)(null, containerNode);
-  });
-  return _objectSpread({}, makeWidget(_objectSpread({}, otherWidgetParams, {
-    renderState: {},
-    container: containerNode,
-    googleReference: googleReference,
-    initialZoom: initialZoom,
-    initialPosition: initialPosition,
-    templates: templates,
-    cssClasses: cssClasses,
-    createMarker: createMarker,
-    markerOptions: markerOptions,
-    enableRefine: enableRefine,
-    enableClearMapRefinement: enableClearMapRefinement,
-    enableRefineControl: enableRefineControl
-  })), {
-    $$widgetType: 'ais.geoSearch'
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (geoSearch);
 
 /***/ }),
 

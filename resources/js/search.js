@@ -20,53 +20,143 @@ const search = instantsearch({
 
 
 // Create the render function
-// let map = null;
-// let markers = [];
-// let isUserInteraction = true;
+let map = null;
+let markers = [];
+let isUserInteraction = true;
 
-// const renderGeoSearch = (renderOptions, isFirstRendering) => {
-//     const {
-//         items,
-//         currentRefinement,
-//         refine,
-//         clearMapRefinement,
-//         widgetParams,
-//     } = renderOptions;
-//
-//     const {
-//         initialZoom,
-//         initialPosition,
-//         container,
-//     } = widgetParams;
-//
-//     if (isFirstRendering) {
-//
-//         const map = new google.maps.Map(document.getElementById("maps"), {
-//             zoom: 4
-//
-//         });
-//
-//     }
-//
-//     /*
-//     const infowindow = new google.maps.InfoWindow({
-//         content: contentString,
-//     });
-//     const marker = new google.maps.Marker({
-//         position: uluru,
-//         map,
-//         title: "Uluru (Ayers Rock)",
-//     });
-//     marker.addListener("click", () => {
-//         infowindow.open(map, marker);
-//     }); */
-// };
-//
-// // Create the custom widget
-// const customGeoSearch = connectGeoSearch(
-//     renderGeoSearch
-// );
-//
+const renderGeoSearch = (renderOptions, isFirstRendering) => {
+    const {
+        items,
+        currentRefinement,
+        refine,
+        clearMapRefinement,
+        widgetParams,
+    } = renderOptions;
+
+    const {
+        initialZoom,
+        initialPosition,
+        container,
+    } = widgetParams;
+
+    let bounds = new google.maps.LatLngBounds();
+
+
+
+
+
+
+
+        map = new google.maps.Map(document.getElementById("maps"), {
+            zoom: 4,
+        });
+
+
+
+    markers = [];
+
+
+
+
+    let infoWindow = new google.maps.InfoWindow(), marker, i;
+
+
+    // Loop through our array of markers & place each one on the map
+    for( i = 0; i < items.length; i++ ) {
+        let position = items[i]._geoloc;
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: items[i].title,
+            objectID: items[i].objectID
+        });
+
+        // Allow each marker to have an info window
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+
+                let content =
+                    '<div>' +
+                    '<span class="text-primary font-bold">' +
+                    items[i].title +
+                    '</span><br>' +
+                    items[i].address + "<br>" +
+                    items[i].city + ', ' + items[i].state + ' ' + items[i].zip + '<br><br>' +
+                    '<span class="font-bold">' + items[i].services.join(", ") + "</span>" +
+                    '</div>';
+
+
+                infoWindow.setContent(content);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+        markers.push(marker);
+
+        // Automatically center the map fitting all markers on the screen
+    }
+
+
+
+    const svgMarker = {
+        path:
+            "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+        fillColor: "#c60000",
+        fillOpacity: 0.9,
+        strokeWeight: 0,
+        rotation: 0,
+        scale: 2,
+        anchor: new google.maps.Point(15, 30),
+    };
+    new google.maps.Marker({
+        position: {lat: 36.026532, lng:-115.14848},
+        icon: svgMarker,
+        map: map,
+    });
+
+    bounds.extend({lat: 36.026532, lng:-115.14848});
+
+
+
+
+
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    // let boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+    //     this.setZoom(14);
+    //     google.maps.event.removeListener(boundsListener);
+    // });
+    //
+
+    map.fitBounds(bounds);
+
+
+};
+
+// Create the custom widget
+const customGeoSearch = connectGeoSearch(
+    renderGeoSearch
+);
+
+
+function focusOnMarker(objectID){
+
+    let i;
+    for (i = 0; i < markers.length; i++) {
+        if(objectID == markers[i].objectID){
+
+            map.panTo(markers[i].position);
+            google.maps.event.trigger(markers[i], 'click');
+
+
+        }
+
+    }
+
+}
+
+
 
 
 search.addWidgets([
@@ -81,15 +171,15 @@ search.addWidgets([
 
 
 
-    // customGeoSearch({
-    //     // container: document.querySelector('#maps'),
-    //     initialZoom: 12,
-    //         container: '#maps',
-    //         googleReference: window.google,
-    //         enableRefine: true,
-    //         enableRefineOnMapMove: true,
-    //
-    // }),
+    customGeoSearch({
+        // container: document.querySelector('#maps'),
+        initialZoom: 12,
+            container: '#maps',
+            googleReference: window.google,
+            enableRefine: true,
+            enableRefineOnMapMove: true,
+
+    }),
 
     searchBox({
         container: "#searchbox"
@@ -220,7 +310,7 @@ search.addWidgets([
                 <div class="-ml-px w-0 flex-1 flex">
 
 
-                    <a href="#" onclick="window.map.setCenter([_geoloc.lat,_geoloc.lng], 12); return false;" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
+                    <a href="#" data-objectid="{{objectID}}" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 markerMapLink">
                         <!-- Heroicon name: phone -->
                         <svg class="w-5 h-5 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -253,79 +343,79 @@ search.addWidgets([
 
 
 
-    geoSearch({
-        container: '#maps',
-        googleReference: window.google,
-        enableRefine: true,
-        enableRefineOnMapMove: true,
-
-        // initialZoom: 4,
-        // initialPosition: {
-        //     lat: 48.864716,
-        //     lng: 2.349014,
-        // },
-        // initialZoom: 4,
-        // initialPosition: {
-        //     lat: 48.864716,
-        //     lng: 2.349014,
-        // },
-        builtInMarker: {
-            createOptions(item) {
-
-
-
-
-            },
-            events: {
-                click({event, item, marker, map}) {
-
-
-                    const content =
-                        '<div>' +
-                        '<span class="text-primary font-bold">' +
-                        item.title +
-                        '</span><br>' +
-                        item.address + "<br>" +
-                        item.city + ', ' + item.state + ' ' + item.zip + '<br><br>' +
-                        '<span class="font-bold">' + item.services.join(", ") + "</span>" +
-                        '</div>';
-
-                    const infowindow = new google.maps.InfoWindow({
-                        content: content,
-                    });
-
-                    infowindow.open(map, marker);
-                    setTimeout(function () {infowindow.close();}, 5000);
-
-                    console.log(marker);
-                    console.log(item);
-                },
-            },
-        },
-        //   customHTMLMarker: {
-        //       createOptions(item) {
-        //           return {
-        //               anchor: {
-        //                   x: 0,
-        //                   y: 0,
-        //               },
-        //           };
-        //       },
-        //       events: {
-        //           click({ event, item, marker, map }) {
-        //               console.log(item);
-        //               console.log("foobar");
-        //           },
-        //       },
-        //   },
-        //   templates: {
-        //       HTMLMarker: `
-        //   <span class="marker">
-        //     {{ title }} - {{ services }}
-        //   </span>
-        // `,
-        //   },
-    })
+    // geoSearch({
+    //     container: '#maps',
+    //     googleReference: window.google,
+    //     enableRefine: true,
+    //     enableRefineOnMapMove: true,
+    //
+    //     // initialZoom: 4,
+    //     // initialPosition: {
+    //     //     lat: 48.864716,
+    //     //     lng: 2.349014,
+    //     // },
+    //     // initialZoom: 4,
+    //     // initialPosition: {
+    //     //     lat: 48.864716,
+    //     //     lng: 2.349014,
+    //     // },
+    //     builtInMarker: {
+    //         createOptions(item) {
+    //
+    //
+    //
+    //
+    //         },
+    //         events: {
+    //             click({event, item, marker, map}) {
+    //
+    //
+    //                 const content =
+    //                     '<div>' +
+    //                     '<span class="text-primary font-bold">' +
+    //                     item.title +
+    //                     '</span><br>' +
+    //                     item.address + "<br>" +
+    //                     item.city + ', ' + item.state + ' ' + item.zip + '<br><br>' +
+    //                     '<span class="font-bold">' + item.services.join(", ") + "</span>" +
+    //                     '</div>';
+    //
+    //                 const infowindow = new google.maps.InfoWindow({
+    //                     content: content,
+    //                 });
+    //
+    //                 infowindow.open(map, marker);
+    //                 setTimeout(function () {infowindow.close();}, 5000);
+    //
+    //                 console.log(marker);
+    //                 console.log(item);
+    //             },
+    //         },
+    //     },
+    //     //   customHTMLMarker: {
+    //     //       createOptions(item) {
+    //     //           return {
+    //     //               anchor: {
+    //     //                   x: 0,
+    //     //                   y: 0,
+    //     //               },
+    //     //           };
+    //     //       },
+    //     //       events: {
+    //     //           click({ event, item, marker, map }) {
+    //     //               console.log(item);
+    //     //               console.log("foobar");
+    //     //           },
+    //     //       },
+    //     //   },
+    //     //   templates: {
+    //     //       HTMLMarker: `
+    //     //   <span class="marker">
+    //     //     {{ title }} - {{ services }}
+    //     //   </span>
+    //     // `,
+    //     //   },
+    // })
 ]);
 
 
@@ -336,6 +426,21 @@ search.start();
 
 
 
-console.log(Markers);
+$(function(){
+
+
+    $('body').on('click','.markerMapLink',function(e) {
+        e.preventDefault();
+        let objectid = $(this).data('objectid');
+        focusOnMarker(objectid);
+
+    });
+
+
+});
+
+
+
+
 
 

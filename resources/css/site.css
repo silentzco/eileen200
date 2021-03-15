@@ -12,7 +12,7 @@
     /*--color-background-light: #989bc3;*/
     /*--color-background-dark: #45568c;*/
 
-    --color-background-light: #d5ddee;
+    --color-background-light: #e6eaf5;
     --color-background-dark: #8198cc;
 
 
@@ -76,6 +76,31 @@
 
 
 }
+
+
+.theme-test3 {
+    --color-primary: #00458B;
+    --color-brand: #c60000;
+
+    --color-secondary: #00458B;
+    --color-heading: #0b1d3c;
+
+
+    /*--color-background-light: #989bc3;*/
+    /*--color-background-dark: #45568c;*/
+
+    --color-background-light: #fee3c5;
+    --color-background-dark: #1866f0;
+
+
+#masthead{
+
+    background-image: url("/assets/background/masthead-2.jpeg");
+}
+
+
+}
+
 
 
 .theme-blue2 {

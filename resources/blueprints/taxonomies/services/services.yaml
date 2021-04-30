@@ -16,6 +16,13 @@ sections:
           type: markdown
           display: Content
           localizable: true
+      -
+        handle: external_link
+        field:
+          display: 'External Link'
+          type: link
+          icon: link
+          listable: hidden
   sidebar:
     display: Sidebar
     fields:

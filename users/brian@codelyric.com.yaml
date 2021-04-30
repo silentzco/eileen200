@@ -5,12 +5,12 @@ password_hash: $2y$10$o4.Wm4SX.9FFV9NAnDOE1.kQooteY74QBq9k0YLtFfc68eGSnq53S
 preferences:
   taxonomies:
     services:
-      after_save: create_another
       columns:
         - title
         - slug
         - category
         - service_category
+      after_save: create_another
   collections:
     service_categories:
       after_save: create_another

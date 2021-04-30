@@ -44,7 +44,29 @@ return [
                 'description' => function ($description) {
                     return Statamic\Facades\Markdown::parse((string)$description);
                 },
+                'services' => function ($services) {
 
+
+                    $newServices = [];
+                    foreach($services as $key){
+                        $service = \Statamic\Facades\Term::findBySlug($key, 'services');
+                        if($service){
+
+                            $newServices[] = $service->get("title");
+                        }
+                        else{
+                            var_dump($key);
+                        }
+
+                    }
+
+
+                    if(empty($newServices)){
+                        $newServices = $services;
+                    }
+
+                    return ["services" => $newServices];
+                },
 
             ]
 

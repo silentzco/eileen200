@@ -2,10 +2,10 @@
 
 
 .theme-old {
-    --color-primary: #00458B;
+    --color-primary: #00458b;
     --color-brand: #c60000;
 
-    --color-secondary: #00458B;
+    --color-secondary: #00458b;
     --color-heading: #4a4b46;
 
 
@@ -19,7 +19,7 @@
 
 #masthead{
 
-    background-image: url("/assets/background/masthead-1.jpg");
+    background-image: url("/assets/background/masthead.jpeg");
 }
 
 
@@ -95,7 +95,7 @@
 
 #masthead{
 
-    background-image: url("/assets/background/masthead-2.jpeg");
+    background-image: url("/assets/background/masthead.jpeg");
 }
 
 
@@ -130,6 +130,17 @@
 
 }
 
+
+
+
+.service-category{
+    @apply justify-center items-center m-4 border-2 border-brand bg-white px-1 py-5 shadow-sm  space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand text-center hover:border-red-400;
+    @apply rounded-full;
+
+    &.active{
+        @apply rounded-3xl;
+    }
+}
 
 .sponsored{
     @apply ring ring-secondary ring-offset-4 ;

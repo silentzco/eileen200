@@ -1,24 +1,13 @@
 
 
-<div class="bg-gradient-to-b from-bg-light  to-bg-dark rounded-b-2xl" id="search-hero">
-
-
-
-    <div class="text-brand text-center p-4">
-
-
-
-                    <span class="font-bold px-1 tracking-wide text-xl inline">
-                        Bringing the Community Back to Healthcare
-                    </span>
-        <span class="px-1 italic inline">
-                        Your One‐Stop Resource for All Things Medical In Las Vegas!
-                    </span>
+<div class="bg-gradient-to-br from-bg-light to-bg-dark " id="search-hero">
 
 
 
 
-    </div>
+
+
+
 
 
 
@@ -34,7 +23,7 @@
                     <input id="query" name="query" class="inline-block w-1/3 bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-lg placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" placeholder="What are you searching for?" type="search">
                 <input id="zip" name="zip" class="inline-block w-1/4 bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-lg placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Your Zip Code (optional)" type="search">
 
-                <button class="bg-brand hover:bg-brand text-white font-bold py-2 px-4 rounded-md inline-block">
+                <button class="bg-brand hover:bg-brand text-white font-bold py-2 px-4 inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5 inline">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
@@ -59,20 +48,34 @@
 
             <div class="w-1/2 lg:w-1/4">
 
-            <div class="service-category  justify-center items-center m-4 rounded-lg  border-2 border-brand bg-white px-1 py-5 shadow-sm   space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand text-center hover:border-red-400">
+            <div class="service-category  ">
                 <h4 class="font-bold text-primary">{{ category:title }}</h4>
                 {{if category:description}}
                      <span class="text-xs inline text-gray-600">{{ category:description }}</span>
                 {{/if}}
 
                 <div class="hidden services-list bg-white">
-                    <div class="block mt-1 rounded-md  border-transparent text-xs overflow-scroll h-40 text-left">
+                    <div class="block mt-1 rounded-md  border-transparent text-xs overflow-scroll h-56 text-left">
                         {{taxonomy:services category:contains="{category:slug}" scope="service"}}
 
                         {{if service:title }}
                         <label class="flex items-center mt-3">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="services" id="service-{{service:id}}" value="{{service:title}}">
-                            <label class="ml-2 text-gray-700" for="service-{{service:id}}">{{service:title}}</label>
+
+                            {{ if service:external_link }}
+                            <a href="{{ service:external_link }}" class="text-primary" target="_blank">
+                                <strong>{{service:title}}</strong>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                                <br>
+                                {{ service:external_link }}
+                            </a>
+                            {{ else }}
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" name="services" id="service-{{service:id}}" value="{{service:title}}">
+                                <label class="ml-2 text-gray-700" for="service-{{service:id}}">{{service:title}}</label>
+
+                            {{ endif }}
+
                         </label>
                         {{/if}}
                         {{/taxonomy:services}}
@@ -94,14 +97,16 @@
     </form>
 
 
+
     <div class="max-w-7xl mx-auto pb-10">
 
-        <h2 class="text-white text-xl mb-4 font-bold text-center tracking-wide">
+        <h2 class="text-primary rounded-full p-2 mt-6 text-lg font-bold text-center tracking-wide border mx-auto w-1/2 border-brand bg-white ">
             <a href="/contact">CLICK HERE TO CONTACT US,</a>
             <a href="tel:702‐664‐2124">OR CALL 702‐664‐2124</a>
         </h2>
 
     </div>
+
 
 </div>
 
@@ -180,6 +185,7 @@
 
 
 
+
 <script>
     $(function(){
 
@@ -188,6 +194,7 @@
             // $('.services-list').addClass('hidden');
             $(this).parent().find('.services-list').toggleClass('hidden');
 
+            $(this).parent().toggleClass('active');
 
         });
 
@@ -216,6 +223,8 @@
         $('body').click(function(event) {
             if (!$(event.target).closest('.service-category').length) {
                 $('.services-list').addClass('hidden');
+                $(".service-category").removeClass('active');
+
             }
         });
 

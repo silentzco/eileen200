@@ -10,32 +10,3 @@ date_behavior:
 structure:
   root: false
   max_depth: 1
-  tree:
-    -
-      entry: 7e3b51e7-19df-460e-abe1-4b9782628acf
-    -
-      entry: 449274e2-2812-4020-b069-0b8e5ea4f21f
-    -
-      entry: 265a8449-098b-49e2-b9a5-c5a95170ea6c
-    -
-      entry: 1426542e-ed85-4285-ad96-d2941bd847b1
-    -
-      entry: 5c877bf9-2184-43bc-9426-b10e56ded517
-    -
-      entry: 81a03555-7e16-4481-8822-b5decc14b858
-    -
-      entry: 1b3b7bd2-4839-487a-a954-6563bcad64e4
-    -
-      entry: d7d07038-bcf8-4e4e-93bf-094bdfbb1553
-    -
-      entry: dfd044b4-17b9-416c-8b43-c327df2bafbd
-    -
-      entry: d553c578-78c2-4ac3-8864-03b2050e08dc
-    -
-      entry: 1e160413-8ad6-42f0-bad1-f7dc36098b53
-    -
-      entry: a4837636-ad32-488d-9e1d-3c8e4443a1bc
-    -
-      entry: 05822fde-67f1-497b-aede-fa00db01de64
-    -
-      entry: 581b9f48-9dd0-4a5a-9b28-854ad29539c7

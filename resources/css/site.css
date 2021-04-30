@@ -1,7 +1,7 @@
 /* This is all you. */
 
 
-.theme-default {
+.theme-old {
     --color-primary: #00458B;
     --color-brand: #c60000;
 
@@ -78,7 +78,7 @@
 }
 
 
-.theme-test3 {
+.theme-default {
     --color-primary: #00458B;
     --color-brand: #c60000;
 

@@ -183,6 +183,7 @@ search.addWidgets([
             container: '#maps',
             googleReference: window.google,
             enableRefine: true,
+        enableClearMapRefinement: true,
             enableRefineOnMapMove: true,
 
     }),

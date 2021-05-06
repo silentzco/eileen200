@@ -5646,6 +5646,7 @@ search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.d
   container: '#maps',
   googleReference: window.google,
   enableRefine: true,
+  enableClearMapRefinement: true,
   enableRefineOnMapMove: true
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_4__.default)({
   container: "#searchbox"

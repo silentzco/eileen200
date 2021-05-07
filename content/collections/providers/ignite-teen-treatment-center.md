@@ -1,4 +1,5 @@
 ---
+id: 7bd43a62-8e8f-4b86-ae3e-803bac751a3d
 title: 'Ignite Teen Treatment Center'
 org_name: 'Ignite Teen Treatment Center'
 phone: 866-604-7273
@@ -25,6 +26,7 @@ description: |-
   - Suicidal thoughts
 gallery:
   - providers/ignite-1.png
+  - ignite-2.png
 video: 'https://www.youtube.com/embed/kd9eaBWdT_I'
 sponsored: true
 services:
@@ -37,9 +39,8 @@ _geoloc:
   lng: -115.27343
   lat: 36.113059
 updated_by: a034f527-2110-44df-82f7-baa1cb1b5355
-updated_at: 1615845075
+updated_at: 1620404115
 category:
   - behavioral-health
 service_category: d553c578-78c2-4ac3-8864-03b2050e08dc
-id: 7bd43a62-8e8f-4b86-ae3e-803bac751a3d
 ---

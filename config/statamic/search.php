@@ -34,8 +34,8 @@ return [
             'driver' => 'algolia',
             'searchables' => 'collection:providers',
             'fields' => [
-                'title', "test", 'org_name', 'first_name', 'middle_name','last_name', "suffix_name", "_geoloc", "location", "sponsored", "phone", "fax", "website",
-                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category", "description", "gallery"
+                'id', 'title', "test", 'org_name', 'first_name', 'middle_name','last_name', "suffix_name", "_geoloc", "location", "sponsored", "phone", "fax", "website",
+                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category", "description", "gallery", "video"
 
             ],
             'transformers' => [

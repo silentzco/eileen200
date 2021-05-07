@@ -20,4 +20,5 @@ use App\Http\Controllers\SearchController;
 
 
 Route::any('search/results', [SearchController::class, 'results']);
+Route::any('search/getgeoloc', [SearchController::class, 'getGeoloc']);
 

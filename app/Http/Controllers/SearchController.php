@@ -32,9 +32,6 @@ class SearchController extends Controller
 
 
 
-
-
-
         return (new \Statamic\View\View)
             ->template('search/results')
             ->layout('layout')
@@ -44,4 +41,28 @@ class SearchController extends Controller
 
 
     }
+
+    public function getGeoloc(Request $request){
+
+
+
+        $zip = $request->input('zip');
+            $zipcode = Entry::query()
+                ->where('collection', 'zip_codes')
+                ->where('code', $zip)
+                ->first();
+
+
+            if($zipcode){
+                $vars['zipcode'] = $zip;
+                $vars['geoloc'] = ['lng' => (float)$zipcode->get('longitude') , 'lat' => (float)$zipcode->get('latitude')];
+            }
+
+
+        return response()->json($vars);
+
+
+    }
+
+
 }

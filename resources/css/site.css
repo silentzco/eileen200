@@ -134,11 +134,15 @@
 
 
 .service-category{
-    @apply justify-center items-center m-4 border-2 border-brand bg-white px-1 py-5 shadow-sm  space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand text-center hover:border-red-400;
+    @apply justify-center items-center m-4 border-2 border-brand bg-white px-1 py-2 shadow-sm  space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand text-center hover:border-red-400;
     @apply rounded-full;
 
     &.active{
         @apply rounded-3xl;
+         position: absolute;
+         width: 90%;
+         z-index: 1000;
+
     }
 }
 
@@ -170,10 +174,35 @@
 .modal {
     transition: opacity 0.25s ease;
 }
-body.modal-active {
-    overflow-x: hidden;
-    overflow-y: visible !important;
+
+.video-modal{
+    max-width: 720px;
 }
+
+.gallery-modal{
+    max-width: 800px;
+    text-align: center;
+
+    .slick-prev, .slick-next{
+        height: 40px;
+        width: 40px;
+
+    }
+
+    .slick-prev:before, .slick-next:before{
+        color: #000;
+        font-size: 40px;
+
+    }
+
+    .slick-active img{
+        margin: auto;
+    }
+
+
+}
+
+
 
 
 #search-hero{

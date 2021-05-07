@@ -14,3 +14,5 @@ preferences:
   collections:
     service_categories:
       after_save: create_another
+    providers:
+      after_save: continue_editing

@@ -10,6 +10,13 @@ const search = instantsearch({
     indexName: 'providers',
     searchClient,
     routing: true,
+    // searchFunction: function(helper) {
+    //     helper.setQueryParameter('getRankingInfo', true);
+    //
+    //
+    //
+    //     helper.search();
+    // }
 });
 
 // var placesAutocomplete = places({
@@ -20,7 +27,7 @@ const search = instantsearch({
 
 
 // Create the render function
-let map = null;
+var map = null;
 let markers = [];
 let isUserInteraction = true;
 
@@ -39,22 +46,69 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
         container,
     } = widgetParams;
 
+
     let bounds = new google.maps.LatLngBounds();
 
 
 
 
-
+    if (isFirstRendering) {
 
 
         map = new google.maps.Map(document.getElementById("maps"), {
             zoom: 4,
         });
 
+        window.googleMap = map;
+        console.log(renderOptions);
 
 
+
+
+
+        map.addListener("dragend", () => {
+            redraw();
+
+            console.log('firing');
+        });
+
+
+        //
+        // map.addListener("zoom_changed", () => {
+        //     redraw();
+        //
+        //     console.log('firing');
+        // });
+        //
+
+    }
+
+
+
+
+    function redraw(){
+
+        let bounding = map.getBounds();
+        let NECorner = bounding.getNorthEast();
+        let SWCorner = bounding.getSouthWest();
+
+
+        console.log({lat: NECorner.lat(), lng: NECorner.lng(), lat2: SWCorner.lat(), lng2: SWCorner.lng()});
+
+        refine({
+            northEast: {lat: NECorner.lat(), lng: NECorner.lng()},
+            southWest: {lat: SWCorner.lat(), lng: SWCorner.lng()},
+        });
+
+
+    }
+
+
+
+    for (let i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
     markers = [];
-
 
 
 
@@ -64,7 +118,11 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
     // Loop through our array of markers & place each one on the map
     for( i = 0; i < items.length; i++ ) {
         let position = items[i]._geoloc;
+
+
         bounds.extend(position);
+
+
         marker = new google.maps.Marker({
             position: position,
             map: map,
@@ -99,31 +157,18 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
 
 
 
+
     if(typeof(geoloc) !== "undefined" && (geoloc)){
-
-
-        const svgMarker = {
-            path:
-                "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-            fillColor: "#c60000",
-            fillOpacity: 0.9,
-            strokeWeight: 0,
-            rotation: 0,
-            scale: 2,
-            anchor: new google.maps.Point(15, 30),
-        };
-        new google.maps.Marker({
-            position: geoloc,
-            icon: svgMarker,
-            map: map,
-        });
-
-        bounds.extend(geoloc);
-
+        placeZipMarker(geoloc);
 
     }
 
 
+
+
+
+    // map.setCenter(bounds.getCenter());
+    map.fitBounds(bounds);
 
 
 
@@ -133,9 +178,8 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
     //     this.setZoom(14);
     //     google.maps.event.removeListener(boundsListener);
     // });
-    //
 
-    map.fitBounds(bounds);
+
 
 
 };
@@ -145,6 +189,34 @@ const customGeoSearch = connectGeoSearch(
     renderGeoSearch
 );
 
+
+
+function placeZipMarker(geoloc){
+
+    const svgMarker = {
+        path:
+            "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+        fillColor: "#0000ff",
+        fillOpacity: 0.9,
+        strokeWeight: 0,
+        rotation: 0,
+        scale: 2,
+        anchor: new google.maps.Point(15, 30),
+    };
+
+    var maxZindex = google.maps.Marker.MAX_ZINDEX;
+
+
+    return new google.maps.Marker({
+        position: geoloc,
+        icon: svgMarker,
+        zIndex: maxZindex + 1,
+        map: map,
+    });
+
+
+
+}
 
 function focusOnMarker(objectID){
 
@@ -164,13 +236,21 @@ function focusOnMarker(objectID){
 
 
 
+var zipGeoLocString;
+if(typeof(geoloc) !== "undefined" && (geoloc)) {
+    console.log(geoloc);
+    zipGeoLocString = geoloc.lat + ',' + geoloc.lng;
+}
+
+
+
 
 search.addWidgets([
 
     configure({
-        // aroundLatLng: '40.71, -74.01',
+        aroundLatLng: zipGeoLocString,
         // aroundRadius: 1000, // 10000 km
-        hitsPerPage: 10,
+        hitsPerPage: 20,
 
     }),
 
@@ -178,9 +258,9 @@ search.addWidgets([
 
 
     customGeoSearch({
-        // container: document.querySelector('#maps'),
+        container: document.querySelector('#maps'),
         initialZoom: 12,
-            container: '#maps',
+
             googleReference: window.google,
             enableRefine: true,
         enableClearMapRefinement: true,
@@ -274,15 +354,19 @@ search.addWidgets([
 
         {{#sponsored}}
         <div class="inline-flex space-x-4 p-4">
-            <div class="w-20 h-20 bg-gray-200 flex-1 galleryitem"></div>
-            <div class="w-20 h-20 bg-gray-200 flex-1  galleryitem"></div>
-            <a href="#" onclick="toggleModal(); return false;" class="w-20 h-20 bg-gray-200 flex-1 galleryitem flex items-center">
-            <div class="w-10 h-10 mx-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-</svg></div>
-</a>
+            {{#gallery}}
+                <div class="w-20 h-20 flex-1 galleryitem"><a href="#gallery-modal-{{id}}" data-galleryid="#gallery-modal-{{id}}" class="gallery-trigger" rel="modal:open"><img src="/assets/{{ . }}"></a></div>
+            {{/gallery}}
 
+            {{#video}}
+                <a href="#video-modal-{{id}}" data-video="{{video}}" rel="modal:open" class="video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center">
+                <div class="w-10 h-10 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                </div>
+                </a>
+            {{/video}}
         </div>
         {{/sponsored}}
 
@@ -341,7 +425,38 @@ search.addWidgets([
                 </div>
                 {{/website}}
             </div>
+
+
+
+        {{#sponsored}}
+
+        <div id="video-modal-{{id}}" class="modal video-modal">
+
+            <iframe width="100%" height="380" src="{{ video }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a href="#" rel="modal:close">Close</a>
+        </div>
+
+
+        <div id="gallery-modal-{{id}}" class="modal gallery-modal">
+
+            <div class="modal-gallery">
+                {{#gallery}}
+                <div class=""><img src="/assets/{{ . }}"></div>
+                {{/gallery}}
+
+            </div>
+
+            <a href="#" rel="modal:close">Close</a>
+        </div>
+
+
+        {{/sponsored}}
     </div>
+
+
+
+
+
 
     `,
         },
@@ -442,6 +557,25 @@ $(function(){
         focusOnMarker(objectid);
 
     });
+
+
+
+    $("#zip-refresh").click(function(){
+
+        let zip = $("#zip").val();
+
+        $.getJSON( "/search/getgeoloc",{zip: zip}, function( data ) {
+
+            let newMarker = placeZipMarker(data.geoloc);
+
+            map.panTo(newMarker.position);
+
+        });
+
+
+
+    });
+
 
 
 });

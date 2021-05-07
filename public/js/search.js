@@ -5545,7 +5545,14 @@ var searchClient = algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0___default()('LY
 var search = (0,instantsearch_js__WEBPACK_IMPORTED_MODULE_1__.default)({
   indexName: 'providers',
   searchClient: searchClient,
-  routing: true
+  routing: true // searchFunction: function(helper) {
+  //     helper.setQueryParameter('getRankingInfo', true);
+  //
+  //
+  //
+  //     helper.search();
+  // }
+
 }); // var placesAutocomplete = places({
 //     appId: 'YOUR_PLACES_APP_ID',
 //     apiKey: 'YOUR_PLACES_API_KEY',
@@ -5567,9 +5574,51 @@ var renderGeoSearch = function renderGeoSearch(renderOptions, isFirstRendering) 
       initialPosition = widgetParams.initialPosition,
       container = widgetParams.container;
   var bounds = new google.maps.LatLngBounds();
-  map = new google.maps.Map(document.getElementById("maps"), {
-    zoom: 4
-  });
+
+  if (isFirstRendering) {
+    map = new google.maps.Map(document.getElementById("maps"), {
+      zoom: 4
+    });
+    window.googleMap = map;
+    console.log(renderOptions);
+    map.addListener("dragend", function () {
+      redraw();
+      console.log('firing');
+    }); //
+    // map.addListener("zoom_changed", () => {
+    //     redraw();
+    //
+    //     console.log('firing');
+    // });
+    //
+  }
+
+  function redraw() {
+    var bounding = map.getBounds();
+    var NECorner = bounding.getNorthEast();
+    var SWCorner = bounding.getSouthWest();
+    console.log({
+      lat: NECorner.lat(),
+      lng: NECorner.lng(),
+      lat2: SWCorner.lat(),
+      lng2: SWCorner.lng()
+    });
+    refine({
+      northEast: {
+        lat: NECorner.lat(),
+        lng: NECorner.lng()
+      },
+      southWest: {
+        lat: SWCorner.lat(),
+        lng: SWCorner.lng()
+      }
+    });
+  }
+
+  for (var _i = 0; _i < markers.length; _i++) {
+    markers[_i].setMap(null);
+  }
+
   markers = [];
   var infoWindow = new google.maps.InfoWindow(),
       marker,
@@ -5596,34 +5645,38 @@ var renderGeoSearch = function renderGeoSearch(renderOptions, isFirstRendering) 
   }
 
   if (typeof geoloc !== "undefined" && geoloc) {
-    var svgMarker = {
-      path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-      fillColor: "#c60000",
-      fillOpacity: 0.9,
-      strokeWeight: 0,
-      rotation: 0,
-      scale: 2,
-      anchor: new google.maps.Point(15, 30)
-    };
-    new google.maps.Marker({
-      position: geoloc,
-      icon: svgMarker,
-      map: map
-    });
-    bounds.extend(geoloc);
-  } // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    placeZipMarker(geoloc);
+  } // map.setCenter(bounds.getCenter());
+
+
+  map.fitBounds(bounds); // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
   // let boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
   //     this.setZoom(14);
   //     google.maps.event.removeListener(boundsListener);
   // });
-  //
-
-
-  map.fitBounds(bounds);
 }; // Create the custom widget
 
 
 var customGeoSearch = (0,instantsearch_js_es_connectors__WEBPACK_IMPORTED_MODULE_2__.default)(renderGeoSearch);
+
+function placeZipMarker(geoloc) {
+  var svgMarker = {
+    path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+    fillColor: "#0000ff",
+    fillOpacity: 0.9,
+    strokeWeight: 0,
+    rotation: 0,
+    scale: 2,
+    anchor: new google.maps.Point(15, 30)
+  };
+  var maxZindex = google.maps.Marker.MAX_ZINDEX;
+  return new google.maps.Marker({
+    position: geoloc,
+    icon: svgMarker,
+    zIndex: maxZindex + 1,
+    map: map
+  });
+}
 
 function focusOnMarker(objectID) {
   var i;
@@ -5636,14 +5689,20 @@ function focusOnMarker(objectID) {
   }
 }
 
+var zipGeoLocString;
+
+if (typeof geoloc !== "undefined" && geoloc) {
+  console.log(geoloc);
+  zipGeoLocString = geoloc.lat + ',' + geoloc.lng;
+}
+
 search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.default)({
-  // aroundLatLng: '40.71, -74.01',
+  aroundLatLng: zipGeoLocString,
   // aroundRadius: 1000, // 10000 km
-  hitsPerPage: 10
+  hitsPerPage: 20
 }), customGeoSearch({
-  // container: document.querySelector('#maps'),
+  container: document.querySelector('#maps'),
   initialZoom: 12,
-  container: '#maps',
   googleReference: window.google,
   enableRefine: true,
   enableClearMapRefinement: true,
@@ -5671,7 +5730,7 @@ search.addWidgets([(0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_3__.d
 }), (0,instantsearch_js_es_widgets__WEBPACK_IMPORTED_MODULE_9__.default)({
   container: '#hits',
   templates: {
-    item: "\n        <div class=\"provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}}\">\n        <div class=\"w-full flex items-center justify-between p-4 space-x-6\">\n            <div class=\"flex-1 truncate\">\n                <div class=\"flex items-center space-x-3\">\n                    <h3 class=\"text-gray-900 text-lg font-medium truncate\">{{ title }}</h3>\n                </div>\n\n                    <div>\n\n                        {{#services}}\n                            <span class=\"flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-secondary text-white rounded-full\">{{ . }}</span>\n                        {{/services}}\n\n\n                    </div>\n\n                    <div>\n                        {{#org_name}}\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">{{ first_name }} {{last_name}}</p>\n                        {{/org_name}}\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                            {{ address }}<br>\n                            {{ city }}, {{ state }} {{ zip }}\n                        </p>\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                            {{ phone }}\n                        </p>\n\n\n                    </div>\n            </div>\n\n\n\n            {{#image}}\n            <img class=\"h-20 rounded flex-shrink-0\" src=\"/assets/{{ image }}\" alt=\"\">\n            {{/image}}\n        </div>\n\n        {{#description}}\n            <div class=\"flex-1 p-4 text-sm description\">\n                {{{ description }}}\n            </div>\n        {{/description}}\n\n        {{#sponsored}}\n        <div class=\"inline-flex space-x-4 p-4\">\n            <div class=\"w-20 h-20 bg-gray-200 flex-1 galleryitem\"></div>\n            <div class=\"w-20 h-20 bg-gray-200 flex-1  galleryitem\"></div>\n            <a href=\"#\" onclick=\"toggleModal(); return false;\" class=\"w-20 h-20 bg-gray-200 flex-1 galleryitem flex items-center\">\n            <div class=\"w-10 h-10 mx-auto\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" >\n  <path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z\" clip-rule=\"evenodd\" />\n</svg></div>\n</a>\n\n        </div>\n        {{/sponsored}}\n\n\n            <div class=\"-mt-px flex divide-x divide-gray-200 provider-actions\">\n                {{#email}}\n                <div class=\"w-0 flex-1 flex\">\n                    <a href=\"mailto:{{email}}\" class=\"relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500\">\n                        <!-- Heroicon name: mail -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                            <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                        </svg>\n                        <span class=\"ml-3\">Email</span>\n                    </a>\n                </div>\n                {{/email}}\n\n                {{#phone}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"tel:{{phone}}\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z\" />\n                        </svg>\n                        <span class=\"ml-3\">Call</span>\n                    </a>\n                </div>\n                {{/phone}}\n\n                {{#address}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n\n\n                    <a href=\"#\" data-objectid=\"{{objectID}}\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 markerMapLink\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\" />\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\" />\n                        </svg>\n                        <span class=\"ml-3\">Map</span>\n                    </a>\n                </div>\n                {{/address}}\n\n\n                {{#website}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"{{website}}\" target=\"_blank\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\" />\n                        </svg>\n                        <span class=\"ml-3\">Website</span>\n                    </a>\n                </div>\n                {{/website}}\n            </div>\n    </div>\n\n    "
+    item: "\n        <div class=\"provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}}\">\n        <div class=\"w-full flex items-center justify-between p-4 space-x-6\">\n            <div class=\"flex-1 truncate\">\n                <div class=\"flex items-center space-x-3\">\n                    <h3 class=\"text-gray-900 text-lg font-medium truncate\">{{ title }}</h3>\n                </div>\n\n                    <div>\n\n                        {{#services}}\n                            <span class=\"flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-secondary text-white rounded-full\">{{ . }}</span>\n                        {{/services}}\n\n\n                    </div>\n\n                    <div>\n                        {{#org_name}}\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">{{ first_name }} {{last_name}}</p>\n                        {{/org_name}}\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                            {{ address }}<br>\n                            {{ city }}, {{ state }} {{ zip }}\n                        </p>\n                        <p class=\"mt-1 text-gray-500 text-sm truncate\">\n                            {{ phone }}\n                        </p>\n\n\n                    </div>\n            </div>\n\n\n\n            {{#image}}\n            <img class=\"h-20 rounded flex-shrink-0\" src=\"/assets/{{ image }}\" alt=\"\">\n            {{/image}}\n        </div>\n\n        {{#description}}\n            <div class=\"flex-1 p-4 text-sm description\">\n                {{{ description }}}\n            </div>\n        {{/description}}\n\n        {{#sponsored}}\n        <div class=\"inline-flex space-x-4 p-4\">\n            {{#gallery}}\n                <div class=\"w-20 h-20 flex-1 galleryitem\"><a href=\"#gallery-modal-{{id}}\" data-galleryid=\"#gallery-modal-{{id}}\" class=\"gallery-trigger\" rel=\"modal:open\"><img src=\"/assets/{{ . }}\"></a></div>\n            {{/gallery}}\n\n            {{#video}}\n                <a href=\"#video-modal-{{id}}\" data-video=\"{{video}}\" rel=\"modal:open\" class=\"video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center\">\n                <div class=\"w-10 h-10 mx-auto\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" >\n                  <path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z\" clip-rule=\"evenodd\" />\n                </svg>\n                </div>\n                </a>\n            {{/video}}\n        </div>\n        {{/sponsored}}\n\n\n            <div class=\"-mt-px flex divide-x divide-gray-200 provider-actions\">\n                {{#email}}\n                <div class=\"w-0 flex-1 flex\">\n                    <a href=\"mailto:{{email}}\" class=\"relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500\">\n                        <!-- Heroicon name: mail -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                            <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                        </svg>\n                        <span class=\"ml-3\">Email</span>\n                    </a>\n                </div>\n                {{/email}}\n\n                {{#phone}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"tel:{{phone}}\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path d=\"M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z\" />\n                        </svg>\n                        <span class=\"ml-3\">Call</span>\n                    </a>\n                </div>\n                {{/phone}}\n\n                {{#address}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n\n\n                    <a href=\"#\" data-objectid=\"{{objectID}}\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 markerMapLink\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\" />\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\" />\n                        </svg>\n                        <span class=\"ml-3\">Map</span>\n                    </a>\n                </div>\n                {{/address}}\n\n\n                {{#website}}\n                <div class=\"-ml-px w-0 flex-1 flex\">\n                    <a href=\"{{website}}\" target=\"_blank\" class=\"relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500\">\n                        <!-- Heroicon name: phone -->\n                        <svg class=\"w-5 h-5 \" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\" />\n                        </svg>\n                        <span class=\"ml-3\">Website</span>\n                    </a>\n                </div>\n                {{/website}}\n            </div>\n\n\n\n        {{#sponsored}}\n\n        <div id=\"video-modal-{{id}}\" class=\"modal video-modal\">\n\n            <iframe width=\"100%\" height=\"380\" src=\"{{ video }}\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n            <a href=\"#\" rel=\"modal:close\">Close</a>\n        </div>\n\n\n        <div id=\"gallery-modal-{{id}}\" class=\"modal gallery-modal\">\n\n            <div class=\"modal-gallery\">\n                {{#gallery}}\n                <div class=\"\"><img src=\"/assets/{{ . }}\"></div>\n                {{/gallery}}\n\n            </div>\n\n            <a href=\"#\" rel=\"modal:close\">Close</a>\n        </div>\n\n\n        {{/sponsored}}\n    </div>\n\n\n\n\n\n\n    "
   }
 }) // geoSearch({
 //     container: '#maps',
@@ -5753,6 +5812,15 @@ $(function () {
     e.preventDefault();
     var objectid = $(this).data('objectid');
     focusOnMarker(objectid);
+  });
+  $("#zip-refresh").click(function () {
+    var zip = $("#zip").val();
+    $.getJSON("/search/getgeoloc", {
+      zip: zip
+    }, function (data) {
+      var newMarker = placeZipMarker(data.geoloc);
+      map.panTo(newMarker.position);
+    });
   });
 });
 

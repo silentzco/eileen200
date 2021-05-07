@@ -13,6 +13,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 window.$ = window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_0___default());
+jQuery.event.special.touchstart = {
+  setup: function setup(_, ns, handle) {
+    if (ns.includes("noPreventDefault")) {
+      this.addEventListener("touchstart", handle, {
+        passive: false
+      });
+    } else {
+      this.addEventListener("touchstart", handle, {
+        passive: true
+      });
+    }
+  }
+};
+
+(function () {
+  if (typeof EventTarget !== "undefined") {
+    var func = EventTarget.prototype.addEventListener;
+
+    EventTarget.prototype.addEventListener = function (type, fn, capture) {
+      this.func = func;
+
+      if (typeof capture !== "boolean") {
+        capture = capture || {};
+        capture.passive = false;
+      }
+
+      this.func(type, fn, capture);
+    };
+  }
+
+  ;
+})();
 
 /***/ }),
 

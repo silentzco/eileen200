@@ -93,10 +93,9 @@
     --color-background-dark: #1866f0;
 
 
-#masthead{
-
-    background-image: url("/assets/background/masthead.jpeg");
-}
+    #masthead{
+        background-image: url("/assets/background/masthead.jpeg");
+    }
 
 
 }
@@ -210,3 +209,10 @@
 
 }
 
+#contact-form{
+    input, textarea{
+        display: block;
+        width: 100%;
+    }
+
+}

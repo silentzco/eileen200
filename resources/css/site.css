@@ -158,17 +158,6 @@
     background: #fff;
 }
 
-.provider-card{
-    .description p{
-        @apply mb-2;
-    }
-
-    .provider-actions a:hover svg{
-        @apply text-primary;
-    }
-
-}
-
 
 .modal {
     transition: opacity 0.25s ease;
@@ -214,5 +203,31 @@
         display: block;
         width: 100%;
     }
+
+}
+
+
+/*.ais-Hits-list{*/
+/*    @apply flex flex-wrap gap-4;*/
+/*}*/
+
+/*.ais-Hits-item{*/
+/*    @apply w-auto;*/
+/*}*/
+
+
+
+.provider-card{
+
+/*min-width: 350px;*/
+/*min-height: 240px;*/
+
+.description p{
+    @apply mb-2;
+}
+
+.provider-actions a:hover svg{
+    @apply text-primary;
+}
 
 }

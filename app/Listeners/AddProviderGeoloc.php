@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Statamic\Events\EntrySaving;
 use Statamic\Facades\Entry;
+use Illuminate\Support\Facades\App;
 
 class AddProviderGeoloc
 {
@@ -28,6 +29,12 @@ class AddProviderGeoloc
      */
     public function handle(EntrySaving $event)
     {
+        if(App::runningInConsole()){
+            //Do not run on bulk imports
+            return;
+        }
+
+
         $entry = $event->entry;
 
         if($entry->collectionHandle() != "providers"){

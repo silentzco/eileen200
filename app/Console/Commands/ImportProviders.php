@@ -75,7 +75,8 @@ class ImportProviders extends Command
 
             $data['services'] = explode(",", $data['services']);
 
-            $data['_geoloc'] = $this->fetchGeoloc($data);
+//            We will do this in a separate command
+//            $data['_geoloc'] = $this->fetchGeoloc($data);
 
 
             $entry = Entry::make()

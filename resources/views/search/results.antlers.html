@@ -21,10 +21,17 @@
 
         <div id="services"></div>
 
+        <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300">
+            {{ collection:ads placement:is="left" sort="random" limit="1" active="true"}}
+                <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="300" height="300" }}"></a>
+            {{ /collection:ads }}
+        </div>
+
+
     </div>
     <div class="w-full lg:w-6/12">
 
-        <h2 class="text-primary text-lg mb-4 font-bold">Search for a keyword: </h2>
+        <h2 class="text-primary text-lg mb-6 font-bold">Search for a keyword: </h2>
         <div id="searchbox"></div>
         <div id="stats"></div>
 
@@ -40,19 +47,30 @@
 
         <div class="sticky top-0">
 
-            <div id="">
-                <input id="searchbox2" />
-
-            </div>
-
 
             <h2 class="text-primary text-xl mb-4 font-bold">Map:</h2>
 
             <div id="maps" style="height: 500px"></div>
 
+            <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300">
+                {{ collection:ads placement:is="right" sort="random" limit="1" active="true"}}
+                <a href="{{ link }}" target="_blank"><img src="{{ glide:image }}" class="inline-block"></a>
+                {{ /collection:ads }}
+            </div>
+
+
         </div>
 
 
+    </div>
+</div>
+
+
+<div id="results-ad-wrapper" class="hidden">
+    <div class="sidebar-ad text-center my-6 py-6 border-t border-b border-gray-200">
+        {{ collection:ads placement:is="results" sort="random" limit="1" active="true"}}
+        <a href="{{ link }}" target="_blank"><img src="{{ glide:image }}" ></a>
+        {{ /collection:ads }}
     </div>
 </div>
 

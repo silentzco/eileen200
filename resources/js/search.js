@@ -25,6 +25,10 @@ const search = instantsearch({
 //     container: document.querySelector('#address-input')
 // });
 
+search.on('render', () => {
+
+    placeResultAds();
+});
 
 // Create the render function
 var map = null;
@@ -46,30 +50,23 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
         container,
     } = widgetParams;
 
-
     let bounds = new google.maps.LatLngBounds();
-
-
 
 
     if (isFirstRendering) {
 
 
         map = new google.maps.Map(document.getElementById("maps"), {
-            zoom: 4,
+            zoom: 10,
+            maxZoom: 16
         });
 
         window.googleMap = map;
         console.log(renderOptions);
 
 
-
-
-
         map.addListener("dragend", () => {
             redraw();
-
-            console.log('firing');
         });
 
 
@@ -123,11 +120,27 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
         bounds.extend(position);
 
 
+
+
+
+        const newIcon = {
+            path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
+            fillColor: "#c60000",
+            fillOpacity: .7,
+            anchor: new google.maps.Point(0, 0),
+            scale: .25,
+            strokeColor: '#c60000',
+            strokeWeight: 2
+        };
+
         marker = new google.maps.Marker({
             position: position,
             map: map,
             title: items[i].title,
-            objectID: items[i].objectID
+            objectID: items[i].objectID,
+            icon: newIcon
+
+
         });
 
         // Allow each marker to have an info window
@@ -196,11 +209,11 @@ function placeZipMarker(geoloc){
     const svgMarker = {
         path:
             "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-        fillColor: "#0000ff",
+        fillColor: "#00458B",
         fillOpacity: 0.9,
         strokeWeight: 0,
         rotation: 0,
-        scale: 2,
+        scale: 1.5,
         anchor: new google.maps.Point(15, 30),
     };
 
@@ -272,22 +285,13 @@ search.addWidgets([
         container: "#searchbox"
     }),
 
-
     stats({
         container: '#stats',
     }),
 
-
     pagination({
         container: '#pagination',
     }),
-
-
-    // refinementList({
-    //     container: "#category",
-    //     attribute: 'category',
-    //     operator: 'or',
-    // }),
 
     refinementList({
         container: "#services",
@@ -307,7 +311,7 @@ search.addWidgets([
         container: '#hits',
         templates: {
             item: `
-        <div class="provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}}">
+        <div class="provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}} ">
         <div class="w-full flex items-center justify-between p-4 space-x-6">
             <div class="flex-1 truncate">
                 <div class="flex items-center space-x-3">
@@ -453,11 +457,6 @@ search.addWidgets([
         {{/sponsored}}
     </div>
 
-
-
-
-
-
     `,
         },
     }),
@@ -546,6 +545,12 @@ search.addWidgets([
 search.start();
 
 
+function placeResultAds(){
+
+    $(".ais-Hits-item:eq(5)").after($("#results-ad-wrapper").html());
+
+
+}
 
 
 $(function(){

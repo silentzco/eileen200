@@ -16,3 +16,9 @@ preferences:
       after_save: create_another
     providers:
       after_save: continue_editing
+    ads:
+      columns:
+        - title
+        - slug
+        - placement
+        - active

@@ -1,0 +1,19 @@
+---
+id: aeb4a4a4-c7c6-4797-bae0-dc4d8996dde1
+first_name: Carlos
+last_name: Calderon
+license: DDS
+services:
+  - dentist
+category: Dentists
+org_name: 'Southern Desert Corrrectional Center'
+address: '20825 Cold Creek Road'
+city: 'Indian Springs'
+state: NV
+zip: '89070'
+phone: '(702) 879-5476'
+title: 'Southern Desert Corrrectional Center'
+_geoloc:
+  lng: -114.972061
+  lat: 35.927901
+---

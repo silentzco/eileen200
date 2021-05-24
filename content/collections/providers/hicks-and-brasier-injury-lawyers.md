@@ -1,4 +1,5 @@
 ---
+id: 47827738-8629-4888-918c-bde65ac3c692
 title: 'Hicks & Brasier Injury Lawyers'
 org_name: 'Hicks & Brasier Injury Lawyers'
 phone: '(702) 628-9888'
@@ -29,5 +30,4 @@ gallery:
   - providers/Jonathan-Hicks-Personal-Injury-Attorney-1.mp4
   - providers/logo.jpg
 video: 'https://www.youtube.com/watch?v=Osixjtuqn1s'
-id: 47827738-8629-4888-918c-bde65ac3c692
 ---

@@ -263,7 +263,7 @@ search.addWidgets([
     configure({
         aroundLatLng: zipGeoLocString,
         // aroundRadius: 1000, // 10000 km
-        hitsPerPage: 20,
+        hitsPerPage: 30,
 
     }),
 
@@ -456,6 +456,7 @@ search.addWidgets([
 
         {{/sponsored}}
     </div>
+    <div class="provider-ad-container"></div>
 
     `,
         },
@@ -547,7 +548,7 @@ search.start();
 
 function placeResultAds(){
 
-    $(".ais-Hits-item:eq(5)").after($("#results-ad-wrapper").html());
+    $(".ais-Hits-item:eq(5) .provider-ad-container").html($("#results-ad-wrapper").html());
 
 
 }

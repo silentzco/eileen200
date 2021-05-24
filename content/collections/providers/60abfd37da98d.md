@@ -1,0 +1,19 @@
+---
+id: 95def72e-d446-4c92-adce-9574937ecc65
+first_name: Christopher
+last_name: Cozine
+license: DDS
+services:
+  - dentist
+category: Dentists
+org_name: 'Christopher S Cozine, DDS'
+address: '8579 S. Eastern Ave'
+city: 'Las Vegas'
+state: NV
+zip: '89123'
+phone: '(702) 739-8289'
+title: 'Christopher S Cozine, DDS'
+_geoloc:
+  lat: 36.1653
+  lng: -115.116
+---

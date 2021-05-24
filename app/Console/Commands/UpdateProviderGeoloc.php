@@ -16,7 +16,7 @@ class UpdateProviderGeoloc extends Command
      *
      * @var string
      */
-    protected $signature = 'provider:updategeoloc';
+    protected $signature = 'providers:updategeoloc';
 
     /**
      * The console command description.
@@ -53,6 +53,13 @@ class UpdateProviderGeoloc extends Command
             ->get();
 
         foreach($providers as $provider){
+
+            if(!empty($provider->_geoloc)){
+                continue;
+            }
+
+            echo $provider->title . "\n";
+
             $geoloc = $this->fetchGeoloc([
                 'address' => $provider->address,
                 'city' => $provider->city,
@@ -68,7 +75,7 @@ class UpdateProviderGeoloc extends Command
 
 
         }
-        
+
         return 0;
     }
 

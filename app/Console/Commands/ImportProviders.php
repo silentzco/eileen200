@@ -18,7 +18,7 @@ class ImportProviders extends Command
      *
      * @var string
      */
-    protected $signature = 'import:providers {filename}';
+    protected $signature = 'providers:import {filename}';
 
     /**
      * The console command description.
@@ -62,6 +62,8 @@ class ImportProviders extends Command
             ->setHeaderOffset(0);
 
 
+
+
         foreach ($csv as $record) {
             $data = array_change_key_case($record, CASE_LOWER);
 
@@ -73,7 +75,9 @@ class ImportProviders extends Command
             }
 
 
-            $data['services'] = explode(",", $data['services']);
+            $data['services'] = array_map(function($term){ return Str::slug($term);}, explode(",", $data['services']));
+            $data['category'] = Str::slug($data['category']);
+
 
 //            We will do this in a separate command
 //            $data['_geoloc'] = $this->fetchGeoloc($data);

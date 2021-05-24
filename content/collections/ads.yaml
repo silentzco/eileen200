@@ -1,0 +1,9 @@
+title: Ads
+template: default
+layout: layout
+revisions: false
+route: ads
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private

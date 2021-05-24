@@ -1,0 +1,66 @@
+title: Ads
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: placement
+        field:
+          multiple: false
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: Placement
+          type: select
+          icon: select
+          listable: hidden
+          options:
+            right: 'Right Sidebar'
+            left: 'Left Sidebar'
+            results: 'Results Listing'
+      -
+        handle: image
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Image
+          type: assets
+          icon: assets
+          listable: hidden
+      -
+        handle: link
+        field:
+          display: Link
+          type: link
+          icon: link
+          listable: hidden
+      -
+        handle: active
+        field:
+          display: Active
+          type: toggle
+          icon: toggle
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required

@@ -219,15 +219,17 @@
 
 .provider-card{
 
-/*min-width: 350px;*/
-/*min-height: 240px;*/
+    /*min-width: 350px;*/
+    /*min-height: 240px;*/
 
-.description p{
-    @apply mb-2;
-}
+    .description p{
+        @apply mb-2;
+    }
 
-.provider-actions a:hover svg{
-    @apply text-primary;
-}
+
+
+    .provider-actions svg{
+        @apply text-primary;
+    }
 
 }

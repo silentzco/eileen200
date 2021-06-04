@@ -47,7 +47,6 @@ class UpdateProviderGeoloc extends Command
     public function handle()
     {
 
-
         $providers = Entry::query()
             ->where('collection', 'providers')
             ->get();

@@ -70,13 +70,6 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
         });
 
 
-        //
-        // map.addListener("zoom_changed", () => {
-        //     redraw();
-        //
-        //     console.log('firing');
-        // });
-        //
 
     }
 
@@ -99,7 +92,6 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
 
 
     }
-
 
 
     for (let i = 0; i < markers.length; i++) {
@@ -181,7 +173,10 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
 
 
     // map.setCenter(bounds.getCenter());
-    map.fitBounds(bounds);
+
+
+    // I don't think we need this???
+    // map.fitBounds(bounds);
 
 
 
@@ -194,8 +189,22 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
 
 
 
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+        setTimeout(redraw, 3000);
+        console.log('firing');
+    });
+
+
+
+
+
+
+
 
 };
+
+
+
 
 // Create the custom widget
 const customGeoSearch = connectGeoSearch(
@@ -311,20 +320,23 @@ search.addWidgets([
         container: '#hits',
         templates: {
             item: `
-        <div class="provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}} ">
+        <div class="provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}} " data-objectid="{{objectID}}">
         <div class="w-full flex items-center justify-between p-4 space-x-6">
             <div class="flex-1 truncate">
                 <div class="flex items-center space-x-3">
-                    <h3 class="text-gray-900 text-lg font-medium truncate">{{ title }}</h3>
+                    <h3 class="text-gray-900 text-lg font-medium truncate">
+                    {{#website}}
+                        <a href="{{website}}" target="_blank">{{ title }}</a>
+                    {{/website}}
+                    {{^website}}
+                        {{title}}
+                    {{/website}}
+                    </h3>
                 </div>
-
                     <div>
-
                         {{#services}}
                             <span class="flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-secondary text-white rounded-full">{{ . }}</span>
                         {{/services}}
-
-
                     </div>
 
                     <div>
@@ -565,6 +577,15 @@ $(function(){
     });
 
 
+    $('body').on('mouseenter','.provider-card',function() {
+
+        let objectid = $(this).data('objectid');
+        // console.log(objectid);
+        focusOnMarker(objectid);
+
+    });
+
+
 
     $("#zip-refresh").click(function(){
 
@@ -577,13 +598,7 @@ $(function(){
             map.panTo(newMarker.position);
 
         });
-
-
-
     });
-
-
-
 });
 
 

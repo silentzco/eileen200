@@ -46,6 +46,12 @@ jQuery.event.special.touchstart = {
   ;
 })();
 
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()("#mobile-toggle").click(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()("#mobile-nav").toggleClass("hidden");
+  });
+});
+
 /***/ }),
 
 /***/ "./node_modules/jquery/dist/jquery.js":

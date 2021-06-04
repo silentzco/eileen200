@@ -6,9 +6,10 @@ tree:
   -
     entry: a0d2bbb3-706e-4242-a664-54ea8c04cae7
   -
-    entry: a6e632cf-a410-4b39-ad4e-91f650469313
-  -
     entry: 345cac2c-09b9-4c69-b4ce-b35025a6537e
+  -
+    title: 'General & Community Info'
+    url: 'https://www.lasvegasnevada.gov/'
   -
     title: 'News & Blog'
     url: /articles

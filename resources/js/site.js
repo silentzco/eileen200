@@ -29,3 +29,13 @@ jQuery.event.special.touchstart = {
         };
     };
 }());
+
+
+$(function(){
+    $("#mobile-toggle").click(function(){
+        $("#mobile-nav").toggleClass("hidden");
+
+    });
+
+
+})

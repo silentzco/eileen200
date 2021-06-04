@@ -1,8 +1,8 @@
 <!--<div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">-->
 
 
-<div class="flex justify-between container mx-auto  pt-8 space-x-10">
-    <div class="w-1/6 hidden lg:block">
+<div class="lg:flex lg:justify-between container p-4 lg:p-0 mx-auto  lg:pt-8 lg:space-x-10">
+    <div class="hidden lg:block lg:w-1/6">
 
         <h3 class="text-primary text-lg mb-4 font-bold">Your Zip</h3>
         <div class="inline-flex mb-4">
@@ -21,7 +21,7 @@
 
         <div id="services"></div>
 
-        <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300">
+        <div class="sidebar-ad hidden lg:block text-center my-6 py-6 border-t border-gray-300">
             {{ collection:ads placement:is="left" sort="random" limit="1" active="true"}}
                 <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="300" height="300" }}"></a>
             {{ /collection:ads }}
@@ -43,7 +43,7 @@
 
 
     </div>
-    <div class="w-full lg:w-4/12">
+    <div class="hidden lg:block w-full lg:w-4/12">
 
         <div class="sticky top-0">
 

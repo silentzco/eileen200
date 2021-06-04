@@ -1,9 +1,10 @@
 module.exports = {
     purge: {
       content: [
-        './resources/**/*.antlers.html',
-        './resources/**/*.blade.php',
-        './content/**/*.md'
+          './resources/**/*.antlers.html',
+          './resources/**/search.js',
+          './resources/**/*.blade.php',
+          './content/**/*.md'
       ]
     },
     important: true,

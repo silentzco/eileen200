@@ -219,9 +219,6 @@
 
 .provider-card{
 
-    /*min-width: 350px;*/
-    /*min-height: 240px;*/
-
     .description p{
         @apply mb-2;
     }

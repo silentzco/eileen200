@@ -84,7 +84,7 @@ class ImportProviders extends Command
 
 
             $entry = Entry::make()
-                ->slug(Str::slug(uniqid()))
+                ->slug(Str::slug($data['category'] . "-" . uniqid()))
                 ->locale("default")
                 ->collection($collection)
                 ->data($data);

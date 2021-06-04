@@ -1,13 +1,13 @@
 
 
 
-<div class="prose prose-xl mx-auto">
+<div class="prose prose-xl mx-auto py-12">
 
 
 
-    <h1 class="m-4 text-primary">{{ title }}</h1>
+    <h1 class="my-4 text-primary">{{ title }}</h1>
 
-    <div class="m-4">
+    <div class="my-4">
 
 
 

@@ -55,3 +55,10 @@ sections:
           type: entries
           icon: entries
           listable: hidden
+      -
+        handle: active
+        field:
+          display: Active
+          type: toggle
+          icon: toggle
+          listable: hidden

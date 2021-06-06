@@ -16,6 +16,14 @@ preferences:
   collections:
     providers:
       after_save: continue_editing
+      columns:
+        - title
+        - org_name
+        - first_name
+        - last_name
+        - slug
+        - category
+        - services
     ads:
       columns:
         - title

@@ -68,6 +68,8 @@ class ImportProviders extends Command
 
         foreach ($csv as $record) {
             $data = array_change_key_case($record, CASE_LOWER);
+            $data = array_map(trim, $data);
+
 
 
             if(!empty($data['org_name'])){

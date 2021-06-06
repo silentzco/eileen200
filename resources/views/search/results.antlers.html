@@ -23,7 +23,9 @@
 
         <div class="sidebar-ad hidden lg:block text-center my-6 py-6 border-t border-gray-300">
             {{ collection:ads placement:is="left" sort="random" limit="1" active="true"}}
+                {{ if image }}
                 <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="300" height="300" }}"></a>
+                {{ /if }}
             {{ /collection:ads }}
         </div>
 
@@ -54,7 +56,9 @@
 
             <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300">
                 {{ collection:ads placement:is="right" sort="random" limit="1" active="true"}}
-                <a href="{{ link }}" target="_blank"><img src="{{ glide:image }}" class="inline-block"></a>
+                    {{ if image }}
+                        <a href="{{ link }}" target="_blank"><img src="{{ glide:image }}" class="inline-block"></a>
+                    {{ /if }}
                 {{ /collection:ads }}
             </div>
 
@@ -66,13 +70,15 @@
 </div>
 
 
-<div id="results-ad-wrapper" class="hidden">
-    <div class="sidebar-ad text-center my-6 py-6 border-t border-b border-gray-200">
-        {{ collection:ads placement:is="results" sort="random" limit="1" active="true"}}
-        <a href="{{ link }}" target="_blank"><img src="{{ glide:image }}" ></a>
-        {{ /collection:ads }}
+{{ collection:ads placement:is="results" sort="random" limit="1" active="true"}}
+    {{ if image }}
+    <div id="results-ad-wrapper" class="hidden">
+        <div class="sidebar-ad text-center my-6 py-6 border-t border-b border-gray-200">
+            <a href="{{ link }}" target="_blank"><img src="{{ glide:image }}" ></a>
+        </div>
     </div>
-</div>
+    {{ /if }}
+{{ /collection:ads }}
 
 
 

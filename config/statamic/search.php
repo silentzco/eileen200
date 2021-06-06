@@ -30,48 +30,48 @@ return [
             'searchables' => 'all',
             'fields' => ['title'],
         ],
-//        'providers' => [
-//            'driver' => 'algolia',
-//            'searchables' => 'collection:providers',
-//            'fields' => [
-//                'id', 'title', "test", 'org_name', 'first_name', 'middle_name','last_name', "suffix_name", "_geoloc", "location", "sponsored", "phone", "fax", "website",
-//                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category", "description", "gallery", "video"
-//
-//            ],
-//            'transformers' => [
-//
-//                // Return a value to store in the index.
-//                'description' => function ($description) {
-//                    return Statamic\Facades\Markdown::parse((string)$description);
-//                },
-//                'services' => function ($services) {
-//
-//
-//                    $newServices = [];
-//                    foreach($services as $key){
-//                        $service = \Statamic\Facades\Term::findBySlug($key, 'services');
-//                        if($service){
-//
-//                            $newServices[] = $service->get("title");
-//                        }
-//                        else{
-//                            var_dump($key);
-//                        }
-//
-//                    }
-//
-//
-//                    if(empty($newServices)){
-//                        $newServices = $services;
-//                    }
-//
-//                    return ["services" => $newServices];
-//                },
-//
-//            ]
-//
-//
-//        ],
+        'providers' => [
+            'driver' => 'algolia',
+            'searchables' => 'collection:providers',
+            'fields' => [
+                'id', 'title', "test", 'org_name', 'first_name', 'middle_name','last_name', "suffix_name", "_geoloc", "location", "sponsored", "phone", "fax", "website",
+                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category", "description", "gallery", "video"
+
+            ],
+            'transformers' => [
+
+                // Return a value to store in the index.
+                'description' => function ($description) {
+                    return Statamic\Facades\Markdown::parse((string)$description);
+                },
+                'services' => function ($services) {
+
+
+                    $newServices = [];
+                    foreach($services as $key){
+                        $service = \Statamic\Facades\Term::findBySlug($key, 'services');
+                        if($service){
+
+                            $newServices[] = $service->get("title");
+                        }
+                        else{
+                            var_dump($key);
+                        }
+
+                    }
+
+
+                    if(empty($newServices)){
+                        $newServices = $services;
+                    }
+
+                    return ["services" => $newServices];
+                },
+
+            ]
+
+
+        ],
 
 
         // 'blog' => [

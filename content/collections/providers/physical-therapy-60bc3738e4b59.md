@@ -1,0 +1,20 @@
+---
+id: 95486e85-973b-46c4-a4f4-b90e127c2560
+last_name: Gaw
+first_name: Shirley
+middle_name: C.
+license_number: '1958'
+license_type: 'Physical Therapist'
+org_name: 'Centennial Hills Hospital'
+address: '6900 N DURANGO DR'
+city: 'LAS VEGAS'
+state: NV
+zip: '89149'
+category: physical-therapy
+services:
+  - all-physical-therapy
+title: 'Centennial Hills Hospital'
+_geoloc:
+  lat: 36.2648
+  lng: -115.279
+---

@@ -1,0 +1,19 @@
+---
+id: 8cbc4391-66d8-4537-951e-8a501bdebd52
+first_name: David
+last_name: HOLLAND
+license: M.D.
+services:
+  - surgery
+  - thoracic
+category: doctors
+address: '5320 S. Rainbow Blvd. Ste. 282'
+city: 'Las Vegas'
+state: NV
+zip: '89118'
+phone: 702-737-3808
+title: 'David HOLLAND'
+_geoloc:
+  lng: -115.2103
+  lat: 36.084361
+---

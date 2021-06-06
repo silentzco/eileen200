@@ -1,0 +1,19 @@
+---
+id: f73483ae-7ae8-43f1-8963-9bad0d2742bf
+first_name: John
+last_name: HAM
+license: M.D.
+services:
+  - surgery
+  - general
+category: doctors
+address: '901 Rancho Lane, Ste 250'
+city: 'Las Vegas'
+state: NV
+zip: '89106'
+phone: 702-383-2224
+title: 'John HAM'
+_geoloc:
+  lng: -115.16292
+  lat: 36.184219
+---

@@ -1,0 +1,20 @@
+---
+id: 0ef82665-9c36-4809-88a3-61e5551321cd
+last_name: 'Black Darby'
+first_name: Heather
+license_number: '2976'
+license_type: 'Physical Therapist'
+org_name: 'Rapid Rehab'
+address: '8751 W. Charleston Blvd.'
+address_2: 'Suite 270'
+city: 'Las Vegas'
+state: NV
+zip: '89117'
+category: physical-therapy
+services:
+  - all-physical-therapy
+title: 'Rapid Rehab'
+_geoloc:
+  lat: 36.1592
+  lng: -115.247
+---

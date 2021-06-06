@@ -1,0 +1,18 @@
+---
+id: db410b07-626b-4523-8531-f58029f51427
+first_name: Joseph
+last_name: JOHNSON
+license: M.D.
+services:
+  - occupational-medicine
+category: doctors
+address: '3009 Regency Hill'
+city: Henderson
+state: NV
+zip: '89014'
+phone: 702-565-8911
+title: 'Joseph JOHNSON'
+_geoloc:
+  lat: 36.0636
+  lng: -115.08
+---

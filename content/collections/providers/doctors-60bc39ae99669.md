@@ -1,0 +1,18 @@
+---
+id: 319074a3-058d-493f-b7ab-c40e2bf985fa
+first_name: Charlie
+last_name: HUYNH
+license: M.D.
+services:
+  - physical-medicine-rehab
+category: doctors
+address: '9030 W Sahara Ave   Ste 545'
+city: 'Las Vegas'
+state: NV
+zip: '89117'
+phone: 702-300-7480
+title: 'Charlie HUYNH'
+_geoloc:
+  lng: -115.28205
+  lat: 36.140974
+---

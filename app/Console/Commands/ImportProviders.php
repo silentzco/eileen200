@@ -8,6 +8,8 @@ use League\Csv\Reader;
 use Statamic\Facades\Collection;
 use Statamic\Facades\Entry;
 use Algolia\AlgoliaSearch\PlacesClient;
+use Statamic\Facades\Term;
+use Statamic\Facades\Taxonomy;
 
 
 
@@ -55,7 +57,7 @@ class ImportProviders extends Command
         $collection = Collection::findByHandle('providers');
 
 
-        echo $path . "/" . $filename;
+        echo $path . "/" . $filename . "\n\n\n";
 
 
         $csv = Reader::createFromPath($path . "/" . $filename)
@@ -75,8 +77,40 @@ class ImportProviders extends Command
             }
 
 
-            $data['services'] = array_map(function($term){ return Str::slug($term);}, explode(",", $data['services']));
+            $services = explode(",", $data['services']);
+
             $data['category'] = Str::slug($data['category']);
+            $data['services'] = array_map(function($term){ return Str::slug(trim($term));}, explode(",", $data['services']));
+
+
+            foreach($services as $service){
+                $service = trim($service);
+                $slug = Str::slug($service);
+                $entry = Term::findBySlug($slug, 'services');
+
+                if(!$entry){
+
+
+                    $term = Term::make()
+                        ->slug($slug)
+                        ->taxonomy(Taxonomy::findByHandle("services"))
+                        ->set('title', $service)
+                        ->set('active', true)
+                        ->set('category', $data['category'])
+                    ;
+
+                    $term->save();
+                    echo $service . " " . $slug . "\n";
+
+
+//                    $term = Term::make()->taxonomy("services")->slug($slug)->blueprint("services")->data(['title' => $service, "category" => $data['category'], "slug" => $slug, "active" => "true"])->save();
+                }
+            }
+
+
+
+
+
 
 
 //            We will do this in a separate command

@@ -36,6 +36,11 @@ return [
         'terms' => [
             'class' => Stores\TermsStore::class,
             'directory' => base_path('content/taxonomies'),
+            'indexes' => [
+                'category',
+                'active'.
+                'title'
+            ]
         ],
 
         'collections' => [
@@ -46,6 +51,11 @@ return [
         'entries' => [
             'class' => Stores\EntriesStore::class,
             'directory' => base_path('content/collections'),
+            'indexes' => [
+                'status',
+                'redirect'.
+                'homepage'
+            ]
         ],
 
         'navigation' => [

@@ -30,3 +30,6 @@ preferences:
         - slug
         - placement
         - active
+  assets:
+    assets:
+      mode: table

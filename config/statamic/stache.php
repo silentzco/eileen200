@@ -38,7 +38,7 @@ return [
             'directory' => base_path('content/taxonomies'),
             'indexes' => [
                 'category',
-                'active'.
+                'active',
                 'title'
             ]
         ],
@@ -53,7 +53,7 @@ return [
             'directory' => base_path('content/collections'),
             'indexes' => [
                 'status',
-                'redirect'.
+                'redirect',
                 'homepage'
             ]
         ],

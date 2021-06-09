@@ -4,7 +4,7 @@ import instantsearch from 'instantsearch.js';
 import {searchBox, hits, refinementList, stats, menu, geoSearch, configure, pagination, menuSelect} from 'instantsearch.js/es/widgets';
 import { connectGeoSearch } from 'instantsearch.js/es/connectors';
 
-const searchClient = algoliasearch('LYOAOTOT4D', '06f6868f86dd05c03ba16ec7f56db53d');
+const searchClient = algoliasearch(algolia_app, algolia_search_apikey);
 
 const search = instantsearch({
     indexName: 'providers',

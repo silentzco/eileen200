@@ -41,6 +41,12 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
 
+        <script>
+            const algolia_app = '<?php echo env('ALGOLIA_APP_ID', ''); ?>';
+            const algolia_search_apikey = '<?php echo env('ALGOLIA_SEARCH_APIKEY', ''); ?>';
+        </script>
+
+
     </head>
     <body class="font-sans leading-normal text-grey-800 theme-default">
 

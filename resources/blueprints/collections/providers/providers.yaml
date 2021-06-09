@@ -158,15 +158,6 @@ sections:
           type: video
           icon: video
           listable: hidden
-      -
-        handle: youtube
-        field:
-          input_type: text
-          antlers: false
-          display: Youtube
-          type: text
-          icon: text
-          listable: hidden
   sidebar:
     display: Sidebar
     fields:
@@ -263,19 +254,6 @@ sections:
           display: Zip
           type: text
           icon: text
-          listable: hidden
-      -
-        handle: location
-        field:
-          placeholder: 'Start typing your address'
-          searchType: all
-          postcodeSearch: false
-          locationSearch: lat_lng_ip
-          useDeviceLocation: false
-          getRankingInfo: false
-          display: Location
-          type: places
-          icon: pin
           listable: hidden
       -
         handle: _geoloc

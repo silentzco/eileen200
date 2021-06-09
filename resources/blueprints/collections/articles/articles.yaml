@@ -38,17 +38,6 @@ sections:
           container: assets
           max_files: 1
       -
-        handle: photo
-        field:
-          container: assets
-          mode: grid
-          restrict: false
-          allow_uploads: true
-          max_files: 1
-          type: assets
-          listable: hidden
-          display: Photo
-      -
         handle: author
         field:
           input_type: text
@@ -94,6 +83,9 @@ sections:
           type: bard
           icon: bard
           listable: hidden
+          container: assets
+          enable_input_rules: true
+          enable_paste_rules: true
   sidebar:
     display: Sidebar
     fields:
@@ -112,3 +104,12 @@ sections:
           type: toggle
           icon: toggle
           listable: hidden
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - articles
+          max_items: 1
+          listable: false
+          localizable: true

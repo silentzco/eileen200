@@ -15,7 +15,7 @@
 
 
             {{ if success }}
-            <div class="bg-green-300 text-white p-2">
+            <div class="bg-green-300 text-white p-8 text-center">
                 {{ success }}
             </div>
             {{ else }}

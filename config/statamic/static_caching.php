@@ -75,7 +75,30 @@ return [
         'class' => null,
 
         'rules' => [
-            //
+            'collections' => [
+                'articles' => [
+                    'urls' => [
+                        '/*'
+                    ]
+                ],
+                'providers' => [
+                    'urls' => [
+                        '/'
+                    ]
+                ],
+                'service_categories' => [
+                    'urls' => [
+                        '/'
+                    ]
+                ],
+            ],
+            'globals' => [
+                'settings' => [
+                    'urls' => [
+                        '/*'
+                    ]
+                ]
+            ],
         ],
 
     ],

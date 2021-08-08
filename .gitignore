@@ -6,6 +6,7 @@
 /public/mix-manifest.json
 /public/vendor/statamic
 /storage/*.key
+/storage/forms/*
 /vendor
 .env
 .env.backup

@@ -53,7 +53,7 @@ return [
     */
 
     'exclude' => [
-        '/search/*'.
+        '/search/*',
         '/contact-us'
     ],
 

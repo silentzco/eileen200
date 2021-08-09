@@ -560,7 +560,7 @@ search.start();
 
 function placeResultAds(){
 
-    $(".ais-Hits-item:eq(5) .provider-ad-container").html($("#results-ad-wrapper").html());
+    $(".ais-Hits-item:eq(4) .provider-ad-container").html($("#results-ad-wrapper").html());
     console.log("Setting listing promotions");
 
 }

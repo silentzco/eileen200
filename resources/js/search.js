@@ -343,10 +343,14 @@ search.addWidgets([
                         {{#org_name}}
                         <p class="mt-1 text-gray-500 text-sm truncate">{{ first_name }} {{last_name}}</p>
                         {{/org_name}}
-                        <p class="mt-1 text-gray-500 text-sm truncate">
-                            {{ address }}<br>
-                            {{ city }}, {{ state }} {{ zip }}
-                        </p>
+                        {{#address}}
+
+                            <p class="mt-1 text-gray-500 text-sm truncate">
+                                {{ address }}<br>
+                                {{ city }}, {{ state }} {{ zip }}
+                            </p>
+                        {{/address}}
+
                         <p class="mt-1 text-gray-500 text-sm truncate">
                             {{ phone }}
                         </p>
@@ -358,9 +362,10 @@ search.addWidgets([
 
 
             {{#image}}
-            <img class="h-20 rounded flex-shrink-0" src="/assets/{{ image }}" alt="">
+            <img class="h-full rounded flex-shrink-0" src="/assets/{{ image }}" style="max-width: 300px; max-height: 150px" alt="">
             {{/image}}
         </div>
+
 
         {{#description}}
             <div class="flex-1 p-4 text-sm description">

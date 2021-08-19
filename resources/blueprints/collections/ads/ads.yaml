@@ -27,6 +27,7 @@ sections:
             right: 'Right Sidebar'
             left: 'Left Sidebar'
             results: 'Results Listing'
+            home: Homepage
       -
         handle: image
         field:
@@ -64,3 +65,23 @@ sections:
           localizable: true
           validate:
             - required
+      -
+        handle: services
+        field:
+          mode: default
+          taxonomies:
+            - services
+          display: Services
+          type: terms
+          icon: taxonomy
+          listable: hidden
+      -
+        handle: categories
+        field:
+          mode: default
+          taxonomies:
+            - service_categories
+          display: Categories
+          type: terms
+          icon: taxonomy
+          listable: hidden

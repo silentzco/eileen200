@@ -141,6 +141,13 @@ sections:
           icon: markdown
           listable: hidden
       -
+        handle: insurance_accepted
+        field:
+          display: 'Insurance Accepted'
+          type: html
+          icon: html
+          listable: hidden
+      -
         handle: gallery
         field:
           mode: grid
@@ -155,6 +162,27 @@ sections:
         handle: video
         field:
           display: Video
+          type: video
+          icon: video
+          listable: hidden
+      -
+        handle: video2
+        field:
+          display: Video2
+          type: video
+          icon: video
+          listable: hidden
+      -
+        handle: video3
+        field:
+          display: Video3
+          type: video
+          icon: video
+          listable: hidden
+      -
+        handle: video4
+        field:
+          display: Video4
           type: video
           icon: video
           listable: hidden

@@ -22,11 +22,9 @@
         <div id="services"></div>
 
         <div class="sidebar-ad hidden lg:block text-center my-6 py-6 border-t border-gray-300">
-            {{ collection:ads placement:is="left" sort="random" limit="1" active="true"}}
-                {{ if image }}
-                <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="300" height="300" }}"></a>
-                {{ /if }}
-            {{ /collection:ads }}
+            {{ if ad_left }}
+                <a href="{{ ad_left:link }}" target="_blank"><img src="{{ glide:ad_left:image width="300" }}"></a>
+            {{ /if}}
         </div>
 
 
@@ -55,11 +53,9 @@
             <div id="maps" style="height: 500px"></div>
 
             <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300">
-                {{ collection:ads placement:is="right" sort="random" limit="1" active="true"}}
-                    {{ if image }}
-                        <a href="{{ link }}" target="_blank"><img src="{{ glide:image }}" class="inline-block"></a>
-                    {{ /if }}
-                {{ /collection:ads }}
+                {{ if ad_right }}
+                <a href="{{ ad_right:link }}" target="_blank"><img src="{{ glide:ad_right:image width="300" }}"></a>
+                {{ /if}}
             </div>
 
 
@@ -70,15 +66,13 @@
 </div>
 
 
-{{ collection:ads placement:is="results" sort="random" limit="1" active="true"}}
-    {{ if image }}
+    {{ if ad_right }}
     <div id="results-ad-wrapper" class="hidden">
         <div class="text-center my-6 py-6 border-t border-b border-gray-200">
-            <a href="{{ link }}" target="_blank"><img src="{{ glide:image }}" ></a>
+            <a href="{{ ad_results:link }}" target="_blank"><img src="{{ glide:ad_results:image }}" ></a>
         </div>
     </div>
     {{ /if }}
-{{ /collection:ads }}
 
 
 
@@ -165,13 +159,6 @@
 
 <script>
 
-
-    $(function(){
-
-
-
-
-    });
 
 
     $(document).on('click', '.video-trigger', function(e){

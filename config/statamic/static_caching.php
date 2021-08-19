@@ -91,6 +91,11 @@ return [
                         '/'
                     ]
                 ],
+                'ads' => [
+                    'urls' => [
+                        '/'
+                    ]
+                ],
             ],
             'globals' => [
                 'settings' => [

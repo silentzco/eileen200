@@ -142,7 +142,15 @@
 
 </div>
 
-<div class="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+<div class="relative  max-w-7xl  mx-auto hidden" id="homepageAd">
+    <div class="text-center my-6 py-6 ">
+        <a href="#" target="_blank"><img class="w-full mx-auto" src=""></a>
+    </div>
+</div>
+
+
+
+<div class="relative bg-gray-50 pt-8 pb-20 px-4 sm:px-6 lg:pt-12 lg:pb-28 lg:px-8">
     <div class="absolute inset-0">
         <div class="bg-white h-1/3 sm:h-2/3"></div>
     </div>
@@ -220,6 +228,21 @@
 
 <script>
     $(function(){
+        var homepage_ads = [];
+
+        {{ collection:ads placement:is="home" active="true"}}
+            {{ if image }}
+                homepage_ads.push({image: "{{ glide:image }}", link: "{{ link }}"});
+            {{ /if }}
+        {{ /collection:ads }}
+
+
+        if(homepage_ads.length > 0){
+            var ad = homepage_ads[Math.floor(Math.random()*homepage_ads.length)];
+            $("#homepageAd").find("img").attr("src", ad.image);
+            $("#homepageAd").find("a").attr("href", ad.link);
+            $("#homepageAd").removeClass('hidden');
+        }
 
         $('.service-title').click(function(){
 

@@ -388,6 +388,37 @@ search.addWidgets([
                 </div>
                 </a>
             {{/video}}
+
+            {{#video2}}
+                <a href="#video-modal-{{id}}" data-video="{{video}}" rel="modal:open" class="video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center">
+                <div class="w-10 h-10 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                </div>
+                </a>
+            {{/video2}}
+
+            {{#video3}}
+                <a href="#video-modal-{{id}}" data-video="{{video}}" rel="modal:open" class="video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center">
+                <div class="w-10 h-10 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                </div>
+                </a>
+            {{/video3}}
+
+            {{#video4}}
+                <a href="#video-modal-{{id}}" data-video="{{video}}" rel="modal:open" class="video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center">
+                <div class="w-10 h-10 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                </div>
+                </a>
+            {{/video4}}
+
         </div>
         {{/sponsored}}
 

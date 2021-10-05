@@ -53,7 +53,7 @@ class UpdateProviderGeoloc extends Command
 
         foreach($providers as $provider){
 
-            if(!empty($provider->_geoloc)){
+            if(!empty($provider->has('_geoloc'))){
                 continue;
             }
 

@@ -224,17 +224,6 @@ sections:
           mode: default
           icon: taxonomy
           listable: hidden
-      -
-        handle: service_category
-        field:
-          max_items: 1
-          mode: default
-          collections:
-            - service_categories
-          display: 'Service Category'
-          type: entries
-          icon: entries
-          listable: hidden
   address:
     display: Address
     fields:

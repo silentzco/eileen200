@@ -7,7 +7,10 @@
 /public/vendor/statamic
 /storage/*.key
 /storage/forms/*
+/content/collections/**/*.md
+/content/taxonomies/
 /vendor
+/public/assets
 .env
 .env.backup
 .phpunit.result.cache

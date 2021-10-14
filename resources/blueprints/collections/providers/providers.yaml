@@ -158,6 +158,18 @@ sections:
           type: assets
           icon: assets
           listable: hidden
+      - handle: insurance_accepted
+        field:
+          restrict: false
+          automatic_line_breaks: true
+          automatic_links: false
+          escape_markup: false
+          smartypants: false
+          antlers: false
+          display: 'Insurance Accepted'
+          type: markdown
+          icon: markdown
+          listable: hidden
       -
         handle: video
         field:

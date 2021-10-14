@@ -2,34 +2,3 @@ name: Brian
 super: true
 id: a034f527-2110-44df-82f7-baa1cb1b5355
 password_hash: $2y$10$o4.Wm4SX.9FFV9NAnDOE1.kQooteY74QBq9k0YLtFfc68eGSnq53S
-preferences:
-  taxonomies:
-    services:
-      columns:
-        - title
-        - slug
-        - category
-        - service_category
-        - external_link
-        - active
-      after_save: create_another
-  collections:
-    providers:
-      after_save: continue_editing
-      columns:
-        - title
-        - org_name
-        - first_name
-        - last_name
-        - slug
-        - category
-        - services
-    ads:
-      columns:
-        - title
-        - slug
-        - placement
-        - active
-  assets:
-    assets:
-      mode: table

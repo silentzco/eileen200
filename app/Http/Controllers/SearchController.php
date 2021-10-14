@@ -4,23 +4,112 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Statamic\Facades\Entry;
+use Statamic\Facades\Term;
 
 class SearchController extends Controller
 {
     public function results(Request $request){
 
 
-        $adStack = [];
-
         $currentServices = $request->input('providers.refinementList.services');
+
         if(!empty($currentServices)){
             $currentServices = array_map(function($text){return \Statamic\Support\Str::slug($text); }, $currentServices);
         }
 
-        $currentCategories = [$request->input('providers.menu.category')];
+        if($request->input('providers.menu.category')){
+
+            $currentCategories[] = $request->input('providers.menu.category');
+        }
+        else{
+            $currentCategories = [];
+        }
+
+
+        $adStack = $this->getAdStack($currentServices, $currentCategories);
+
 
         $vars['title'] =  'Search Results';
+        $vars['ads'] = $adStack;
 
+        if($zip = $request->input('providers.zip')){
+            $zipcode = Entry::query()
+                ->where('collection', 'zip_codes')
+                ->where('code', $zip)
+                ->first();
+
+            if($zipcode){
+                $vars['zipcode'] = $zip;
+                $vars['geoloc'] = json_encode(['lng' => (float)$zipcode->get('longitude') , 'lat' => (float)$zipcode->get('latitude')]);
+            }
+
+        }
+
+        return (new \Statamic\View\View)
+            ->template('search/results')
+            ->layout('layout')
+            ->with($vars);
+    }
+
+    public function getGeoloc(Request $request){
+
+        $zip = $request->input('zip');
+            $zipcode = Entry::query()
+                ->where('collection', 'zip_codes')
+                ->where('code', $zip)
+                ->first();
+
+
+            if($zipcode){
+                $vars['zipcode'] = $zip;
+                $vars['geoloc'] = ['lng' => (float)$zipcode->get('longitude') , 'lat' => (float)$zipcode->get('latitude')];
+            }
+
+        return response()->json($vars);
+    }
+
+    public function getAds(Request $request){
+        $currentServices = $request->input('currentServices');
+        
+        if(!empty($currentServices)){
+            $currentServices = array_map(function($text){return \Statamic\Support\Str::slug($text); }, $currentServices);
+        }
+
+        if($request->input('currentCategory')){
+
+            $currentCategories[] = $request->input('currentCategory');
+        }
+        else{
+            $currentCategories = [];
+        }
+
+
+
+        $adStack = $this->getAdStack($currentServices, $currentCategories);
+
+
+
+        return response()->json($adStack);
+
+    }
+
+    protected function getAdStack($currentServices, $currentCategories){
+        $adStack = [];
+        $vars = [];
+
+
+        if(!empty($currentServices)){
+            foreach($currentServices as $serviceSlug){
+                $taxonomySearch[] = "services::" . $serviceSlug;
+            }
+
+            $serviceTaxonomies = Term::query()->whereIn('slug', $currentServices)->get();
+
+            foreach($serviceTaxonomies as $item){
+                $currentCategories[] = $item->get('category');
+            }
+
+        }
 
 
         $ads = \Statamic\Facades\Collection::find('ads')
@@ -30,6 +119,7 @@ class SearchController extends Controller
             ->get();
 
         foreach($ads as $ad){
+
 
             if(!empty($currentServices) && !empty($ad->get('services')) && !empty(array_intersect($ad->get('services'), $currentServices))){
                 if(empty($adStack[$ad->get('placement')]['services'])){
@@ -47,9 +137,6 @@ class SearchController extends Controller
                 $adStack[$ad->get('placement')]['random'][] = $ad;
             }
         }
-
-
-
 
         foreach($adStack as $placement => $data){
             if(!empty($data['services'])){
@@ -71,51 +158,9 @@ class SearchController extends Controller
 
         }
 
+        return $vars;
 
 
-        if($zip = $request->input('providers.zip')){
-            $zipcode = Entry::query()
-                ->where('collection', 'zip_codes')
-                ->where('code', $zip)
-                ->first();
-
-
-            if($zipcode){
-                $vars['zipcode'] = $zip;
-                $vars['geoloc'] = json_encode(['lng' => (float)$zipcode->get('longitude') , 'lat' => (float)$zipcode->get('latitude')]);
-            }
-
-        }
-
-
-        return (new \Statamic\View\View)
-            ->template('search/results')
-            ->layout('layout')
-            ->with($vars);
-
-
-
-
-    }
-
-    public function getGeoloc(Request $request){
-
-
-
-        $zip = $request->input('zip');
-            $zipcode = Entry::query()
-                ->where('collection', 'zip_codes')
-                ->where('code', $zip)
-                ->first();
-
-
-            if($zipcode){
-                $vars['zipcode'] = $zip;
-                $vars['geoloc'] = ['lng' => (float)$zipcode->get('longitude') , 'lat' => (float)$zipcode->get('latitude')];
-            }
-
-
-        return response()->json($vars);
 
 
     }

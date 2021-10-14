@@ -28,6 +28,7 @@ const search = instantsearch({
 search.on('render', () => {
 
     placeResultAds();
+    fetchAds();
 });
 
 // Create the render function
@@ -593,6 +594,39 @@ search.addWidgets([
 
 search.start();
 
+
+function fetchAds(){
+    var currentServices = $('.ais-RefinementList-checkbox:checked').map((i, el) => el.value).get();
+    var currentCategory = $('.ais-MenuSelect-select').val();
+
+
+    $.getJSON( "/search/getads",{currentServices: currentServices, currentCategory:currentCategory}, function( data ) {
+
+        if(data.ad_right){
+            $('#ad-right-content').html('<a href="' + data.ad_right.link + '" target="_blank"><img src="' + data.ad_right.image + '"></a>');
+        }
+        else{
+            $('#ad-right-content').html('');
+        }
+
+        if(data.ad_left){
+            $('#ad-left-content').html('<a href="' + data.ad_left.link + '" target="_blank"><img src="' + data.ad_left.image + '"></a>');
+        }
+        else{
+            $('#ad-left-content').html('');
+        }
+        if(data.ad_results){
+            $('#ad-results-content').html('<a href="' + data.ad_results.link + '" target="_blank"><img src="' + data.ad_results.image + '"></a>');
+        }
+        else{
+            $('#ad-results-content').html('');
+        }
+
+    });
+
+
+
+}
 
 function placeResultAds(){
 

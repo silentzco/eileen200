@@ -24,6 +24,8 @@ class EventServiceProvider extends ServiceProvider
         EntrySaving::class =>[
             Listeners\AddProviderGeoloc::class,
             Listeners\AddProviderTitle::class,
+            Listeners\AddCategoryTerm::class,
+
         ]
     ];
 

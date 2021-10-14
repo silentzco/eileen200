@@ -21,9 +21,9 @@
 
         <div id="services"></div>
 
-        <div class="sidebar-ad hidden lg:block text-center my-6 py-6 border-t border-gray-300">
-            {{ if ad_left }}
-                <a href="{{ ad_left:link }}" target="_blank"><img src="{{ glide:ad_left:image width="300" }}"></a>
+        <div class="sidebar-ad hidden lg:block text-center my-6 py-6 border-t border-gray-300" id="ad-left-content">
+            {{ if ads:ad_left }}
+                <a href="{{ ads:ad_left:link }}" target="_blank"><img src="{{ glide:ads:ad_left:image width="300" }}"></a>
             {{ /if}}
         </div>
 
@@ -52,9 +52,9 @@
 
             <div id="maps" style="height: 500px"></div>
 
-            <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300">
-                {{ if ad_right }}
-                <a href="{{ ad_right:link }}" target="_blank"><img src="{{ glide:ad_right:image width="300" }}"></a>
+            <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300" id="ad-right-content">
+                {{ if ads:ad_right }}
+                <a href="{{ ads:ad_right:link }}" target="_blank"><img src="{{ glide:ads:ad_right:image width="300" }}"></a>
                 {{ /if}}
             </div>
 
@@ -66,10 +66,10 @@
 </div>
 
 
-    {{ if ad_right }}
+    {{ if ads:ad_results }}
     <div id="results-ad-wrapper" class="hidden">
-        <div class="text-center my-6 py-6 border-t border-b border-gray-200">
-            <a href="{{ ad_results:link }}" target="_blank"><img src="{{ glide:ad_results:image }}" ></a>
+        <div class="text-center my-6 py-6 border-t border-b border-gray-200" id="ad-result-content">
+            <a href="{{ ads:ad_results:link }}" target="_blank"><img src="{{ glide:ads:ad_results:image }}" ></a>
         </div>
     </div>
     {{ /if }}
@@ -116,11 +116,10 @@
 
 
 {{ if zipcode }}
-<script>
-    const zipcode = {{ zipcode }};
-    const geoloc = {{ geoloc }};
-
-</script>
+    <script>
+        const zipcode = {{ zipcode }};
+        const geoloc = {{ geoloc }};
+    </script>
 {{ /if }}
 
 <script src="{{ mix src='/js/search.js' }}"></script>

@@ -35,7 +35,7 @@ return [
             'searchables' => 'collection:providers',
             'fields' => [
                 'id', 'title', "test", 'org_name', 'first_name', 'middle_name','last_name', "suffix_name", "_geoloc", "location", "sponsored", "phone", "fax", "website",
-                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category", "description", "gallery", "video"
+                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category", "description", "gallery", "video", "insurance_accepted"
 
             ],
             'transformers' => [
@@ -44,6 +44,10 @@ return [
                 'description' => function ($description) {
                     return Statamic\Facades\Markdown::parse((string)$description);
                 },
+                'insurance_accepted' => function ($text) {
+                    return Statamic\Facades\Markdown::parse((string)$text);
+                },
+
                 'services' => function ($services) {
 
 

@@ -114,6 +114,16 @@
         @apply mb-2;
     }
 
+    .insurance_accepted{
+        ul{
+            @apply grid grid-cols-2 gap-1;
+        }
+        li{
+            @apply text-sm;
+        }
+
+    }
+
 
 
     .provider-actions svg{

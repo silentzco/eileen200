@@ -374,7 +374,16 @@ search.addWidgets([
             </div>
         {{/description}}
 
-        {{#sponsored}}
+        {{#insurance_accepted}}
+            <div class="flex-1 p-4 text-sm insurance_accepted">
+                <a href="#" class="insurance_content_link font-semibold">Click to View Accepted Insurance Providers</a>
+                <div class="insurance_content hidden">
+                    {{{ insurance_accepted }}}
+                </div>
+
+            </div>
+        {{/insurance_accepted}}
+
         <div class="inline-flex space-x-4 p-4">
             {{#gallery}}
                 <div class="w-20 h-20 flex-1 galleryitem"><a href="#gallery-modal-{{id}}" data-galleryid="#gallery-modal-{{id}}" class="gallery-trigger" rel="modal:open"><img src="/assets/{{ . }}"></a></div>
@@ -421,7 +430,6 @@ search.addWidgets([
             {{/video4}}
 
         </div>
-        {{/sponsored}}
 
 
             <div class="-mt-px flex divide-x divide-gray-200 provider-actions">
@@ -478,7 +486,6 @@ search.addWidgets([
                 </div>
                 {{/website}}
             </div>
-
 
 
         {{#sponsored}}
@@ -644,6 +651,14 @@ $(function(){
         let objectid = $(this).data('objectid');
         focusOnMarker(objectid);
 
+    });
+
+
+
+    $('body').on('click','.insurance_content_link',function(e) {
+        e.preventDefault();
+
+        $(this).next(".insurance_content").toggleClass("hidden");
     });
 
 

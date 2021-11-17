@@ -104,6 +104,13 @@ return [
                     ]
                 ]
             ],
+            'taxonomies' => [
+                'services' => [
+                    'urls' => [
+                        '/'
+                    ]
+                ]
+            ],
         ],
 
     ],

@@ -83,17 +83,17 @@ return [
                 ],
                 'providers' => [
                     'urls' => [
-                        '/'
+                        '/*'
                     ]
                 ],
                 'service_categories' => [
                     'urls' => [
-                        '/'
+                        '/*'
                     ]
                 ],
                 'ads' => [
                     'urls' => [
-                        '/'
+                        '/*'
                     ]
                 ],
             ],
@@ -107,7 +107,7 @@ return [
             'taxonomies' => [
                 'services' => [
                     'urls' => [
-                        '/'
+                        '/*'
                     ]
                 ]
             ],

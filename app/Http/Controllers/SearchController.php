@@ -70,7 +70,7 @@ class SearchController extends Controller
 
     public function getAds(Request $request){
         $currentServices = $request->input('currentServices');
-        
+
         if(!empty($currentServices)){
             $currentServices = array_map(function($text){return \Statamic\Support\Str::slug($text); }, $currentServices);
         }
@@ -133,9 +133,9 @@ class SearchController extends Controller
                 }
             }
 
-            if(empty($ad->get('categories')) && empty($ad->get('services'))){
+//            if(empty($ad->get('categories')) && empty($ad->get('services'))){
                 $adStack[$ad->get('placement')]['random'][] = $ad;
-            }
+//            }
         }
 
         foreach($adStack as $placement => $data){

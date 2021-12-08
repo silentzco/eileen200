@@ -22,9 +22,9 @@
         <div id="services"></div>
 
         <div class="sidebar-ad hidden lg:block text-center my-6 py-6 border-t border-gray-300" id="ad-left-content">
-            {{ if ads:ad_left }}
-                <a href="{{ ads:ad_left:link }}" target="_blank"><img src="{{ glide:ads:ad_left:image width="300" }}"></a>
-            {{ /if}}
+            {{ ads:ad_left }}
+                <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="500" }}"></a>
+            {{ /ads:ad_left}}
         </div>
 
 
@@ -53,9 +53,9 @@
             <div id="maps" style="height: 500px"></div>
 
             <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300" id="ad-right-content">
-                {{ if ads:ad_right }}
-                <a href="{{ ads:ad_right:link }}" target="_blank"><img src="{{ glide:ads:ad_right:image width="300" }}"></a>
-                {{ /if}}
+                {{ ads:ad_right }}
+                    <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="500" }}"></a>
+                {{ /ads:ad_right}}
             </div>
 
 

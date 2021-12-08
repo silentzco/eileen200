@@ -610,20 +610,33 @@ function fetchAds(){
     $.getJSON( "/search/getads",{currentServices: currentServices, currentCategory:currentCategory}, function( data ) {
 
         if(data.ad_right){
-            $('#ad-right-content').html('<a href="' + data.ad_right.link + '" target="_blank"><img src="' + data.ad_right.image + '"></a>');
+            var content = '';
+            data.ad_right.forEach((ad) => {
+                content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
+            });
+            $('#ad-right-content').html(content);
+
         }
         else{
             $('#ad-right-content').html('');
         }
 
         if(data.ad_left){
-            $('#ad-left-content').html('<a href="' + data.ad_left.link + '" target="_blank"><img src="' + data.ad_left.image + '"></a>');
+            var content = '';
+            data.ad_left.forEach((ad) => {
+                content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
+            });
+            $('#ad-left-content').html(content);
         }
         else{
             $('#ad-left-content').html('');
         }
         if(data.ad_results){
-            $('#ad-results-content').html('<a href="' + data.ad_results.link + '" target="_blank"><img src="' + data.ad_results.image + '"></a>');
+            var content = '';
+            data.ad_results.forEach((ad) => {
+                content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
+            });
+            $('#ad-results-content').html(content);
         }
         else{
             $('#ad-results-content').html('');

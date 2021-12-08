@@ -122,36 +122,33 @@ class SearchController extends Controller
 
 
             if(!empty($currentServices) && !empty($ad->get('services')) && !empty(array_intersect($ad->get('services'), $currentServices))){
-                if(empty($adStack[$ad->get('placement')]['services'])){
-                    $adStack[$ad->get('placement')]['services'] = $ad;
-                }
+                $adStack[$ad->get('placement')]['services'][] = ["link" => $ad->get("link"), "image" => "/assets/" . $ad->get("image")];
             }
 
             if(!empty($currentCategories) && !empty($ad->get('categories')) && !empty(array_intersect($ad->get('categories'), $currentCategories))){
-                if(empty($adStack[$ad->get('placement')]['categories'])){
-                    $adStack[$ad->get('placement')]['categories'] = $ad;
-                }
+                $adStack[$ad->get('placement')]['categories'][] = ["link" => $ad->get("link"), "image" => "/assets/" . $ad->get("image")];;
             }
 
 //            if(empty($ad->get('categories')) && empty($ad->get('services'))){
-                $adStack[$ad->get('placement')]['random'][] = $ad;
+                $adStack[$ad->get('placement')]['random'][] = ["link" => $ad->get("link"), "image" => "/assets/" . $ad->get("image")];;
 //            }
         }
 
+
+        $finalAds = [];
         foreach($adStack as $placement => $data){
             if(!empty($data['services'])){
-
-                $finalAd = $data['services'];
+                $finalAds = array_merge($finalAds, $data['services']);
             }
             elseif(!empty($data['categories'])){
-                $finalAd = $data['categories'];
+                $finalAds = array_merge($finalAds, $data['categories']);
             }
             elseif(!empty($data['random'])){
-                $finalAd = $data['random'][array_rand($data['random'], 1)];
+                $finalAds = array_merge($finalAds, $data['random']);
             }
 
-            if($finalAd){
-                $vars["ad_" . $placement] = ["link" => $finalAd->get("link"), "image" => "/assets/" . $finalAd->get("image")];
+            if($finalAds){
+                $vars["ad_" . $placement] = $finalAds;
 
             }
 

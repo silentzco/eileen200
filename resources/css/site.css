@@ -41,6 +41,10 @@
 }
 
 
+.sidebar-ad a{
+    @apply block mb-6;
+}
+
 .ais-SearchBox-input{
     @apply w-3/4;
 }

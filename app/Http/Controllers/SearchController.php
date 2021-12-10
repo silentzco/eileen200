@@ -128,10 +128,6 @@ class SearchController extends Controller
             if(!empty($currentCategories) && !empty($ad->get('categories')) && !empty(array_intersect($ad->get('categories'), $currentCategories))){
                 $adStack[$ad->get('placement')]['categories'][] = ["link" => $ad->get("link"), "image" => "/assets/" . $ad->get("image")];;
             }
-
-//            if(empty($ad->get('categories')) && empty($ad->get('services'))){
-                $adStack[$ad->get('placement')]['random'][] = ["link" => $ad->get("link"), "image" => "/assets/" . $ad->get("image")];;
-//            }
         }
 
 
@@ -143,13 +139,9 @@ class SearchController extends Controller
             elseif(!empty($data['categories'])){
                 $finalAds = array_merge($finalAds, $data['categories']);
             }
-            elseif(!empty($data['random'])){
-                $finalAds = array_merge($finalAds, $data['random']);
-            }
 
             if($finalAds){
                 $vars["ad_" . $placement] = $finalAds;
-
             }
 
 

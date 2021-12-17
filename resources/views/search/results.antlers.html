@@ -38,6 +38,18 @@
 
         <div id="refinement-list"></div>
 
+
+        {{ if ads:ad_top }}
+        <div id="top-ad-wrapper">
+            <div class="text-center my-6 py-6 border-t border-b border-gray-200" id="ad-top-content">
+                <a href="{{ ads:ad_top:0:link }}" target="_blank"><img src="{{ glide:ads:ad_top:0:image }}" ></a>
+            </div>
+        </div>
+        {{ /if }}
+
+
+
+
         <div id="hits"></div>
         <div id="pagination"></div>
 

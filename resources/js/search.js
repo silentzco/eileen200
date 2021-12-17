@@ -609,6 +609,18 @@ function fetchAds(){
 
     $.getJSON( "/search/getads",{currentServices: currentServices, currentCategory:currentCategory}, function( data ) {
 
+
+        if(data.ad_top){
+            var content = '';
+            var top_ad = data.ad_top[0];
+                content += '<a href="' + top_ad.link + '" target="_blank"><img src="' + top_ad.image + '"></a>';
+            $('#ad-top-content').html(content);
+
+        }
+        else{
+            $('#ad-top-content').html('');
+        }
+
         if(data.ad_right){
             var content = '';
             data.ad_right.forEach((ad) => {

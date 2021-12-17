@@ -131,8 +131,11 @@ class SearchController extends Controller
         }
 
 
-        $finalAds = [];
+
+
         foreach($adStack as $placement => $data){
+            $finalAds = [];
+
             if(!empty($data['services'])){
                 $finalAds = array_merge($finalAds, $data['services']);
             }
@@ -146,6 +149,8 @@ class SearchController extends Controller
 
 
         }
+
+
 
         return $vars;
 

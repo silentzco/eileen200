@@ -68,7 +68,7 @@ class SearchController extends Controller
         return response()->json($vars);
     }
 
-    public function getAds(Request $request){
+    public function getContent(Request $request){
         $currentServices = $request->input('currentServices');
 
         if(!empty($currentServices)){
@@ -144,19 +144,13 @@ class SearchController extends Controller
             }
 
             if($finalAds){
-                $vars["ad_" . $placement] = $finalAds;
+                $vars["content_" . $placement] = $finalAds;
             }
 
 
         }
 
-
-
         return $vars;
-
-
-
-
     }
 
 

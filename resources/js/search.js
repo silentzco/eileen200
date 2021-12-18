@@ -27,8 +27,8 @@ const search = instantsearch({
 
 search.on('render', () => {
 
-    placeResultAds();
-    fetchAds();
+    placeResultContent();
+    fetchContent();
 });
 
 // Create the render function
@@ -277,7 +277,16 @@ search.addWidgets([
 
     }),
 
-
+    {
+        render: function (renderOptions) {
+            console.log('foobarbazz');
+            // renderOptions contains four keys:
+            //   - results: the results from the last request
+            //   - helper: to modify the search state and propagate the user interaction
+            //   - state: the state at this point
+            //   - createURL: if the url sync is active, will make it possible to create new URLs
+        }
+    },
 
 
     customGeoSearch({
@@ -512,7 +521,7 @@ search.addWidgets([
 
         {{/sponsored}}
     </div>
-    <div class="provider-ad-container"></div>
+    <div class="provider-content-container"></div>
 
     `,
         },
@@ -602,56 +611,56 @@ search.addWidgets([
 search.start();
 
 
-function fetchAds(){
+function fetchContent(){
     var currentServices = $('.ais-RefinementList-checkbox:checked').map((i, el) => el.value).get();
     var currentCategory = $('.ais-MenuSelect-select').val();
 
 
-    $.getJSON( "/search/getads",{currentServices: currentServices, currentCategory:currentCategory}, function( data ) {
+    $.getJSON( "/search/getcontent",{currentServices: currentServices, currentCategory:currentCategory}, function( data ) {
 
 
-        if(data.ad_top){
+        if(data.content_top){
             var content = '';
-            var top_ad = data.ad_top[0];
+            var top_ad = data.content_top[0];
                 content += '<a href="' + top_ad.link + '" target="_blank"><img src="' + top_ad.image + '"></a>';
-            $('#ad-top-content').html(content);
+            $('#top-content').html(content);
 
         }
         else{
-            $('#ad-top-content').html('');
+            $('#top-content').html('');
         }
 
-        if(data.ad_right){
+        if(data.content_right){
             var content = '';
-            data.ad_right.forEach((ad) => {
+            data.content_right.forEach((ad) => {
                 content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
             });
-            $('#ad-right-content').html(content);
+            $('#right-content').html(content);
 
         }
         else{
-            $('#ad-right-content').html('');
+            $('#right-content').html('');
         }
 
-        if(data.ad_left){
+        if(data.content_left){
             var content = '';
-            data.ad_left.forEach((ad) => {
+            data.content_left.forEach((ad) => {
                 content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
             });
-            $('#ad-left-content').html(content);
+            $('#left-content').html(content);
         }
         else{
-            $('#ad-left-content').html('');
+            $('#left-content').html('');
         }
-        if(data.ad_results){
+        if(data.content_results){
             var content = '';
-            data.ad_results.forEach((ad) => {
+            data.content_results.forEach((ad) => {
                 content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
             });
-            $('#ad-results-content').html(content);
+            $('#results-content').html(content);
         }
         else{
-            $('#ad-results-content').html('');
+            $('#results-content').html('');
         }
 
     });
@@ -660,9 +669,9 @@ function fetchAds(){
 
 }
 
-function placeResultAds(){
+function placeResultContent(){
 
-    $(".ais-Hits-item:eq(4) .provider-ad-container").html($("#results-ad-wrapper").html());
+    $(".ais-Hits-item:eq(4) .provider-content-container").html($("#results-content-wrapper").html());
     console.log("Setting listing promotions");
 
 }

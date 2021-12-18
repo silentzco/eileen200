@@ -21,5 +21,5 @@ use App\Http\Controllers\SearchController;
 
 Route::any('search/results', [SearchController::class, 'results']);
 Route::any('search/getgeoloc', [SearchController::class, 'getGeoloc']);
-Route::any('search/getads', [SearchController::class, 'getAds']);
+Route::any('search/getcontent', [SearchController::class, 'getContent']);
 

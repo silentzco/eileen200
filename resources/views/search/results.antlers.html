@@ -21,10 +21,10 @@
 
         <div id="services"></div>
 
-        <div class="sidebar-ad hidden lg:block text-center my-6 py-6 border-t border-gray-300" id="ad-left-content">
-            {{ ads:ad_left }}
+        <div class="sidebar-content hidden lg:block text-center my-6 py-6 border-t border-gray-300" id="left-content">
+            {{ ads:content_left }}
                 <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="500" }}"></a>
-            {{ /ads:ad_left}}
+            {{ /ads:content_left}}
         </div>
 
 
@@ -39,10 +39,10 @@
         <div id="refinement-list"></div>
 
 
-        {{ if ads:ad_top }}
-        <div id="top-ad-wrapper">
-            <div class="text-center my-6 py-6 border-t border-b border-gray-200" id="ad-top-content">
-                <a href="{{ ads:ad_top:0:link }}" target="_blank"><img src="{{ glide:ads:ad_top:0:image }}" ></a>
+        {{ if ads:content_top }}
+        <div id="top-content-wrapper">
+            <div class="text-center my-6 py-6 border-t border-b border-gray-200" id="top-content">
+                <a href="{{ ads:content_top:0:link }}" target="_blank"><img src="{{ glide:ads:content_top:0:image }}" ></a>
             </div>
         </div>
         {{ /if }}
@@ -64,10 +64,10 @@
 
             <div id="maps" style="height: 500px"></div>
 
-            <div class="sidebar-ad text-center my-6 py-6 border-t border-gray-300" id="ad-right-content">
-                {{ ads:ad_right }}
+            <div class="sidebar-content text-center my-6 py-6 border-t border-gray-300" id="right-content">
+                {{ ads:content_right }}
                     <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="500" }}"></a>
-                {{ /ads:ad_right}}
+                {{ /ads:content_right}}
             </div>
 
 
@@ -78,10 +78,10 @@
 </div>
 
 
-    {{ if ads:ad_results }}
-    <div id="results-ad-wrapper" class="hidden">
-        <div class="text-center my-6 py-6 border-t border-b border-gray-200" id="ad-result-content">
-            <a href="{{ ads:ad_results:link }}" target="_blank"><img src="{{ glide:ads:ad_results:image }}" ></a>
+    {{ if ads:content_results }}
+    <div id="results-content-wrapper" class="hidden">
+        <div class="text-center my-6 py-6 border-t border-b border-gray-200" id="result-content">
+            <a href="{{ ads:content_results:link }}" target="_blank"><img src="{{ glide:ads:content_results:image }}" ></a>
         </div>
     </div>
     {{ /if }}

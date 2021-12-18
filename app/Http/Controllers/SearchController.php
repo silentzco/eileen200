@@ -70,6 +70,15 @@ class SearchController extends Controller
 
     public function getContent(Request $request){
         $currentServices = $request->input('currentServices');
+        $serviceTags = $request->input('serviceTags');
+
+
+        if(is_array($currentServices) && is_array($serviceTags)){
+            $currentServices = array_merge($currentServices, $currentServices);
+        }
+        elseif(is_array($serviceTags)){
+            $currentServices = $serviceTags;
+        }
 
         if(!empty($currentServices)){
             $currentServices = array_map(function($text){return \Statamic\Support\Str::slug($text); }, $currentServices);
@@ -82,7 +91,6 @@ class SearchController extends Controller
         else{
             $currentCategories = [];
         }
-
 
 
         $adStack = $this->getAdStack($currentServices, $currentCategories);

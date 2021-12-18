@@ -26,7 +26,6 @@ const search = instantsearch({
 // });
 
 search.on('render', () => {
-
     placeResultContent();
     fetchContent();
 });
@@ -73,8 +72,6 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
 
 
     }
-
-
 
 
     function redraw(){
@@ -277,17 +274,6 @@ search.addWidgets([
 
     }),
 
-    {
-        render: function (renderOptions) {
-            console.log('foobarbazz');
-            // renderOptions contains four keys:
-            //   - results: the results from the last request
-            //   - helper: to modify the search state and propagate the user interaction
-            //   - state: the state at this point
-            //   - createURL: if the url sync is active, will make it possible to create new URLs
-        }
-    },
-
 
     customGeoSearch({
         container: document.querySelector('#maps'),
@@ -345,7 +331,7 @@ search.addWidgets([
                 </div>
                     <div>
                         {{#services}}
-                            <span class="flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-secondary text-white rounded-full">{{ . }}</span>
+                            <span class="flex-shrink-0 inline-block px-2 py-0.5  text-xs font-medium bg-secondary text-white rounded-full service-tag" >{{ . }}</span>
                         {{/services}}
                     </div>
 
@@ -614,9 +600,16 @@ search.start();
 function fetchContent(){
     var currentServices = $('.ais-RefinementList-checkbox:checked').map((i, el) => el.value).get();
     var currentCategory = $('.ais-MenuSelect-select').val();
+    var serviceTags = [];
+
+    $(".provider-card .service-tag").each(function(){
+        serviceTags.push($(this).html());
+    });
+
+    serviceTags = [...new Set(serviceTags)];
 
 
-    $.getJSON( "/search/getcontent",{currentServices: currentServices, currentCategory:currentCategory}, function( data ) {
+    $.getJSON( "/search/getcontent",{currentServices: currentServices, currentCategory:currentCategory, serviceTags:serviceTags}, function( data ) {
 
 
         if(data.content_top){

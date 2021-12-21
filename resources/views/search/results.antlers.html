@@ -39,13 +39,15 @@
         <div id="refinement-list"></div>
 
 
-        {{ if ads:content_top }}
         <div id="top-content-wrapper">
-            <div class="text-center my-6 py-6 border-t border-b border-gray-200" id="top-content">
+            <div class="text-center my-6 py-6 border-t border-b border-gray-200 hidden" id="top-content">
+                {{ if ads:content_top }}
+
                 <a href="{{ ads:content_top:0:link }}" target="_blank"><img src="{{ glide:ads:content_top:0:image }}" ></a>
+                {{ /if }}
+
             </div>
         </div>
-        {{ /if }}
 
 
 

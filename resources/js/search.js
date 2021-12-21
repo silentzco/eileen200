@@ -617,6 +617,7 @@ function fetchContent(){
             var top_ad = data.content_top[0];
                 content += '<a href="' + top_ad.link + '" target="_blank"><img src="' + top_ad.image + '"></a>';
             $('#top-content').html(content);
+            $('#top-content').removeClass("hidden");
 
         }
         else{

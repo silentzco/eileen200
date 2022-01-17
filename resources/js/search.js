@@ -316,7 +316,11 @@ search.addWidgets([
         container: '#hits',
         templates: {
             item: `
-        <div class="provider-card bg-white rounded-lg shadow  divide-y divide-gray-100 my-10 {{#sponsored}} sponsored {{/sponsored}} " data-objectid="{{objectID}}">
+        <div
+            class="provider-card bg-white rounded-lg shadow divide-y divide-gray-100 my-10{{#sponsored}} sponsored{{/sponsored}}"
+            data-objectid="{{objectID}}"
+            x-data="{ video: null }"
+        >
         <div class="w-full flex items-center justify-between p-4 space-x-6">
             <div class="flex-1 truncate">
                 <div class="flex items-center space-x-3">
@@ -385,45 +389,64 @@ search.addWidgets([
             {{/gallery}}
 
             {{#video}}
-                <a href="#video-modal-{{id}}" data-video="{{ video }}" rel="modal:open" class="video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center">
-                <div class="w-10 h-10 mx-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                </svg>
-                </div>
+                <a
+                    href="#video-modal-{{id}}"
+                    rel="modal:open"
+                    class="w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center"
+                    @click="video='{{video}}'"
+                >
+                    <div class="w-10 h-10 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
                 </a>
             {{/video}}
 
             {{#video2}}
-                <a href="#video-modal-{{id}}" data-video="{{video}}" rel="modal:open" class="video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center">
-                <div class="w-10 h-10 mx-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                </svg>
-                </div>
+                <a
+                    href="#video-modal-{{id}}"
+                    rel="modal:open"
+                    class="w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center"
+                    @click.prevent="video='{{video2}}'"
+                >
+                    <div class="w-10 h-10 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
                 </a>
             {{/video2}}
 
             {{#video3}}
-                <a href="#video-modal-{{id}}" data-video="{{video}}" rel="modal:open" class="video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center">
-                <div class="w-10 h-10 mx-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                </svg>
-                </div>
+                <a
+                    href="#video-modal-{{id}}"
+                    rel="modal:open"
+                    class="w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center"
+                    @click="video='{{video3}}'"
+                >
+                    <div class="w-10 h-10 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
                 </a>
             {{/video3}}
 
             {{#video4}}
-                <a href="#video-modal-{{id}}" data-video="{{video}}" rel="modal:open" class="video-trigger w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center">
-                <div class="w-10 h-10 mx-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                </svg>
-                </div>
+                <a
+                    href="#video-modal-{{id}}"
+                    rel="modal:open"
+                    class="w-20 h-20 bg-blue-200 flex-1 galleryitem flex items-center"
+                    @click="video='{{video4}}'"
+                >
+                    <div class="w-10 h-10 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
                 </a>
             {{/video4}}
-
         </div>
 
 
@@ -482,120 +505,29 @@ search.addWidgets([
                 {{/website}}
             </div>
 
-
         {{#sponsored}}
-
-        <div id="video-modal-{{id}}" class="modal video-modal">
-
-            <iframe width="100%" height="380" src="{{ video }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <a href="#" rel="modal:close">Close</a>
-        </div>
-
-
-        <div id="gallery-modal-{{id}}" class="modal gallery-modal">
-
-            <div class="modal-gallery">
-                {{#gallery}}
-                <div class=""><img src="/assets/{{ . }}"></div>
-                {{/gallery}}
-
+            <div id="video-modal-{{id}}" class="modal video-modal">
+                <iframe width="100%" height="380" :src="video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <a href="#" rel="modal:close">Close</a>
             </div>
 
-            <a href="#" rel="modal:close">Close</a>
-        </div>
-
-
+            <div id="gallery-modal-{{id}}" class="modal gallery-modal">
+                <div class="modal-gallery">
+                    {{#gallery}}
+                        <div class=""><img src="/assets/{{ . }}"></div>
+                    {{/gallery}}
+                </div>
+                <a href="#" rel="modal:close">Close</a>
+            </div>
         {{/sponsored}}
     </div>
     <div class="provider-content-container"></div>
-
     `,
         },
     }),
-
-
-
-
-    // geoSearch({
-    //     container: '#maps',
-    //     googleReference: window.google,
-    //     enableRefine: true,
-    //     enableRefineOnMapMove: true,
-    //
-    //     // initialZoom: 4,
-    //     // initialPosition: {
-    //     //     lat: 48.864716,
-    //     //     lng: 2.349014,
-    //     // },
-    //     // initialZoom: 4,
-    //     // initialPosition: {
-    //     //     lat: 48.864716,
-    //     //     lng: 2.349014,
-    //     // },
-    //     builtInMarker: {
-    //         createOptions(item) {
-    //
-    //
-    //
-    //
-    //         },
-    //         events: {
-    //             click({event, item, marker, map}) {
-    //
-    //
-    //                 const content =
-    //                     '<div>' +
-    //                     '<span class="text-primary font-bold">' +
-    //                     item.title +
-    //                     '</span><br>' +
-    //                     item.address + "<br>" +
-    //                     item.city + ', ' + item.state + ' ' + item.zip + '<br><br>' +
-    //                     '<span class="font-bold">' + item.services.join(", ") + "</span>" +
-    //                     '</div>';
-    //
-    //                 const infowindow = new google.maps.InfoWindow({
-    //                     content: content,
-    //                 });
-    //
-    //                 infowindow.open(map, marker);
-    //                 setTimeout(function () {infowindow.close();}, 5000);
-    //
-    //                 console.log(marker);
-    //                 console.log(item);
-    //             },
-    //         },
-    //     },
-    //     //   customHTMLMarker: {
-    //     //       createOptions(item) {
-    //     //           return {
-    //     //               anchor: {
-    //     //                   x: 0,
-    //     //                   y: 0,
-    //     //               },
-    //     //           };
-    //     //       },
-    //     //       events: {
-    //     //           click({ event, item, marker, map }) {
-    //     //               console.log(item);
-    //     //               console.log("foobar");
-    //     //           },
-    //     //       },
-    //     //   },
-    //     //   templates: {
-    //     //       HTMLMarker: `
-    //     //   <span class="marker">
-    //     //     {{ title }} - {{ services }}
-    //     //   </span>
-    //     // `,
-    //     //   },
-    // })
 ]);
 
-
-
-
 search.start();
-
 
 function fetchContent(){
     var currentServices = $('.ais-RefinementList-checkbox:checked').map((i, el) => el.value).get();
@@ -713,9 +645,3 @@ $(function(){
         });
     });
 });
-
-
-
-
-
-

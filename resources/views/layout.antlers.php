@@ -13,17 +13,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
-
-
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-
         <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
-
-
-
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9G7H8WNF8"></script>
@@ -45,22 +39,11 @@
             const algolia_app = '<?php echo env('ALGOLIA_APP_ID', ''); ?>';
             const algolia_search_apikey = '<?php echo env('ALGOLIA_SEARCH_APIKEY', ''); ?>';
         </script>
-
-
+        <script src="//unpkg.com/alpinejs" defer></script>
     </head>
     <body class="font-sans leading-normal text-grey-800 theme-default">
-
         {{ partial:header }}
-
-            {{ template_content }}
-
-
-
+        {{ template_content }}
         {{ partial:footer }}
-
-
-
-
-
     </body>
 </html>

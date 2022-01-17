@@ -34,55 +34,36 @@ return [
             'driver' => 'algolia',
             'searchables' => 'collection:providers',
             'fields' => [
-                'id', 'title', "test", 'org_name', 'first_name', 'middle_name','last_name', "suffix_name", "_geoloc", "location", "sponsored", "phone", "fax", "website",
-                "address", "city", "state", "zip", "image", "email", "license_type", "services", "category", "service_category", "description", "gallery", "video", "insurance_accepted"
-
+                'id', 'title', 'test', 'org_name', 'first_name', 'middle_name', 'last_name', 'suffix_name', '_geoloc', 'location', 'sponsored', 'phone', 'fax', 'website',
+                'address', 'city', 'state', 'zip', 'image', 'email', 'license_type', 'services', 'category', 'service_category', 'description', 'gallery', 'video', 'insurance_accepted',
             ],
             'transformers' => [
-
                 // Return a value to store in the index.
                 'description' => function ($description) {
-                    return Statamic\Facades\Markdown::parse((string)$description);
+                    return Statamic\Facades\Markdown::parse((string) $description);
                 },
                 'insurance_accepted' => function ($text) {
-                    return Statamic\Facades\Markdown::parse((string)$text);
+                    return Statamic\Facades\Markdown::parse((string) $text);
                 },
-
                 'services' => function ($services) {
-
-
                     $newServices = [];
-                    foreach($services as $key){
+                    foreach ($services as $key) {
                         $service = \Statamic\Facades\Term::findBySlug($key, 'services');
-                        if($service){
-
-                            $newServices[] = $service->get("title");
-                        }
-                        else{
+                        if ($service) {
+                            $newServices[] = $service->get('title');
+                        } else {
                             var_dump($key);
                         }
-
                     }
 
-
-                    if(empty($newServices)){
+                    if (empty($newServices)) {
                         $newServices = $services;
                     }
 
-                    return ["services" => $newServices];
+                    return ['services' => $newServices];
                 },
-
-            ]
-
-
+            ],
         ],
-
-
-        // 'blog' => [
-        //     'driver' => 'local',
-        //     'searchables' => 'collection:blog',
-        // ],
-
     ],
 
     /*
@@ -98,18 +79,15 @@ return [
     */
 
     'drivers' => [
-
         'local' => [
             'path' => storage_path('statamic/search'),
         ],
-
         'algolia' => [
             'credentials' => [
                 'id' => env('ALGOLIA_APP_ID', ''),
                 'secret' => env('ALGOLIA_SECRET', ''),
             ],
         ],
-
     ],
 
     /*
@@ -125,5 +103,4 @@ return [
     'defaults' => [
         'fields' => ['title'],
     ],
-
 ];

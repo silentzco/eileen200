@@ -143,9 +143,15 @@ sections:
       -
         handle: insurance_accepted
         field:
+          restrict: false
+          automatic_line_breaks: true
+          automatic_links: false
+          escape_markup: false
+          smartypants: false
+          antlers: false
           display: 'Insurance Accepted'
-          type: html
-          icon: html
+          type: markdown
+          icon: markdown
           listable: hidden
       -
         handle: gallery
@@ -157,18 +163,6 @@ sections:
           display: Gallery
           type: assets
           icon: assets
-          listable: hidden
-      - handle: insurance_accepted
-        field:
-          restrict: false
-          automatic_line_breaks: true
-          automatic_links: false
-          escape_markup: false
-          smartypants: false
-          antlers: false
-          display: 'Insurance Accepted'
-          type: markdown
-          icon: markdown
           listable: hidden
       -
         handle: video
@@ -205,10 +199,11 @@ sections:
         handle: slug
         field:
           type: slug
-          required: true
           localizable: true
+          required: true
           validate:
             - required
+            - 'unique_entry_value:{collection},{id},{site}'
       -
         handle: sponsored
         field:

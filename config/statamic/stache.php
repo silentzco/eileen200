@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'watcher' => false,
+    'watcher' => env('STATAMIC_STACHE_WATCHER', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,8 +39,8 @@ return [
             'indexes' => [
                 'category',
                 'active',
-                'title'
-            ]
+                'title',
+            ],
         ],
 
         'collections' => [
@@ -54,8 +54,8 @@ return [
             'indexes' => [
                 'status',
                 'redirect',
-                'homepage'
-            ]
+                'homepage',
+            ],
         ],
 
         'navigation' => [

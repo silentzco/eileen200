@@ -11,7 +11,6 @@
 /content/taxonomies/
 /content/trees/collections/
 /vendor
-/public/assets
 .env
 .env.backup
 .phpunit.result.cache

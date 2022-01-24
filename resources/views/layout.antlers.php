@@ -42,8 +42,8 @@
         <link rel="manifest" href="/site.webmanifest">
 
         <script>
-            const algolia_app = '<?php echo env('ALGOLIA_APP_ID', ''); ?>';
-            const algolia_search_apikey = '<?php echo env('ALGOLIA_SEARCH_APIKEY', ''); ?>';
+            const algolia_app = '{{ config:services.algolia.app_id }}';
+            const algolia_search_apikey = '{{ config:services.algolia.search_key }}';
         </script>
 
 

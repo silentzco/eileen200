@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'strategy' => 'half',
+    'strategy' => env('STATAMIC_STATIC_CACHING_STRATEGY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
 
     'exclude' => [
         '/search/*',
-        '/contact-us'
+        '/contact-us',
     ],
 
     /*
@@ -78,38 +78,38 @@ return [
             'collections' => [
                 'articles' => [
                     'urls' => [
-                        '/*'
-                    ]
+                        '/*',
+                    ],
                 ],
                 'providers' => [
                     'urls' => [
-                        '/*'
-                    ]
+                        '/*',
+                    ],
                 ],
                 'service_categories' => [
                     'urls' => [
-                        '/*'
-                    ]
+                        '/*',
+                    ],
                 ],
                 'ads' => [
                     'urls' => [
-                        '/*'
-                    ]
+                        '/*',
+                    ],
                 ],
             ],
             'globals' => [
                 'settings' => [
                     'urls' => [
-                        '/*'
-                    ]
-                ]
+                        '/*',
+                    ],
+                ],
             ],
             'taxonomies' => [
                 'services' => [
                     'urls' => [
-                        '/*'
-                    ]
-                ]
+                        '/*',
+                    ],
+                ],
             ],
         ],
 

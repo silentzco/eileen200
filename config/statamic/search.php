@@ -39,6 +39,7 @@ return [
             'fields' => [
                 'id', 'title', 'test', 'org_name', 'first_name', 'middle_name', 'last_name', 'suffix_name', '_geoloc', 'location', 'sponsored', 'phone', 'fax', 'website',
                 'address', 'city', 'state', 'zip', 'image', 'email', 'license_type', 'services', 'category', 'service_category', 'description', 'gallery', 'video', 'insurance_accepted',
+                'promotion_level',
 
             ],
             'transformers' => [

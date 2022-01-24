@@ -86,9 +86,15 @@
     </div>
 </div>
 
-<div class="relative hidden mx-auto max-w-7xl" id="homepageContent">
-    <div class="py-6 my-6 text-center ">
-        <a href="#" target="_blank"><img class="w-full mx-auto" src=""></a>
+<div class="relative mx-auto max-w-7xl">
+    <div class="py-6 my-6 text-center" id="adCarousel">
+        {{ collection:ads placement:is="home" active="true"}}
+            {{ if image }}
+                <a href="{{ link }}" target="_blank">
+                    <img class="w-full mx-auto" src="{{ glide:image }}">
+                </a>
+            {{ /if }}
+        {{ /collection:ads }}
     </div>
 </div>
 
@@ -155,41 +161,25 @@
 
 <script>
     $(function(){
-        var homepage_content = [];
 
-        {{ collection:ads placement:is="home" active="true"}}
-            {{ if image }}
-                homepage_content.push({image: "{{ glide:image }}", link: "{{ link }}"});
-            {{ /if }}
-        {{ /collection:ads }}
-
-
-        if(homepage_content.length > 0){
-            var ad = homepage_content[Math.floor(Math.random()*homepage_content.length)];
-            $("#homepageContent").find("img").attr("src", ad.image);
-            $("#homepageContent").find("a").attr("href", ad.link);
-            $("#homepageContent").removeClass('hidden');
-        }
+        $('#adCarousel').slick({
+            autoplay: true,
+            arrows: false,
+            dots: false
+        })
 
         $('.service-title').click(function(){
-
-            // $('.services-list').addClass('hidden');
             $(this).parent().find('.services-list').toggleClass('hidden');
-
             $(this).parent().toggleClass('active');
-
         });
 
         $("#searchform").submit(function(e){
-
             e.preventDefault();
 
             var url = $(this).attr('action');
             var services = '';
             url += "?providers[query]=" + $('#query').val();
             url += "&providers[zip]=" + $('#zip').val();
-
-
 
             $("input:checkbox[name='services']:checked").each(function(index){
                 url += "&providers[refinementList][services][" + index + "]=" + $(this).val();

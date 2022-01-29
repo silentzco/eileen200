@@ -7,9 +7,6 @@
 /public/vendor/statamic
 /storage/*.key
 /storage/forms/*
-/content/collections/**/*.md
-/content/taxonomies/
-/content/trees/collections/
 /vendor
 .env
 .env.backup

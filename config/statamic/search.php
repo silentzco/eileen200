@@ -38,8 +38,8 @@ return [
             'fields' => [
                 '_geoloc', 'address', 'category', 'city', 'description', 'email', 'fax', 'first_name', 'gallery', 'id',
                 'image', 'insurance_accepted', 'last_name', 'license_type', 'location', 'middle_name', 'org_name',
-                'phone', 'service_category', 'services', 'sponsored', 'state', 'suffix_name', 'title', 'test', 'video',
-                'video2', 'video3', 'video4', 'website', 'zip',
+                'phone', 'promotion_level', 'service_category', 'services', 'sponsored', 'state', 'suffix_name', 'title',
+                'test', 'video', 'video2', 'video3', 'video4', 'website', 'zip',
             ],
             'transformers' => [
                 // Return a value to store in the index.

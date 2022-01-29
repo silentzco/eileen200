@@ -235,6 +235,29 @@ sections:
           mode: default
           icon: taxonomy
           listable: hidden
+      -
+        handle: promotion_level
+        field:
+          options:
+            0: None
+            10: 'Enhanced Listing'
+            20: 'Category Ad'
+            30: 'Top of Category Ad'
+            40: 'Home Page Banner'
+            50: 'Home Page Blog'
+            60: 'Community Partnership'
+          multiple: false
+          max_items: 1
+          clearable: true
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: 'Promotion Level'
+          type: select
+          icon: select
+          listable: hidden
+          instructions_position: above
   address:
     display: Address
     fields:

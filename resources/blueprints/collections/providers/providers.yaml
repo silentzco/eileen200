@@ -171,6 +171,8 @@ sections:
           type: video
           icon: video
           listable: hidden
+          instructions_position: above
+          placeholder: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
       -
         handle: video2
         field:
@@ -178,6 +180,7 @@ sections:
           type: video
           icon: video
           listable: hidden
+          placeholder: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
       -
         handle: video3
         field:
@@ -185,6 +188,7 @@ sections:
           type: video
           icon: video
           listable: hidden
+          placeholder: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
       -
         handle: video4
         field:
@@ -192,6 +196,7 @@ sections:
           type: video
           icon: video
           listable: hidden
+          placeholder: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
   sidebar:
     display: Sidebar
     fields:
@@ -200,7 +205,6 @@ sections:
         field:
           type: slug
           localizable: true
-          required: true
           validate:
             - required
             - 'unique_entry_value:{collection},{id},{site}'

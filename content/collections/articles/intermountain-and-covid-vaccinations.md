@@ -1,11 +1,11 @@
 ---
+id: d010118d-645f-4080-a015-e7c99f3d0dd8
 title: 'Intermountain & COVID vaccinations'
 hero: 'articles/Intermountain-Covid-19-Q-&-A.jpeg'
 snippet: 'Intermountain Healthcare’s Simple Q&A Format Set Up to Help People Better Understand COVID Vaccines by Addressing Common Concerns'
-homepage: true
-updated_by: a034f527-2110-44df-82f7-baa1cb1b5355
-updated_at: 1614700489
-id: d010118d-645f-4080-a015-e7c99f3d0dd8
+homepage: false
+updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
+updated_at: 1628254273
 content:
   -
     type: paragraph

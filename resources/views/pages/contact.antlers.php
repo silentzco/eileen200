@@ -15,8 +15,8 @@
 
 
             {{ if success }}
-            <div class="bg-green-300 text-white p-8 text-center">
-                {{ success }}
+                  <div class=" text-green text-xl p-8 text-center">
+		Thank you! We'll be in touch soon.
             </div>
             {{ else }}
 

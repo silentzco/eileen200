@@ -1,11 +1,11 @@
 ---
+id: e1ccc039-5280-4fcc-afc1-3920b02ab4cc
 title: 'Centennial Hospital NICU Offers Video Streaming'
 hero: articles/Centennial-NICU--Video-Streaming.jpg
 snippet: 'Centennial Hills Hospital now offers video streaming for parents and other family members of neonatal intensive care unit (NICU) patients.'
-homepage: true
-updated_by: a034f527-2110-44df-82f7-baa1cb1b5355
-updated_at: 1614698287
-id: e1ccc039-5280-4fcc-afc1-3920b02ab4cc
+homepage: false
+updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
+updated_at: 1628041524
 content:
   -
     type: paragraph

@@ -3,3 +3,7 @@ roles:
   - content_admin
 id: 188126a4-88f3-4d82-9c1a-fec13910994f
 password_hash: $2y$10$X3RP6HQbZphY9Py62vnkiOD/FnpQPmAZgAOFmcEBsQX5TlYuo/0Rq
+preferences:
+  assets:
+    assets:
+      mode: grid

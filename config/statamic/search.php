@@ -50,6 +50,10 @@ return [
                     return Markdown::parse((string) $text);
                 },
                 'services' => function ($services) {
+                    if (empty($services)) {
+                        return [];
+                    }
+
                     $newServices = [];
                     foreach ($services as $key) {
                         $service = Term::findBySlug($key, 'services');

@@ -28,6 +28,8 @@ sections:
             left: 'Left Sidebar'
             results: 'Results Listing'
             home: Homepage
+            top: 'Results Listing Top'
+          instructions_position: above
       -
         handle: image
         field:

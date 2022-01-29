@@ -141,6 +141,17 @@ sections:
           icon: markdown
           listable: hidden
       -
+        handle: gallery
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          display: Gallery
+          type: assets
+          icon: assets
+          listable: hidden
+      -
         handle: insurance_accepted
         field:
           restrict: false
@@ -152,17 +163,6 @@ sections:
           display: 'Insurance Accepted'
           type: markdown
           icon: markdown
-          listable: hidden
-      -
-        handle: gallery
-        field:
-          mode: grid
-          container: assets
-          restrict: false
-          allow_uploads: true
-          display: Gallery
-          type: assets
-          icon: assets
           listable: hidden
       -
         handle: video

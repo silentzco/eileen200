@@ -1,134 +1,60 @@
-<!--<div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">-->
-
-
-<div class="lg:flex lg:justify-between container p-4 lg:p-0 mx-auto  lg:pt-8 lg:space-x-10">
+<div class="container p-4 mx-auto lg:flex lg:justify-between lg:p-0 lg:pt-8 lg:space-x-10">
     <div class="hidden lg:block lg:w-1/6">
-
-        <h3 class="text-primary text-lg mb-4 font-bold">Your Zip</h3>
+        <h3 class="mb-4 text-lg font-bold text-primary">Your Zip</h3>
         <div class="inline-flex mb-4">
-            <input id="zip" name="zip" value="{{ zipcode }}" class="inline-block   bg-white border border-gray-300 rounded-md  text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Zip Code" type="search">
-            <button class="bg-secondary hover:bg-secondary text-white rounded-sm font-bold py-2 px-2 text-sm" id="zip-refresh">
-
+            <input id="zip" name="zip" value="{{ zipcode }}" class="inline-block text-sm placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Zip Code" type="search">
+            <button class="px-2 py-2 text-sm font-bold text-white rounded-sm bg-secondary hover:bg-secondary" id="zip-refresh">
                 Update
             </button>
-
-
         </div>
 
-        <h3 class="text-primary text-lg mb-4 font-bold">Filter Category</h3>
+        <h3 class="mb-4 text-lg font-bold text-primary">Filter Category</h3>
         <div id="category"></div>
-        <h3 class="text-primary text-lg my-4 font-bold">Filter Services</h3>
 
+        <h3 class="my-4 text-lg font-bold text-primary">Filter Services</h3>
         <div id="services"></div>
 
-        <div class="sidebar-content hidden lg:block text-center my-6 py-6 border-t border-gray-300" id="left-content">
+        <div class="hidden py-6 my-6 text-center border-t border-gray-300 sidebar-content lg:block" id="left-content">
             {{ ads:content_left }}
                 <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="500" }}"></a>
             {{ /ads:content_left}}
         </div>
-
-
     </div>
     <div class="w-full lg:w-6/12">
-
-        <h2 class="text-primary text-lg mb-6 font-bold">Search for a keyword: </h2>
+        <h2 class="mb-6 text-lg font-bold text-primary">Search for a keyword: </h2>
         <div id="searchbox"></div>
         <div id="stats"></div>
-
-
         <div id="refinement-list"></div>
-
-
         <div id="top-content-wrapper">
-            <div class="text-center my-6 py-6 border-t border-b border-gray-200 hidden" id="top-content">
+            <div class="hidden py-6 my-6 text-center border-t border-b border-gray-200" id="top-content">
                 {{ if ads:content_top }}
-
-                <a href="{{ ads:content_top:0:link }}" target="_blank"><img src="{{ glide:ads:content_top:0:image }}" ></a>
+                    <a href="{{ ads:content_top:0:link }}" target="_blank"><img src="{{ glide:ads:content_top:0:image }}" ></a>
                 {{ /if }}
-
             </div>
         </div>
-
-
-
-
         <div id="hits"></div>
         <div id="pagination"></div>
-
-
     </div>
-    <div class="hidden lg:block w-full lg:w-4/12">
-
+    <div class="hidden w-full lg:block lg:w-4/12">
         <div class="sticky top-0">
-
-
-            <h2 class="text-primary text-xl mb-4 font-bold">Map:</h2>
-
+            <h2 class="mb-4 text-xl font-bold text-primary">Map:</h2>
             <div id="maps" style="height: 500px"></div>
-
-            <div class="sidebar-content text-center my-6 py-6 border-t border-gray-300" id="right-content">
+            <div class="py-6 my-6 text-center border-t border-gray-300 sidebar-content" id="right-content">
                 {{ ads:content_right }}
                     <a href="{{ link }}" target="_blank"><img src="{{ glide:image width="500" }}"></a>
                 {{ /ads:content_right}}
             </div>
-
-
         </div>
-
-
     </div>
 </div>
 
-
-    {{ if ads:content_results }}
+{{ if ads:content_results }}
     <div id="results-content-wrapper" class="hidden">
-        <div class="text-center my-6 py-6 border-t border-b border-gray-200" id="result-content">
+        <div class="py-6 my-6 text-center border-t border-b border-gray-200" id="result-content">
             <a href="{{ ads:content_results:link }}" target="_blank"><img src="{{ glide:ads:content_results:image }}" ></a>
         </div>
     </div>
-    {{ /if }}
-
-
-
-
-<!--Modal-->
-<!--<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">-->
-<!--    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>-->
-
-<!--    <div class="modal-container bg-white w-11/12 md:max-w-2xl  mx-auto rounded shadow-lg z-50 overflow-y-auto">-->
-
-<!--        <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">-->
-<!--            <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">-->
-<!--                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>-->
-<!--            </svg>-->
-<!--            <span class="text-sm">(Esc)</span>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Add margin if you want to see some of the overlay behind the modal&ndash;&gt;-->
-<!--        <div class="modal-content py-4 text-left px-6">-->
-<!--            &lt;!&ndash;Title&ndash;&gt;-->
-<!--            <div class="flex justify-between items-center pb-3">-->
-<!--                &lt;!&ndash;                <p class="text-2xl font-bold">Simple Modal!</p>&ndash;&gt;-->
-<!--                <div class="modal-close cursor-pointer z-50">-->
-<!--                    <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">-->
-<!--                        <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>-->
-<!--                    </svg>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            &lt;!&ndash;Body&ndash;&gt;-->
-<!--            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-
-<!--            &lt;!&ndash;Footer&ndash;&gt;-->
-<!--            <div class="flex justify-end pt-2">-->
-<!--                <button class="modal-close py-4 bg-primary p-3 rounded-md text-white hover:bg-primary">Close</button>-->
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
+{{ /if }}
 {{ if zipcode }}
     <script>
         const zipcode = {{ zipcode }};
@@ -137,71 +63,14 @@
 {{ /if }}
 
 <script src="{{ mix src='/js/search.js' }}"></script>
-
-
-<!--<script>-->
-
-<!--var openmodal = document.querySelectorAll('.modal-open')-->
-<!--// for (var i = 0; i < openmodal.length; i++) {-->
-<!--//     openmodal[i].addEventListener('click', function(event){-->
-<!--//         event.preventDefault()-->
-<!--//         toggleModal()-->
-<!--//     })-->
-<!--// }-->
-
-<!--const overlay = document.querySelector('.modal-overlay')-->
-<!--overlay.addEventListener('click', toggleModal)-->
-
-<!--var closemodal = document.querySelectorAll('.modal-close')-->
-<!--for (var i = 0; i < closemodal.length; i++) {-->
-<!--closemodal[i].addEventListener('click', toggleModal)-->
-<!--}-->
-
-<!--document.onkeydown = function (evt) {-->
-<!--evt = evt || window.event-->
-<!--var isEscape = false-->
-<!--if ("key" in evt) {-->
-<!--isEscape = (evt.key === "Escape" || evt.key === "Esc")-->
-<!--} else {-->
-<!--isEscape = (evt.keyCode === 27)-->
-<!--}-->
-<!--if (isEscape && document.body.classList.contains('modal-active')) {-->
-<!--toggleModal()-->
-<!--}-->
-<!--};-->
-
 <script>
-
-
-
-    $(document).on('click', '.video-trigger', function(e){
-        $(this).modal();
-        return false;
-    });
-
-
     $(document).on('click', '.gallery-trigger', function(e){
         e.preventDefault();
 
-        // $(this).modal();
         var galleryId = $(this).attr('data-galleryid');
-
 
         $(galleryId).find('.modal-gallery').slick();
 
-
         return false;
     });
-
 </script>
-
-<!--function toggleModal() {-->
-<!--const body = document.querySelector('body')-->
-<!--const modal = document.querySelector('.modal')-->
-<!--modal.classList.toggle('opacity-0')-->
-<!--modal.classList.toggle('pointer-events-none')-->
-<!--body.classList.toggle('modal-active')-->
-<!--}-->
-
-
-

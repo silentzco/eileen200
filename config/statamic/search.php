@@ -1,7 +1,7 @@
 <?php
 
+use Statamic\Facades\Markdown;
 use Statamic\Facades\Term;
-use Statamic\Support\Arr;
 
 return [
 
@@ -27,7 +27,6 @@ return [
     */
 
     'indexes' => [
-
         'default' => [
             'driver' => 'local',
             'searchables' => 'all',
@@ -37,24 +36,22 @@ return [
             'driver' => 'algolia',
             'searchables' => 'collection:providers',
             'fields' => [
-                'id', 'title', 'test', 'org_name', 'first_name', 'middle_name', 'last_name', 'suffix_name', '_geoloc', 'location', 'sponsored', 'phone', 'fax', 'website',
-                'address', 'city', 'state', 'zip', 'image', 'email', 'license_type', 'services', 'category', 'service_category', 'description', 'gallery', 'video', 'insurance_accepted',
-
+                '_geoloc', 'address', 'category', 'city', 'description', 'email', 'fax', 'first_name', 'gallery', 'id',
+                'image', 'insurance_accepted', 'last_name', 'license_type', 'location', 'middle_name', 'org_name',
+                'phone', 'service_category', 'services', 'sponsored', 'state', 'suffix_name', 'title', 'test', 'video',
+                'video2', 'video3', 'video4', 'website', 'zip',
             ],
             'transformers' => [
-
                 // Return a value to store in the index.
                 'description' => function ($description) {
-                    return Statamic\Facades\Markdown::parse((string) $description);
+                    return Markdown::parse((string) $description);
                 },
                 'insurance_accepted' => function ($text) {
-                    return Statamic\Facades\Markdown::parse((string) $text);
+                    return Markdown::parse((string) $text);
                 },
-
                 'services' => function ($services) {
                     $newServices = [];
-
-                    foreach (Arr::wrap($services) as $key) {
+                    foreach ($services as $key) {
                         $service = Term::findBySlug($key, 'services');
                         if ($service) {
                             $newServices[] = $service->get('title');
@@ -69,16 +66,8 @@ return [
 
                     return ['services' => $newServices];
                 },
-
             ],
-
         ],
-
-        // 'blog' => [
-        //     'driver' => 'local',
-        //     'searchables' => 'collection:blog',
-        // ],
-
     ],
 
     /*
@@ -94,18 +83,15 @@ return [
     */
 
     'drivers' => [
-
         'local' => [
             'path' => storage_path('statamic/search'),
         ],
-
         'algolia' => [
             'credentials' => [
                 'id' => env('ALGOLIA_APP_ID', ''),
                 'secret' => env('ALGOLIA_SECRET', ''),
             ],
         ],
-
     ],
 
     /*
@@ -121,5 +107,4 @@ return [
     'defaults' => [
         'fields' => ['title'],
     ],
-
 ];

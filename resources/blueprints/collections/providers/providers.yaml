@@ -141,13 +141,6 @@ sections:
           icon: markdown
           listable: hidden
       -
-        handle: insurance_accepted
-        field:
-          display: 'Insurance Accepted'
-          type: html
-          icon: html
-          listable: hidden
-      -
         handle: gallery
         field:
           mode: grid
@@ -158,7 +151,8 @@ sections:
           type: assets
           icon: assets
           listable: hidden
-      - handle: insurance_accepted
+      -
+        handle: insurance_accepted
         field:
           restrict: false
           automatic_line_breaks: true
@@ -209,6 +203,7 @@ sections:
           localizable: true
           validate:
             - required
+            - 'unique_entry_value:{collection},{id},{site}'
       -
         handle: sponsored
         field:

@@ -28,6 +28,8 @@ sections:
             left: 'Left Sidebar'
             results: 'Results Listing'
             home: Homepage
+            top: 'Results Listing Top'
+          instructions_position: above
       -
         handle: image
         field:
@@ -65,6 +67,7 @@ sections:
           localizable: true
           validate:
             - required
+            - 'unique_entry_value:{collection},{id},{site}'
       -
         handle: services
         field:

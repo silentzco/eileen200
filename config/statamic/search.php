@@ -49,7 +49,10 @@ return [
                 },
 
                 'services' => function ($services) {
-
+			
+			if(empty($services)){
+				return [];
+			}
 
                     $newServices = [];
                     foreach($services as $key){

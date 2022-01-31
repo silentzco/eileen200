@@ -72,9 +72,6 @@ zip: '89117'
 _geoloc:
   lat: 36.1441
   lng: -115.248
-updated_by: fb8eecbe-7cf9-46a8-a2e8-6500917b3517
-updated_at: 1643060862
-video2: 'https://www.youtube.com/embed/-GjMbMQGOpA'
-ads: '20'
-promotion_level: '20'
+updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
+updated_at: 1640704138
 ---

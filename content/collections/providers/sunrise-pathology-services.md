@@ -17,5 +17,7 @@ _geoloc:
   lat: 36.26
   lng: -115.093
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1643311027
+updated_at: 1643731852
+services:
+  - all-imaging-labs
 ---

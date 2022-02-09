@@ -11,9 +11,7 @@ description: |-
   Signal Health Group's mission is to provide home-based medical and non-medical services to the elderly, disabled population. We offer complete comprehensive care services including personal care, home health, hospice care, and wellness & mental health service. We are based in Las Vegas and offer services in other states throughout the US.
   Our company's core principles are Honesty, Integrity, Teamwork, Passion and Caring Customer Service.
 gallery:
-  - Screenshot-(363)-1.png
-  - Screenshot-(363)-2.png
-  - Screenshot-(363)-3.png
+  - Screenshot-(363)-1644450952.png
 sponsored: true
 category:
   - senior-services
@@ -28,5 +26,5 @@ city: 'Las Vegas,'
 state: NV
 zip: '89169'
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1644450588
+updated_at: 1644450981
 ---

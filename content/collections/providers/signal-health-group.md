@@ -3,6 +3,8 @@ id: cec4afac-2f93-4d59-90e4-be26a5e62005
 blueprint: providers
 title: 'Signal Health Group'
 org_name: 'Signal Health Group'
+first_name: Tyler
+last_name: Fisherback
 phone: '(702) 843-0579'
 website: 'https://signalhg.com'
 email: info@signalhg.com
@@ -14,6 +16,7 @@ gallery:
   - Screenshot-(363)-1-1644451531.png
   - Screenshot-(363)-2-1644451533.png
   - Screenshot-(363)-3-1644451535.png
+  - Screenshot-(363)-4.png
 sponsored: true
 category:
   - senior-services
@@ -28,5 +31,5 @@ city: 'Las Vegas,'
 state: NV
 zip: '89169'
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1644451543
+updated_at: 1644544838
 ---

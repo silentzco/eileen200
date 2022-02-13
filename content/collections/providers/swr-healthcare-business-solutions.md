@@ -8,6 +8,7 @@ last_name: Wichman-Roche
 phone: 702-224-4900
 website: 'https://swrhealthcarebusinesssolutions.com/'
 email: swrhealthcaresolutions@yahoo.com
+image: providers/swr-logo.jpg
 description: |-
   My introduction to healthcare in Las Vegas started 20 years ago. I was managing an accounting office in a major casino, my husband was in the motorcycle division of the Las Vegas Metropolitan Police Dept, and at the time we had a 3 year old and 5 month old. Two days before Christmas, my husband was on duty when a woman ran a stop sign and hit him. He has been a paraplegic ever since.
 
@@ -22,5 +23,5 @@ category:
   - medical-transportation-equipment-and-supplies
 promotion_level: '10'
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1644781087
+updated_at: 1644782342
 ---

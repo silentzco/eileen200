@@ -10,6 +10,7 @@ category:
   - senior-services
 services:
   - hospice
+promotion_level: '0'
 address: '4055 Spencer Street #126'
 city: 'Las Vegas'
 state: NV
@@ -18,5 +19,5 @@ _geoloc:
   lat: 36.1517
   lng: -115.128
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1644880201
+updated_at: 1644880268
 ---

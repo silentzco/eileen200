@@ -20,11 +20,10 @@ description: |-
 sponsored: true
 category:
   - schools-and-professional-training
-  - medical-transportation-equipment-and-supplies
 services:
   - business-resources-and-training
   - tech-schools-and-training
 promotion_level: '10'
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1644859495
+updated_at: 1644859874
 ---

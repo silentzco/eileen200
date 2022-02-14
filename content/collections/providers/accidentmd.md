@@ -47,7 +47,7 @@ _geoloc:
   lng: -115.22493
   lat: 36.141119
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1640048445
+updated_at: 1644861536
 category:
   - doctors
 address_2: '2630 S Jones'

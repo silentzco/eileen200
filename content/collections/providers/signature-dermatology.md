@@ -2,6 +2,7 @@
 id: a763d4bc-309f-495c-963d-4f2cc5e91bfe
 blueprint: providers
 title: 'Signature Dermatology'
+org_name: 'Richard Levine MD'
 first_name: Richard
 last_name: Levine
 suffix_name: MD
@@ -30,5 +31,5 @@ _geoloc:
   lng: -115.09895
   lat: 35.979863
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1645647287
+updated_at: 1645647461
 ---

@@ -14,8 +14,7 @@ description: |-
   If you have been injured in an accident, call us today to get a free consultant on your injury accident claim. 702-628-9888
 video: 'https://www.youtube.com/embed/Osixjtuqn1s'
 sponsored: true
-category:
-  - legal-services
+category: legal-services
 services:
   - personal-injury-attorneys
   - accident-and-personal-injury
@@ -26,6 +25,11 @@ zip: '89146'
 _geoloc:
   lat: 36.1491
   lng: -115.225
-updated_by: a034f527-2110-44df-82f7-baa1cb1b5355
-updated_at: 1639706401
+updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
+updated_at: 1645644687
+gallery:
+  - bit-by-a-dog-in-las-vegas-340x300.jpg
+  - car-accident-las-vegas-340x300.jpg
+  - Top-100.jpg
+video2: 'https://youtube.com embed/Ee0SBE0'
 ---

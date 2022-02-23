@@ -22,7 +22,11 @@ description: |-
 gallery:
   - 240_F_279089029_mkReRnMBQO1CsYNIEsMHaoG05J6IzPgc-1645647248.jpg
   - Skn-Cancer-email-2-2022.jpg
-sponsored: false
+sponsored: true
+category: doctors
+services:
+  - dermatology
+promotion_level: '10'
 address: '3035 W Horizon Ridge Pkwy Henderson, NV 89052'
 city: Henderson
 state: NV
@@ -31,5 +35,5 @@ _geoloc:
   lng: -115.09895
   lat: 35.979863
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1645647461
+updated_at: 1645647539
 ---

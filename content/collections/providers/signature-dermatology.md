@@ -18,6 +18,9 @@ description: |-
   Dr. Levine is passionate about treating and managing skin cancer. As well, with his background in internal medicine, he enjoys general dermatology as a subspecialty of internal medicine.
 
   In his spare time, he enjoys hiking, cycling and time with family.
+gallery:
+  - 240_F_279089029_mkReRnMBQO1CsYNIEsMHaoG05J6IzPgc-1645647248.jpg
+  - Skn-Cancer-email-2-2022.jpg
 sponsored: false
 address: '3035 W Horizon Ridge Pkwy Henderson, NV 89052'
 city: Henderson
@@ -27,5 +30,5 @@ _geoloc:
   lng: -115.09895
   lat: 35.979863
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1645645395
+updated_at: 1645647287
 ---

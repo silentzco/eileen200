@@ -7,7 +7,7 @@ author: 'Ronald McDonald House Charities'
 snippet: 'Ronald McDonald House Charities® of Greater Las Vegas is excited to announce the Home for Now Hope for Tomorrow capital campaign to build a second Ronald McDonald House in the Las Vegas valley.  “For more than 23 years, the Las Vegas Ronald McDonald House has provided a ‘home away from home’ to families with sick or injured children,” said Alyson McCarthy, Chief Executive Officer of the Ronald McDonald House Charities® of Greater Las Vegas. “While the average length of stay is 11 nights, a third of our families stay longer than a month. Our second House will provide longer-term independent living spaces for families to call home while their child is in the hospital.”'
 homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1642809483
+updated_at: 1645732813
 content:
   -
     type: paragraph

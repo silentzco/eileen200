@@ -5,9 +5,9 @@ title: 'ALL ABOUT ROSACEA'
 hero: 240_F_279089029_mkReRnMBQO1CsYNIEsMHaoG05J6IzPgc-1645671870.jpg
 author: 'Signature Dermatology'
 snippet: 'What Is Rosacea? Rosacea is common, afflicting an estimated 14 million Americans. The skin condition is characterized by redness and visible blood vessels on the'
-homepage: false
+homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1645671982
+updated_at: 1645672020
 content:
   -
     type: paragraph

@@ -5,9 +5,9 @@ title: 'Molina Healthcare Will Offer Plans in Nevada in 2022'
 hero: Molina-logo-1639075196.jpg
 author: 'Molina Healthcare'
 snippet: 'Molina Healthcare works with the Nevada Department of Health and Human Services (DHHS), and the Division of Healthcare Financing and Policy (DHCFP), providing health services for the Nevada Medicaid and Nevada Check Up program beginning in 2022. Under a new contract, Molina''s Nevada health plan will be one of four managed care organizations offering health care coverage to approximately 630,000 Medicaid beneficiaries in Clark County, which includes Las Vegas, and Washoe County, which includes Reno.'
-homepage: true
+homepage: false
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1642809473
+updated_at: 1645732752
 content:
   -
     type: paragraph

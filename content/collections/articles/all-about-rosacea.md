@@ -7,7 +7,7 @@ author: 'Signature Dermatology'
 snippet: 'What Is Rosacea? Rosacea is common, afflicting an estimated 14 million Americans. The skin condition is characterized by redness and visible blood vessels on the facial skin. It may include small, red, pus-filled bumps. Flare-ups can last for weeks, even months, and then the skin calms down for a period of time before flaring up again. People often mistake rosacea either for blushing, acne, or an allergic reaction.'
 homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1645672132
+updated_at: 1645735601
 content:
   -
     type: paragraph

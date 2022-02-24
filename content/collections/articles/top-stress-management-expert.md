@@ -7,7 +7,7 @@ author: 'TSIKKI THAU'
 snippet: 'Tsikki’s ultimate vision is to implement a stress management and meditation curricu­lum in education systems and corporations worldwide to eliminate stress and anxiety and promote positive ways of thinking. Tsikki hosts a free global meditation on the last Saturday of every month to bring everyone from around the world together to unite, de-stress and stay connected. **More info is available at TsikkiThau.com or by emailing PRTsikkiThau@gmail.com'
 homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1642809495
+updated_at: 1645735481
 content:
   -
     type: paragraph

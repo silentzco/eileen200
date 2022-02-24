@@ -7,7 +7,7 @@ author: 'Vegas Heals'
 snippet: 'Dignity Health–St. Rose Dominican San Martin Hospital has again been selected as Best Place to Have a Baby in the 2021 Best of Las Vegas awards, capturing the top Gold Award in the annual survey of Las Vegas Review-Journal readers.'
 homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1642809541
+updated_at: 1645735460
 content:
   -
     type: paragraph

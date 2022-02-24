@@ -5,9 +5,9 @@ title: 'COVID TESTING: RAPID (10 MINUTE RESULTS) & PCR TESTING AVAILABLE AT DOYN
 hero: Doyne-Covid-Testing1.jpg
 author: 'Doyne Medical Clinic'
 snippet: 'COVID testing--both rapid (15 minute results) and PRC (24-hour results--are available at Doyne Medical clinic In Las Vegas.  Staff members at can provide testing onsite at Doyne or make arrangements to provide business with testing onsite.'
-homepage: true
+homepage: false
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1642809448
+updated_at: 1645672048
 content:
   -
     type: paragraph

@@ -5,9 +5,9 @@ title: 'INJURED IN AN ACCIDENT? YOU NEED A DOCTOR. CALL ACCIDENTMD             7
 hero: accidentmd/42310015_l-1628254015.jpg
 author: 'ACCIDENT MD'
 snippet: 'Injured in A Traffic, Work or Other Accident?  If you''ve been injured. . . and you need a doctor! Call AccidentMD 702-664-1225 or log onto AccidentMD.com'
-homepage: true
+homepage: false
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1642809458
+updated_at: 1645672720
 content:
   -
     type: paragraph

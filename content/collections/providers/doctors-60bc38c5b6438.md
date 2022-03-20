@@ -4,6 +4,15 @@ blueprint: providers
 license_type: DO
 services:
   - family-practice
+  - accident-doctor
+  - accident-and-personal-injury
+  - family-medicine
+  - general-practice
+  - gynecology
+  - internal-med-pediatrics
+  - internal-medicine
+  - medicaid
+  - medicare
 category: doctors
 org_name: 'DOYNE MEDICAL CLINIC'
 address: '1706 W Bonanza Road'
@@ -80,5 +89,5 @@ insurance_accepted: |-
 sponsored: true
 promotion_level: '10'
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1647806480
+updated_at: 1647806976
 ---

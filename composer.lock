@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d23450d745ed41b9cf38ecc82bead12",
+    "content-hash": "c3bebc3079a472e51f6218d3531420a5",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -4699,57 +4699,6 @@
                 }
             ],
             "time": "2022-01-12T12:23:19+00:00"
-        },
-        {
-            "name": "spatie/statamic-algolia-places",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/statamic-algolia-places.git",
-                "reference": "c90cc315059062ef92da621da685eef03f1d01ca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/statamic-algolia-places/zipball/c90cc315059062ef92da621da685eef03f1d01ca",
-                "reference": "c90cc315059062ef92da621da685eef03f1d01ca",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3|^8.0",
-                "pixelfear/composer-dist-plugin": "^0.1",
-                "statamic/cms": "^3.0"
-            },
-            "type": "statamic-addon",
-            "extra": {
-                "download-dist": {
-                    "url": "https://github.com/spatie/statamic-algolia-places/releases/download/{$version}/dist.tar.gz",
-                    "path": "dist"
-                },
-                "statamic": {
-                    "name": "Statamic Algolia Places",
-                    "description": "An Algolia Places autocomplete dropdown fieldtype for the Statamic Control Panel"
-                },
-                "laravel": {
-                    "providers": [
-                        "Spatie\\StatamicAlgoliaPlaces\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\StatamicAlgoliaPlaces\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "An Algolia Places autocomplete dropdown fieldtype for the Statamic Control Panel",
-            "support": {
-                "issues": "https://github.com/spatie/statamic-algolia-places/issues",
-                "source": "https://github.com/spatie/statamic-algolia-places/tree/1.1.0"
-            },
-            "time": "2021-01-29T09:07:29+00:00"
         },
         {
             "name": "statamic/cms",

@@ -10,20 +10,7 @@ const search = instantsearch({
     indexName: 'providers',
     searchClient,
     routing: true,
-    // searchFunction: function(helper) {
-    //     helper.setQueryParameter('getRankingInfo', true);
-    //
-    //
-    //
-    //     helper.search();
-    // }
 });
-
-// var placesAutocomplete = places({
-//     appId: 'YOUR_PLACES_APP_ID',
-//     apiKey: 'YOUR_PLACES_API_KEY',
-//     container: document.querySelector('#address-input')
-// });
 
 search.on('render', () => {
     placeResultContent();
@@ -52,10 +39,7 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
 
     let bounds = new google.maps.LatLngBounds();
 
-
     if (isFirstRendering) {
-
-
         map = new google.maps.Map(document.getElementById("maps"), {
             zoom: 10,
             maxZoom: 16
@@ -64,22 +48,15 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
         window.googleMap = map;
         console.log(renderOptions);
 
-
         map.addListener("dragend", () => {
             redraw();
         });
-
-
-
     }
 
-
-    function redraw(){
-
+    function redraw() {
         let bounding = map.getBounds();
         let NECorner = bounding.getNorthEast();
         let SWCorner = bounding.getSouthWest();
-
 
         console.log({lat: NECorner.lat(), lng: NECorner.lng(), lat2: SWCorner.lat(), lng2: SWCorner.lng()});
 
@@ -87,31 +64,21 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
             northEast: {lat: NECorner.lat(), lng: NECorner.lng()},
             southWest: {lat: SWCorner.lat(), lng: SWCorner.lng()},
         });
-
-
     }
-
 
     for (let i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
+
     markers = [];
 
-
-
     let infoWindow = new google.maps.InfoWindow(), marker, i;
-
 
     // Loop through our array of markers & place each one on the map
     for( i = 0; i < items.length; i++ ) {
         let position = items[i]._geoloc;
 
-
         bounds.extend(position);
-
-
-
-
 
         const newIcon = {
             path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
@@ -129,14 +96,11 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
             title: items[i].title,
             objectID: items[i].objectID,
             icon: newIcon
-
-
         });
 
         // Allow each marker to have an info window
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-
                 let content =
                     '<div>' +
                     '<span class="text-primary font-bold">' +
@@ -147,72 +111,29 @@ const renderGeoSearch = (renderOptions, isFirstRendering) => {
                     '<span class="font-bold">' + items[i].services.join(", ") + "</span>" +
                     '</div>';
 
-
                 infoWindow.setContent(content);
                 infoWindow.open(map, marker);
             }
         })(marker, i));
 
         markers.push(marker);
-
-        // Automatically center the map fitting all markers on the screen
     }
 
-
-
-
-    if(typeof(geoloc) !== "undefined" && (geoloc)){
+    if (typeof(geoloc) !== "undefined" && (geoloc)) {
         placeZipMarker(geoloc);
-
     }
-
-
-
-
-
-    // map.setCenter(bounds.getCenter());
-
-
-    // I don't think we need this???
-    // map.fitBounds(bounds);
-
-
-
-
-    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-    // let boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-    //     this.setZoom(14);
-    //     google.maps.event.removeListener(boundsListener);
-    // });
-
-
 
     google.maps.event.addListener(map, 'zoom_changed', function() {
         setTimeout(redraw, 3000);
-        console.log('firing');
     });
-
-
-
-
-
-
-
-
 };
-
-
-
 
 // Create the custom widget
 const customGeoSearch = connectGeoSearch(
     renderGeoSearch
 );
 
-
-
-function placeZipMarker(geoloc){
-
+function placeZipMarker(geoloc) {
     const svgMarker = {
         path:
             "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
@@ -226,64 +147,43 @@ function placeZipMarker(geoloc){
 
     var maxZindex = google.maps.Marker.MAX_ZINDEX;
 
-
     return new google.maps.Marker({
         position: geoloc,
         icon: svgMarker,
         zIndex: maxZindex + 1,
         map: map,
     });
-
-
-
 }
 
-function focusOnMarker(objectID){
-
+function focusOnMarker(objectID) {
     let i;
     for (i = 0; i < markers.length; i++) {
-        if(objectID == markers[i].objectID){
-
+        if (objectID == markers[i].objectID) {
             map.panTo(markers[i].position);
             google.maps.event.trigger(markers[i], 'click');
-
-
         }
-
     }
-
 }
 
-
-
 var zipGeoLocString;
-if(typeof(geoloc) !== "undefined" && (geoloc)) {
+if (typeof(geoloc) !== "undefined" && (geoloc)) {
     console.log(geoloc);
     zipGeoLocString = geoloc.lat + ',' + geoloc.lng;
 }
 
-
-
-
 search.addWidgets([
-
     configure({
         aroundLatLng: zipGeoLocString,
-        // aroundRadius: 1000, // 10000 km
         hitsPerPage: 30,
-
     }),
-
 
     customGeoSearch({
         container: document.querySelector('#maps'),
         initialZoom: 12,
-
-            googleReference: window.google,
-            enableRefine: true,
+        googleReference: window.google,
+        enableRefine: true,
         enableClearMapRefinement: true,
-            enableRefineOnMapMove: true,
-
+        enableRefineOnMapMove: true,
     }),
 
     searchBox({
@@ -354,12 +254,8 @@ search.addWidgets([
                         <p class="mt-1 text-gray-500 text-sm truncate">
                             {{ phone }}
                         </p>
-
-
                     </div>
             </div>
-
-
 
             {{#image}}
             <img class="h-full rounded flex-shrink-0" src="/assets/{{ image }}" style="max-width: 300px; max-height: 150px" alt="">
@@ -379,7 +275,6 @@ search.addWidgets([
                 <div class="insurance_content hidden">
                     {{{ insurance_accepted }}}
                 </div>
-
             </div>
         {{/insurance_accepted}}
 
@@ -448,7 +343,6 @@ search.addWidgets([
                 </a>
             {{/video4}}
         </div>
-
 
             <div class="-mt-px flex divide-x divide-gray-200 provider-actions">
                 {{#email}}
@@ -540,80 +434,62 @@ function fetchContent(){
 
     serviceTags = [...new Set(serviceTags)];
 
-
-    $.getJSON( "/search/getcontent",{currentServices: currentServices, currentCategory:currentCategory, serviceTags:serviceTags}, function( data ) {
-
-
-        if(data.content_top){
+    $.getJSON( "/search/getcontent",{currentServices: currentServices, currentCategory:currentCategory, serviceTags:serviceTags}, function(data) {
+        if (data.content_top) {
             var content = '';
             var top_ad = data.content_top[0];
-                content += '<a href="' + top_ad.link + '" target="_blank"><img src="' + top_ad.image + '"></a>';
+            content += '<a href="' + top_ad.link + '" target="_blank"><img src="' + top_ad.image + '"></a>';
             $('#top-content').html(content);
             $('#top-content').removeClass("hidden");
-
         }
-        else{
+        else {
             $('#top-content').html('');
         }
 
-        if(data.content_right){
+        if (data.content_right) {
             var content = '';
             data.content_right.forEach((ad) => {
                 content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
             });
             $('#right-content').html(content);
-
         }
-        else{
+        else {
             $('#right-content').html('');
         }
 
-        if(data.content_left){
+        if (data.content_left) {
             var content = '';
             data.content_left.forEach((ad) => {
                 content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
             });
             $('#left-content').html(content);
         }
-        else{
+        else {
             $('#left-content').html('');
         }
-        if(data.content_results){
+        if (data.content_results) {
             var content = '';
             data.content_results.forEach((ad) => {
                 content += '<a href="' + ad.link + '" target="_blank"><img src="' + ad.image + '"></a>';
             });
             $('#results-content').html(content);
         }
-        else{
+        else {
             $('#results-content').html('');
         }
-
     });
-
-
-
 }
 
-function placeResultContent(){
-
+function placeResultContent() {
     $(".ais-Hits-item:eq(4) .provider-content-container").html($("#results-content-wrapper").html());
-    console.log("Setting listing promotions");
-
 }
-
 
 $(function(){
-
-
     $('body').on('click','.markerMapLink',function(e) {
         e.preventDefault();
         let objectid = $(this).data('objectid');
         focusOnMarker(objectid);
-
     });
-
-
 
     $('body').on('click','.insurance_content_link',function(e) {
         e.preventDefault();
@@ -621,27 +497,17 @@ $(function(){
         $(this).next(".insurance_content").toggleClass("hidden");
     });
 
-
     $('body').on('mouseenter','.provider-card',function() {
-
         let objectid = $(this).data('objectid');
-        // console.log(objectid);
         focusOnMarker(objectid);
-
     });
 
-
-
     $("#zip-refresh").click(function(){
-
         let zip = $("#zip").val();
 
         $.getJSON( "/search/getgeoloc",{zip: zip}, function( data ) {
-
             let newMarker = placeZipMarker(data.geoloc);
-
             map.panTo(newMarker.position);
-
         });
     });
 });

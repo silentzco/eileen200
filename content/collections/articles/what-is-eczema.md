@@ -1,13 +1,13 @@
 ---
 id: 849b6838-cb34-49c5-af3f-df273ab4c072
 blueprint: articles
-title: 'WHAT IS ECZEMA?'
+title: 'DRY ITCHY SKIN? IS IT ECZEMS?'
 hero: download-(1).jpg
 author: 'Signature Plastic Surgery and Dermatology'
 snippet: "As part of his dermatology practice, Dr. Himansu Shah helps patients manage their\_ eczema. The Dermatology team at Signature Plastic Surgery & Dermatology offers treatment to patients in Las Vegas and Henderson.  \_Eczema is the name for a group of conditions that cause the skin to become red, itchy, and inflamed. It’s common — over 30 million Americans have some form of eczema — but it’s not well understood. For those with eczema, it’s an itchy, red, dry irritation that can come and go for life.  Eczema Symptoms  Atopic dermatitis is the most common form of eczema, so its symptoms are also the most common. These symptoms vary widely between patients:"
 homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1649027620
+updated_at: 1649027769
 content:
   -
     type: paragraph

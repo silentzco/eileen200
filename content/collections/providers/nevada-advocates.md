@@ -24,6 +24,8 @@ description: |-
   Communicate
 sponsored: true
 category: care-services
+services:
+  - advocacy
 address: '7380 W Sahara Ave, #110'
 city: 'Las Vegas'
 state: NV
@@ -32,5 +34,5 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1650486744
+updated_at: 1650486902
 ---

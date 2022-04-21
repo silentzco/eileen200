@@ -8,7 +8,9 @@ description: |-
       </iframe>)
 sponsored: true
 category: cbd-supplements-and-herbs
+services:
+  - for-purchase
 promotion_level: '10'
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1650582814
+updated_at: 1650582957
 ---

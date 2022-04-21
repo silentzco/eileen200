@@ -17,7 +17,8 @@ sponsored: true
 category: cbd-supplements-and-herbs
 services:
   - for-purchase
+  - vital-proteins-collagen
 promotion_level: '10'
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1650583790
+updated_at: 1650583983
 ---

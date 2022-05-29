@@ -7,7 +7,7 @@ author: AccidentMD
 snippet: 'Because, no matter how minor the accident may initially seem, injuries can sometimes take days or even weeks to show up. The best course of action is to be examined and evaluated by a doctor.Our Las Vegas Accident and Injury Doctors can provide patients with expert care when you’ve been injured. Though many Las Vegas doctors prefer not to treat accidents and injuries, Our Las Vegas Accident-Injury Doctors are happy to accept Personal Injury patients.'
 homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1645672703
+updated_at: 1653863700
 content:
   -
     type: paragraph

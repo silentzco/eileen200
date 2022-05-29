@@ -7,7 +7,7 @@ author: 'Intermountain Healthcare Blog'
 snippet: 'A physical is your chance to speak to your doctor about any health concerns you have. It’s also the time when your doctor can spot any changes to your health since the last time you had an appointment.  But you still may wonder, how often should I get a physical? Here are some answers to your questions.  As an adult, how often should I get a physical?  Expert opinion varies as to how often you should see your doctor for a checkup. But everyone seems to agree that meeting regularly with your doctor can help improve your overall health and strengthen your relationship with your physician.'
 homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1645735392
+updated_at: 1653863682
 content:
   -
     type: paragraph

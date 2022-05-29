@@ -1,12 +1,13 @@
 ---
 id: 5db1848b-2aae-4e78-af8c-52b32d36844f
+blueprint: articles
 title: 'IT''S HOT! STAY HYDRATED!!'
 hero: AdobeStock_387092381.jpeg
 author: 'PHILLIPS CLINIC FAMILY PRACTICE'
 snippet: 'Why do we need to stay hydrated?  Giving our bodies enough water helps our heart to pump blood easier and helps our muscles to work more efficiently. Every cell, organ, and tissue of our bodies needs water to function properly.'
-homepage: false
+homepage: true
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1634332155
+updated_at: 1653863718
 content:
   -
     type: paragraph

@@ -6,6 +6,6 @@ placement: home
 image: AccMD-Banner---Copy.jpeg
 link: 'https://accidentmd.com'
 active: true
-updated_by: a034f527-2110-44df-82f7-baa1cb1b5355
-updated_at: 1639862274
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1657582394
 ---

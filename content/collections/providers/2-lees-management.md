@@ -2,6 +2,7 @@
 id: 02cfcadb-a06e-45a2-bef2-f91a6d9d5271
 blueprint: providers
 title: '2 Lees Management'
+org_name: '2 Lees Management'
 first_name: Stephanie
 last_name: Holguin
 phone: 702-478-8115
@@ -24,5 +25,5 @@ _geoloc:
   lat: 36.285826177484
   lng: -115.17919463632
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658158745
+updated_at: 1658160499
 ---

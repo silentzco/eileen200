@@ -16,6 +16,7 @@ services:
   - staffing-and-recruiting
 promotion_level: '10'
 address: '6930 S. Cimarron Rd Ste 260'
+city: 'Las Vegas'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658253474
+updated_at: 1658253500
 ---

@@ -1,6 +1,5 @@
 ---
 id: fbafbca7-4f68-4da5-a8dd-f6a93c827457
-published: false
 blueprint: providers
 title: StaffinGenious
 org_name: StaffinGenious
@@ -11,7 +10,7 @@ fax: 702-832-2018
 website: 'https://Staffingenious.com'
 email: Info@staffingenious.com
 description: 'We connect healthcare facilities offering outstanding pay, improved work-life balance and capable nurses and other allied health professions.  We help recruiters and managers solve short and long term staffing problems , fill strategic roles faster and ensure a seamless onboarding. Our next success story is with you. You can start writing it by looking at our solutions for candidates and employers.'
-sponsored: false
+sponsored: true
 category: staffing-and-recruting
 services:
   - staffing-and-recruiting
@@ -24,5 +23,5 @@ _geoloc:
   lat: 36.06255014096
   long: -115.26956314233
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658252226
+updated_at: 1658252555
 ---

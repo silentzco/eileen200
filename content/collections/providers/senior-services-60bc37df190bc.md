@@ -1,6 +1,5 @@
 ---
 id: e3e53538-095a-4ab0-8318-32839a9080f1
-published: false
 blueprint: providers
 org_name: 'GOLDEN YEARS RESIDENTIAL CARE, LLC'
 address: '6990 Edna Ave'

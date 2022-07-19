@@ -1,6 +1,5 @@
 ---
 id: 6c7fd8b9-4217-4e10-bd21-c968473bd563
-published: false
 blueprint: providers
 org_name: 'GOLDEN YEARS MEMORY CARE LLC'
 address: '8920 LOGGERS MILL AVENUE'

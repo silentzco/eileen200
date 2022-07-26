@@ -3,3 +3,7 @@ roles:
   - content_admin
 id: 87a74d1c-1760-42c5-afc1-1cc59be16098
 password_hash: $2y$10$rxEG362fu3u4mtDf44kkSeHkpW9WI2dpRRSDuz.e6MAp8mh.YSvY2
+preferences:
+  collections:
+    providers:
+      after_save: continue_editing

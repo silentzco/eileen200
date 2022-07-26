@@ -56,13 +56,14 @@ insurance_accepted: |-
   Veterans Affairs of Southern Nevada
   Please call us if you have an insurance that is not listed. We continue to update our contracts and some plans only require prior authorization.
 video: 'https://www.youtube.com/embed/tWE1Pd399W4'
-sponsored: true
+sponsored: false
 category: senior-services
 services:
   - hospice
   - hospice-and-palliative-medicine
   - physical-medicine-rehab
   - physical-rehab
+  - physical-medicinerehabilitation
 address: '7842 West Sahara Avenue'
 city: 'Las Vegas'
 state: NV
@@ -71,6 +72,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658796460
-promotion_level: '10'
+updated_at: 1658796512
+promotion_level: '60'
 ---

@@ -56,7 +56,7 @@ insurance_accepted: |-
   Veterans Affairs of Southern Nevada
   Please call us if you have an insurance that is not listed. We continue to update our contracts and some plans only require prior authorization.
 video: 'https://www.youtube.com/embed/tWE1Pd399W4'
-sponsored: false
+sponsored: true
 category: senior-services
 services:
   - hospice
@@ -72,6 +72,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658796512
+updated_at: 1658796547
 promotion_level: '60'
 ---

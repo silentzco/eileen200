@@ -5,6 +5,7 @@ title: 'COMPASSION CARE'
 org_name: 'Compassion Care'
 first_name: 'Laurie Indvik'
 last_name: 'Executive Director'
+phone: 702-636-0200
 fax: 702-636-2208
 website: 'https://compassioncarenevada.com/'
 email: Julie.McIntosh@cchlv.com
@@ -71,6 +72,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658795993
+updated_at: 1658796007
 promotion_level: '60'
 ---

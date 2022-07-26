@@ -8,8 +8,6 @@ state: NV
 zip: '89148'
 phone: 702-625-9109
 category: senior-services
-services:
-  - hospice
 title: AccentCare
 _geoloc:
   lat: 36.0839
@@ -17,5 +15,5 @@ _geoloc:
 sponsored: false
 promotion_level: '0'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658795500
+updated_at: 1658795547
 ---

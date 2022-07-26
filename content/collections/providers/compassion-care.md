@@ -57,8 +57,7 @@ insurance_accepted: |-
   Please call us if you have an insurance that is not listed. We continue to update our contracts and some plans only require prior authorization.
 video: 'https://www.youtube.com/embed/tWE1Pd399W4'
 sponsored: true
-category:
-  - senior-services
+category: senior-services
 services:
   - hospice
   - hospice-and-palliative-medicine
@@ -72,7 +71,7 @@ zip: '89117'
 _geoloc:
   lat: 36.1441
   lng: -115.248
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1644881202
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1658795478
 promotion_level: '60'
 ---

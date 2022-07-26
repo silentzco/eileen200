@@ -6,10 +6,7 @@ org_name: 'PERPETUAL HELP HOSPICE OF NEVADA'
 first_name: Leo
 last_name: Lagumen
 sponsored: false
-category:
-  - senior-services
-services:
-  - hospice
+category: senior-services
 promotion_level: '0'
 address: '4055 Spencer Street #126'
 city: 'Las Vegas'
@@ -18,6 +15,6 @@ zip: '89119'
 _geoloc:
   lat: 36.1517
   lng: -115.128
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1644881309
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1658795575
 ---

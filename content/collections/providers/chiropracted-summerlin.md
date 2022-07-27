@@ -17,10 +17,14 @@ description: |-
   Best of Las Vegas 3 time Gold winner Chiropractor treating Personal Injury patients in the Las Vegas Valley. With 2 locations Henderson & Summerlin. Open 6 days a week Monday- Saturday. Accepting- Lien Patients & Cash Patients. Bilingual Staff in Spanish & Tagalog
 gallery:
   - 12-09-ted-logo.png
-sponsored: false
+sponsored: true
+category: complementary-medicine
+services:
+  - chiropractors
+promotion_level: '10'
 address: '1081 S. Cimarron Rd B3-4'
 city: 'Las Vegas'
 state: NV
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658892199
+updated_at: 1658892282
 ---

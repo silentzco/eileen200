@@ -5,9 +5,9 @@ title: 'ACCIDENT MD'
 placement: right
 image: accidentmd/InkedScreenshot-(168)1_LI.jpg
 link: 'https://accidentmd.com/'
-active: true
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1639847975
+active: false
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1658930620
 services:
   - accident-and-personal-injury
   - personal-injury-attorneys

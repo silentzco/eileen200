@@ -18,6 +18,10 @@ promotion_level: '10'
 address: '6930 S Cimarron Rd Ste 260'
 city: 'Las Vegas'
 state: NV
+zip: '89113'
+_geoloc:
+  lat: 36.06255014096
+  lng: -115.2695846
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658270182
+updated_at: 1658892747
 ---

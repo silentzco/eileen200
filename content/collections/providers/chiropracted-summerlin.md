@@ -3,9 +3,9 @@ id: fc21fbc8-5836-4ebe-87bb-6e9110116cd4
 blueprint: providers
 title: 'ChiropracTED Summerlin'
 org_name: 'ChiropracTED Summerlin'
-first_name: Reshawnda
-last_name: Jones
-phone: 702.277.1371
+first_name: 'Dr. Ted'
+last_name: Sims
+phone: 702-903-5177
 website: 'http://chiropracted.com/'
 email: chiropractedsummerlin@gmail.com
 image: providers/12-09-ted-logo.png
@@ -31,5 +31,5 @@ _geoloc:
   lat: 36.166569232327
   lng: -115.27198355932
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658929756
+updated_at: 1658929789
 ---

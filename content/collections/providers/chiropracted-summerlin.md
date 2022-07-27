@@ -6,7 +6,7 @@ org_name: 'ChiropracTED Summerlin'
 first_name: 'Dr. Ted'
 last_name: Sims
 phone: 702-903-5177
-website: 'http://chiropracted.com/'
+website: 'http://chiropracted.com'
 email: chiropractedsummerlin@gmail.com
 image: providers/12-09-ted-logo.png
 description: |-
@@ -31,5 +31,5 @@ _geoloc:
   lat: 36.166569232327
   lng: -115.27198355932
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658929789
+updated_at: 1658929846
 ---

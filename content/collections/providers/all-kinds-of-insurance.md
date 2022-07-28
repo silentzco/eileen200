@@ -30,6 +30,8 @@ description: |-
   Umbrella Policies
 sponsored: true
 category: insurance
+services:
+  - insurance
 promotion_level: '10'
 address: '5532 S. Fort Apache Road, Suite 100'
 city: 'Las Vegas'
@@ -39,5 +41,5 @@ _geoloc:
   lat: 36.088299606974
   lng: -115.2947949
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659043213
+updated_at: 1659043364
 ---

@@ -10,8 +10,6 @@ fax: 702-832-2018
 website: 'https://www.staffingenious.com'
 email: Info@staffingenious.com
 description: 'We connect healthcare facilities offering outstanding pay, improved work-life balance and capable nurses and other allied health professions.  We help recruiters and managers solve short and long term staffing problems , fill strategic roles faster and ensure a seamless onboarding. Our next success story is with you. You can start writing it by looking at our solutions for candidates and employers.'
-gallery:
-  - '-Tashi-(2)-1659039717.jpg'
 sponsored: true
 category: staffing-and-recruting
 services:
@@ -25,5 +23,5 @@ _geoloc:
   lat: 36.06255014096
   lng: -115.2695846
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659039722
+updated_at: 1659039749
 ---

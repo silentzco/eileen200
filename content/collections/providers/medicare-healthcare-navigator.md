@@ -1,5 +1,6 @@
 ---
 id: 5f4feb0a-d2c6-43be-8e05-28e7ec9ac148
+blueprint: providers
 title: 'MEDICARE HEALTHCARE NAVIGATOR'
 org_name: 'MEDICARE HUB'
 first_name: Michelle
@@ -7,8 +8,7 @@ last_name: Weston
 phone: '(702) 337-3384'
 website: 'https://medicarehub.com/'
 links:
-  -
-    site: null
+  - {  }
 email: m.weston@medicarehub.co
 image: providers/Medicare-Business-Card.jpg
 description: |-
@@ -29,9 +29,8 @@ description: |-
   I am contracted with almost all Medicare Insurance Companies in Nevada.
 gallery:
   - Medicare-Hub.png
-sponsored: false
-category:
-  - navigating-health-insurance
+sponsored: true
+category: navigating-health-insurance
 services:
   - medicare-advantage
 address: '7640 W. Tropicana Ave'
@@ -42,6 +41,6 @@ zip: '89147'
 _geoloc:
   lat: 36.26
   lng: -115.093
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1634333304
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1659043300
 ---

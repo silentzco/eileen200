@@ -4,17 +4,11 @@ blueprint: articles
 title: 'G. Dallas Horton and Associates'
 hero: dallas.jpg
 author: 'G. Dallas Horton'
-snippet: 'Why you should choose G. Dallas Horton and Associates when you have been injured'
+snippet: "Why you should choose G. Dallas Horton and Associates when you have been injured. The reason it is important to hire an experienced attorney is his or her experience.\_ The insurance adjuster is well trained in claims management and claim values.\_ An attorney is better trained at claims management and claim values.\_ When lay people try to negotiate their own cases, they are the only one who does not understand claims management and value.\_ Most often, the adjuster will take gross advantage of the claimant.\_"
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659050286
+updated_at: 1659050382
 content:
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "The reason it is important to hire an experienced attorney is his or her experience.\_ The insurance adjuster is well trained in claims management and claim values.\_ An attorney is better trained at claims management and claim values.\_ When lay people try to negotiate their own cases, they are the only one who does not understand claims management and value.\_ Most often, the adjuster will take gross advantage of the claimant.\_"
   -
     type: paragraph
     content:

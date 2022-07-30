@@ -18,18 +18,18 @@ gallery:
   - Screenshot-(363)-3-1644451535.png
   - Screenshot-(363)-4.png
 sponsored: true
-category:
-  - senior-services
+category: senior-services
 services:
-  - adult-day-care
   - home-health
-  - personal-care-agencies
   - hospice
 promotion_level: '10'
-address: '3753 Howard Hughes Pkwy UNIT 200,'
+address: '3753 Howard Hughes Pkwy UNIT 200'
 city: 'Las Vegas,'
 state: NV
 zip: '89169'
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1644544838
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1659196330
+_geoloc:
+  lat: 36.121706994136
+  lng: -115.15846667116
 ---

@@ -5,12 +5,16 @@ org_name: 'BRIGHTSTAR OF W CENTRAL LAS VEGAS'
 address: '4775 S Durango Dr. #200'
 city: 'Las Vegas'
 state: NV
+zip: '89147'
 phone: 702-982-2273
 category: senior-services
 services:
   - personal-care-agencies
   - home-health
 title: 'BRIGHTSTAR OF W CENTRAL LAS VEGAS'
+_geoloc:
+  lat: 36.103248966614
+  lng: -115.28028644603
 first_name: Franchesca
 last_name: Gonzales
 fax: 702-475-4003
@@ -30,5 +34,5 @@ description: |-
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659194739
+updated_at: 1659194878
 ---

@@ -9,7 +9,6 @@ zip: '89147'
 phone: 702-982-2273
 category: senior-services
 services:
-  - personal-care-agencies
   - home-health
   - medical-staffing
 title: 'BRIGHTSTAR OF W CENTRAL LAS VEGAS'
@@ -35,5 +34,5 @@ description: |-
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659195228
+updated_at: 1659196344
 ---

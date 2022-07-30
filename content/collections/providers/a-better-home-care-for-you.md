@@ -8,7 +8,6 @@ sponsored: true
 category: care-services
 services:
   - home-health
-  - personal-care-agencies
 address: '4660 S Eastern Ave'
 address_2: 'Ste 201'
 city: 'Las Vegas'
@@ -18,5 +17,5 @@ _geoloc:
   lat: 36.1653
   lng: -115.116
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659105803
+updated_at: 1659196410
 ---

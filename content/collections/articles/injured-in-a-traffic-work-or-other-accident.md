@@ -1,13 +1,14 @@
 ---
 id: 927e821b-a323-4e7b-a9e0-a143e30c030f
+published: false
 blueprint: articles
 title: 'INJURED IN A TRAFFIC, WORK OR OTHER ACCIDENT?'
 hero: Screenshot-(379).png
 author: AccidentMD
 snippet: 'Because, no matter how minor the accident may initially seem, injuries can sometimes take days or even weeks to show up. The best course of action is to be examined and evaluated by a doctor.Our Las Vegas Accident and Injury Doctors can provide patients with expert care when you’ve been injured. Though many Las Vegas doctors prefer not to treat accidents and injuries, Our Las Vegas Accident-Injury Doctors are happy to accept Personal Injury patients.'
-homepage: true
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1653863700
+homepage: false
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1659194979
 content:
   -
     type: paragraph

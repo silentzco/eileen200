@@ -5,8 +5,8 @@ first_name: Nikkie
 last_name: Preston
 license_type: DO
 services:
-  - hospice-and-palliative-medicine
-category: doctors
+  - hospice
+category: care-services
 org_name: 'ProCare Hospice of Nevada'
 address: '8025 Amigo St'
 city: 'Las Vegas'
@@ -24,5 +24,5 @@ image: providers/151095552_1659282917576451_1134699954165772237_n.png
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659387787
+updated_at: 1659387866
 ---

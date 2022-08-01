@@ -27,6 +27,7 @@ description: |-
   If you need a new physican, medical equipment, therapist, daycare, and/or any other services do not hesitate to call us.
 insurance_accepted: 'Medicaid, John Hancock LTC, Genworth Financial, most Long term care and Workman''s comp. policies, private pay.'
 sponsored: true
+category: senior-services
 services:
   - personal-care-agencies
 promotion_level: '10'
@@ -38,5 +39,5 @@ _geoloc:
   lat: 36.129194175539
   lng: -115.19506994233
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659386716
+updated_at: 1659386808
 ---

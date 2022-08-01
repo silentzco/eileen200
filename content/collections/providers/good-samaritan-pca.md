@@ -25,7 +25,7 @@ description: |-
   To alleviate the stress of getting out of the home, you can have us help you with errands.
   -Free referral service
   If you need a new physican, medical equipment, therapist, daycare, and/or any other services do not hesitate to call us.
-insurance_accepted: 'Medicaid, John Hancock LTC, Genworth Financial, most Long term care and Workman''s comp. policies, private pay.'
+insurance_accepted: 'Medicaid FFS, Molina Medicaid, Anthem Medicaid, VA, LTCI, grants and private pay'
 sponsored: true
 category: senior-services
 services:
@@ -39,5 +39,5 @@ _geoloc:
   lat: 36.129194175539
   lng: -115.19506994233
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659386808
+updated_at: 1659393966
 ---

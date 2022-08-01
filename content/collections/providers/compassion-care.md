@@ -8,7 +8,7 @@ last_name: 'Executive Director'
 phone: 702-636-0200
 fax: 702-636-2208
 website: 'https://compassioncarenevada.com/'
-email: Julie.McIntosh@cchlv.com
+email: info@cchlv.com
 image: providers/logo-1640104864.jpg
 description: |-
   Hospice. It isn’t a place; it’s a new way of thinking about your life-limiting illness, and the way you want to live now.
@@ -18,6 +18,11 @@ description: |-
   Hospice is a different kind of care, one that helps you and your caregivers better manage your pain and symptoms. So that you can more fully experience the time you have left.
 
   It’s your life. You can choose how to live it. And every day, more patients and their families are choosing to find hope in hospice.
+
+  Facebook: @CompassionCareHospice
+  Twitter: @_CompassionCare
+  Instagram: @compassioncarehospice_nv
+  https://www.linkedin.com/company/compassioncare-hospice/
 gallery:
   - image005.png
   - image006.png
@@ -74,6 +79,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658930083
+updated_at: 1659393799
 promotion_level: '60'
 ---

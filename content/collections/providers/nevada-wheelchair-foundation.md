@@ -1,10 +1,11 @@
 ---
 id: 0d705590-b5a6-41b1-8164-0d7cf348619d
+blueprint: providers
 title: 'Nevada Wheelchair Foundation'
 org_name: 'Nevada Wheelchair Foundation'
 first_name: John
 last_name: Williams
-phone: 702-900-3362
+phone: 702-476-6532
 website: 'https://nevadawheelchairfoundation.org/'
 email: john@nevadawheelchairfoundation.org
 image: providers/NVWCF_Logo_200x147.png
@@ -23,16 +24,14 @@ gallery:
   - 4.png
 video: 'https://www.youtube.com/embed/dZaCRNWGP0A'
 sponsored: true
-category:
-  - medical-transportation-equipment-and-supplies
-  - community-resources
-address: '9190 Golden Feather Ct'
+category: medical-transportation-equipment-and-supplies
+address: '4955 S Durango Suite 123'
 city: 'Las Vegas'
 state: Nevada
-zip: '89147'
+zip: '89113'
 _geoloc:
-  lng: -115.27343
-  lat: 36.113059
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1635464293
+  lat: 36.09941351174
+  lng: -115.2801198
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1659387051
 ---

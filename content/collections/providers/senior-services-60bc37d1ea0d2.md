@@ -6,6 +6,7 @@ address: '3634 NORTH RANCHO DRIVE'
 city: 'LAS VEGAS'
 state: NV
 zip: '89130'
+phone: 702-818-4270
 category: senior-services
 services:
   - hospice
@@ -25,5 +26,5 @@ description: |-
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659452135
+updated_at: 1659452239
 ---

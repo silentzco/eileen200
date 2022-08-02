@@ -6,7 +6,6 @@ address: '3634 NORTH RANCHO DRIVE'
 city: 'LAS VEGAS'
 state: NV
 zip: '89130'
-phone: 702-818-4270
 category: senior-services
 services:
   - hospice
@@ -14,8 +13,6 @@ title: 'HOSPICE DEL SOL'
 _geoloc:
   lat: 36.3792
   lng: -115.372
-first_name: Sabrina
-last_name: Patrick
 fax: 702-834-5184
 website: 'https://www.hospicedelsol.com/'
 email: spatrick@hospicedelsol.com
@@ -28,5 +25,5 @@ description: |-
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659451269
+updated_at: 1659452135
 ---

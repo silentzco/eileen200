@@ -9,7 +9,7 @@ phone: 866-986-2263
 fax: 866-968-6339
 website: 'https://www.woundtech.net'
 email: rbauman@woundtech.net
-image: providers/logo-woundtech2.jpg
+image: providers/logo-woundtech-1659565911.jpg
 description: |-
   For over 20 years, Woundtech has delivered advanced wound care services to patients to drive higher rates of healing and improve quality of life, resulting in better access to care and lower cost. Our clinicians (Podiatrists, NPs & Pas) specialize in wound management and follow evidence-based guidelines to deliver superior outcomes. They are trained as advanced wound care specialist working in collaboration with the patients Primary Care Physician (PCP). Like PCPs, our clinicians write and change orders at point of care.
 
@@ -46,5 +46,5 @@ _geoloc:
   lat: 26.009607765779
   lng: -80.1771314
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659560517
+updated_at: 1659565917
 ---

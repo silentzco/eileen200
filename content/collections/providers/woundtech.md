@@ -18,21 +18,16 @@ description: |-
   Woundtech has completed over 3.5 million visits for over 200,000 wound care patients and we enjoy a patient satisfaction score in excess of 95%.
 insurance_accepted: |-
   •	Intermountain  
-  •	Humana of NV
-  •	Optumcare NV2
-  •	Healthplan of NV Smart  Choice Medicaid   
+  •	Optumcare NV
+  •	Healthplan of NV Smart Choice Medicaid   
   •	Healthplan of NV
-  •	Healthcare Partners NV
-  •	PacificCare
   •	Sierra Healthcare NV
   •	Sierra Health Care Options / Prime Health PPO
-  •	Select Health
-  •	Healthscope Benefits/91603
   •	UHC
   •	Anthem Blue Cross of NV Medicaid 
   •	BlueCross Blue Shield of Nevada
   •	BlueCross Blue Shield Local
-  •	Pacific Care
+  •	LOAs for Payers not listed
 sponsored: true
 category: care-services
 services:
@@ -46,5 +41,5 @@ _geoloc:
   lat: 26.009607765779
   lng: -80.1771314
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659565917
+updated_at: 1659638864
 ---

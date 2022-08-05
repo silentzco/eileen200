@@ -13,12 +13,12 @@ description: 'We are a beautiful 10 bed Residential Facility with a dimentia Rid
 gallery:
   - client-pics-(2).jpg
   - 20170907_130859_resized.jpg
-  - Screenshot_20200311-122143_Gallery.jpg
   - client-pics.jpg
   - 20190727_172525_resized.jpg
   - '-1880116037_20180528_105508_1527530122122_424621.jpg'
   - '-645894548_20180617_102601_1529256520748_3597490_resized.jpg'
   - 20190727_193757_resized.jpg
+  - Screenshot_20200311-122143_Gallery-1659730647.jpg
 sponsored: true
 category: senior-services
 services:
@@ -32,5 +32,5 @@ _geoloc:
   lat: 36.089383304404
   lng: -115.1024307
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659730481
+updated_at: 1659730653
 ---

@@ -1,8 +1,9 @@
 ---
 id: 3ecce6e1-86d6-46ae-9e23-2470f4937446
+blueprint: providers
 title: 'ADVANCED HEALTHCARE OF PARADISE'
 org_name: 'ADVANCED HEALTHCARE OF PARADISE'
-phone: '(702) 790-6400'
+phone: 702-823-0506
 website: 'https://www.ahcfacilities.com/'
 image: providers/Publication1.jpg
 description: |-
@@ -19,13 +20,15 @@ zip: '89121'
 _geoloc:
   lng: -115.0903
   lat: 36.121972
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1628894930
-category:
-  - senior-services
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660005977
+category: senior-services
 services:
   - assisted-living-individual
   - skilled-nursing-facilities
   - physical-rehab
 service_category: 1426542e-ed85-4285-ad96-d2941bd847b1
+first_name: Yvette
+last_name: Zolina
+email: yzolina@ahc.us
 ---

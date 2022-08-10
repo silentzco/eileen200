@@ -4,9 +4,9 @@ blueprint: articles
 title: 'Preventing Heart Disease'
 hero: articles/Preventing-Heart-Disease.jpeg
 snippet: 'According to the American Heart Association, an estimated 92.1 million Americans suffer from cardiovascular disease. Health Plan of Nevada would like to offer a few tips to help prevent heart disease, at any age.'
-homepage: true
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1653863802
+homepage: false
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660159456
 content:
   -
     type: paragraph

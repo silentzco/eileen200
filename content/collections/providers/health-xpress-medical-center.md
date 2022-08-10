@@ -35,6 +35,10 @@ sponsored: true
 category: doctors
 services:
   - primary-care
+  - internal-medicine
+  - urgent-care
+  - family-practice
+promotion_level: '10'
 address: '11201 S Eastern Suite 110'
 city: Henderson
 state: LV
@@ -43,5 +47,5 @@ _geoloc:
   lat: 35.988719780694
   lng: -115.1016038
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660080640
+updated_at: 1660142142
 ---

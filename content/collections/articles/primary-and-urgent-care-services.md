@@ -4,9 +4,9 @@ blueprint: articles
 title: 'Primary and Urgent Care Services'
 hero: HealthXpress-Logo-Stacked-Transparent-(1).svg
 snippet: 'Welcome to Health XPress Medical Center. Since opening our doors, we’ve been welcoming patients seeking treatment and medical services. We take great pride in providing our community with high quality, patient-centric healthcare.'
-homepage: false
+homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660159550
+updated_at: 1660159562
 content:
   -
     type: paragraph

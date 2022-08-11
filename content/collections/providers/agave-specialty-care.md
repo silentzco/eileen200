@@ -15,11 +15,11 @@ gallery:
   - '-645894548_20180617_102601_1529256520748_3597490_resized-1660242291.jpg'
   - '-1880116037_20180528_105508_1527530122122_424621-1660242296.jpg'
   - client-pics-(2)-1660242299.jpg
-sponsored: true
+sponsored: false
 category: care-services
 services:
   - group-home
-promotion_level: '30'
+promotion_level: '10'
 address: '3335 Rawhide St'
 city: 'Las Vegas'
 state: NV
@@ -28,5 +28,5 @@ _geoloc:
   lat: 36.089383304404
   lng: -115.1024307
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660246909
+updated_at: 1660246953
 ---

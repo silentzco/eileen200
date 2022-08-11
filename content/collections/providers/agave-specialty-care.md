@@ -15,7 +15,7 @@ gallery:
   - 20170907_130859_resized.jpg
   - '-645894548_20180617_102601_1529256520748_3597490_resized-1659730872.jpg'
   - '-1880116037_20180528_105508_1527530122122_424621-1659730874.jpg'
-sponsored: true
+sponsored: false
 category: senior-services
 services:
   - group-home
@@ -28,5 +28,5 @@ _geoloc:
   lat: 36.089383304404
   lng: -115.1024307
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660241961
+updated_at: 1660242175
 ---

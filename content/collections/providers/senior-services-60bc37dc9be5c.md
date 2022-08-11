@@ -1,5 +1,6 @@
 ---
 id: 8428ad10-9cce-4241-a605-0a9ef1f3e9cd
+blueprint: providers
 org_name: 'ABINGTON MANOR'
 address: '478 PEARBERRY AVE'
 city: 'LAS VEGAS'
@@ -8,7 +9,7 @@ state: NV
 phone: 702-837-6968
 category: senior-services
 services:
-  - assisted-living-group
+  - assisted-living
 title: 'ABINGTON MANOR'
 _geoloc:
   lat: 36.2713

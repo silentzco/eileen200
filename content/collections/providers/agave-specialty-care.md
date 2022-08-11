@@ -1,5 +1,6 @@
 ---
 id: 80492087-43a9-4712-8b37-d846ccc937a3
+published: false
 blueprint: providers
 title: 'Agave Specialty Care'
 org_name: 'Agave Specialty Care'
@@ -15,7 +16,7 @@ gallery:
   - '-645894548_20180617_102601_1529256520748_3597490_resized-1660242291.jpg'
   - '-1880116037_20180528_105508_1527530122122_424621-1660242296.jpg'
   - client-pics-(2)-1660242299.jpg
-sponsored: false
+sponsored: true
 category: care-services
 services:
   - group-home
@@ -28,5 +29,5 @@ _geoloc:
   lat: 36.089383304404
   lng: -115.1024307
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660246953
+updated_at: 1660247038
 ---

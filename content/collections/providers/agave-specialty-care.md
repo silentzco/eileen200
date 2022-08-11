@@ -17,8 +17,6 @@ gallery:
   - '-1880116037_20180528_105508_1527530122122_424621-1659730874.jpg'
 sponsored: true
 category: senior-services
-services:
-  - group-home
 promotion_level: '10'
 address: '3335 Rawhide St'
 city: 'Las Vegas'
@@ -28,5 +26,5 @@ _geoloc:
   lat: 36.089383304404
   lng: -115.1024307
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659734451
+updated_at: 1660241937
 ---

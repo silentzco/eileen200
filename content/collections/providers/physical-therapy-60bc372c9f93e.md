@@ -1,5 +1,6 @@
 ---
 id: 2cff19eb-1c7f-4576-af7a-3ae344d80039
+blueprint: providers
 last_name: Truman
 first_name: Lane
 middle_name: D.
@@ -10,11 +11,14 @@ address: '6325 South Rainbow'
 city: 'Las Vegas'
 state: NV
 zip: '89118'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'Lorian Home Health'
 _geoloc:
   lat: 36.1517
   lng: -115.243
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660336547
 ---

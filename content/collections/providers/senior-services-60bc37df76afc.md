@@ -9,7 +9,6 @@ state: NV
 phone: 702-269-8217
 category: senior-services
 services:
-  - group-home
   - home-health
 title: 'HEALTHY HOME CARE'
 _geoloc:
@@ -17,5 +16,5 @@ _geoloc:
   lng: -115.237
 sponsored: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660317000
+updated_at: 1660317041
 ---

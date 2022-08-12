@@ -1,5 +1,6 @@
 ---
 id: 396e4bed-3aff-4019-a6ad-168320908b16
+blueprint: providers
 last_name: Haynes
 first_name: 'Shenita Denise'
 license_number: '3011'
@@ -10,11 +11,14 @@ address_2: 'building 41'
 city: 'las vegas'
 state: NV
 zip: '89102'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'Nightingale Home Health'
 _geoloc:
   lat: 36.1592
   lng: -115.247
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660336185
 ---

@@ -1,5 +1,6 @@
 ---
 id: b5e986a3-1ae9-4934-a791-9e9f4590cb77
+blueprint: providers
 last_name: Bohlander
 first_name: Patricia
 middle_name: F.
@@ -11,11 +12,14 @@ address_2: 'Suite 105A'
 city: 'Las Vegas'
 state: NV
 zip: '89148'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'Encompass Home Health'
 _geoloc:
   lat: 36.0379
   lng: -115.297
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660337121
 ---

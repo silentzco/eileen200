@@ -1,5 +1,6 @@
 ---
 id: a251c431-81ce-48be-b942-ab6ca59da835
+blueprint: providers
 last_name: Crisci
 first_name: Brian
 middle_name: A.
@@ -11,11 +12,14 @@ address_2: 'Ste. 100'
 city: 'Las Vegas'
 state: NV
 zip: '89117'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'All Care Home Health'
 _geoloc:
   lat: 36.1468
   lng: -115.248
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660336463
 ---

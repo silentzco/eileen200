@@ -1,5 +1,6 @@
 ---
 id: 539fda6f-cb19-4023-be35-11a7e56d6881
+blueprint: providers
 last_name: Wondel
 first_name: Steven
 middle_name: W.
@@ -10,11 +11,14 @@ address: '6767 W. Charleston Blvd. #150'
 city: 'LAS VEGAS'
 state: NV
 zip: '89146'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'Valley View Home Health Care'
 _geoloc:
   lat: 36.1592
   lng: -115.247
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660336961
 ---

@@ -1,5 +1,6 @@
 ---
 id: 6ddf7459-fed7-4f2e-97d4-c264c0c52cae
+blueprint: providers
 last_name: Javier
 first_name: Wendelyn
 middle_name: D.
@@ -11,11 +12,14 @@ address_2: 'NV Nevada'
 city: 'Las Vegas'
 state: NV
 zip: '89178'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'ASHBY HOME HEALTH NEVADA'
 _geoloc:
   lat: 36.0527
   lng: -115.188
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660337263
 ---

@@ -1,5 +1,6 @@
 ---
 id: 8782666a-e462-498d-aab4-ccd9c0785f7c
+blueprint: providers
 last_name: Casibang
 first_name: Basilia
 license_number: '2982'
@@ -9,11 +10,14 @@ address: '9747 PANTHER HOLLOW ST.'
 city: 'LAS VEGAS'
 state: NV
 zip: '89141'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'CORNERSTONE HOME HEALTH THERAPY, LLC'
 _geoloc:
   lng: -115.19588
   lat: 35.998778
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660336930
 ---

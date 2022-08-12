@@ -1,5 +1,6 @@
 ---
 id: dd8b556a-7fce-48f6-9a5a-eb152c12fc0f
+blueprint: providers
 last_name: Martinez
 first_name: 'John Frederick'
 license_number: '2704'
@@ -9,11 +10,14 @@ address: '4535 W SAHARA AVE'
 city: 'LAS VEGAS'
 state: NV
 zip: '89102'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'CANA HOME HEALTH AGENCY'
 _geoloc:
   lat: 36.1441
   lng: -115.248
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660336120
 ---

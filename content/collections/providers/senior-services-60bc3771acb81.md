@@ -9,13 +9,12 @@ zip: '89128'
 phone: 702-380-0600
 category: senior-services
 services:
-  - personal-care-agencies
   - home-health
 title: 'A CARING HAND HOME HEALTH CARE'
 _geoloc:
   lng: -115.265
   lat: 36.193501
-sponsored: false
+sponsored: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660317124
+updated_at: 1660317167
 ---

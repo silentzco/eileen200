@@ -1,5 +1,6 @@
 ---
 id: 7243a656-572a-4a86-9092-978f8ab9754e
+blueprint: providers
 last_name: Lawson
 first_name: Michael
 middle_name: K.
@@ -10,11 +11,14 @@ address: '6225 Dean Martin'
 city: 'Las Vegas'
 state: NV
 zip: '89118'
-category: physical-therapy
+category: senior-services
 services:
-  - all-physical-therapy
+  - home-health
 title: 'Sonoma Home Health'
 _geoloc:
   lat: 36.0494
   lng: -115.184
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1660336568
 ---

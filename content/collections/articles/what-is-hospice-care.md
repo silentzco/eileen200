@@ -2,12 +2,12 @@
 id: ff4c24d3-cc63-4cda-aac0-c28d571fc3e5
 blueprint: articles
 title: 'What is Hospice Care?'
-hero: CompassionCare-Logo.png
+hero: logo-1.jpg
 author: 'Compassion Care Hospice'
 snippet: 'Hospice is an affirmation of life that focuses on comfortable, pain-free care when a loved one is faced with a terminal illness.'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660403000
+updated_at: 1660403069
 content:
   -
     type: heading

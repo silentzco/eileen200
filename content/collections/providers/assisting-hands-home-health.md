@@ -6,11 +6,10 @@ org_name: 'ASSISTING HANDS HOME HEALTH'
 first_name: Raymond
 last_name: Lopez
 phone: 702-919-0231
-sponsored: false
+sponsored: true
 category: care-services
 services:
   - home-health
-promotion_level: '0'
 address: '7469 W Lake Mead Blvd'
 city: 'Las Vegas'
 state: NV
@@ -19,5 +18,5 @@ _geoloc:
   lat: 36.1972
   lng: -115.269
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660594134
+updated_at: 1660594454
 ---

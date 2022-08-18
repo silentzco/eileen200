@@ -9,6 +9,7 @@ phone: 702-636-2843
 fax: 702-726-9543
 website: 'https://www.summitintegratedhealth.com'
 email: kathy@summitintegratedhealth.com
+image: providers/SIH-logo-2c-pos-sapphire-bluestone-1024x614.webp
 description: 'Summit Integrated Health provides family chiropractic care, physical therapy, medical services, pain managment and allergy testing.'
 sponsored: true
 category: complementary-medicine
@@ -23,5 +24,5 @@ _geoloc:
   lat: 36.289566528539
   lng: -115.17767912884
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660837838
+updated_at: 1660838262
 ---

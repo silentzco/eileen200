@@ -6,8 +6,7 @@ last_name: HAROUNI
 license: M.D.
 services:
   - internal-medicine
-category:
-  - doctors
+category: doctors
 address: '8960 West Tropicana Ave, Suite 100.'
 city: 'Las Vegas'
 state: NV
@@ -17,7 +16,7 @@ title: 'Rama HAROUNI'
 _geoloc:
   lng: -115.26791
   lat: 36.167731
-sponsored: false
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1640704242
+sponsored: true
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1661298148
 ---

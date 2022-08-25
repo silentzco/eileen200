@@ -9,8 +9,6 @@ zip: '89147'
 state: NV
 phone: 767-767-8040
 category: senior-services
-services:
-  - assisted-living-individual
 title: 'ACACIA SPRINGS'
 _geoloc:
   lng: -115.27343
@@ -20,5 +18,5 @@ last_name: Graves
 fax: 767-942-8700
 sponsored: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661442200
+updated_at: 1661442219
 ---

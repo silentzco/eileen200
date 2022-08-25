@@ -13,7 +13,7 @@ zip: '89103'
 category: care-services
 services:
   - home-health
-title: NurseCore
+title: 'NurseCore of Las Vegas'
 _geoloc:
   lat: 36.0681
   lng: -115.191
@@ -26,5 +26,5 @@ description: 'NurseCore provides Home Care, Companion Services, Infusion Therapy
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661452887
+updated_at: 1661452901
 ---

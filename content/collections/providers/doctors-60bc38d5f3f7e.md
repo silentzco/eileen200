@@ -18,7 +18,7 @@ _geoloc:
   lng: -115.09895
   lat: 35.979863
 fax: 702-664-6755
-sponsored: false
+sponsored: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661441304
+updated_at: 1661443880
 ---

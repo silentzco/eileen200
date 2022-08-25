@@ -69,7 +69,6 @@ services:
   - physical-medicine-rehab
   - physical-rehab
   - physical-medicinerehabilitation
-  - doctors
   - complimentary-medicine
 address: '7842 West Sahara Avenue'
 city: 'Las Vegas'
@@ -79,6 +78,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659393799
+updated_at: 1661443907
 promotion_level: '60'
 ---

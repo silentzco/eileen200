@@ -5,12 +5,8 @@ first_name: Himansu
 last_name: 'SHAH MD FACS'
 license: M.D.
 services:
-  - surgery
-  - cosmetic-medicine-non-abms
   - cosmetic-surgery
-  - dermatology
-category:
-  - doctors
+category: doctors
 address: 'Signature Plastic Surgery'
 city: Henderson
 state: NV
@@ -34,8 +30,8 @@ description: |-
 
   If you are considering body sculpting surgery, there are a wide range of options available to you. Our surgical practice offers surgical procedures including liposuction, tummy tuck, buttocks lift and many more while offering more noninvasive options such as coolsculpting. Dr. Shah’s warm, sensitive, and welcoming approach is a part of what makes the Signature Plastic Surgery & Dermatology, one of the leading surgical centers in Las Vegas. Request a consult: Click on our website link below.
 sponsored: true
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1642809338
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1661443775
 address_2: '3035 W Horizon Ridge Pkwy Ste 100'
 video: 'https://www.youtube.com/embed/Y29rbwGpDqI'
 gallery:

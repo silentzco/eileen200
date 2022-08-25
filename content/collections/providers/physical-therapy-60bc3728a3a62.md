@@ -22,12 +22,9 @@ fax: 702-458-1423
 website: 'https://www.nursecore.com/'
 email: lasvegasmailgroup@nursecore.com
 image: providers/nursecore_logo.png
-description: |-
-  Fore more than 45 years, NurseCore has been an industry's leader in medical staffing. We've matched thousands of families and medical facilities with trained medical professionals and nurses to fit their specific medical staffing needs. Each of our nurses are extensively screened and placed in positions that fit their skill set, experience, and schedule, ensuring they provide the highest quality care to every patient. Our high standards and years of outstanding expertise guarantee that each of our patients, families, and clients have their needs met beyond satisfaction. 
-
-  Don't know where to start? We suggest beginning by selecting one of our 29 locations serving communities in 10 states.
+description: 'NurseCore provides Home Care, Companion Services, Infusion Therapy, Nursing Care, Pediatrics, Personal Care Services, Private Duty Nurses, and Health Care Staffing.'
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661469676
+updated_at: 1661469884
 ---

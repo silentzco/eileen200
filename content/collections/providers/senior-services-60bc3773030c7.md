@@ -10,6 +10,7 @@ phone: 702-982-2273
 category: senior-services
 services:
   - home-health
+  - pca
 title: 'BRIGHTSTAR OF W CENTRAL LAS VEGAS'
 _geoloc:
   lat: 36.103248966614
@@ -33,5 +34,5 @@ description: |-
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661555959
+updated_at: 1661556278
 ---

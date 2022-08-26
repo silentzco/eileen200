@@ -7,7 +7,7 @@ first_name: Elizabeth
 last_name: Hernandez
 phone: 702-256-6500
 fax: 702-256-6736
-website: 'https://oakmontseniorliving.com'
+website: 'https://oakmontseniorliving.com/thelakes/'
 email: ELIZABETH.HERNANDEZ@OAKMONTMG.COM
 image: providers/Oakmont-Senior-Living-Community-Las-Vegas-NV-Logo.png
 description: |-
@@ -26,5 +26,5 @@ _geoloc:
   lat: 36.131185274486
   lng: -115.29591105767
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661547931
+updated_at: 1661548844
 ---

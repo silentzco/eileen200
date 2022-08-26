@@ -29,7 +29,7 @@ insurance_accepted: 'Medicaid FFS, Molina Medicaid, Anthem Medicaid, VA, LTCI, g
 sponsored: true
 category: senior-services
 services:
-  - personal-care-agencies
+  - pca
 promotion_level: '10'
 address: '3365 S. WYNN RD STE F'
 city: 'LAS VEGAS'
@@ -39,5 +39,5 @@ _geoloc:
   lat: 36.129194175539
   lng: -115.19506994233
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659393966
+updated_at: 1661555795
 ---

@@ -21,12 +21,10 @@ _geoloc:
   lng: -115.0903
   lat: 36.121972
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660005977
+updated_at: 1661558795
 category: senior-services
 services:
-  - assisted-living-individual
   - skilled-nursing-facilities
-  - physical-rehab
 service_category: 1426542e-ed85-4285-ad96-d2941bd847b1
 first_name: Yvette
 last_name: Zolina

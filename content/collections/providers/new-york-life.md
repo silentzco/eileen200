@@ -27,7 +27,7 @@ description: |-
 sponsored: true
 category: navigating-health-insurance
 services:
-  - insurance
+  - health-insurance-compare-plans
 promotion_level: '10'
 address: '6325 S. Rainbow Blvd Ste 400'
 city: 'Las Vegas'
@@ -37,5 +37,5 @@ _geoloc:
   lat: 36.073800897951
   lng: -115.2447691
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661702820
+updated_at: 1661702877
 ---

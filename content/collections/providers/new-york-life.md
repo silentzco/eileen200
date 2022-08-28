@@ -24,6 +24,8 @@ description: |-
   *The Million Dollar Round Table (MDRT), The Premier Association of Financial Professionals, is recognized globally as the standard of excellence for life insurance sales performance in the insurance and financial services industry.
 
   Yuan-Fen Lai, Registered Representative offering securities through NYLIFE Securities LLC (Member FINRA/SIPC). A Licensed Insurance Agency and New York Life Company, 6325 S. Rainbow Blvd., Suite 400, NV 89118
+gallery:
+  - YuanFenLai.jpg
 sponsored: true
 category: navigating-health-insurance
 services:
@@ -37,5 +39,5 @@ _geoloc:
   lat: 36.073800897951
   lng: -115.2447691
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661702877
+updated_at: 1661702940
 ---

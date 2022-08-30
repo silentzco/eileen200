@@ -24,8 +24,7 @@ gallery:
   - dallashorton/8.jpg
 video: 'https://youtube.com/embed/e9lNtFNZKaY'
 sponsored: true
-category:
-  - legal-services
+category: legal-services
 services:
   - personal-injury-attorneys
   - accident-and-personal-injury
@@ -36,6 +35,7 @@ zip: '89119'
 _geoloc:
   lat: 36.1653
   lng: -115.116
-updated_by: a034f527-2110-44df-82f7-baa1cb1b5355
-updated_at: 1639706375
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1661894438
+promotion_level: '10'
 ---

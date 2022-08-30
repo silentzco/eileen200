@@ -4,7 +4,7 @@ blueprint: providers
 title: 'A BETTER HOME CARE FOR YOU'
 org_name: 'A BETER HOME CARE FOR YOU'
 phone: 702-462-5251
-sponsored: true
+sponsored: false
 category: care-services
 services:
   - home-health
@@ -17,5 +17,5 @@ _geoloc:
   lat: 36.1653
   lng: -115.116
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659196410
+updated_at: 1661881219
 ---

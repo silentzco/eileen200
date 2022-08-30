@@ -14,7 +14,7 @@ title: 'A CARING HAND HOME HEALTH CARE'
 _geoloc:
   lng: -115.265
   lat: 36.193501
-sponsored: true
+sponsored: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660317167
+updated_at: 1661881325
 ---

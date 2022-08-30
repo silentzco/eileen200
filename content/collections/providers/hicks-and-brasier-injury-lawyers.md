@@ -25,11 +25,12 @@ zip: '89146'
 _geoloc:
   lat: 36.1491
   lng: -115.225
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1645644815
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1661894392
 gallery:
   - bit-by-a-dog-in-las-vegas-340x300.jpg
   - car-accident-las-vegas-340x300.jpg
   - Top-100.jpg
 video2: 'https://www.youtube.com/embed/PpU-Ee0SBE0'
+promotion_level: '10'
 ---

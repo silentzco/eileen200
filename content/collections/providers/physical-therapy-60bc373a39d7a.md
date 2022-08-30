@@ -15,10 +15,10 @@ category: senior-services
 services:
   - home-health
 title: 'Advent Home Health Care'
-sponsored: true
+sponsored: false
 _geoloc:
   lat: 36.013928418079
   lng: -115.14639871534
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660334237
+updated_at: 1661881487
 ---

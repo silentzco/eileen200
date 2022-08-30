@@ -14,7 +14,7 @@ title: 'A GENTLE TOUCH HOME HEALTH CARE, INC.'
 _geoloc:
   lng: -115.22493
   lat: 36.141119
-sponsored: true
+sponsored: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660333571
+updated_at: 1661881525
 ---

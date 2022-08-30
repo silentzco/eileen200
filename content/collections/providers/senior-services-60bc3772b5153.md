@@ -14,7 +14,7 @@ title: 'ANGELS TOUCH HOME HEALTHCARE INC'
 _geoloc:
   lng: -115.08872
   lat: 36.087623
-sponsored: true
+sponsored: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660337479
+updated_at: 1661881613
 ---

@@ -11,6 +11,7 @@ website: 'https://www.silverado.com/'
 email: Penny.Munn@silverado.com
 image: providers/Untitled-1661964672.jpg
 description: 'Innovative memory care community offering a unique cultore method of delivering care services to those with memory impairment. Often our Nexus program showed a statistically significant 60% improvement in cognition when compared to those without such treatment.'
+video: 'https://www.youtube.com/watch?v=v5qefU_rgME'
 sponsored: true
 category: care-services
 services:
@@ -24,5 +25,5 @@ _geoloc:
   lat: 36.204182145835
   lng: -115.258863
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661965224
+updated_at: 1661965369
 ---

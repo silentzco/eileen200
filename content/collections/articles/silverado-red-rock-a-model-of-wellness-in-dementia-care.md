@@ -2,11 +2,12 @@
 id: 3073c459-726a-476a-8cfe-2cfc25a34347
 blueprint: articles
 title: 'Silverado Red Rock A Model of Wellness in Dementia Care'
+hero: Untitled.jpg
 author: 'Irma Prettenhofer, MPA'
 snippet: 'In 1996 Silverado was founded with a vision to change the way the world cares for and perceives people with cognitive decline. Their ideals – rooted in compassion, clinical excellence, and dignity through helping people find their purpose- made a difference instantly. The difference was noted by both residents and family, who rediscovered loved ones they had they had lost to the disease. More than 20 years later, with the addition of in-home and hospice services, Silverado continues to lead the way.'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662494433
+updated_at: 1662496315
 content:
   -
     type: paragraph

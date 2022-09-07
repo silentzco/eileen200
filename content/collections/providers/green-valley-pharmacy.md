@@ -9,12 +9,12 @@ category: pharmacies
 services:
   - all-pharmacies
 address: '2245 N Green Valley Pkwy'
-city: 'Las Vegas'
+city: Henderson
 state: NV
 zip: '89104'
 _geoloc:
   lat: 36.054086026754
   lng: -115.08407017302
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662574810
+updated_at: 1662574881
 ---

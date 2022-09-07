@@ -8,7 +8,6 @@ sponsored: false
 category: pharmacies
 services:
   - all-pharmacies
-promotion_level: '0'
 address: '4110 S Maryland Parkway #17'
 city: 'Las Vegas'
 state: NV
@@ -17,5 +16,5 @@ _geoloc:
   lat: 36.1526
   lng: -115.137
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662573415
+updated_at: 1662573440
 ---

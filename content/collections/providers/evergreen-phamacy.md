@@ -4,7 +4,7 @@ blueprint: providers
 title: 'EVERGREEN PHARMACY'
 org_name: 'EVERGREEN PHARMACY'
 phone: 702-462-6262
-sponsored: true
+sponsored: false
 category: pharmacies
 services:
   - all-pharmacies
@@ -16,6 +16,6 @@ zip: '89119'
 _geoloc:
   lat: 36.1526
   lng: -115.137
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1647627663
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1662573415
 ---

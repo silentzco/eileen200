@@ -27,15 +27,11 @@ gallery:
   - tsikki/1465789267.png
   - tsikki/4716288_orig.jpg
 sponsored: true
-category:
-  - behavioral-health
-  - complementary-medicine
+category: complementary-medicine
 services:
   - alternative
-  - marriage-counseling
-  - oriental-medicine
-updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
-updated_at: 1630427758
+updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
+updated_at: 1662670902
 video: 'https://www.youtube.com/embed/ychoWHClhwc'
 address: 'Tsikki Thau'
 ---

@@ -6,8 +6,6 @@ org_name: 'Helaine L. Hunter-Smith, MFT'
 phone: 702-525-2050
 sponsored: false
 category: behavioral-health
-services:
-  - marriage-and-family-counseling
 address: '8290 W Sahara Ave suite 158'
 city: 'Las Vegas'
 state: NV
@@ -16,5 +14,5 @@ _geoloc:
   lat: 36.145733956563
   lng: -115.27176580185
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662669501
+updated_at: 1662670825
 ---

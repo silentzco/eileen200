@@ -6,6 +6,8 @@ org_name: 'Las Vegas Counseling'
 phone: 702-659-9043
 sponsored: false
 category: behavioral-health
+services:
+  - marriage-counseling
 address: '9494 W Flamingo Rd Suite 101'
 city: 'Las Vegas'
 state: NV
@@ -14,5 +16,5 @@ _geoloc:
   lat: 36.116604621343
   lng: -115.29878030185
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662670719
+updated_at: 1662671944
 ---

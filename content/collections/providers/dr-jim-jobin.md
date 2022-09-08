@@ -6,8 +6,6 @@ org_name: 'Dr. Jim Jobin'
 phone: 702-625-4063
 sponsored: false
 category: behavioral-health
-services:
-  - marriage-and-family-counseling
 address: '5510 S Fort Apache Rd #2'
 city: 'Las Vegas'
 state: NV
@@ -16,5 +14,5 @@ _geoloc:
   lat: 36.088603521393
   lng: -115.29602007302
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662669258
+updated_at: 1662670777
 ---

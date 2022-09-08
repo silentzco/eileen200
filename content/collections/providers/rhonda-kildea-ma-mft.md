@@ -6,6 +6,8 @@ org_name: 'Rhonda Kildea, MA, MFT'
 phone: 702-245-6677
 sponsored: false
 category: behavioral-health
+services:
+  - marriage-counseling
 address: '7361 W Charleston Blvd #130'
 city: 'Las Vegas'
 state: NV
@@ -14,5 +16,5 @@ _geoloc:
   lat: 36.159095023921
   lng: -115.25435654418
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662670841
+updated_at: 1662672086
 ---

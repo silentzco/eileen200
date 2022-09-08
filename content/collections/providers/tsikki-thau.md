@@ -32,7 +32,7 @@ category:
   - complementary-medicine
 services:
   - alternative
-  - marriage-and-family-counseling
+  - marriage-counseling
   - oriental-medicine
 updated_by: 188126a4-88f3-4d82-9c1a-fec13910994f
 updated_at: 1630427758

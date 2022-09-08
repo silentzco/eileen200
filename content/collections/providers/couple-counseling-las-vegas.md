@@ -7,7 +7,7 @@ phone: 702-228-0980
 sponsored: false
 category: behavioral-health
 services:
-  - marriage-and-family-counseling
+  - marriage-counseling
 address: '8440 W Lake Mead Blvd Ste 206'
 city: 'Las Vegas'
 state: NV

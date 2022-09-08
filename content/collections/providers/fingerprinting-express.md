@@ -17,13 +17,13 @@ category: community-resources
 services:
   - employement-services
 promotion_level: '10'
-address: '2351 N Rainbow Blvd #102'
+address: '6485 S Rainbow Blvd #103'
 city: 'Las Vegas'
 state: NV
-zip: '89108'
+zip: '89118'
 _geoloc:
-  lat: 36.203375649713
-  lng: -115.2431938113
+  lat: 36.072019078977
+  lng: -115.24316604969
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662666327
+updated_at: 1662666439
 ---

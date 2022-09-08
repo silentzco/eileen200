@@ -7,7 +7,7 @@ phone: 702-625-2342
 sponsored: false
 category: behavioral-health
 services:
-  - marriage-and-family-counseling
+  - marriage-counseling
 address: '1091 S Cimarron Rd suite A6'
 city: 'Las Vegas'
 state: NV

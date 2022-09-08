@@ -7,7 +7,7 @@ phone: 725-222-9269
 sponsored: false
 category: behavioral-health
 services:
-  - marriage-and-family-counseling
+  - marriage-counseling
 address: '10655 W Park Run Dr Suite 210'
 city: 'Las Vegas'
 state: NV

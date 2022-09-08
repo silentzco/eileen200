@@ -7,7 +7,7 @@ phone: 702-819-8831
 sponsored: false
 category: behavioral-health
 services:
-  - marriage-and-family-counseling
+  - marriage-counseling
 address: '7331 W Charleston Blvd'
 city: 'Las Vegas'
 state: NV

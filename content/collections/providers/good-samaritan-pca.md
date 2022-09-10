@@ -9,9 +9,9 @@ phone: 702-331-4161
 fax: 702-543-1649
 email: admin@goodsamaritanpca.com
 description: |-
-  Good Samaritan PCA is a State and Medicaild licensed in home care, our personnel count is with over 15 years of experience in the caregiving field. We will provide in-home care services ranging from light housekeeping to personal care services(bathing,grooming,dressing,incontinence care). We strive to provide compassionate, dependable care of the highest quality while maintaining our patients indepence at home. Everything we do with our clients is geared to meet their needs, where you neeed companionship, a little assitance or full care we are here to server you and/or your loved one. We provide a minimum of 2 hours of services per shift to 24/7 care.
+  Good Samaritan PCA is a State and Medicaid licensed in home care, our personnel count is with over 15 years of experience in the caregiving field. We will provide in-home care services ranging from light housekeeping to personal care services(bathing,grooming,dressing,incontinence care). We strive to provide compassionate, dependable care of the highest quality while maintaining our patients indepence at home. Everything we do with our clients is geared to meet their needs, where you neeed companionship, a little assitance or full care we are here to server you and/or your loved one. We provide a minimum of 2 hours of services per shift to 24/7 care.
 
-  In-Home care services provide:
+  **In-Home care services provide:**
 
   -ADL's (activities of our daily living)
   Such as bathing,grooming,dressing,incontinence care.
@@ -39,5 +39,5 @@ _geoloc:
   lat: 36.129194175539
   lng: -115.19506994233
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661555795
+updated_at: 1662839018
 ---

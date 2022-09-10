@@ -23,13 +23,14 @@ services:
   - home-health
   - hospice
   - pca
+  - personal-care-agencies
 promotion_level: '10'
 address: '3753 Howard Hughes Pkwy UNIT 200'
 city: 'Las Vegas,'
 state: NV
 zip: '89169'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660765049
+updated_at: 1662839190
 _geoloc:
   lat: 36.121706994136
   lng: -115.15846667116

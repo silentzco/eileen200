@@ -11,6 +11,7 @@ category: senior-services
 services:
   - home-health
   - pca
+  - personal-care-agencies
 title: 'BRIGHTSTAR OF W CENTRAL LAS VEGAS'
 _geoloc:
   lat: 36.103248966614
@@ -34,5 +35,5 @@ description: |-
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661556278
+updated_at: 1662839167
 ---

@@ -39,12 +39,8 @@ description: |-
   - Grooming
   - Dressing
 insurance_accepted: 'Private Insurance | Medicaid | VA Benefits | Private Pay | LT Insurance | Workcomp'
-sponsored: true
+sponsored: false
 category: care-services
-services:
-  - pca
-  - personal-care-agencies
-promotion_level: '10'
 address: '721 Stagecoach Ave'
 city: 'Las Vegas'
 state: NV
@@ -53,5 +49,5 @@ _geoloc:
   lat: 36.245839138068
   lng: -115.13183147671
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662994069
+updated_at: 1662994310
 ---

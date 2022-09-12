@@ -1,5 +1,6 @@
 ---
 id: ad835b4e-9e0d-4ee0-aa2e-557c59c9765b
+published: false
 blueprint: providers
 title: 'Signal Health Group on Pahrump/Carson City'
 org_name: 'Signal Health Group on Pahrump/Carson City'
@@ -52,5 +53,5 @@ _geoloc:
   lat: 36.245839138068
   lng: -115.13183147671
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1662839198
+updated_at: 1662994069
 ---

@@ -8,7 +8,6 @@ sponsored: true
 category: doctors
 services:
   - otolaryngology
-promotion_level: '0'
 address: '8935 S. Pecos'
 city: Henderson
 state: NV
@@ -17,5 +16,5 @@ _geoloc:
   lat: 36.0581
   lng: -115.1
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661298103
+updated_at: 1663191220
 ---

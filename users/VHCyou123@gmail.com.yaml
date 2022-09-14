@@ -7,6 +7,3 @@ preferences:
   collections:
     providers:
       per_page: 100
-  forms:
-    contact_us:
-      per_page: 100

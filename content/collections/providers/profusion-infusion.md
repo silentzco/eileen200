@@ -4,7 +4,7 @@ blueprint: providers
 title: 'Profusion Infusion'
 org_name: 'Profusion Infusion'
 first_name: Aisha
-last_name: Payne
+last_name: 'Payne RN'
 phone: 702-955-3825
 website: 'https://www.profusioninfusionllc.com/'
 email: info@profusioninfusionllc.com
@@ -16,5 +16,5 @@ services:
   - iv-hydration
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1664325513
+updated_at: 1664326796
 ---

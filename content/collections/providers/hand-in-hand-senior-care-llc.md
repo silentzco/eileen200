@@ -17,13 +17,6 @@ services:
   - pca
   - personal-care-agencies
 promotion_level: '10'
-address: '896 Bluebell Brook St'
-city: Henderson
-state: NV
-zip: '89052'
-_geoloc:
-  lat: 35.994287749204
-  lng: -115.1300146
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1664548411
+updated_at: 1664576774
 ---

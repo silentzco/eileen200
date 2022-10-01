@@ -2,11 +2,12 @@
 id: 84d47705-73c3-4ada-a846-0678dd3ae97f
 blueprint: articles
 title: 'Helping Former Atomic Workers with a COPD Diagnosis'
+hero: Oct-Vegas-HeathCare-Image.png
 author: 'Nuclear Care Partners'
 snippet: 'In 1950, the Atomic Energy Commission (AEC) selected the Las Vegas Bombing and Gunnery Range to develop and test its nuclear weapons. In December of 1950, President Harry Truman approved the establishment of nearly 700 square miles of the Range as the Nevada Proving Ground, later renamed to the Nevada Test Site in 1955.'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1664661854
+updated_at: 1664661904
 content:
   -
     type: paragraph

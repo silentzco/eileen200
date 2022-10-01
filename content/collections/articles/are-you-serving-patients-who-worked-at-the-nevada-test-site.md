@@ -5,9 +5,9 @@ title: 'Are You Serving Patients who Worked at the Nevada Test Site?'
 hero: September-Vegas-HealthCare-Article-Image.png
 author: 'Nuclear Care Partners'
 snippet: 'Do They Have this DOL White Card? A Long-Term Care Solution for Former Atomic Workers For over a decade, Nuclear Care Partners has helped former atomic workers, including former Nevada Test Site workers, get connected with and maximize their EEOICPA benefits in addition to providing the highest quality of in-home care services.'
-homepage: true
+homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661526771
+updated_at: 1664661870
 content:
   -
     type: paragraph

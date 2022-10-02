@@ -2,11 +2,12 @@
 id: a138da60-cc31-40aa-85b7-64aafd8e6800
 blueprint: articles
 title: 'IV Hydration'
+hero: istockphoto-1188462407-612x612.jpg
 author: 'Aisha Payne, RN'
 snippet: 'What is IV Hydration? Intravenous therapy is a minimally invasive medical technique that administers fluids, medications and nutrients directly into a person’s vein via a small catheter; bypassing the digestive system for maximum absorption.'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1664726580
+updated_at: 1664726712
 content:
   -
     type: paragraph

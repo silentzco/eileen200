@@ -9,7 +9,7 @@ phone: 702-896-0983
 fax: 702-896-0949
 website: 'https://cnscares.com/'
 email: tammy.dunston@cnscares.com
-image: providers/LOGO.png
+image: providers/logo-2.png
 description: |-
   Home Health Care and Claims Assistance At No Cost To You
 
@@ -33,5 +33,5 @@ _geoloc:
   lat: 36.116603006812
   lng: -115.14107282884
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1661983080
+updated_at: 1664823105
 ---

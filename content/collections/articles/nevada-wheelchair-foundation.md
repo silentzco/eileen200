@@ -4,25 +4,11 @@ blueprint: articles
 title: 'Nevada Wheelchair Foundation'
 hero: give_overview-1665429929.jpg
 author: 'NV Wheelchair Foundation'
-snippet: 'Circling the state with friendship, hope and mobility.'
+snippet: 'OUR GOAL 10,000 WHEELCHAIRS FOR NEVADA'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1665430041
+updated_at: 1665430092
 content:
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'OUR GOAL'
-  -
-    type: heading
-    attrs:
-      level: 3
-    content:
-      -
-        type: text
-        text: '10,000 WHEELCHAIRS FOR NEVADA'
   -
     type: paragraph
     content:

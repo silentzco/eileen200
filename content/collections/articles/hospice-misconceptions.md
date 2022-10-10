@@ -4,10 +4,10 @@ blueprint: articles
 title: 'Hospice Misconceptions'
 hero: logo-1-1665438737.jpg
 author: 'CompassionCare Hospice'
-snippet: 'There are many hospice care misconceptions and it is important to learn as much as possible about how hospice care might benefit you, or your loved one.'
+snippet: 'Now, more than ever, there is a sense of urgency in our country to start discussions about how we would want to be treated, if we were faced with a life-limiting illness. Discussing end of life care options, preparing advance directives, and letting our loved ones know our wishes, are all important topics. Hospice care can provide innumerable benefits to those with life-limiting illnesses, and their loved ones. But there are many hospice care misconceptions and it is important to learn as much as possible about how hospice care might benefit you, or your loved one. We have many choices about the services we receive toward the end of life, and hospice care is an important one to consider.'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1665439053
+updated_at: 1665439779
 content:
   -
     type: heading
@@ -17,12 +17,6 @@ content:
       -
         type: text
         text: 'Misconceptions When it Comes to Hospice Care'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Now, more than ever, there is a sense of urgency in our country to start discussions about how we would want to be treated, if we were faced with a life-limiting illness. Discussing end of life care options, preparing advance directives, and letting our loved ones know our wishes, are all important topics. Hospice care can provide innumerable benefits to those with life-limiting illnesses, and their loved ones. But there are many hospice care misconceptions and it is important to learn as much as possible about how hospice care might benefit you, or your loved one. We have many choices about the services we receive toward the end of life, and hospice care is an important one to consider.'
   -
     type: paragraph
     content:

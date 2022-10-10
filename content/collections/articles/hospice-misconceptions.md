@@ -7,7 +7,7 @@ author: 'CompassionCare Hospice'
 snippet: 'There are many hospice care misconceptions and it is important to learn as much as possible about how hospice care might benefit you, or your loved one.'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1665438904
+updated_at: 1665439053
 content:
   -
     type: heading

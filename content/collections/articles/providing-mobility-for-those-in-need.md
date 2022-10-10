@@ -7,7 +7,7 @@ author: 'Nevada Wheelchair Foundation'
 snippet: 'OUR MISSION The Wheelchair Foundation is a nonprofit organization leading an international effort to create awareness of the needs and abilities of people with physical disabilities, to promote the joy of giving, create global friendship, and to deliver a wheelchair to every child, teen and adult in the world who needs one, but cannot afford one. For those people, the Wheelchair Foundation delivers Hope, Mobility, and Freedom.'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1665428019
+updated_at: 1665428090
 content:
   -
     type: paragraph
@@ -54,5 +54,5 @@ content:
               rel: null
               target: null
               title: null
-        text: 'https://www.wheelchairfoundation.org/overview/'
+        text: 'https://www.wheelchairfoundation.org'
 ---

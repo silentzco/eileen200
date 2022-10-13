@@ -13,7 +13,7 @@ city: 'Las Vegas'
 state: NV
 zip: '89134'
 _geoloc:
-  Lat: 36.190977672647
+  lat: 36.190977672647
   lng: -115.30066570185
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
 updated_at: 1661894531

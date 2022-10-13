@@ -4,7 +4,7 @@ blueprint: providers
 title: 'Health Xpress Medical Center'
 org_name: 'Health Xpress Medical Center'
 first_name: Cristy
-last_name: 'O''Connell'
+last_name: "O'Connell"
 phone: 702-992-3688
 fax: 702-992-3181
 website: 'https://healthxpresslv.com'
@@ -47,5 +47,5 @@ _geoloc:
   lat: 35.988719780694
   lng: -115.1016038
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660161907
+updated_at: 1665684733
 ---

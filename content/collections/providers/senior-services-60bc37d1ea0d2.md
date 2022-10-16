@@ -17,7 +17,7 @@ _geoloc:
 fax: 702-834-5184
 website: 'https://www.hospicedelsol.com/'
 email: spatrick@hospicedelsol.com
-image: providers/logo.png
+image: providers/logo-1665962436.png
 description: |-
   Hospice Del Sol’s approach to hospice care is an endeavor of love and very distinctive. It places great emphasis on a holistic model to care; fostering a family-like culture second to none. Understanding that every day is critically important to the patient and their family, we provide a coordinated approach to this specialized form of care. Our team is made up of highly-skilled professionals with a unique commitment and passion allowing us to focus first on the individual needs of each patient and their family. Thereby, ensuring quality of life, dignity and respect for our patient’s wherever they call home!
 
@@ -26,5 +26,5 @@ description: |-
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1659452239
+updated_at: 1665962439
 ---

@@ -2,7 +2,7 @@ name: 'Vegas HealthCare'
 roles:
   - content_admin
 id: 87a74d1c-1760-42c5-afc1-1cc59be16098
-password_hash: VegasHC702!
+password_hash: $2y$10$NDQdZ.xhPfMnrFLqPDfI0OLgZK6uNVTfEU9DFUHfkp0Yzo2ylSGF6
 preferences:
   collections:
     providers:

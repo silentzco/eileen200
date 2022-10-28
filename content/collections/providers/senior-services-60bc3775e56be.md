@@ -11,10 +11,10 @@ category: senior-services
 services:
   - home-health
 title: 'VERAS HOME & HEALTH CARE LLC'
-sponsored: true
+sponsored: false
 _geoloc:
   lat: 36.130395881757
   lng: -115.13063013069
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660337885
+updated_at: 1666993701
 ---

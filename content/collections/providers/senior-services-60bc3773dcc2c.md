@@ -14,7 +14,7 @@ title: 'GIVING HOME HEALTH CARE, LLC'
 _geoloc:
   lng: -115.13905
   lat: 36.088922
-sponsored: true
+sponsored: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660337495
+updated_at: 1666993087
 ---

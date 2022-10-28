@@ -17,7 +17,7 @@ title: 'Life Care Home Health Inc.'
 _geoloc:
   lng: -115.18358
   lat: 36.145303
-sponsored: true
+sponsored: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660336099
+updated_at: 1666993256
 ---

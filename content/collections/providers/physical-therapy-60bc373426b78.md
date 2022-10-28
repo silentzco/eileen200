@@ -17,7 +17,7 @@ title: 'Home Health Wellness & Physical Therapy LLC'
 _geoloc:
   lat: 36.0175
   lng: -115.293
-sponsored: true
+sponsored: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1660336913
+updated_at: 1666993191
 ---

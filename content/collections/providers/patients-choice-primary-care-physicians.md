@@ -7,7 +7,7 @@ phone: 702-563-1717
 sponsored: false
 category: doctors
 services:
-  - dr-to-home
+  - mobile-physician
 address: '6720 Via Austi Pkwy STE 250'
 city: 'Las Vegas'
 state: NV
@@ -16,5 +16,5 @@ _geoloc:
   lat: 36.067953113138
   lng: -115.16170771534
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1667413051
+updated_at: 1667413969
 ---

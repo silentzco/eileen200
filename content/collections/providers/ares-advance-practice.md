@@ -7,7 +7,7 @@ phone: 702-890-8147
 sponsored: false
 category: doctors
 services:
-  - dr-to-home
+  - mobile-physician
 address: '5660 W Flamingo Rd Suite B'
 city: 'Las Vegas'
 state: NV
@@ -16,5 +16,5 @@ _geoloc:
   lat: 36.115623809244
   lng: -115.21895612884
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1667411381
+updated_at: 1667413800
 ---

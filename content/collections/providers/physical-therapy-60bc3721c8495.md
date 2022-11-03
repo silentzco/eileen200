@@ -1,5 +1,6 @@
 ---
 id: 5607736e-4480-414d-ac94-c6e93424a9b9
+blueprint: providers
 last_name: Barrett
 first_name: Andrea
 middle_name: C.
@@ -10,7 +11,7 @@ address: '35 E Horizon Ridge'
 city: Henderson
 state: NV
 zip: '89002'
-category: physical-therapy
+category: therapy
 services:
   - all-physical-therapy
 title: 'AB PT LLC'

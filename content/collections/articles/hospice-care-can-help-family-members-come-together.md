@@ -4,10 +4,10 @@ blueprint: articles
 title: 'Hospice Care Can Help Family Members Come Together'
 hero: logo-1-1667494077.jpg
 author: CompassionCare
-snippet: 'If you are researching hospice care, and are on this website, you and your family are probably facing some challenging healthcare decisions. Sometimes during a crisis, medical interventions happen before we even have a chance to understand them. With hospice care services, we can help families understand, prepare for, and support one another throughout the hospice journey. For most of us, our families are our biggest source of support. With the guidance of the hospice team, we can assure that families and loved ones will have all the tools and resources needed to give the best care possible.'
+snippet: 'If you are researching hospice care, and are on this website, you and your family are probably facing some challenging healthcare decisions. Sometimes during a crisis, medical interventions happen before we even have a chance to understand them. With hospice care services, we can help families understand, prepare for, and support one another throughout the hospice journey. For most of us, our families are our biggest source of support. With the guidance of the hospice team, we can assure that families and loved ones will have all the tools and resources needed to give the best care possible. CLICK HERE TO READ MORE'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1667494081
+updated_at: 1667494431
 content:
   -
     type: paragraph
@@ -20,7 +20,7 @@ content:
     content:
       -
         type: text
-        text: 'Hospice care can help family members come together. Family meetings, often led by a hospice a social worker or nurse, can help you talk about your feelings, cope with the issues, and help guide the family in making the best choices for everyone. Hospice also supports you in saying goodbye to your loved one, when the time comes. Religious or spiritual traditions and personal faith can play an important role in a patient’s physical and emotional well-being, as well as the family’s own comfort too. Chaplain services are available to meet these often complex needs. Hospice care even includes the help of volunteers that provide extra relief to families. Volunteers may run errands, provide companionship to the patient, do light housekeeping or sit with your loved one, so you can attend to personal matters.'
+        text: 'Hospice care can help family members come together. Family meetings, often led by a hospice a social worker or nurse, can help you talk about your feelings, cope with the issues, and help guide the family in making the best choices for everyone. Hospice also supports you in saying goodbye to your loved one, when the time comes. Religious or spiritual traditions and personal faith can play an important role in a patient’s physical and emotional well-being, as well as the family’s own comfort too. Chaplain services are available to meet these often complex needs. Hospice care even includes the help of volunteers that provide extra relief to families. Volunteers may run errands, provide companionship to the patient, do light housekeeping or sit with your loved one, so you can attend to personal matters. '
   -
     type: paragraph
     content:

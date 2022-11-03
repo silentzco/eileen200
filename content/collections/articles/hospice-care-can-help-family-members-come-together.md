@@ -5,9 +5,9 @@ title: 'Hospice Care Can Help Family Members Come Together'
 hero: compassioncare-logo.png
 author: CompassionCare
 snippet: 'If you are researching hospice care, and are on this website, you and your family are probably facing some challenging healthcare decisions. Sometimes during a crisis, medical interventions happen before we even have a chance to understand them. With hospice care services, we can help families understand, prepare for, and support one another throughout the hospice journey. For most of us, our families are our biggest source of support. With the guidance of the hospice team, we can assure that families and loved ones will have all the tools and resources needed to give the best care possible.'
-homepage: false
+homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1667487990
+updated_at: 1667488011
 content:
   -
     type: paragraph

@@ -14,6 +14,8 @@ description: |-
   Vegas Direct Primary Care is an affordable flat fee monthly healthcare membership for the entire family and small businesses. The membership includes all access to a family physician (email/text/phone/in office and in special cases home visits).
   In return, the physician can provide personalized care, dispense medication in the office (antibiotics, blood pressure, cholesterol, and diabetic pills as examples) and can also order  labs and imaging with discounts of almost 50%.
   Dr Hakimi believes in healing of the entire body and mind with holistic care including food, sleep, hydration and physical activity. Join now, because everyone deserves quality, affordable, transparent healthcare!
+gallery:
+  - headshot.jpg
 sponsored: true
 category: doctors
 services:
@@ -27,5 +29,5 @@ _geoloc:
   lat: 36.006407000985
   lng: -115.09413421534
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1668039637
+updated_at: 1668040654
 ---

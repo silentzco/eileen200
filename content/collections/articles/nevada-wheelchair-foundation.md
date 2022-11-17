@@ -5,9 +5,9 @@ title: 'Nevada Wheelchair Foundation'
 hero: give_overview-1665429929.jpg
 author: 'NV Wheelchair Foundation'
 snippet: 'OUR GOAL 10,000 WHEELCHAIRS FOR NEVADA Through 2020 our Wheelchair Foundation, Nevada, aims to distribute between 7,000 and 10,000 wheelchairs to people who can not afford to buy one.'
-homepage: true
+homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1665430128
+updated_at: 1668726250
 content:
   -
     type: paragraph

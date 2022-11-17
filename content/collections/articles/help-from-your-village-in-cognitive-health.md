@@ -7,7 +7,7 @@ author: 'Prestige Assisted Living at Mira Loma'
 snippet: '“It takes a village.”  It’s a phrase often used when referring to raising children, but having a village is a lifelong need. That village becomes vital once a loved one starts showing signs of cognitive decline or receives a diagnosis of Alzheimer’s disease or dementia.'
 homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1668726108
+updated_at: 1668726186
 content:
   -
     type: paragraph
@@ -20,49 +20,25 @@ content:
     content:
       -
         type: text
-        text: "\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
         text: 'Keeping that loved one with cognitive decline involved and included in conversations is an important way of helping them maintain their relationships and sense of belonging.'
   -
     type: paragraph
     content:
       -
         type: text
-        text: "\_"
+        text: "\_As a caregiver for someone living with cognitive decline, even mild decline or mild cognitive impairment, it means making some adjustments to how you relate to your loved one, as well as helping those in your village undertake those changes as well."
   -
     type: paragraph
     content:
       -
         type: text
-        text: 'As a caregiver for someone living with cognitive decline, even mild decline or mild cognitive impairment, it means making some adjustments to how you relate to your loved one, as well as helping those in your village undertake those changes as well.'
+        text: "\_Here are three ways caregivers and loved ones can help someone living with cognitive decline remain a vital part of conversations and gatherings:"
   -
     type: paragraph
     content:
       -
         type: text
-        text: "\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Here are three ways caregivers and loved ones can help someone living with cognitive decline remain a vital part of conversations and gatherings:'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "·\_\_\_\_\_\_\_\_ "
+        text: "\_·\_\_\_\_\_\_\_\_ "
       -
         type: text
         marks:
@@ -80,13 +56,7 @@ content:
     content:
       -
         type: text
-        text: "\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "·\_\_\_\_\_\_\_\_ "
+        text: "\_·\_\_\_\_\_\_\_\_ "
       -
         type: text
         marks:
@@ -104,13 +74,7 @@ content:
     content:
       -
         type: text
-        text: "\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "·\_\_\_\_\_\_\_\_ "
+        text: "\_·\_\_\_\_\_\_\_\_ "
       -
         type: text
         marks:
@@ -128,13 +92,7 @@ content:
     content:
       -
         type: text
-        text: "\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Those adjustments can have a big effect on the well-being of your loved one as they strive to remain a vital part of their village.'
+        text: "\_Those adjustments can have a big effect on the well-being of your loved one as they strive to remain a vital part of their village."
   -
     type: paragraph
     content:
@@ -155,43 +113,21 @@ content:
     content:
       -
         type: text
-        text: "\_"
+        text: "\_Here at Prestige Senior Living at Mira Loma, we have resources available to help you and your loved one through the journey of cognitive decline, and our team is here to be part of your village."
   -
     type: paragraph
     content:
       -
         type: text
-        text: 'Here at Prestige Senior Living at Mira Loma, we have resources available to help you and your loved one through the journey of cognitive decline, and our team is here to be part of your village.'
+        text: "\_At our website, you can download a free guide that covers a wide variety of topics related to cognitive health, including information about the different stages of memory loss, advice for those living with cognitive decline and their caregivers, tips on tending to mental health, cognitive assessments, memory games and much more.\_"
   -
     type: paragraph
     content:
       -
         type: text
-        text: "\_"
+        text: "\_To download our free guide to cognitive health, visit prestigecanhelp.com."
   -
     type: paragraph
-    content:
-      -
-        type: text
-        text: "At our website, you can download a free guide that covers a wide variety of topics related to cognitive health, including information about the different stages of memory loss, advice for those living with cognitive decline and their caregivers, tips on tending to mental health, cognitive assessments, memory games and much more.\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'To download our free guide to cognitive health, visit prestigecanhelp.com.'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "\_"
   -
     type: paragraph
     content:
@@ -206,23 +142,11 @@ content:
     content:
       -
         type: text
-        text: "\_"
+        text: "\_At Prestige Senior Living at Mira Loma, cognitive health is a centerpiece of our wellness programs; our assisted living residents take part in our Celebrations program, which includes Mind Masters, with appropriate challenges and brain games to help preserve and grow residents’ cognitive health.\_"
   -
     type: paragraph
     content:
       -
         type: text
-        text: "At Prestige Senior Living at Mira Loma, cognitive health is a centerpiece of our wellness programs; our assisted living residents take part in our Celebrations program, which includes Mind Masters, with appropriate challenges and brain games to help preserve and grow residents’ cognitive health.\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "\_"
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'For more about our cognitive programming or our community, visit prestigecare.com/MiraLoma or call us at (702) 260-8400 to schedule your visit.'
+        text: "\_For more about our cognitive programming or our community, visit prestigecare.com/MiraLoma or call us at (702) 260-8400 to schedule your visit."
 ---

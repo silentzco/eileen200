@@ -2,12 +2,12 @@
 id: 084665a7-c966-4c75-ada8-cf032b287b43
 blueprint: articles
 title: 'Help From Your Village in Cognitive Health'
-hero: tinywow_miraloma_nov22_dm_8343206_2-1668726315.jpg
+hero: tinywow_miraloma_nov22_dm_8343206_2-1668726435.jpg
 author: 'Prestige Assisted Living at Mira Loma'
 snippet: '“It takes a village.”  It’s a phrase often used when referring to raising children, but having a village is a lifelong need. That village becomes vital once a loved one starts showing signs of cognitive decline or receives a diagnosis of Alzheimer’s disease or dementia.'
 homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1668726318
+updated_at: 1668726439
 content:
   -
     type: paragraph

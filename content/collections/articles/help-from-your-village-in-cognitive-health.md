@@ -7,7 +7,7 @@ author: 'Prestige Assisted Living at Mira Loma'
 snippet: '“It takes a village.”  It’s a phrase often used when referring to raising children, but having a village is a lifelong need. That village becomes vital once a loved one starts showing signs of cognitive decline or receives a diagnosis of Alzheimer’s disease or dementia.'
 homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1668726186
+updated_at: 1668726220
 content:
   -
     type: paragraph
@@ -99,9 +99,6 @@ content:
       -
         type: text
         text: "\_"
-  -
-    type: paragraph
-    content:
       -
         type: text
         marks:

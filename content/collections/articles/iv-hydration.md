@@ -5,9 +5,9 @@ title: 'IV Hydration'
 hero: istockphoto-1188462407-612x612.jpg
 author: 'Aisha Payne, RN'
 snippet: 'What is IV Hydration? Intravenous therapy is a minimally invasive medical technique that administers fluids, medications and nutrients directly into a person’s vein via a small catheter; bypassing the digestive system for maximum absorption.'
-homepage: true
+homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1664726712
+updated_at: 1669140501
 content:
   -
     type: paragraph
@@ -86,7 +86,7 @@ content:
     content:
       -
         type: text
-        text: 'A blend of vitamins, minerals and fluids, can help fight against infection, improve healing time and give the immune system added support. In addition, IV hydration can speed up the body''s natural detoxification process in removing harmful toxins.'
+        text: "A blend of vitamins, minerals and fluids, can help fight against infection, improve healing time and give the immune system added support. In addition, IV hydration can speed up the body's natural detoxification process in removing harmful toxins."
   -
     type: paragraph
     content:
@@ -110,7 +110,7 @@ content:
     content:
       -
         type: text
-        text: 'During an intense workout your body is being pushed physically, often sweating out fluids and using your body''s energy reserves. IV hydration aids to replenish and revive your muscles, and a faster recovery time.'
+        text: "During an intense workout your body is being pushed physically, often sweating out fluids and using your body's energy reserves. IV hydration aids to replenish and revive your muscles, and a faster recovery time."
   -
     type: paragraph
     content:
@@ -230,7 +230,7 @@ content:
     content:
       -
         type: text
-        text: 'Yes, you can receive IV therapy without your medical provider''s approval, however it is always recommended to talk to your doctor.'
+        text: "Yes, you can receive IV therapy without your medical provider's approval, however it is always recommended to talk to your doctor."
   -
     type: paragraph
     content:

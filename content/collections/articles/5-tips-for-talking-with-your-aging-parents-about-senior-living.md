@@ -5,9 +5,9 @@ title: '5 Tips for Talking with Your Aging Parents about Senior Living'
 hero: untitled.png
 author: 'Oakmont of the Lakes Assisted Living & Memory Care'
 snippet: 'Your parents probably mean the world to you, and you are concerned about their future. Will they be able to successfully live alone even as they age? What will happen when they are no longer able to drive, no longer able to maintain the house, or remember to take their medication? Chances are that these and other concerns about their safety have led you to question whether or not it’s time to talk with your parents about senior living.'
-homepage: false
+homepage: true
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1669679925
+updated_at: 1669679977
 content:
   -
     type: paragraph

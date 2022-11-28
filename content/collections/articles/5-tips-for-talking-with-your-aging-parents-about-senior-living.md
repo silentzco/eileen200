@@ -7,7 +7,7 @@ author: 'Oakmont of the Lakes Assisted Living & Memory Care'
 snippet: 'Your parents probably mean the world to you, and you are concerned about their future. Will they be able to successfully live alone even as they age? What will happen when they are no longer able to drive, no longer able to maintain the house, or remember to take their medication? Chances are that these and other concerns about their safety have led you to question whether or not it’s time to talk with your parents about senior living.'
 homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1669679876
+updated_at: 1669679925
 content:
   -
     type: paragraph
@@ -309,6 +309,8 @@ content:
       -
         type: text
         text: "Present senior living as an adventure. Your parents may feel a sense of loss of normalcy, but the joys of senior living outweigh the tough transition period. Invite friends who have moved to senior living communities to share their experiences. Join one of Oakmont’s many excursions to the philharmonic or theater, or speak with our resident ambassador at one of our many wellness events. There are so many ways for seniors to experience the joys that living at Oakmont Senior Living brings.\_"
+  -
+    type: paragraph
   -
     type: paragraph
   -

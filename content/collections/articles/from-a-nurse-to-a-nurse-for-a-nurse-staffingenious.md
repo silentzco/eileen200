@@ -5,9 +5,9 @@ title: 'From a Nurse to a Nurse, for a Nurse: StaffinGenious.'
 hero: FF6B1856-7101-4BF5-8B358C43531DF005.jpg
 author: 'Tashi Campbell'
 snippet: 'Your talent is your best asset. StaffinGenious understands that our mission is to help you grow and develop your talent while maintaining a healthy balance without sacrificing your freedom. We want to get to know you, we want to build a dynamic and personalize relationship with you.'
-homepage: true
+homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1665069727
+updated_at: 1669679970
 content:
   -
     type: paragraph

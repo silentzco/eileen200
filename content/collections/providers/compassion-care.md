@@ -17,9 +17,9 @@ description: |-
 
   It’s your life. You can choose how to live it. And every day, more patients and their families are choosing to find hope in hospice.
 
-  Facebook: [CompassionCareHospice](https://www.facebook.com/CompassionCareHospice)
-  Twitter: [@_CompassionCare](https://mobile.twitter.com/_compassioncare)
-  Instagram: [@compassioncarehospice_nv](https://www.instagram.com/compassioncarehospice_nv/)
+  **Facebook:** [CompassionCareHospice](https://www.facebook.com/CompassionCareHospice)
+  **Twitter:** [@_CompassionCare](https://mobile.twitter.com/_compassioncare)
+  **Instagram:** [@compassioncarehospice_nv](https://www.instagram.com/compassioncarehospice_nv/)
   https://www.linkedin.com/company/compassioncare-hospice/
 gallery:
   - image005.png
@@ -76,6 +76,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1671489005
+updated_at: 1671489046
 promotion_level: '10'
 ---

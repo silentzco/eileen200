@@ -1,7 +1,7 @@
 ---
 id: 69b4a7d7-ec1f-4dd8-8073-787a6b504f58
 blueprint: providers
-title: 'COMPASSION CARE'
+title: 'CompassionCare Hospice'
 org_name: 'Compassion Care'
 phone: 702-636-0200
 fax: 702-636-2208
@@ -76,6 +76,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1671488888
+updated_at: 1671489005
 promotion_level: '10'
 ---

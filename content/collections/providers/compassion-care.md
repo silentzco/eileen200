@@ -3,8 +3,6 @@ id: 69b4a7d7-ec1f-4dd8-8073-787a6b504f58
 blueprint: providers
 title: 'COMPASSION CARE'
 org_name: 'Compassion Care'
-first_name: 'Laurie Indvik'
-last_name: 'Executive Director'
 phone: 702-636-0200
 fax: 702-636-2208
 website: 'https://compassioncarenevada.com/'
@@ -19,9 +17,9 @@ description: |-
 
   It’s your life. You can choose how to live it. And every day, more patients and their families are choosing to find hope in hospice.
 
-  Facebook: @CompassionCareHospice
-  Twitter: @_CompassionCare
-  Instagram: @compassioncarehospice_nv
+  Facebook: [CompassionCareHospice](https://www.facebook.com/CompassionCareHospice)
+  Twitter: [@_CompassionCare](https://mobile.twitter.com/_compassioncare)
+  Instagram: [@compassioncarehospice_nv](https://www.instagram.com/compassioncarehospice_nv/)
   https://www.linkedin.com/company/compassioncare-hospice/
 gallery:
   - image005.png
@@ -78,6 +76,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1665685238
+updated_at: 1671488888
 promotion_level: '10'
 ---

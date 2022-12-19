@@ -22,11 +22,10 @@ description: |-
   **Instagram:** [@compassioncarehospice_nv](https://www.instagram.com/compassioncarehospice_nv/)
   [https://www.linkedin.com/company/compassioncare-hospice/](https://www.linkedin.com/company/compassioncare-hospice/)
 gallery:
-  - image006.png
-  - unnamed.jpg
+  - tinywow_unnamed_10001507-1671492920.jpg
   - compassion-21-small-1024x1024.jpg
   - compassioncare_15-small-1024x1024.jpg
-  - compassioncare_12-small-1024x683.jpg
+  - tinywow_compassioncare_12-small-1024x683_10001561.jpg
 insurance_accepted: |-
   Aetna Healthcare
 
@@ -77,6 +76,6 @@ _geoloc:
   lat: 36.1441
   lng: -115.248
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1671492669
+updated_at: 1671493014
 promotion_level: '10'
 ---

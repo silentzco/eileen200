@@ -4,10 +4,10 @@ blueprint: articles
 title: 'Benefits Of Early Referral To Hospice'
 hero: logo-1.jpg
 author: 'Compassion Care Hospice'
-snippet: 'The earlier a referral to hospice is made, the sooner you can start taking advantage of all the benefits that hospice care has to offer.'
+snippet: 'The earlier a referral to hospice is made, the sooner you can start taking advantage of all the benefits that hospice care has to offer. CLICK TO READ MORE'
 homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1665438896
+updated_at: 1673383486
 content:
   -
     type: paragraph

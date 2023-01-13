@@ -437,7 +437,7 @@ rows:
       -
         type: heading
         attrs:
-          level: 3
+          level: 2
         content:
           -
             type: text
@@ -507,5 +507,5 @@ rows:
     enabled: true
 parent: home
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1673570719
+updated_at: 1673570796
 ---

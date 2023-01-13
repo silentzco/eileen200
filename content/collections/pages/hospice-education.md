@@ -432,7 +432,8 @@ rows:
     type: two_column_video_content
     enabled: true
   -
-    col_1:
+    video: 'https://www.youtube.com/watch?v=ZKYPa7HIrLo'
+    content:
       -
         type: heading
         attrs:
@@ -474,24 +475,6 @@ rows:
           -
             type: text
             text: 'Discussing end of life care options, preparing advance directives, and letting our loved ones know our wishes, are all important topics. Hospice care can provide innumerable benefits to those with life-limiting illnesses, and their loved ones. But there are many hospice care misconceptions and it is important to learn as much as possible about how hospice care might benefit you, or your loved one. We have many choices about the services we receive toward the end of life, and hospice care is an important one to consider.'
-    col_2:
-      -
-        type: paragraph
-        content:
-          -
-            type: image
-            attrs:
-              src: 'asset::assets::hospice-photo.webp'
-              alt: null
-    invert_text_colors: false
-    text_alignment: left
-    background_size: cover
-    background_position: 'center center'
-    background_padding: py-8
-    type: two_column_content
-    enabled: true
-  -
-    video: 'https://www.youtube.com/watch?v=ZKYPa7HIrLo'
     invert_text_colors: false
     text_alignment: left
     background_size: cover
@@ -524,5 +507,5 @@ rows:
     enabled: true
 parent: home
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1673564153
+updated_at: 1673570602
 ---

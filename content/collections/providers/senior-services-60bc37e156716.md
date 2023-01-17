@@ -7,9 +7,9 @@ city: HENDERSON
 zip: '89074'
 state: NV
 phone: 702-260-8400
-category: senior-services
+category: care-services
 services:
-  - assisted-living-group
+  - assisted-living
 title: 'PRESTIGE ASSISTED LIVING AT MIRA LOMA'
 _geoloc:
   lat: 36.032
@@ -24,5 +24,5 @@ video: 'https://youtube.com/embed/SUIx05Hk5no'
 sponsored: true
 promotion_level: '10'
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1658272133
+updated_at: 1673923406
 ---

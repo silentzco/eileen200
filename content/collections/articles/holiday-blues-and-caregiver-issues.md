@@ -5,9 +5,9 @@ title: 'Holiday Blues and Caregiver issues'
 hero: article-pic-1669140450.jpg
 author: 'Irma Prettenhofer'
 snippet: 'The holidays may be wonderful opportunities to gather, but please be mindful that for many families it is a time of stress and many challenges.  Caregivers find themselves caring for their loved ones, as well as their aging parents and it causes strain on time management and family dynamics.  A caregiver is usually “sandwiched” between several generations in the family, and they rarely have help or time for themselves.'
-homepage: true
+homepage: false
 updated_by: 87a74d1c-1760-42c5-afc1-1cc59be16098
-updated_at: 1669140510
+updated_at: 1674686719
 content:
   -
     type: paragraph
